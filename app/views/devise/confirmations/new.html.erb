@@ -1,0 +1,32 @@
+<%= render 'layouts/head_devise' %>
+
+<body class="devise">
+  <%= render 'layouts/alerts' %>
+
+	<section class="container">
+		<h1 class="devise-logo">
+      <%= image_tag('admin/logo.png') %>
+    </h1>
+
+		<div class="devise-content">
+			<h2 class="devise-title">Reenviar instruções de confirmação</h2>
+
+			<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+			  <%= devise_error_messages! %>
+
+			  <div class="devise-field">
+			  	<%= f.label :email, 'E-mail' %>
+			  	<%= f.email_field :email, autofocus: true, required: true %>
+			  </div>
+
+			  <div class="devise-submit">
+			  	<%= f.submit 'Reenviar', class: 'devise-btn' %>
+			  </div>
+			<% end %>
+		</div>
+
+		<div class="devise-links">
+			<%= render 'devise/shared/links' %>
+		</div>
+	</section>
+</body>

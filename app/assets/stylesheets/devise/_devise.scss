@@ -1,0 +1,174 @@
+// devise
+
+$devise-white: #fff;
+$devise-black: #000;
+$devise-primary: #333;
+
+.devise {
+  font-family: 'Open Sans', sans-serif;
+  font-size: .9em;
+  text-align: center;
+}
+
+.devise-content {
+  width: 100%;
+
+  text-align: left;
+
+  padding: 30px 30px 60px;
+
+  border: 1px solid lighten($devise-primary, 60%);;
+  border-radius: 10px;
+}
+
+
+.devise-logo {
+  margin: 0;
+}
+
+.devise-title {
+  color: $devise-primary;
+  font-size: 1.1em;
+  text-align: center;
+
+  margin: 0 0 15px;
+}
+
+
+.devise-field {
+  margin-bottom: 20px;
+
+  label {
+    display: block;
+    color: lighten($devise-black, 40%);
+    margin-bottom: 5px;
+  }
+
+  input {
+    outline: none;
+
+    color: lighten($devise-black, 20%);
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1em;
+    font-weight: normal;
+
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+
+    padding: 0 12px;
+
+    border: 0;
+    border-radius: 4px;
+    background: rgba($devise-black, .05);
+
+    box-shadow: inset 0 1px 0 rgba($devise-black, .05);
+
+    &:focus {
+      outline: none;
+      background: rgba($devise-black,.1);
+    }
+  }
+}
+
+.devise-checkbox {
+  position: relative;
+
+  input {
+    position: absolute;
+    top: 4px;
+    left: 0;
+  }
+
+  label {
+    cursor: pointer;
+    display: block;
+    color: lighten($devise-black, 40%);
+    padding-left: 20px;
+  }
+}
+
+.devise-submit {
+  position: relative;
+  text-align: center;
+  margin-top: 20px;
+}
+
+
+.devise-btn {
+  cursor: pointer;
+
+  position: relative;
+  display: block;
+
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+
+  color: $devise-white;
+  font-size: 1em;
+  font-weight: 600;
+
+  padding: 0 20px;
+
+  border: 0;
+  border-radius: 4px;
+  background: darken($devise-primary, 2%);
+  border-bottom: solid 2px darken($devise-primary, 10%);
+
+  outline: none;
+
+  &:hover,
+  &:focus {
+    background: darken($devise-primary, 4%);
+  }
+
+  &:active {
+    top: 1px;
+    border: 0;
+  }
+}
+
+.devise-links {
+  padding-top: 20px;
+
+  a {    
+    font-size: .95em;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+
+@media screen and (min-width: 360px) {
+  .devise-body {
+    font-size: .96em;
+  }
+
+  .devise-content {
+    width: 320px;
+    margin: 0 auto;
+  }
+
+  .devise-logo {
+    margin: 30px 0 0;
+  }
+
+  .devise-col {
+    float: left;
+    width: 50%;
+  }
+
+  .devise-submit {
+    text-align: right;
+    margin-top: 0;
+  }
+
+  .devise-btn {
+    display: inline-block;
+    width: auto;
+  }
+}

@@ -1,0 +1,50 @@
+<!doctype html>
+<html class="no-js" lang="pt-br">
+<head>
+  <%= favicon_link_tag 'logo.png' %>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= csrf_meta_tags %>
+
+  <title>Sistema de gestão interna</title>
+
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag :modernizr %>
+</head>
+<body>
+  <%= render 'layouts/alerts' %>
+  <header class="header">
+    <div class="container">
+      <div class="columns">
+        <div class="column">
+          <a href="/">
+            <h1>Institulo Federal de Mato Grosso do Sul - Campus Nova Andradina</h1>
+          </a>
+        </div>
+        <div class="column">
+          <p>
+            Sistema de gestão interna - <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="container">
+      <div class=""><%= render_breadcrumbs %></div>
+      <div class="title">Institulo Federal de Mato Grosso do Sul</div>
+      <div class="subtitle">Sistema de gestão interna</div>
+      <%= yield %>
+    </div>
+  </main>
+
+  <footer class="has-text-centered">
+  </footer>
+</body>
+</html>

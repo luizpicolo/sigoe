@@ -1,0 +1,28 @@
+<%= form_for @student do |f| %>
+  <p class="control">
+    <%= f.label :name, class: 'label' %>
+    <%= f.text_field :name, class: 'input is-medium', placeholder: 'Nome', required: true %>
+  </p>
+
+  <div class="control is-grouped">
+    <p class="control is-expanded">
+      <%= f.label :photo, class: 'label' %>
+      <%= f.file_field :photo, class: 'input is-medium' %>
+    </p>
+    <p class="control is-expanded">
+      <span class="select is-medium">
+        <%= f.label :course_id, "Setor" %>
+        <%= f.select :course_id, Course.names, {}, { :class => "select2" } %>
+      </span>
+    </p>
+  </div>
+
+  <div class="control is-grouped is-pulled-right">
+    <p class="control">
+      <%= f.submit "Salvar", class: "button is-success is-medium"%>
+    </p>
+    <p class="control">
+      <button class="button is-danger is-medium">Cancelar</button>
+    </p>
+  </div>
+<% end %>

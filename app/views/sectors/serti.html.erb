@@ -1,0 +1,35 @@
+<div class="columns">
+  <% if can? :manage, User %>
+  <div class="column">
+    <%= link_to users_path do %>
+      <section>
+        <i class="ion-ios-people-outline"></i>
+        <h1>Usuários</h1>
+      </section>
+    <% end %>
+  </div>
+  <% end %>
+
+  <% if can? :manage, Keypass %>
+  <div class="column">
+    <%= link_to keypasses_path do %>
+      <section>
+        <i class="ion-ios-locked-outline"></i>
+        <h1>Senhas</h1>
+      </section>
+    <% end %>
+  </div>
+  <% end %>
+
+  <div class="column">
+    <%= link_to tickets_path do %>
+      <section>
+        <i class="ion-ios-telephone-outline"></i>
+        <h1>Chamados</h1>
+      </section>
+    <% end %>
+  </div>
+
+  <div class="column">
+  </div>
+</div>

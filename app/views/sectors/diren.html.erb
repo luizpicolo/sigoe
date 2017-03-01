@@ -1,0 +1,21 @@
+<div class="columns">
+  <% if can? :manage, Student %>
+  <div class="column">
+    <%= link_to students_path do %>
+      <section>
+        <i class="ion-ios-people-outline"></i>
+        <h1>Estudantes</h1>
+      </section>
+    <% end %>
+  </div>
+  <% end %>
+
+  <div class="column">
+  </div>
+
+  <div class="column">
+  </div>
+
+  <div class="column">
+  </div>
+</div>

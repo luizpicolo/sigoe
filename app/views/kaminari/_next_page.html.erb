@@ -1,0 +1,3 @@
+<li class="pagination__item">
+  <%= link_to_unless current_page.last?, "<span class='ion-ios-arrow-right'></span>".html_safe, url, :rel => 'next', :remote => remote, class: 'pagination__link' %>
+</li>

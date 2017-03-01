@@ -1,0 +1,35 @@
+// Modifications
+
+a {
+  color: $green;
+}
+
+.container {
+  max-width: 920px;
+}
+
+.in-mobile-expand {
+  @media(max-width: 767px) {
+    width: 100%;
+  }
+}
+
+.is-grouped {
+  @media(max-width: 767px) {
+    
+  }
+}
+
+.select:after {
+  display: none;
+}
+
+.keypass_form input {
+  margin-bottom: .4em;
+}
+
+.title, .subtitle {
+  @media(max-width: 767px) {
+     text-align: center
+  }
+}

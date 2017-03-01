@@ -1,0 +1,71 @@
+<div class="columns">
+  <div class="column">
+    <%= link_to new_keypass_path, class: "button is-success in-mobile-expand" do %>
+      <span class="icon">
+        <i class="ion-plus-round"></i>
+      </span>
+      <span>Nova Senha</span>
+    <% end %>
+  </div>
+
+  <div class="column">
+    <%= form_tag(keypasses_path, :method => "get", id: "search") do %>
+      <p class="control has-addons is-pulled-right is-expanded">
+        <%= text_field_tag :search, params[:search], class: "input", placeholder: "Buscar" %>
+        <%= button_tag(type: "submit", class: "button is-success", name: nil) do %>
+          Buscar
+        <% end %>
+      </p>
+    <% end %>
+  </div>
+</div>
+
+<table class="table is-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Titulo</th>
+      <th>Local</th>
+      <th>Usuário</th>
+      <th>Senha</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @keypasses.each do |k| %>
+    <tr>
+      <td><%= k.id %></td>
+      <td><%= k.title %></td>
+      <td><%= k.local %></td>
+      <td><%= k.user %></td>
+      <td>
+        <input type="text" class="input" id="id_<%= k.id %>" value="<%= k.key %>">
+      </td>
+      <td class="has-text-right">
+        <a class="clipboard button is-addons is-hidden-mobile"
+           data-clipboard-action="copy"
+           data-clipboard-target="#id_<%= k.id %>">
+          <span class="icon">
+            <i class="ion-ios-copy"></i>
+          </span>
+          <span class="is-hidden-mobile">Copiar</span>
+        </a>
+        <%= link_to edit_keypass_path(k), class: 'button is-success' do %>
+          <span class="icon">
+            <i class="ion-edit"></i>
+          </span>
+          <span class="is-hidden-mobile">Editar</span>
+        <% end %>
+        <%= link_to keypass_path(k), method: :delete, data: { confirm: 'Tem certeza?' }, class: 'button is-danger' do %>
+          <span class="icon">
+            <i class="ion-close"></i>
+          </span>
+          <span class="is-hidden-mobile">Excluir</span>
+        <% end %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @keypasses %>

@@ -1,0 +1,29 @@
+.header {
+  background: $white-ter;
+  padding-top: 12px;
+  padding-bottom: 7px;
+
+  h1 {
+    display: block;
+    height: 70px;
+    color: transparent;
+    font-size: 0;
+    background: image_url("logo_ifms_h.png") no-repeat left;
+    background-size: 220px;
+
+    @media(max-width: 767px) {
+      background-position: center;
+    }
+  }
+
+  p {
+    font-size: 1.1em;
+    padding: 1.3em 0 0 0;
+    text-align: right;
+
+    @media(max-width: 767px) {
+      padding: 0 0 1.3em;
+      text-align: center;
+    }
+  }
+}

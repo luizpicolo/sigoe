@@ -1,0 +1,60 @@
+<div class="columns">
+  <div class="column">
+    <%= link_to new_student_path, class: "button is-success in-mobile-expand" do %>
+      <span class="icon">
+        <i class="ion-plus-round"></i>
+      </span>
+      <span>Novo Estudante</span>
+    <% end %>
+  </div>
+
+  <div class="column">
+    <%= form_tag(students_path, :method => "get", id: "search") do %>
+      <p class="control has-addons is-pulled-right">
+        <%= text_field_tag :search, params[:search], class: "input", placeholder: "Buscar" %>
+        <%= button_tag(type: "submit", class: "button is-success", name: nil) do %>
+          Buscar
+        <% end %>
+      </p>
+    <% end %>
+  </div>
+</div>
+
+<table class="table is-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th class="is-hidden-mobile">Foto</th>
+      <th>Nome</th>
+      <th class="is-hidden-mobile">Curso</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @students.each do |student| %>
+    <tr>
+      <td><%= student.id %></td>
+      <td class="is-hidden-mobile"><%= image_tag student&.photo.thumb %></td>
+      <td><%= student.name %></td>
+      <td class="is-hidden-mobile"><%= student.course_initial %></td>
+      <td class="has-text-right">
+        <%= link_to edit_student_path(student), class: 'button is-success' do %>
+          <span class="icon">
+            <i class="ion-edit"></i>
+          </span>
+          <span class="is-hidden-mobile">Editar</span>
+        <% end %>
+        <%= link_to student_path(student), method: :delete, data: { confirm: 'Tem certeza?' }, class: 'button is-danger' do %>
+          <span class="icon">
+            <i class="ion-close"></i>
+          </span>
+          <span class="is-hidden-mobile">Excluir</span>
+        <% end %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @students %>
+<br />

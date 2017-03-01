@@ -1,0 +1,16 @@
+# Configuration all env mail
+SMTP_ADDRESS:    'smtp.gmail.com'
+SMTP_PORT:       '587'
+SMTP_DOMAIN:     'gmail.com'
+SMTP_USER_NAME:  ''
+SMTP_PASSWORD:   ''
+
+# From email
+SMTP_FROM_MAIL: ''
+
+# Paths and URls
+UPLOAD_HOST:    'http://cnd1.localtest.me:3000/'
+SFTP_FOLDER: ''
+SFTP_HOST: ''
+SFTP_USER: ''
+SFTP_PASSWORD: ''

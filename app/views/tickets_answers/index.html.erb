@@ -1,0 +1,49 @@
+<div class="content">
+  <h1 class="title is-5"><strong>Respostas para o Ticket #<%= @ticket.id %></strong></h1>
+  <h1 class="title is-3"><%= @ticket.subject %> </h1>
+  <article class="media">
+    <div class="media-content">
+      <div class="content">
+        <p>
+          <strong><%= @ticket.user.email %> - <%= @ticket.user.sector.initial %></strong>
+          <br>
+          <%= @ticket.description %>
+          <br>
+        </p>
+      </div>
+
+      <% @ticket.answers.each do |answer| %>
+        <article class="media">
+          <figure class="media-left">
+            <p class="image is-48x48"></p>
+          </figure>
+          <div class="media-content">
+            <div class="content">
+              <p>
+                <strong><%= answer.user.name %> - <%= answer.user.sector.initial %></strong>
+                <br>
+                <%= answer.description %>
+                <br>
+              </p>
+            </div>
+          </div>
+        </article>
+      <% end %>
+    </div>
+  </article>
+
+  <article class="media">
+    <div class="media-content">
+      <%= form_for 'ticket_answer', url: ticket_tickets_answers_path do |f| %>
+      <p class="control">
+        <%= f.label :description, class: 'label' %>
+        <%= f.text_area :description, class: 'textarea is-medium', required: true %>
+      </p>
+      <p class="control">
+        <button class="button is-success is-medium is-pulled-right">Responder</button>
+      </p>
+      <% end %>
+    </div>
+  </article>
+</div>
+

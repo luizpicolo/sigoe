@@ -1,0 +1,21 @@
+.main {
+  //max-width: 920px;
+
+  @media(max-width: 767px) {
+    padding: 0 10px;
+  }
+
+  section {
+    border: 1px solid $grey-lighter;
+    border-radius: 5px;
+    text-align: center;
+
+    h1 {
+      font-size: 1.4em;
+    }
+
+    i {
+      font-size: 7em;
+    }
+  }
+}

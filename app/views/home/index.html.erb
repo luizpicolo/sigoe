@@ -1,0 +1,12 @@
+<div class="columns is-gapless is-multiline">
+  <% @sectors.each do |s|%>
+  <div class="column is-one-quarter">
+    <%= link_to sector_actions_path(s.slug.downcase) do %>
+      <section>
+        <i class="<%= s.icon %>"></i>
+        <h1><%= s.initial %></h1>
+      </section>
+    <% end %>
+  </div>
+  <% end %>
+</div>

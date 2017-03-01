@@ -1,0 +1,62 @@
+<%= render 'layouts/head_devise' %>
+
+<body class="devise">
+  <%= render 'layouts/alerts' %>
+
+	<section class="container">
+		<h1 class="devise-logo">
+      <%= image_tag('admin/logo.png') %>
+    </h1>
+
+    <div class="devise-content">
+      <h2 class="devise-title">
+        Editar <%= resource_name.to_s.humanize %>
+      </h2>
+
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+        <div class="devise-field">
+          <%= f.label :email %>
+          <%= f.email_field :email, autofocus: true %>
+        </div>
+
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <div class="devise-field">
+            Currently waiting confirmation for: <%= resource.unconfirmed_email %>
+          </div>
+        <% end %>
+
+        <div class="devise-field">
+          <%= f.label :password %> <i>(deixe em branco se você não quiser alterá-la)</i>
+          <%= f.password_field :password, autocomplete: "off" %>
+        </div>
+
+        <div class="devise-field">
+          <%= f.label :password_confirmation %>
+          <%= f.password_field :password_confirmation, autocomplete: "off" %>
+        </div>
+
+        <div class="devise-field">
+          <%= f.label :current_password %> <i>(nós precisamos de sua senha atual para confirmar as alterações)</i>
+          <%= f.password_field :current_password, autocomplete: "off" %>
+        </div>
+
+        <div class="devise-submit">
+          <%= f.submit 'Atualizar', class: 'devise-btn' %>
+        </div>
+      <% end %>
+
+      <h3 class="devise-title">
+        Cancelar a minha conta
+      </h3>
+
+      <p>
+        Infeliz? <%= button_to 'Cancelar a minha conta', registration_path(resource_name),
+        data: { confirm: 'Você tem certeza?' }, method: :delete %>
+      </p>
+    </div>
+
+    <div class="devise-links">
+      <%= link_to 'Voltar', :back %>
+    </div>
+  </section>
+</body>
