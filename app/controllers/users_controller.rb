@@ -46,7 +46,8 @@ class UsersController < ApplicationController
 
   def destroy
     if @user.destroy
-      redirect_to :back, flash: { success: "Usuário deletado com sucesso" }
+      flash[:success] = "Usuário deletado com sucesso"
+      redirect_back(fallback_location: users_path)
     else
       flash.now[:error] = @user.errors.full_messages
       render :new

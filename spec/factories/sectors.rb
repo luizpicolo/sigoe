@@ -13,7 +13,7 @@
 
 FactoryGirl.define do
   factory :sector do
-    name Faker::Lorem.word
+    name Faker::Name.name
     initial 'SERTI'
   end
 end
