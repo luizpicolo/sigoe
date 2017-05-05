@@ -5,14 +5,14 @@ class StudentsController < ApplicationController
   add_breadcrumb "Home", :root_path
 
   def index
-    add_breadcrumb "AUDI", sector_actions_path('audi')
+    add_breadcrumb "DIREN", sector_actions_path('diren')
     add_breadcrumb "Estudantes"
 
     @students = Student.order('students.id asc').search(params[:search]).page(params[:page])
   end
 
   def new
-    add_breadcrumb "AUDI", sector_actions_path('audi')
+    add_breadcrumb "DIREN", sector_actions_path('diren')
     add_breadcrumb "Estudantes", :students_path
     add_breadcrumb "Novo estudante"
 
@@ -30,7 +30,7 @@ class StudentsController < ApplicationController
   end
 
   def edit
-    add_breadcrumb "AUDI", sector_actions_path('serti')
+    add_breadcrumb "DIREN", sector_actions_path('diren')
     add_breadcrumb "Estudantes", :users_path
     add_breadcrumb "Atualizar estudante"
   end
