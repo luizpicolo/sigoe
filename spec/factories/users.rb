@@ -4,6 +4,6 @@ FactoryGirl.define do
     email { Faker::Internet.email }
     password pwd
     password_confirmation pwd
-    admin true
+    sector factory: :sector
   end
 end
