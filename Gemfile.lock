@@ -48,6 +48,9 @@ GEM
     addressable (2.5.0)
       public_suffix (~> 2.0, >= 2.0.2)
     alert_message (1.1.7)
+    annotate (2.6.5)
+      activerecord (>= 2.3.0)
+      rake (>= 0.8.7)
     arel (7.1.4)
     bcrypt (3.1.11)
     bcrypt (3.1.11-java)
@@ -369,6 +372,7 @@ PLATFORMS
 
 DEPENDENCIES
   alert_message
+  annotate
   better_errors
   binding_of_caller
   bootstrap-wysihtml5-rails

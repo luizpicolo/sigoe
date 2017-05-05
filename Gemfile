@@ -38,6 +38,7 @@ gem 'uglifier'
 gem 'pg'
 
 group :development, :test do
+  gem 'annotate'
   gem 'byebug', platform: :mri
   gem 'binding_of_caller'
   gem 'capybara'
