@@ -2,10 +2,10 @@ module UserHelpers
   def sign_in(user, options = {})
     password = options[:password] || user.password
 
-    visit rails_admin_path
+    visit root_path
 
-    fill_in 'user_email', with: user.email
-    fill_in 'user_password', with: password
+    fill_in 'Usuário', with: user.username
+    fill_in 'Senha', with: password
     click_button 'Entrar'
   end
 
@@ -15,5 +15,5 @@ module UserHelpers
 end
 
 RSpec.configure do |config|
-  config.include UserHelpers, :type => :feature
+  config.include UserHelpers, type: :feature
 end

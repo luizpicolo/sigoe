@@ -24,7 +24,7 @@
 require 'rails_helper'
 
 RSpec.describe User, :type => :model do
-  context "Validations" do
+  context "User model Validations" do
     it 'should be invalid if there is no mail' do
       user = FactoryGirl.build :user, email: nil
       expect(user).to be_invalid
@@ -35,9 +35,9 @@ RSpec.describe User, :type => :model do
       expect(user).to be_invalid
     end
 
-    it "object created is valid" do
-      user = FactoryGirl.build(:user)
-      expect(user).to be_valid
+    it 'should be invalid if there is no Sector association' do
+      user = FactoryGirl.build :user, sector: nil
+      expect(user).to be_invalid
     end
 
     it "object created is valid" do
