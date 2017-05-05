@@ -22,7 +22,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to users_path, flash: { success: 'Usuário cadastro com sucesso' }
+      redirect_to users_path, flash: { success: 'Usuário cadastrado com sucesso' }
     else
       flash.now[:error] = @user.errors.full_messages
       render :new

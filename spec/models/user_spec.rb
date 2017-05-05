@@ -24,7 +24,7 @@
 require 'rails_helper'
 
 RSpec.describe User, :type => :model do
-  context "User model Validations" do
+  context "model Validations" do
     it 'should be invalid if there is no mail' do
       user = FactoryGirl.build :user, email: nil
       expect(user).to be_invalid
