@@ -15,9 +15,9 @@
 
 FactoryGirl.define do
   factory :keypass do
-    title "MyString"
-    key "MyString"
-    local_service "MyString"
-    description "MyText"
+    title { Faker::Internet.email }
+    key { Faker::Internet.email }
+    local_service { Faker::Internet.email }
+    description { Faker::Internet.email }
   end
 end
