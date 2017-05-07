@@ -9,6 +9,7 @@ require 'factory_girl_rails'
 require "email_spec"
 require 'capybara/rspec'
 require 'capybara/rails'
+require 'support/controller_helpers'
 
 # externals
 require 'simplecov'
@@ -78,4 +79,9 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseRewinder.clean
   end
+
+  # Devise
+  config.include Devise::Test::ControllerHelpers, :type => :controller
+  config.include ControllerHelpers, :type => :controller
+
 end
