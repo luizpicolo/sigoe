@@ -37,6 +37,10 @@ class User < ApplicationRecord
     attributes :sector => "sector.initial"
   end
 
+  def course
+    sector.name
+  end
+
   def is_current?(current_user)
     current_user.id == id ? true : false
   end
