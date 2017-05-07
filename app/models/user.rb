@@ -29,16 +29,14 @@ class User < ApplicationRecord
   devise :database_authenticatable,:recoverable, :rememberable, :trackable,
          :validatable
 
+  validates :username, :sector, presence: true
+
   belongs_to :sector
   has_many :tickets
 
   search_scope :search do
     attributes :name, :email, :siape
     attributes :sector => "sector.initial"
-  end
-
-  def course
-    sector.name
   end
 
   def is_current?(current_user)
