@@ -49,7 +49,7 @@ group :development, :test do
   gem 'puma', '~> 3.0'
   gem 'rspec-rails'
   gem 'selenium-webdriver'
-  gem 'shoulda-matchers'
+  gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git', branch: 'rails-5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'simplecov', require: false
