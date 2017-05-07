@@ -24,12 +24,12 @@
 FactoryGirl.define do
   factory :user do
     pwd = Faker::Internet.password
-    name Faker::Name.name  
-    email Faker::Internet.email
+    name { Faker::Name.name }
+    email { Faker::Internet.email }
     password pwd
     password_confirmation pwd
-    username Faker::Internet.user_name
-    siape Faker::Number.number(7)
-    sector factory: :sector
+    username { Faker::Internet.user_name }
+    siape { Faker::Number.number(7) }
+    sector 
   end
 end
