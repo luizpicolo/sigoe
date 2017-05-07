@@ -16,5 +16,11 @@
 require 'rails_helper'
 
 RSpec.describe Keypass, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  # Validations
+  it { should validate_presence_of(:user) }
+  it { should validate_presence_of(:title) }
+  it { should validate_uniqueness_of(:title) }
+
+  # Enuns
+  it { should define_enum_for(:local) }
 end

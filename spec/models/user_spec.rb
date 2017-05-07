@@ -23,26 +23,43 @@
 
 require 'rails_helper'
 
-RSpec.describe User, :type => :model do
-  context "model Validations" do
-    it 'should be invalid if there is no mail' do
-      user = FactoryGirl.build :user, email: nil
-      expect(user).to be_invalid
+RSpec.describe User, type: :model do
+  before(:each) do
+    @user = FactoryGirl.create(:user)
+  end
+
+  # Validations
+  it { should validate_presence_of(:email) }
+  it { should validate_presence_of(:password) }
+  it { should validate_presence_of(:sector) }
+  it { should validate_presence_of(:username) }
+
+  # Associations
+  it { should belong_to(:sector) }
+  it { should have_many(:tickets) }
+
+  # Methods
+  describe '#it_is_part_of_the_sector?' do
+    it 'return true if the sector is currect' do
+      expect(@user.it_is_part_of_the_sector?('serti')).to eq(true)
     end
 
-    it 'should be invalid if there is no password' do
-      user = FactoryGirl.build :user, password: nil
-      expect(user).to be_invalid
+    it 'return false if the sector is not currect' do
+      expect(@user.it_is_part_of_the_sector?('wrong_sector')).to eq(false)
+    end
+  end
+
+  describe '#search' do
+    it "find user by name" do
+      expect(User.search(@user.name)).to eq([@user])
     end
 
-    it 'should be invalid if there is no Sector association' do
-      user = FactoryGirl.build :user, sector: nil
-      expect(user).to be_invalid
+    it "find user by email" do
+      expect(User.search(@user.email)).to eq([@user])
     end
 
-    it "object created is valid" do
-      user = FactoryGirl.build(:user)
-      expect(user).to be_valid
+    it "find user by sector" do
+      expect(User.search(@user.sector.initial)).to eq([@user])
     end
   end
 end
