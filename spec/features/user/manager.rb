@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-context "User" do
+context "Manager (crud) entity User" do
   before(:each) do
     @user = FactoryGirl.create(:user)
   end
