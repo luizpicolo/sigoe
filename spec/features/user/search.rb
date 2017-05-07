@@ -7,7 +7,7 @@ context "Find users by your search scope" do
   end
 
   feature 'search user' do
-    ['name', 'email', 'siape', 'course'].each do |attr|
+    ['name', 'email', 'siape', 'sector'].each do |attr|
       scenario "find with attribute #{attr}" do
         sign_in @users.first
         visit users_path
