@@ -1,4 +1,4 @@
-<div class="columns">
+<div class="columns no-print">
   <div class="column">
     <%= link_to new_student_path, class: "button is-success in-mobile-expand" do %>
       <span class="icon">
@@ -26,7 +26,7 @@
               params[:return]),
               prompt: "Total",
               onchange: "this.form.submit();" %>
-        </span> 
+        </span>
         <%= text_field_tag :search, params[:search], class: "input", placeholder: "Buscar" %>
         <%= button_tag(type: "submit", class: "button is-success", name: nil) do %>
         Buscar
@@ -53,7 +53,7 @@
       <td class="is-hidden-mobile"><%= image_tag student&.photo.thumb %></td>
       <td><%= student.name %></td>
       <td class="is-hidden-mobile"><%= student.course_initial %></td>
-      <td class="has-text-right">
+      <td class="has-text-right no-print">
         <%= link_to edit_student_path(student), class: 'button is-success' do %>
           <span class="icon">
             <i class="ion-edit"></i>

@@ -13,12 +13,13 @@
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'print', media: 'print', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag :modernizr %>
 </head>
 <body>
   <%= render 'layouts/alerts' %>
-  <header class="header">
+  <header class="header no-print">
     <div class="container">
       <div class="columns">
         <div class="column">
@@ -37,7 +38,7 @@
 
   <main class="main">
     <div class="container">
-      <div class=""><%= render_breadcrumbs %></div>
+      <div class="no-print"><%= render_breadcrumbs %></div>
       <div class="title">Institulo Federal de Mato Grosso do Sul</div>
       <div class="subtitle">Sistema de gestão interna</div>
       <%= yield %>
