@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170426185822) do
+ActiveRecord::Schema.define(version: 20170508162819) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20170426185822) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "initial"
+    t.index ["name", "initial"], name: "index_courses_on_name_and_initial", using: :btree
   end
 
   create_table "keypasses", force: :cascade do |t|
@@ -31,6 +32,7 @@ ActiveRecord::Schema.define(version: 20170426185822) do
     t.datetime "updated_at",    null: false
     t.string   "user"
     t.integer  "local"
+    t.index ["title"], name: "index_keypasses_on_title", using: :btree
   end
 
   create_table "sectors", force: :cascade do |t|
@@ -40,6 +42,7 @@ ActiveRecord::Schema.define(version: 20170426185822) do
     t.datetime "updated_at", null: false
     t.string   "slug"
     t.string   "icon"
+    t.index ["name", "initial", "slug"], name: "index_sectors_on_name_and_initial_and_slug", using: :btree
   end
 
   create_table "students", force: :cascade do |t|
@@ -49,6 +52,7 @@ ActiveRecord::Schema.define(version: 20170426185822) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["course_id"], name: "index_students_on_course_id", using: :btree
+    t.index ["name"], name: "index_students_on_name", using: :btree
   end
 
   create_table "tickets", force: :cascade do |t|

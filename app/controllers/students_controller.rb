@@ -8,7 +8,12 @@ class StudentsController < ApplicationController
     add_breadcrumb "DIREN", sector_actions_path('diren')
     add_breadcrumb "Estudantes"
 
-    @students = Student.order('students.id asc').search(params[:search]).page(params[:page])
+    order = params[:order] == "" || params[:order].nil? ? 'id' : params[:order]
+    amount_return = params[:return] == "" || params[:return].nil? ? '15' : params[:return]
+
+    @students = Student.order("students.#{order} asc")
+                       .search(params[:search])
+                       .page(params[:page]).per(amount_return)
   end
 
   def new
