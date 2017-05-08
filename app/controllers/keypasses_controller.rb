@@ -46,7 +46,8 @@ class KeypassesController < ApplicationController
 
   def destroy
     if @keypass.destroy
-      redirect_to :back, flash: { success: "Senha deletada com sucesso" }
+      flash[:success] = "Senha deletada com sucesso"
+      redirect_back(fallback_location: keypasses_path)
     else
       flash.now[:error] = @keypass.errors.full_messages
       render :new

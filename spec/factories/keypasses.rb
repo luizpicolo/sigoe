@@ -16,8 +16,10 @@
 FactoryGirl.define do
   factory :keypass do
     title { Faker::Internet.email }
+    user { Faker::Internet.user_name }
     key { Faker::Internet.email }
     local_service { Faker::Internet.email }
+    local { 1 }
     description { Faker::Internet.email }
   end
 end
