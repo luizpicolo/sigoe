@@ -11,6 +11,7 @@
 #  icon       :string
 #
 
+# SERTI, AUDI, DIREN
 FactoryGirl.define do
   factory :sector do
     name { Faker::Name.name }
