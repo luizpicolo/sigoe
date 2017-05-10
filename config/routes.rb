@@ -22,8 +22,4 @@ Rails.application.routes.draw do
   end
   resources :keypasses, except: [:show]
   resources :students, except: [:show]
-  resources :tickets do
-    put :close
-    resources :tickets_answers, path: 'answers'
-  end
 end

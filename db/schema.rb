@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170508162819) do
+ActiveRecord::Schema.define(version: 20170510163742) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,24 +55,6 @@ ActiveRecord::Schema.define(version: 20170508162819) do
     t.index ["name"], name: "index_students_on_name", using: :btree
   end
 
-  create_table "tickets", force: :cascade do |t|
-    t.string   "from"
-    t.string   "to"
-    t.string   "subject"
-    t.integer  "priority",    default: 0
-    t.text     "description"
-    t.integer  "status",      default: 0
-    t.integer  "user_id"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-    t.integer  "local"
-    t.integer  "answer"
-    t.index ["from"], name: "index_tickets_on_from", using: :btree
-    t.index ["status"], name: "index_tickets_on_status", using: :btree
-    t.index ["to"], name: "index_tickets_on_to", using: :btree
-    t.index ["user_id"], name: "index_tickets_on_user_id", using: :btree
-  end
-
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -97,6 +79,5 @@ ActiveRecord::Schema.define(version: 20170508162819) do
   end
 
   add_foreign_key "students", "courses"
-  add_foreign_key "tickets", "users"
   add_foreign_key "users", "sectors"
 end
