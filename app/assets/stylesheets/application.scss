@@ -15,6 +15,9 @@
  *= require alert_message
 */
 
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
 // librarys
 @import "bulma";
 @import 'ionicons';
@@ -23,6 +26,7 @@
 @import "devise/devise";
 
 // Imports
+@import "icons";
 @import "modification";
 @import "header";
 @import "main";
