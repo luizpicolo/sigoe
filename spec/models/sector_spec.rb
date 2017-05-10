@@ -19,6 +19,8 @@ RSpec.describe Sector, type: :model do
     @serti = FactoryGirl.create(:sector,  initial: 'serti')
     @audi = FactoryGirl.create(:sector, initial: 'audi')
     @diren = FactoryGirl.create(:sector, initial: 'diren')
+
+    @sectors = Sector.initials
   end
 
   # Validations
@@ -28,8 +30,18 @@ RSpec.describe Sector, type: :model do
   it { should validate_uniqueness_of(:initial) }
 
   describe "#initials" do
-    it "test" do
-      expect(Sector.initials).to eq([@serti])
+    it "should return an array" do
+      expect(@sectors).to be_an_instance_of(Array)
+
+      @sectors.each do |sector|
+        expect(sector).to be_an_instance_of(Array)
+      end
+    end
+
+    ['serti', 'audi', 'diren'].each do |sector|
+      it "should return sector #{sector}" do
+        expect(@sectors).to include(a_string_starting_with(sector))
+      end
     end
   end
 end
