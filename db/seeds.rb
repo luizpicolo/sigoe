@@ -6,11 +6,23 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Sector.create([{
-  name: 'SERVIÇO DE TECNOLOGIA DA INFORMAÇÃO E SUPORTE TÉCNICO',
-  initial: 'SERTI',
-  icon: 'ion-monitor'
-}])
+Sector.create([
+  {
+    name: 'Serviçco de Tecnilogia da informação e Suporte',
+    initial: 'SERTI',
+    icon: 'ion-monitor'
+  },
+  {
+    name: 'Diretoria de Ensino',
+    initial: 'DIREN',
+    icon: 'ion-university'
+  },
+  {
+    name: 'Áudio Visual',
+    initial: 'AUDI',
+    icon: 'ion-headphone'
+  }
+])
 
 User.create({
   name: 'admin',
