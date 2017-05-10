@@ -36,7 +36,6 @@ RSpec.describe User, type: :model do
 
   # Associations
   it { should belong_to(:sector) }
-  it { should have_many(:tickets) }
 
   # Methods
   describe '#it_is_part_of_the_sector?' do

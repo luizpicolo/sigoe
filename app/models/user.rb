@@ -32,7 +32,6 @@ class User < ApplicationRecord
   validates :username, :sector, presence: true
 
   belongs_to :sector
-  has_many :tickets
 
   search_scope :search do
     attributes :name, :email, :siape
