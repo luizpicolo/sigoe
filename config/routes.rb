@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'courses/index'
+
   root 'home#index'
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
@@ -22,4 +24,5 @@ Rails.application.routes.draw do
   end
   resources :keypasses, except: [:show]
   resources :students, except: [:show]
+  resources :courses, except: [:show]
 end

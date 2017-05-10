@@ -10,8 +10,16 @@
   </div>
   <% end %>
 
+  <% if can? :manage, Course %>
   <div class="column">
+    <%= link_to courses_path do %>
+      <section>
+        <i class="fa fa-university icons"></i>
+        <h1>Cursos</h1>
+      </section>
+    <% end %>
   </div>
+  <% end %>
 
   <div class="column">
   </div>

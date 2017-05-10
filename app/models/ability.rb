@@ -9,6 +9,7 @@ class Ability
       can :access, :rails_admin
       can :manage, Keypass
       can :manage, Student
+      can :manage, Course
     end
 
     if user.it_is_part_of_the_sector?('audi')
@@ -17,6 +18,7 @@ class Ability
 
     if user.it_is_part_of_the_sector?('diren')
       can :manage, Student
+      can :manage, Course
     end
   end
 end
