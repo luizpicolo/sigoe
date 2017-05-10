@@ -51,7 +51,8 @@ class StudentsController < ApplicationController
 
   def destroy
     if @student.destroy
-      redirect_to :back, flash: { success: "Estudante deletado com sucesso" }
+      flash[:success] = "Estudante deletado com sucesso"
+      redirect_back(fallback_location: users_path)
     else
       flash.now[:error] = @student.errors.full_messages
       render :new

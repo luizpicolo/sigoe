@@ -12,8 +12,8 @@
 
 FactoryGirl.define do
   factory :student do
-    name "MyString"
-    school_class nil
-    photo "MyString"
+    name { Faker::Name.name }
+    course factory: :course
+    photo { Faker::Placeholdit.image }
   end
 end
