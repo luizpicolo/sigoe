@@ -1,5 +1,6 @@
 ![](https://raw.githubusercontent.com/luizpicolo/siai-ifms-na/master/app/assets/images/logo_ifms.png?token=ABT0W4aSOnogYpUeUhFZlcp1WgNYR34Gks5Yv3kuwA%3D%3D)
 
+[![Build Status](https://travis-ci.org/luizpicolo/siai-ifms-na.svg?branch=master)](https://travis-ci.org/luizpicolo/siai-ifms-na)
 
 # SIAI - Sistema de Apoio Interno
 
