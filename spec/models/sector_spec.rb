@@ -19,6 +19,7 @@ RSpec.describe Sector, type: :model do
     @serti = FactoryGirl.create(:sector,  initial: 'serti')
     @audi = FactoryGirl.create(:sector, initial: 'audi')
     @diren = FactoryGirl.create(:sector, initial: 'diren')
+    @prof = FactoryGirl.create(:sector, initial: 'prof')
 
     @sectors = Sector.initials
   end
@@ -38,7 +39,7 @@ RSpec.describe Sector, type: :model do
       end
     end
 
-    ['serti', 'audi', 'diren'].each do |sector|
+    ['serti', 'audi', 'diren', 'prof'].each do |sector|
       it "should return sector #{sector}" do
         expect(@sectors).to include(a_string_starting_with(sector))
       end

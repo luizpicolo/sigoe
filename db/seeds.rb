@@ -8,7 +8,7 @@
 
 Sector.create([
   {
-    name: 'Serviçco de Tecnilogia da informação e Suporte',
+    name: 'Serviço de Tecnilogia da informação e Suporte',
     initial: 'SERTI',
     icon: 'ion-monitor'
   },
@@ -21,6 +21,11 @@ Sector.create([
     name: 'Áudio Visual',
     initial: 'AUDI',
     icon: 'ion-headphone'
+  },
+  {
+    name: 'Professores',
+    initial: 'PROF',
+    icon: 'fa fa-leanpub icon'
   }
 ])
 

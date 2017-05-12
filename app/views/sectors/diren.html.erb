@@ -1,5 +1,5 @@
 <div class="columns">
-  <% if can? :manage, Student %>
+  <% if can? :read, Student %>
   <div class="column">
     <%= link_to students_path do %>
       <section>

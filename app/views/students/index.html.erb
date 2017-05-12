@@ -1,4 +1,5 @@
 <div class="columns no-print">
+  <% if can? :manage, Student %>
   <div class="column">
     <%= link_to new_student_path, class: "button is-success in-mobile-expand" do %>
       <span class="icon">
@@ -7,6 +8,7 @@
       <span>Novo Estudante</span>
     <% end %>
   </div>
+  <% end %>
 
   <div class="column">
     <%= form_tag(students_path, :method => "get", id: "search") do %>
@@ -53,21 +55,23 @@
       <td><%= image_tag student&.photo.thumb %></td>
       <td><%= student.name %></td>
       <td class="is-hidden-mobile"><%= student.course_initial %></td>
-      <td class="has-text-right no-print">
-        <%= link_to edit_student_path(student), class: 'button is-success in-mobile-expand' do %>
-          <span class="icon">
-            <i class="ion-edit"></i>
-          </span>
-          <span>Editar</span>
-        <% end %>
-        <br>
-        <%= link_to student_path(student), method: :delete, data: { confirm: 'Tem certeza que deseja excluir?' }, class: 'button is-danger in-mobile-expand' do %>
-          <span class="icon">
-            <i class="ion-close"></i>
-          </span>
-          <span>Excluir</span>
-        <% end %>
-      </td>
+      <% if can? :manage, Student %>
+        <td class="has-text-right no-print">
+          <%= link_to edit_student_path(student), class: 'button is-success in-mobile-expand' do %>
+            <span class="icon">
+              <i class="ion-edit"></i>
+            </span>
+            <span>Editar</span>
+          <% end %>
+          <br>
+          <%= link_to student_path(student), method: :delete, data: { confirm: 'Tem certeza que deseja excluir?' }, class: 'button is-danger in-mobile-expand' do %>
+            <span class="icon">
+              <i class="ion-close"></i>
+            </span>
+            <span>Excluir</span>
+          <% end %>
+        </td>
+      <% end %>
     </tr>
     <% end %>
   </tbody>
