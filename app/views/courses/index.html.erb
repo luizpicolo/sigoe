@@ -15,7 +15,8 @@
           <%= select_tag "order",
             options_for_select([
               ["ID",'id'],
-              ["Nome",'name']],
+              ["Nome",'name'],
+              ["Sigla",'initial']],
             params[:order]),
             prompt: "Ordenar por",
             onchange: "this.form.submit();" %>
