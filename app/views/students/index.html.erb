@@ -11,7 +11,7 @@
   <div class="column">
     <%= form_tag(students_path, :method => "get", id: "search") do %>
       <p class="control has-addons is-pulled-right">
-        <span class="select">
+        <span class="select is-hidden-mobile">
           <%= select_tag "order",
             options_for_select([
               ["ID",'id'],
@@ -20,7 +20,7 @@
             prompt: "Ordenar por",
             onchange: "this.form.submit();" %>
         </span>
-        <span class="select">
+        <span class="select is-hidden-mobile">
           <%= select_tag "return",
               options_for_select(["15", "30", "45", "50", "100"],
               params[:return]),
@@ -40,7 +40,7 @@
   <thead>
     <tr>
       <th>ID</th>
-      <th class="is-hidden-mobile">Foto</th>
+      <th>Foto</th>
       <th>Nome</th>
       <th class="is-hidden-mobile">Curso</th>
       <th></th>
@@ -50,21 +50,22 @@
     <% @students.each do |student| %>
     <tr>
       <td><%= student.id %></td>
-      <td class="is-hidden-mobile"><%= image_tag student&.photo.thumb %></td>
+      <td><%= image_tag student&.photo.thumb %></td>
       <td><%= student.name %></td>
       <td class="is-hidden-mobile"><%= student.course_initial %></td>
       <td class="has-text-right no-print">
-        <%= link_to edit_student_path(student), class: 'button is-success' do %>
+        <%= link_to edit_student_path(student), class: 'button is-success in-mobile-expand' do %>
           <span class="icon">
             <i class="ion-edit"></i>
           </span>
-          <span class="is-hidden-mobile">Editar</span>
+          <span>Editar</span>
         <% end %>
-        <%= link_to student_path(student), method: :delete, data: { confirm: 'Tem certeza?' }, class: 'button is-danger' do %>
+        <br>
+        <%= link_to student_path(student), method: :delete, data: { confirm: 'Tem certeza que deseja excluir?' }, class: 'button is-danger in-mobile-expand' do %>
           <span class="icon">
             <i class="ion-close"></i>
           </span>
-          <span class="is-hidden-mobile">Excluir</span>
+          <span>Excluir</span>
         <% end %>
       </td>
     </tr>

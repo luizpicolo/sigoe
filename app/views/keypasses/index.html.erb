@@ -42,25 +42,23 @@
         <input type="text" class="input" id="id_<%= k.id %>" value="<%= k.key %>">
       </td>
       <td class="has-text-right">
-        <a class="clipboard button is-addons is-hidden-mobile"
-           data-clipboard-action="copy"
-           data-clipboard-target="#id_<%= k.id %>">
+        <a class="clipboard button is-addons in-mobile-expand" data-clipboard-action="copy" data-clipboard-target="#id_<%= k.id %>">
           <span class="icon">
             <i class="ion-ios-copy"></i>
           </span>
-          <span class="is-hidden-mobile">Copiar</span>
+          <span>Copiar</span>
         </a>
-        <%= link_to edit_keypass_path(k), class: 'button is-success' do %>
+        <%= link_to edit_keypass_path(k), class: 'button is-success in-mobile-expand' do %>
           <span class="icon">
             <i class="ion-edit"></i>
           </span>
-          <span class="is-hidden-mobile">Editar</span>
+          <span>Editar</span>
         <% end %>
-        <%= link_to keypass_path(k), method: :delete, data: { confirm: 'Tem certeza?' }, class: 'button is-danger' do %>
+        <%= link_to keypass_path(k), method: :delete, data: { confirm: 'Tem certeza?' }, class: 'button is-danger in-mobile-expand' do %>
           <span class="icon">
             <i class="ion-close"></i>
           </span>
-          <span class="is-hidden-mobile">Excluir</span>
+          <span>Excluir</span>
         <% end %>
       </td>
     </tr>

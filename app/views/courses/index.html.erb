@@ -53,17 +53,17 @@
       <td><%= course.name %></td>
       <td><%= course.initial %></td>
       <td class="has-text-right no-print">
-        <%= link_to edit_course_path(course), class: 'button is-success' do %>
+        <%= link_to edit_course_path(course), class: 'button is-success in-mobile-expand' do %>
           <span class="icon">
             <i class="ion-edit"></i>
           </span>
-          <span class="is-hidden-mobile">Editar</span>
+          <span>Editar</span>
         <% end %>
-        <%= link_to course_path(course), method: :delete, data: { confirm: 'Tem certeza?' }, class: 'button is-danger' do %>
+        <%= link_to course_path(course), method: :delete, data: { confirm: 'Tem certeza?' }, class: 'button is-danger in-mobile-expand' do %>
           <span class="icon">
             <i class="ion-close"></i>
           </span>
-          <span class="is-hidden-mobile">Excluir</span>
+          <span>Excluir</span>
         <% end %>
       </td>
     </tr>

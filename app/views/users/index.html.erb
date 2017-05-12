@@ -25,8 +25,8 @@
     <tr>
       <th>ID</th>
       <th>Nome</th>
-      <th class="is-hidden-mobile">SIAPE</th>
-      <th class="is-hidden-mobile">Setor</th>
+      <th>SIAPE</th>
+      <th>Setor</th>
       <th></th>
     </tr>
   </thead>
@@ -35,20 +35,20 @@
     <tr>
       <td><%= user.id %></td>
       <td><%= user.name %></td>
-      <td class="is-hidden-mobile"><%= user.siape %></td>
-      <td class="is-hidden-mobile"><%= user&.sector&.initial %></td>
+      <td><%= user.siape %></td>
+      <td><%= user&.sector&.initial %></td>
       <td class="has-text-right">
-        <%= link_to edit_user_path(user), class: 'button is-success' do %>
+        <%= link_to edit_user_path(user), class: 'button is-success in-mobile-expand' do %>
           <span class="icon">
             <i class="ion-edit"></i>
           </span>
-          <span class="is-hidden-mobile">Editar</span>
+          <span>Editar</span>
         <% end %>
-        <%= link_to user_path(user), method: :delete, data: { confirm: 'Tem certeza?' }, class: 'button is-danger', disabled: user.is_current?(current_user) do %>
+        <%= link_to user_path(user), method: :delete, data: { confirm: 'Tem certeza que deseja excluir?' }, class: 'button is-danger in-mobile-expand', disabled: user.is_current?(current_user) do %>
           <span class="icon">
             <i class="ion-close"></i>
           </span>
-          <span class="is-hidden-mobile">Excluir</span>
+          <span>Excluir</span>
         <% end %>
       </td>
     </tr>
