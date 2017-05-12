@@ -1,0 +1,17 @@
+<%= form_for @course do |f| %>
+  <p class="control">
+    <%= f.label :name, "Nome", class: 'label' %>
+    <%= f.text_field :name, class: 'input is-medium', placeholder: 'Nome', required: true %>
+  </p>
+
+  <p class="control">
+    <%= f.label :initial, "Sigla", class: 'label' %>
+    <%= f.text_field :initial, class: 'input is-medium', placeholder: 'Sigla', required: true %>
+  </p>
+
+  <div class="control is-pulled-right">
+    <p class="control">
+      <%= f.submit "Salvar", class: "button is-success is-medium"%>
+    </p>
+  </div>
+<% end %>

@@ -11,7 +11,7 @@ class CoursesController < ApplicationController
     order = params[:order] == "" || params[:order].nil? ? 'id' : params[:order]
     amount_return = params[:return] == "" || params[:return].nil? ? '15' : params[:return]
 
-    @students = Course.order("courses.#{order} asc")
+    @courses = Course.order("courses.#{order} asc")
                        .search(params[:search])
                        .page(params[:page]).per(amount_return)
   end
@@ -21,7 +21,7 @@ class CoursesController < ApplicationController
     add_breadcrumb "Cursos", :courses_path
     add_breadcrumb "Novo curso"
 
-    @courses = Course.new
+    @course = Course.new
   end
 
   def create
@@ -41,7 +41,7 @@ class CoursesController < ApplicationController
   end
 
   def update
-    if @courses.update(courses_path)
+    if @courses.update(course_params)
       redirect_to courses_path, flash: { success: 'Curso atualizado com sucesso' }
     else
       flash.now[:error] = @courses.errors.full_messages
@@ -66,6 +66,6 @@ class CoursesController < ApplicationController
   end
 
   def course_params
-    params.require(:student).permit(:name)
+    params.require(:course).permit(:name, :initial)
   end
 end

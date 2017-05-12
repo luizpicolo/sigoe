@@ -1,13 +1,12 @@
 # == Schema Information
 #
-# Table name: students
+# Table name: courses
 #
 #  id         :integer          not null, primary key
 #  name       :string
-#  course_id  :integer
-#  photo      :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  initial    :string
 #
 
 require 'rails_helper'
@@ -19,6 +18,7 @@ RSpec.describe Course, type: :model do
 
   # Validations
   it { should validate_presence_of(:name) }
+  it { should validate_presence_of(:initial) }
 
   # Associations
   it { should have_many(:students) }

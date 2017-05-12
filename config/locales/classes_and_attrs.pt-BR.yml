@@ -3,6 +3,7 @@ pt-BR:
     models:
       user: "Usuários"
       keypass: "Senhas"
+      course: "Curso"
 
     attributes:
       user:
@@ -17,3 +18,5 @@ pt-BR:
         description: "Descrição"
         user: "Usuário"
         local: "Local"
+      course:
+        name: 'Nome'

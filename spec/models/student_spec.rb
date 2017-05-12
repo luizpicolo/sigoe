@@ -31,7 +31,7 @@ RSpec.describe Student, type: :model do
     end
 
     it "find user by initial of course" do
-      expect(Student.search(@student.course_initial)).to eq([@student])
+      expect(Student.search(@student.course_name)).to eq([@student])
     end
   end
 end

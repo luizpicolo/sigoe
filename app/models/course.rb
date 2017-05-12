@@ -12,7 +12,7 @@
 class Course < ApplicationRecord
   include SearchCop
 
-  validates :name, presence: true
+  validates :name, :initial, presence: true, uniqueness: true
   has_many :students
 
   def self.names
@@ -20,6 +20,6 @@ class Course < ApplicationRecord
   end
 
   search_scope :search do
-    attributes :names
+    attributes :name
   end
 end

@@ -1,17 +1,17 @@
 # == Schema Information
 #
-# Table name: students
+# Table name: courses
 #
 #  id         :integer          not null, primary key
 #  name       :string
-#  course_id  :integer
-#  photo      :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  initial    :string
 #
 
 FactoryGirl.define do
   factory :course do
     name { Faker::Name.name }
+    initial { Faker::Lorem.words(4) }
   end
 end
