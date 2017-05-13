@@ -16,6 +16,8 @@ O SIAI (Sistema de Apoio interno) é um software desenvolvido com o objetivo de 
  - Gerenciamento de usuários
  - Gerenciamento de senhas
  - Gerenciamento de estudantes
+ - Gerenciamento de setores
+ - Gerenciamento de cursos
 
 ## Como usar
 
@@ -25,9 +27,9 @@ O SIAI (Sistema de Apoio interno) é um software desenvolvido com o objetivo de 
 
 **Segundo passo:** Renomeie os arquivos de configuração
 
-    cp config/database.example.yml config/database.yml &&
-    cp config/application.example.yml config/application.yml &&
-    cp config/secrets.example.yml config/secrets.yml
+    cp config/database.yml.example config/database.yml &&
+    cp config/application.yml.example config/application.yml &&
+    cp config/secrets.yml.example config/secrets.yml
 
 **Terceiro passo:** Acesso o projeto e execute o comando
 
