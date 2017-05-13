@@ -29,8 +29,14 @@ module UserHelpers
 
     click_button 'Salvar'
   end
+
+  def create_user_by_sector(sector)
+    s = FactoryGirl.create(:sector, initial: sector)
+    return FactoryGirl.create(:user, sector: s)
+  end
 end
 
 RSpec.configure do |config|
   config.include UserHelpers, type: :feature
+  config.include UserHelpers, type: :model
 end
