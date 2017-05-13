@@ -10,6 +10,7 @@ class Ability
       can :manage, Keypass
       can :manage, Student
       can :manage, Course
+      can :manage, Sector
     end
 
     if user.it_is_part_of_the_sector?('audi')
