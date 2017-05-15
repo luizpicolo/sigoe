@@ -1,10 +1,10 @@
 <% flash.each do |key, value| %>
 	<%
-		if key != 'success' && key != 'danger' && key != 'notice'
-			key = 'danger'
+		unless ['success', 'danger', 'error'].include?(key)
+			key = 'notice'
 		end
 	%>
   <div class="alert-message alert-message-<%= key %>">
-    <%= value.to_s.html_safe %>
+    <%= value.html_safe %>
   </div>
 <% end %>
