@@ -8,6 +8,8 @@
     <% end %>
   </div>
 
+  <% show_search_error_message(@users, params) %>
+
   <div class="column">
     <%= form_tag(users_path, :method => "get", id: "search") do %>
       <p class="control has-addons is-pulled-right">

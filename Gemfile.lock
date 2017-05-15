@@ -55,7 +55,7 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.0)
       public_suffix (~> 2.0, >= 2.0.2)
-    alert_message (1.1.7)
+    alert_message (1.1.8)
     annotate (2.6.5)
       activerecord (>= 2.3.0)
       rake (>= 0.8.7)

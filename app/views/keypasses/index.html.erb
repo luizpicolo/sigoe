@@ -8,6 +8,8 @@
     <% end %>
   </div>
 
+  <% show_search_error_message(@keypasses, params) %>
+
   <div class="column">
     <%= form_tag(keypasses_path, :method => "get", id: "search") do %>
       <p class="control has-addons is-pulled-right is-expanded">
