@@ -17,14 +17,22 @@ class Student < ApplicationRecord
   delegate :name, to: :course, prefix: true
   delegate :initial, to: :course, prefix: true
 
+  # Validações
   validates :name, :course, presence: true
+
+  # Associações
   belongs_to :course
 
+  # Atributos para busca com SearchCop
   search_scope :search do
     attributes :name
     attributes :course => "course.name"
   end
 
+  # Retorna um vetor com os atributos que serão utilizados para a
+  # busca nas listagens dos estudantes
+  #
+  # @return [Array] contendo os atributos para a busca
   def self.ordenation_attributes
     [["ID",'id'], ["Nome",'name']]
   end

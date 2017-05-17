@@ -12,18 +12,27 @@
 class Course < ApplicationRecord
   include SearchCop
 
+  # Validações
   validates :name, :initial, presence: true, uniqueness: true
-  has_many :students
 
+  # Associações
+  has_many :students
 
   search_scope :search do
     attributes :name
   end
 
+  # Retorna um vetor contendo os nomes e seus respectivos IDs
+  #
+  # @return [Array] contendo os nomes e seus IDs
   def self.names
     all.collect {|p| [ p.name, p.id ] }
   end
 
+  # Retorna um vetor com os atributos que serão utilizados para a
+  # busca nas listagens dos cursos
+  #
+  # @return [Array] contendo os atributos para a busca
   def self.ordenation_attributes
     [["ID",'id'],["Nome",'name'],["Sigla",'initial']]
   end

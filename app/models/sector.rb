@@ -15,9 +15,15 @@ class Sector < ApplicationRecord
   extend FriendlyId
   friendly_id :initial, use: :slugged
 
+  # Validações
   validates :name, :initial, presence: true, uniqueness: true
+
+  # Associações
   has_many :users
 
+  # Retorna um vetor contendo as iniciais e seus respectivos IDs
+  #
+  # @return [Array] contendo as inicias e seus IDs
   def self.initials
     all.collect {|p| [ p.initial, p.id ] }
   end

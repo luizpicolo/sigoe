@@ -26,13 +26,16 @@ class User < ApplicationRecord
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable,:recoverable, :rememberable, :trackable,
+  devise :database_authenticatable, :recoverable, :rememberable, :trackable,
          :validatable
 
+  # Validações
   validates :username, :sector, presence: true
 
+  # Associações
   belongs_to :sector
 
+  # Atributos para busca com SearchCop
   search_scope :search do
     attributes :name, :email, :siape
     attributes :sector => "sector.initial"
