@@ -36,4 +36,12 @@ class Course < ApplicationRecord
   def self.ordenation_attributes
     [["ID",'id'],["Nome",'name'],["Sigla",'initial']]
   end
+
+  # Retorna um Hash contendo os dados para a listagem dos alunos segunda a
+  # turma
+  #
+  # @return [HASH] com chave para a ordem, quantidade de retorno e item a ser buscado
+  def params_search
+    { order: 'name', return: 100, search: initial.downcase }
+  end
 end

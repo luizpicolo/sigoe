@@ -26,7 +26,7 @@
     <tr>
       <td><%= course.id %></td>
       <td><%= course.name %></td>
-      <td><%= course.initial %></td>
+      <td><%= link_to course.initial, students_path(course.params_search) %></td>
       <td class="has-text-right no-print">
         <%= link_to edit_course_path(course), class: 'button is-success in-mobile-expand' do %>
           <span class="icon">

@@ -10,7 +10,7 @@
       </span>
       <span class="select is-hidden-mobile">
         <%= select_tag "return",
-            options_for_select(["15", "30", "45", "50", "75""100"],
+            options_for_select(["15", "30", "45", "50", "75", "100"],
             params[:return]),
             prompt: "Total",
             onchange: "this.form.submit();" %>
