@@ -18,7 +18,7 @@ gem 'friendly_id', '~> 5.1.0'
 gem 'font-awesome-sass'
 gem 'htmlcompressor'
 gem "ifmsui-rails", git: 'https://github.com/luizpicolo/ifmsui-rails'
-gem 'ionicons-rails'
+gem 'ionicons-rails' ## Será removido no futuro
 gem 'jbuilder'
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
@@ -39,15 +39,13 @@ gem 'uglifier'
 gem 'pg'
 
 group :development, :test do
-  gem 'annotate'
   gem 'byebug', platform: :mri
   gem 'binding_of_caller'
   gem 'capybara'
-  gem 'database_rewinder'
   gem 'email_spec'
+  gem 'database_rewinder'
   gem 'factory_girl_rails'
   gem 'faker'
-  gem 'puma', '~> 3.0'
   gem 'rspec-rails'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git', branch: 'rails-5'
@@ -57,6 +55,9 @@ group :development, :test do
 end
 
 group :development do
+  gem 'yard'
+  gem 'puma', '~> 3.0'
+  gem 'annotate'
   gem 'better_errors'
   gem 'listen', '~> 3.0.5'
   gem 'web-console'

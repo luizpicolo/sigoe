@@ -38,15 +38,29 @@ class User < ApplicationRecord
     attributes :sector => "sector.initial"
   end
 
+  # Retorna um vetor com os atributos que serão utilizados para a
+  # busca nas listagens de usuários
+  #
+  # @return [Array] contendo os atributos para a busca
   def self.ordenation_attributes
     [["ID",'id'], ["Nome",'name']]
   end
 
+  # Verifica se o usuário selecionado é o usuário que esta logado
+  #
+  # @param [Object User] current_user
+  # @return [Boolean] true se o usuário for igual ao usuário logo
+  # @return [Boolean] false se o usuário for diferente ao usuário logo
   def is_current?(current_user)
     current_user.id == id ? true : false
   end
 
-  def it_is_part_of_the_sector?(s)
-    sector.initial.downcase == s ? true : false
+  # Verifica se o usuário faz parte de um determinado sertor
+  #
+  # @param [String] _sector
+  # @return [Boolean] true se o usuário faz parte do sertor
+  # @return [Boolean] false se o usuário não faz parte do setro
+  def it_is_part_of_the_sector?(_sector)
+    sector.initial.downcase == _sector ? true : false
   end
 end
