@@ -32,4 +32,8 @@ module ApplicationHelper
   def convert_to_entity(relation)
     eval(relation.class.to_s.split('::').first)
   end
+
+  def  options_for_search(params)
+    options_for_select(["15", "30", "45", "50", "75", "100"], params[:return])
+  end
 end

@@ -32,6 +32,9 @@ class User < ApplicationRecord
   # Validações
   validates :username, :sector, presence: true
 
+  # Delegates
+  delegate :initial, :to => :sector, prefix: true
+
   # Associações
   belongs_to :sector
 

@@ -9,10 +9,7 @@
           onchange: "this.form.submit();" %>
       </span>
       <span class="select is-hidden-mobile">
-        <%= select_tag "return",
-            options_for_select(["15", "30", "45", "50", "75", "100"],
-            params[:return]),
-            prompt: "Total",
+        <%= select_tag "return", options_for_search(params), prompt: "Total",
             onchange: "this.form.submit();" %>
       </span>
       <%= text_field_tag :search, params[:search], class: "input", placeholder: "Buscar" %>
