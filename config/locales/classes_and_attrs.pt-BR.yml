@@ -7,6 +7,7 @@ pt-BR:
 
     attributes:
       user:
+        name: "Nome"
         password: "Senha"
         password_confirmation: "Confirmar senha"
         created_at: "Criado em"

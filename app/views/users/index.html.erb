@@ -9,17 +9,7 @@
   </div>
 
   <% show_search_error_message(@users, params) %>
-
-  <div class="column">
-    <%= form_tag(users_path, :method => "get", id: "search") do %>
-      <p class="control has-addons is-pulled-right">
-        <%= text_field_tag :search, params[:search], class: "input", placeholder: "Buscar" %>
-        <%= button_tag(type: "submit", class: "button is-success", name: nil) do %>
-          Buscar
-        <% end %>
-      </p>
-    <% end %>
-  </div>
+  <%= render 'layouts/search', path: users_path, v: attr_order(@users) %>
 </div>
 
 <table class="table is-striped">

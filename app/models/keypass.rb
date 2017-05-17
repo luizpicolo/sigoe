@@ -24,4 +24,8 @@ class Keypass < ApplicationRecord
   search_scope :search do
     attributes :title
   end
+
+  def self.ordenation_attributes
+    [["ID",'id'], ["Título",'title'], ["Local",'local'], ["Usuário",'user']]
+  end
 end

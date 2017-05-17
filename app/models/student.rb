@@ -24,4 +24,8 @@ class Student < ApplicationRecord
     attributes :name
     attributes :course => "course.name"
   end
+
+  def self.ordenation_attributes
+    [["ID",'id'], ["Nome",'name']]
+  end
 end

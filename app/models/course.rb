@@ -15,11 +15,16 @@ class Course < ApplicationRecord
   validates :name, :initial, presence: true, uniqueness: true
   has_many :students
 
+
+  search_scope :search do
+    attributes :name
+  end
+
   def self.names
     all.collect {|p| [ p.name, p.id ] }
   end
 
-  search_scope :search do
-    attributes :name
+  def self.ordenation_attributes
+    [["ID",'id'],["Nome",'name'],["Sigla",'initial']]
   end
 end

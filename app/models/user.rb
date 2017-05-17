@@ -38,6 +38,10 @@ class User < ApplicationRecord
     attributes :sector => "sector.initial"
   end
 
+  def self.ordenation_attributes
+    [["ID",'id'], ["Nome",'name']]
+  end
+
   def is_current?(current_user)
     current_user.id == id ? true : false
   end

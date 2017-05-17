@@ -1,0 +1,24 @@
+<div class="column">
+  <%= form_tag(path, :method => "get", id: "search") do %>
+    <p class="control has-addons is-pulled-right">
+      <span class="select is-hidden-mobile">
+        <%= select_tag "order",
+          options_for_select(v,
+          params[:order]),
+          prompt: "Ordenar por",
+          onchange: "this.form.submit();" %>
+      </span>
+      <span class="select is-hidden-mobile">
+        <%= select_tag "return",
+            options_for_select(["15", "30", "45", "50", "75""100"],
+            params[:return]),
+            prompt: "Total",
+            onchange: "this.form.submit();" %>
+      </span>
+      <%= text_field_tag :search, params[:search], class: "input", placeholder: "Buscar" %>
+      <%= button_tag(type: "submit", class: "button is-success", name: nil) do %>
+      Buscar
+      <% end %>
+    </p>
+  <% end %>
+</div>

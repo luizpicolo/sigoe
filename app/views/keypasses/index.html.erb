@@ -9,17 +9,7 @@
   </div>
 
   <% show_search_error_message(@keypasses, params) %>
-
-  <div class="column">
-    <%= form_tag(keypasses_path, :method => "get", id: "search") do %>
-      <p class="control has-addons is-pulled-right is-expanded">
-        <%= text_field_tag :search, params[:search], class: "input", placeholder: "Buscar" %>
-        <%= button_tag(type: "submit", class: "button is-success", name: nil) do %>
-          Buscar
-        <% end %>
-      </p>
-    <% end %>
-  </div>
+  <%= render 'layouts/search', path: keypasses_path, v: attr_order(@keypasses) %>
 </div>
 
 <table class="table is-striped">
