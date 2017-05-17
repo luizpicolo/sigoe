@@ -62,6 +62,7 @@ group :development do
   gem 'listen', '~> 3.0.5'
   gem 'web-console'
   gem 'mina', '0.3.8'
+  gem 'rails_best_practices', '~> 1.18', '>= 1.18.1' 
   gem 'rb-readline'
   gem 'rename'
 end
