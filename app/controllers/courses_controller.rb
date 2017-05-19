@@ -8,12 +8,9 @@ class CoursesController < ApplicationController
     add_breadcrumb "DIREN", sector_actions_path('diren')
     add_breadcrumb "Cursos"
 
-    order = params[:order] == "" || params[:order].nil? ? 'id' : params[:order]
-    amount_return = params[:return] == "" || params[:return].nil? ? '15' : params[:return]
-
-    @courses = Course.order("courses.#{order} asc")
-                       .search(params[:search])
-                       .page(params[:page]).per(amount_return)
+    @courses = Course.order("#{set_order}": :asc)
+                     .search(params[:search])
+                     .page(params[:page]).per(set_amount_return)
   end
 
   def new
@@ -63,6 +60,14 @@ class CoursesController < ApplicationController
 
   def set_course
     @courses = Course.find(params[:id])
+  end
+
+  def set_order
+    params[:order] == "" || params[:order].nil? ? 'id' : params[:order]
+  end
+
+  def set_amount_return
+    params[:return] == "" || params[:return].nil? ? '15' : params[:return]
   end
 
   def course_params

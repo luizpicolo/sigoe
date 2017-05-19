@@ -34,6 +34,16 @@ RSpec.describe Course, type: :model do
     end
   end
 
+  describe "#ordenation_attributes" do
+    it "should return an array" do
+      expect(Course.ordenation_attributes).to be_an_instance_of(Array)
+
+      Course.ordenation_attributes.each do |attribute|
+        expect(attribute).to be_an_instance_of(Array)
+      end
+    end
+  end
+
   describe "#params_search" do
     it "should return an hash" do
       expect(@course.params_search).to be_an_instance_of(Hash)
