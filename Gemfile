@@ -51,7 +51,6 @@ group :development, :test do
   gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git', branch: 'rails-5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'simplecov', require: false
   gem 'coveralls', require: false
 end
 
