@@ -35,11 +35,19 @@ RSpec.describe Course, type: :model do
   end
 
   describe "#ordenation_attributes" do
-    it "should return an array" do
-      expect(Course.ordenation_attributes).to be_an_instance_of(Array)
+    ordenation_attributes = Course.ordenation_attributes
 
-      Course.ordenation_attributes.each do |attribute|
+    it "should return an array" do
+      expect(ordenation_attributes).to be_an_instance_of(Array)
+
+      ordenation_attributes.each do |attribute|
         expect(attribute).to be_an_instance_of(Array)
+      end
+    end
+
+    ordenation_attributes.each do |attribute|
+      it "should return user attribute #{attribute}" do
+        expect(Course.attribute_names.include?(attribute.last)).to be true
       end
     end
   end

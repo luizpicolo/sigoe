@@ -25,6 +25,24 @@ RSpec.describe Student, type: :model do
   it { should delegate_method(:name).to(:course).with_prefix }
   it { should delegate_method(:initial).to(:course).with_prefix }
 
+  describe "#ordenation_attributes" do
+    ordenation_attributes = Student.ordenation_attributes
+
+    it "should return an array" do
+      expect(ordenation_attributes).to be_an_instance_of(Array)
+
+      ordenation_attributes.each do |attribute|
+        expect(attribute).to be_an_instance_of(Array)
+      end
+    end
+
+    ordenation_attributes.each do |attribute|
+      it "should return user attribute #{attribute}" do
+        expect(Student.attribute_names.include?(attribute.last)).to be true
+      end
+    end
+  end
+
   describe '#search' do
     it "find user by name" do
       expect(Student.search(@student.name)).to eq([@student])
