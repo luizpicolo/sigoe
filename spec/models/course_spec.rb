@@ -20,6 +20,16 @@ RSpec.describe Course, type: :model do
   it { should validate_presence_of(:name) }
   it { should validate_presence_of(:initial) }
 
+  # Columns
+  it { should have_db_column :id }
+  it { should have_db_column :name }
+  it { should have_db_column :created_at }
+  it { should have_db_column :updated_at }
+  it { should have_db_column :initial }
+
+  # Indexes
+  it { should have_db_index ["name", "initial"] }
+
   # Associations
   it { should have_many(:students) }
 

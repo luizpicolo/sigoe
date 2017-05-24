@@ -4,18 +4,17 @@ context "Manager (crud) entity Keypass" do
   before(:each) do
     @user = FactoryGirl.create(:user)
     @keypass = FactoryGirl.create(:keypass)
+    sign_in @user
   end
 
   feature 'create' do
     scenario 'with valid data' do
-      sign_in @user
       visit new_keypass_path
       create_new_keypass
       expect(page).to have_content("Senha cadastra com sucesso")
     end
 
     scenario 'with existent title' do
-      sign_in @user
       visit new_keypass_path
       create_new_keypass title: @keypass.title
       expect(page).to have_content("Título já está em uso")
@@ -24,7 +23,6 @@ context "Manager (crud) entity Keypass" do
 
   feature 'update' do
     scenario 'with valid data' do
-      sign_in @user
       visit edit_keypass_path(@keypass)
       new_title = Faker::Name.name
       fill_in 'Título', with: new_title
@@ -37,7 +35,6 @@ context "Manager (crud) entity Keypass" do
 
   feature 'delete' do
     scenario 'with sucess' do
-      sign_in @user
       visit keypasses_path
       find("a[href='/keypasses/#{@keypass.id}']").click
       expect(page).to_not have_content(@keypass.title)

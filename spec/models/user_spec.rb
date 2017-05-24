@@ -26,14 +26,39 @@ require "cancan/matchers"
 
 RSpec.describe User, type: :model do
   before(:each) do
-    @user = FactoryGirl.create(:user)
+    @user = FactoryGirl.create :user
   end
 
   # Validations
-  it { should validate_presence_of(:email) }
-  it { should validate_presence_of(:password) }
-  it { should validate_presence_of(:sector) }
-  it { should validate_presence_of(:username) }
+  it { should validate_presence_of :email }
+  it { should validate_presence_of :password  }
+  it { should validate_presence_of :sector  }
+  it { should validate_presence_of :username  }
+
+  # Columns
+  it { should have_db_column :id }
+  it { should have_db_column :email }
+  it { should have_db_column :encrypted_password }
+  it { should have_db_column :reset_password_token }
+  it { should have_db_column :reset_password_sent_at }
+  it { should have_db_column :remember_created_at }
+  it { should have_db_column :sign_in_count }
+  it { should have_db_column :current_sign_in_at }
+  it { should have_db_column :last_sign_in_at }
+  it { should have_db_column :current_sign_in_ip }
+  it { should have_db_column :last_sign_in_ip }
+  it { should have_db_column :created_at }
+  it { should have_db_column :updated_at }
+  it { should have_db_column :username }
+  it { should have_db_column :name }
+  it { should have_db_column :siape }
+  it { should have_db_column :sector_id }
+
+  # Indexes
+  it { should have_db_index ["email"] }
+  it { should have_db_index ["reset_password_token"] }
+  it { should have_db_index ["sector_id"] }
+  it { should have_db_index ["username"] }
 
   # Associations
   it { should belong_to(:sector) }

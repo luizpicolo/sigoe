@@ -4,11 +4,11 @@ context "Find key by your search scope" do
   before(:each) do
     @user = FactoryGirl.create(:user)
     @keypass = FactoryGirl.create(:keypass)
+    sign_in @user
   end
 
   feature 'search user' do
     scenario "find with attribute title" do
-      sign_in @user
       visit keypasses_path
       fill_in 'search', with: @keypass.title
       click_button 'Buscar'
@@ -16,7 +16,6 @@ context "Find key by your search scope" do
     end
 
     scenario "find with fail attribute" do
-      sign_in @user
       visit keypasses_path
       fill_in 'search', with: 'wrong_attribute'
       click_button 'Buscar'

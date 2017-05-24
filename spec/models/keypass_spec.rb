@@ -25,8 +25,22 @@ RSpec.describe Keypass, type: :model do
   it { should validate_presence_of(:title) }
   it { should validate_uniqueness_of(:title) }
 
-  # Enuns
-  it { should define_enum_for(:local) }
+  # Columns
+  it { should have_db_column :id }
+  it { should have_db_column :title }
+  it { should have_db_column :key }
+  it { should have_db_column :local_service }
+  it { should have_db_column :description }
+  it { should have_db_column :created_at }
+  it { should have_db_column :updated_at }
+  it { should have_db_column :user }
+  it { should have_db_column :local }
+
+  # Indexes
+  it { should have_db_index ["title"] }
+
+  # Enums
+  it { should define_enum_for(:local).with(["ifms", "ufms", "cemid"]) }
 
   # Methods
   describe ".ordenation_attributes" do

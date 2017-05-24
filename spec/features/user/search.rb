@@ -4,12 +4,12 @@ context "Find users by your search scope" do
   before(:each) do
     @sector = FactoryGirl.create(:sector)
     @users = FactoryGirl.create_list(:user, 2, sector: @sector)
+    sign_in @users.first
   end
 
   feature 'search user' do
     ['name', 'email', 'siape', 'sector'].each do |attr|
       scenario "find with attribute #{attr}" do
-        sign_in @users.first
         visit users_path
         fill_in 'search', with: @users.first.read_attribute(attr)
         click_button 'Buscar'
@@ -18,7 +18,6 @@ context "Find users by your search scope" do
     end
 
     scenario "find with fail attribute" do
-      sign_in @user
       visit users_path
       fill_in 'search', with: 'wrong_attribute'
       click_button 'Buscar'

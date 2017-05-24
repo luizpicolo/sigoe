@@ -4,11 +4,11 @@ context "Find key by your search scope" do
   before(:each) do
     @user = FactoryGirl.create(:user)
     @student = FactoryGirl.create(:student)
+    sign_in @user
   end
 
   feature 'search student' do
     scenario "find with attribute name" do
-      sign_in @user
       visit students_path
       fill_in 'search', with: @student.title
       click_button 'Buscar'
@@ -16,7 +16,6 @@ context "Find key by your search scope" do
     end
 
     scenario "find with attribute course" do
-      sign_in @user
       visit students_path
       fill_in 'search', with: @student.course_name
       click_button 'Buscar'
