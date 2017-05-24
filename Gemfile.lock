@@ -414,6 +414,7 @@ DEPENDENCIES
   jbuilder
   jquery-rails
   jquery-turbolinks
+  jquery-ui-rails
   listen (~> 3.0.5)
   mina (= 0.3.8)
   mini_magick

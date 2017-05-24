@@ -21,6 +21,7 @@ gem "ifmsui-rails", git: 'https://github.com/luizpicolo/ifmsui-rails'
 gem 'ionicons-rails' ## Será removido no futuro
 gem 'jbuilder'
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem 'jquery-turbolinks'
 gem 'mini_magick'
 gem 'modernizr-rails'

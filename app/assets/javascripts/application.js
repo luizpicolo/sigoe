@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
+//= require jquery-ui
 //= require select2
 //= require project/alert
 //= require alert_message
@@ -25,4 +26,9 @@ document.addEventListener('turbolinks:load', function() {
   // Clipboard JS
   var clip = new Clipboard('.clipboard');
   console.log(clip);
+
+  // Select 2
+  $(".select2").select2();
+
+  $('.datepicker').datepicker();
 });
