@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170508162819) do
+ActiveRecord::Schema.define(version: 20170524023511) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,21 @@ ActiveRecord::Schema.define(version: 20170508162819) do
     t.datetime "updated_at", null: false
     t.string   "initial"
     t.index ["name", "initial"], name: "index_courses_on_name_and_initial", using: :btree
+  end
+
+  create_table "incidents", force: :cascade do |t|
+    t.integer  "student_id"
+    t.integer  "user_id"
+    t.integer  "local"
+    t.text     "description"
+    t.date     "date_incident"
+    t.text     "soluction"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["date_incident"], name: "index_incidents_on_date_incident", using: :btree
+    t.index ["local"], name: "index_incidents_on_local", using: :btree
+    t.index ["student_id"], name: "index_incidents_on_student_id", using: :btree
+    t.index ["user_id"], name: "index_incidents_on_user_id", using: :btree
   end
 
   create_table "keypasses", force: :cascade do |t|
@@ -78,6 +93,8 @@ ActiveRecord::Schema.define(version: 20170508162819) do
     t.index ["username"], name: "index_users_on_username", unique: true, using: :btree
   end
 
+  add_foreign_key "incidents", "students"
+  add_foreign_key "incidents", "users"
   add_foreign_key "students", "courses"
   add_foreign_key "users", "sectors"
 end
