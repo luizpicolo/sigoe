@@ -1,0 +1,46 @@
+<%= form_for model do |f| %>
+  <div class="control is-grouped">
+    <div class="control is-expanded">
+      <%= f.label :student_id, 'Estudante', class: 'label' %>
+      <p class="control">
+        <span class="select">
+          <%= f.select :student_id, Student.get_all, { prompt: "Selecione o estudante" }, { :class => "select2 select is-medium" } %>
+        </span>
+      </p>
+    </div>
+
+    <div class="control is-expanded">
+      <%= f.label :date_incident, 'Data ocorrência', class: 'label' %>
+      <%= f.text_field :date_incident, class: 'input is-medium datepicker', value: formated_date(model.date_incident), placeholder: 'Data ocorrência', required: true %>
+    </div>
+
+    <div class="control is-expanded">
+      <%= f.label :student_id, 'Estudante', class: 'label' %>
+      <p class="control">
+        <span class="select">
+          <%= f.select :local, Incident.locals.keys.to_a, {}, { :class => "select2 select is-medium" } %>
+        </span>
+      </p>
+    </div>
+  </div>
+
+  <div class="control">
+    <div class="control">
+      <%= f.label :description, 'Ocorrência', class: 'label' %>
+      <%= f.text_area :description, class: 'textarea is-medium', placeholder: 'Ocorrência' %>
+    </div>
+  </div>
+
+  <div class="control">
+    <div class="control">
+      <%= f.label :soluction, 'Solução', class: 'label' %>
+      <%= f.text_area :soluction, class: 'textarea is-medium', placeholder: 'Solução' %>
+    </div>
+  </div>
+
+  <div class="control is-grouped is-pulled-right">
+    <p class="control">
+      <%= f.submit "Salvar", class: "button is-success is-medium" %>
+    </p>
+  </div>
+<% end %>

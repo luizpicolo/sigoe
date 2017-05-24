@@ -21,8 +21,16 @@
   </div>
   <% end %>
 
+  <% if can? :manage, Incident %>
   <div class="column">
+    <%= link_to incidents_path do %>
+      <section>
+        <i class="fa fa-book icons"></i>
+        <h1>Ocorrências</h1>
+      </section>
+    <% end %>
   </div>
+  <% end %>
 
   <div class="column">
   </div>
