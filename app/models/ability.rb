@@ -19,11 +19,13 @@ class Ability
 
     if user.it_is_part_of_the_sector?('prof')
       can :read, Student
+      can :read, Incident
     end
 
     if user.it_is_part_of_the_sector?('diren')
       can :manage, Student
       can :manage, Course
+      can :manage, Incident
     end
   end
 end
