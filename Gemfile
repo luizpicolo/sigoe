@@ -66,6 +66,7 @@ group :development do
   gem 'rails_best_practices', '~> 1.18', '>= 1.18.1'
   gem 'rb-readline'
   gem 'rename'
+  gem "rails-erd"
 end
 
 group :staging, :production do
