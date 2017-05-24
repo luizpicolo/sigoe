@@ -33,3 +33,97 @@
 @import "main";
 @import "pagination";
 @import "table";
+
+.select2-wrapper {
+    .select2-container {
+        .select2-selection {
+            transition: border-color $speed !important;
+            font-family: $family-sans-serif !important;
+            height: 2.285em !important;
+            line-height: 1.5 !important;
+            font-size: 1rem !important;
+            outline: none !important !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            width: 100% !important;
+            border-color: $border !important;
+            border-radius: $radius !important;
+            &:hover {
+                border-color: $border-hover !important;
+            }
+            .select2-selection__rendered {
+                padding-left: 0.75em !important;
+                padding-top: 0.75em !important;
+            }
+            .select2-selection__arrow {
+                height: 100% !important;
+                top: 0px !important;
+            }
+        }
+
+        &.select2-container--open {
+            .select2-selection {
+                border-color: $primary !important;
+                &:hover {
+                    border-color: $primary !important;
+                }
+            }
+        }
+    }
+
+    &.is-medium {
+        .select2-container {
+            .select2-selection {
+                font-size: $size-5 !important;
+            }
+        }
+    }
+    &.is-large {
+        .select2-container {
+            .select2-selection {
+                font-size: $size-4 !important;
+            }
+        }
+    }
+}
+
+.select2-container {
+    .select2-selection--single {
+      margin-top: 1.5px;
+      height: 37px !important;
+
+        .select2-selection__arrow {
+          top: 6px !important;
+        }
+    }
+
+    .select2-selection__rendered {
+      line-height: 35px !important;
+      font-size: 18px !important;
+    }
+
+    .select2-dropdown {
+        border-color: $primary !important;
+
+        .select2-search {
+            margin: 10px !important;
+            .select2-search__field {
+                @extend .input;
+                border-radius: $radius !important !important;
+            }
+        }
+
+        .select2-results__options {
+            max-height: 210px !important;
+            .select2-results__option {
+                padding: 0.75em !important;
+                font-family: $family-sans-serif !important;
+                font-size: 1rem !important;
+
+                &.select2-results__option--highlighted {
+                    background: $primary !important;
+                }
+            }
+        }
+    }
+}
