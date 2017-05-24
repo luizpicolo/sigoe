@@ -36,4 +36,18 @@ module ApplicationHelper
   def  options_for_search(params)
     options_for_select(["15", "30", "45", "50", "75", "100"], params[:return])
   end
+
+  # Converte datas em formato brasileiro
+  #
+  # @example formated_date(Time.now) #=> 10/10/2010
+  #
+  # @param Time
+  # @return [String] definido mediante o Time
+  def formated_date(date = nil)
+    if date.nil?
+      Time.now.strftime('%d/%m/%Y')
+    else
+      date.strftime('%d/%m/%Y')
+    end
+  end
 end
