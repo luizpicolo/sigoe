@@ -25,7 +25,7 @@ RSpec.describe Student, type: :model do
   it { should delegate_method(:name).to(:course).with_prefix }
   it { should delegate_method(:initial).to(:course).with_prefix }
 
-  describe "#ordenation_attributes" do
+  describe ".ordenation_attributes" do
     ordenation_attributes = Student.ordenation_attributes
 
     it "should return an array" do

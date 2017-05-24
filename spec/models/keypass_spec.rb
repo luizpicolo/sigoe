@@ -29,7 +29,7 @@ RSpec.describe Keypass, type: :model do
   it { should define_enum_for(:local) }
 
   # Methods
-  describe "#ordenation_attributes" do
+  describe ".ordenation_attributes" do
     ordenation_attributes = Keypass.ordenation_attributes
 
     it "should return an array" do

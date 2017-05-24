@@ -63,7 +63,7 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe "#ordenation_attributes" do
+  describe ".ordenation_attributes" do
     ordenation_attributes = User.ordenation_attributes
 
     it "should return an array" do

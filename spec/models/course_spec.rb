@@ -34,7 +34,7 @@ RSpec.describe Course, type: :model do
     end
   end
 
-  describe "#ordenation_attributes" do
+  describe ".ordenation_attributes" do
     ordenation_attributes = Course.ordenation_attributes
 
     it "should return an array" do
