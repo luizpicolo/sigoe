@@ -29,6 +29,13 @@ class Student < ApplicationRecord
     attributes :course => "course.name"
   end
 
+  # Retorna um vetor contendo os nomes e seus respectivos IDs
+  #
+  # @return [Array] contendo nomes e seus IDs
+  def self.get_all
+    order('name asc').collect {|p| [ p.name, p.id ] }
+  end
+
   # Retorna um vetor com os atributos que serão utilizados para a
   # busca nas listagens dos estudantes
   #
