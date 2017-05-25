@@ -34,3 +34,4 @@
 /doc/
 /.yardoc/
 /erd.pdf
+/node_modules/
