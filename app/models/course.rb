@@ -17,6 +17,7 @@ class Course < ApplicationRecord
 
   # Associações
   has_many :students
+  has_many :incidents
 
   search_scope :search do
     attributes :name

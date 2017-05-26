@@ -23,23 +23,27 @@ RSpec.describe Incident, type: :model do
   # Validations
   it { should validate_presence_of :student }
   it { should validate_presence_of :user  }
-  it { should validate_presence_of :local  }
+  it { should validate_presence_of :institution  }
   it { should validate_presence_of :description  }
   it { should validate_presence_of :date_incident  }
+  it { should validate_presence_of :time_incident  }
 
   # Columns
   it { should have_db_column :id }
   it { should have_db_column :student_id }
   it { should have_db_column :user_id }
-  it { should have_db_column :local }
-  it { should have_db_column :description }
+  it { should have_db_column :course_id }
+  it { should have_db_column :institution }
   it { should have_db_column :date_incident }
+  it { should have_db_column :time_incident }
   it { should have_db_column :soluction }
+  it { should have_db_column :description }
 
   # Indexes
   it { should have_db_index ["student_id"] }
+  it { should have_db_index ["student_id"] }
   it { should have_db_index ["user_id"] }
-  it { should have_db_index ["local"] }
+  it { should have_db_index ["institution"] }
   it { should have_db_index ["date_incident"] }
 
   # Delegats
@@ -48,9 +52,10 @@ RSpec.describe Incident, type: :model do
   # Associations
   it { should belong_to(:student) }
   it { should belong_to(:user) }
+  it { should belong_to(:course) }
 
   # Enums
-  it { should define_enum_for(:local).with(["ifms", "ufms"]) }
+  it { should define_enum_for(:institution).with(["ifms", "ufms"]) }
 
   # Methods
   describe '#search' do

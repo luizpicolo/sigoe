@@ -4,6 +4,7 @@ pt-BR:
       user: "Usuários"
       keypass: "Senhas"
       course: "Curso"
+      incident: "Ocorrências"
 
     attributes:
       user:
@@ -21,3 +22,11 @@ pt-BR:
         local: "Local"
       course:
         name: 'Nome'
+      incident: 
+        student: 'Estudante'
+        institution: 'Instituição'
+        description: 'Descrição'
+        date_incident: 'Data ocorrência'
+        time_incident: 'Hora ocorrência'
+        course: 'Turma'
+        user: 'Usuário'

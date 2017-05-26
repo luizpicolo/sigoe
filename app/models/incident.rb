@@ -16,12 +16,14 @@
 class Incident < ApplicationRecord
   include SearchCop
 
-  validates :student, :user, :local, :description, :date_incident, presence: true
+  validates :student, :user, :institution, :description, 
+	    :date_incident, :time_incident, presence: true
 
-  enum local: [:ifms, :ufms]
+  enum institution: [:ifms, :ufms]
 
   belongs_to :student
   belongs_to :user
+  belongs_to :course
 
   # Delegates
   delegate :name, :to => :student, prefix: true
@@ -36,6 +38,7 @@ class Incident < ApplicationRecord
   #
   # @return [Array] contendo os atributos para a busca
   def self.ordenation_attributes
-    [["ID",'id'], ["Estudante",'student_name'], ["local",'local'], ["Data",'date_incident']]
+    [["ID",'id'], ["Estudante",'student_id'], ["Instituição",'institution'], 
+     ["Data",'date_incident']]
   end
 end

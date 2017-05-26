@@ -10,17 +10,31 @@
     </div>
 
     <div class="control is-expanded">
+      <%= f.label :course, 'Turma', class: 'label' %>
+      <p class="control">
+        <span class="select">
+          <%= f.select :course_id, Course.names, {}, { :class => "select2 select is-medium" } %>
+        </span>
+      </p>
+    </div>
+  </div>
+
+  <div class="control is-grouped">
+    <div class="control is-expanded">
       <%= f.label :date_incident, 'Data ocorrência', class: 'label' %>
       <%= f.text_field :date_incident, class: 'input is-medium date', value: extract_and_format_date(model.date_incident), placeholder: 'Data ocorrência', required: true %>
     </div>
 
     <div class="control is-expanded">
-      <%= f.label :student_id, 'Estudante', class: 'label' %>
+      <%= f.label :time_incident, 'Hora ocorrência', class: 'label' %>
       <%= f.text_field :time_incident, class: 'input is-medium time', value: extract_and_format_time(model.time_incident), placeholder: 'Data ocorrência', required: true %>
     </div>
+
+    <div class="control is-expanded">
+      <%= f.label :institution, 'Instituição', class: 'label' %>
       <p class="control">
         <span class="select">
-          <%= f.select :local, Incident.locals.keys.to_a, {}, { :class => "select2 select is-medium" } %>
+          <%= f.select :institution, Incident.institutions.keys.to_a, {}, { :class => "select2 select is-medium" } %>
         </span>
       </p>
     </div>
