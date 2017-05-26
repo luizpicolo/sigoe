@@ -1,0 +1,12 @@
+{
+  "flags": [],
+  "linkedModules": [],
+  "topLevelPatters": [
+    "jquery-mask-plugin@^1.14.10"
+  ],
+  "lockfileEntries": {
+    "jquery-mask-plugin@^1.14.10": "https://registry.yarnpkg.com/jquery-mask-plugin/-/jquery-mask-plugin-1.14.10.tgz#72468dfac2fced869818e7b704d713ada713417a"
+  },
+  "files": [],
+  "artifacts": {}
+}

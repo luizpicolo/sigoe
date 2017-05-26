@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery-mask-plugin/dist/jquery.mask
 //= require jquery.turbolinks
 //= require jquery_ujs
 //= require jquery-ui
@@ -30,5 +31,7 @@ document.addEventListener('turbolinks:load', function() {
   // Select 2
   $(".select2").select2();
 
-  $('.datepicker').datepicker();
+  // Macks
+  $('.date').mask('00/00/0000');
+  $('.time').mask('00:00');
 });
