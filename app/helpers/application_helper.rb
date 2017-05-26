@@ -39,15 +39,29 @@ module ApplicationHelper
 
   # Converte datas em formato brasileiro
   #
-  # @example formated_date(Time.now) #=> 10/10/2010
+  # @example extract_and_format_date(Time.now) #=> 10/10/2010
   #
   # @param Time
   # @return [String] definido mediante o Time
-  def formated_date(date = nil)
+  def extract_and_format_date(date = nil)
     if date.nil?
       Time.now.strftime('%d/%m/%Y')
     else
       date.strftime('%d/%m/%Y')
+    end
+  end
+
+  # Converte horas em formato brasileiro
+  #
+  # @example extract_and_format_date(Time.now) #=> 10:10
+  #
+  # @param Time
+  # @return [String] definido mediante o Time
+  def extract_and_format_time(time = nil)
+    if time.nil?
+      Time.now.strftime('%H:%M')
+    else
+      time.strftime('%H:%M')
     end
   end
 end

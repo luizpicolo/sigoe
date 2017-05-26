@@ -27,8 +27,8 @@
     <tr>
       <td><%= incident.id %></td>
       <td><%= incident.student_name %></td>
-      <td><%= formated_date(incident.date_incident) %></td>
       <td><%= incident.local %></td>
+      <td><%= extract_and_format_date(incident.date_incident) %></td>
       <td class="has-text-right">
         <%= link_to edit_incident_path(incident), class: 'button is-success in-mobile-expand' do %>
           <span class="icon">
