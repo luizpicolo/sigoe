@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "jquery-mask-plugin": "^1.14.10"
+    "jquery-mask-plugin": "^1.14.10",
+    "select2": "^4.0.3"
   }
 }

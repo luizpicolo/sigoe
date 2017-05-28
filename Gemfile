@@ -32,7 +32,6 @@ gem 'rails_admin'
 gem 'rails_admin-i18n'
 gem 'randumb'
 gem 'sass-rails'
-gem 'select2-rails'
 gem 'search_cop'
 gem 'turbolinks'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
