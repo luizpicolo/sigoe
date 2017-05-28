@@ -43,12 +43,8 @@ module ApplicationHelper
   #
   # @param Time
   # @return [String] definido mediante o Time
-  def extract_and_format_date(date = nil)
-    if date.nil?
-      Time.now.strftime('%d/%m/%Y')
-    else
-      date.strftime('%d/%m/%Y')
-    end
+  def extract_and_format_date(date = Time.now)
+    date.strftime('%d/%m/%Y')
   end
 
   # Converte horas em formato brasileiro
@@ -57,11 +53,7 @@ module ApplicationHelper
   #
   # @param Time
   # @return [String] definido mediante o Time
-  def extract_and_format_time(time = nil)
-    if time.nil?
-      Time.now.strftime('%H:%M')
-    else
-      time.strftime('%H:%M')
-    end
+  def extract_and_format_time(time = Time.now)
+    time.strftime('%H:%M')
   end
 end
