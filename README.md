@@ -1,8 +1,7 @@
-[![Code Climate](https://codeclimate.com/github/luizpicolo/siai-ifms-na.png)](https://codeclimate.com/github/luizpicolo/siai-ifms-na)
-[![Build Status](https://travis-ci.org/luizpicolo/siai-ifms-na.svg?branch=master)](https://travis-ci.org/luizpicolo/siai-ifms-na)
-[![Coverage Status](https://coveralls.io/repos/github/luizpicolo/siai-ifms-na/badge.svg?branch=master)](https://coveralls.io/github/luizpicolo/siai-ifms-na?branch=master)
+[![Code Climate](https://codeclimate.com/github/ifms-na/siai-ifms-na.png)](https://codeclimate.com/github/luizpicolo/siai-ifms-na)
+[![Build Status](https://travis-ci.org/ifms-na/siai-ifms-na.svg?branch=master)](https://travis-ci.org/luizpicolo/siai-ifms-na)
 
-![](https://raw.githubusercontent.com/luizpicolo/siai-ifms-na/master/app/assets/images/logo_ifms.png?token=ABT0W4aSOnogYpUeUhFZlcp1WgNYR34Gks5Yv3kuwA%3D%3D)
+![](https://raw.githubusercontent.com/ifms-na/siai-ifms-na/master/app/assets/images/logo_ifms.png?token=ABT0W4aSOnogYpUeUhFZlcp1WgNYR34Gks5Yv3kuwA%3D%3D)
 
 
 # SIAI - Sistema de Apoio Interno
