@@ -38,4 +38,5 @@ O SIAI (Sistema de Apoio interno) é um software desenvolvido com o objetivo de 
 
 ## License
 
-suap_api usa a Licença MIT. Para mais detalhes https://github.com/ifms-na/suap_api/blob/master/LICENSE.txt
+SIAI usa a Licença MIT. Para mais detalhes https://github.com/ifms-na/siai-ifms-na
+/blob/master/LICENSE.txt
