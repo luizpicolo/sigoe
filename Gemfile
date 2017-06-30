@@ -76,4 +76,5 @@ end
 
 group :production do
   gem 'turnout'
+  gem 'rails_12factor'
 end
