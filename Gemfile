@@ -58,6 +58,7 @@ end
 
 group :development do
   gem 'yard'
+  gem 'puma', '~> 3.0'
   gem 'annotate'
   gem 'better_errors'
   gem 'listen', '~> 3.0.5'
