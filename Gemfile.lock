@@ -208,7 +208,6 @@ GEM
     pg (0.20.0)
     polyglot (0.3.5)
     public_suffix (2.0.5)
-    puma (3.8.2)
     rack (2.0.3)
     rack-accept (0.4.5)
       rack (>= 0.4)
@@ -407,6 +406,7 @@ DEPENDENCIES
   devise
   devise-i18n
   email_spec
+  erubis
   factory_girl_rails
   faker
   figaro
@@ -426,7 +426,6 @@ DEPENDENCIES
   modernizr-rails
   passenger
   pg
-  puma (~> 3.0)
   rails (= 5.1.1)
   rails-controller-testing
   rails-env

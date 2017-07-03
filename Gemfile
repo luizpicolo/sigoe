@@ -37,6 +37,7 @@ gem 'turbolinks'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'uglifier'
 gem 'pg'
+gem 'erubis'
 
 group :development, :test do
   gem 'byebug', platform: :mri
@@ -57,7 +58,6 @@ end
 
 group :development do
   gem 'yard'
-  gem 'puma', '~> 3.0'
   gem 'annotate'
   gem 'better_errors'
   gem 'listen', '~> 3.0.5'
