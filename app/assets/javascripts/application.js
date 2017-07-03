@@ -26,7 +26,6 @@ document.addEventListener('turbolinks:load', function() {
 
   // Clipboard JS
   var clip = new Clipboard('.clipboard');
-  console.log(clip);
 
   // Select 2
   $(".select2").select2();
