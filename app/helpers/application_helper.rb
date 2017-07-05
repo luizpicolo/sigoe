@@ -43,8 +43,9 @@ module ApplicationHelper
   #
   # @param Time
   # @return [String] definido mediante o Time
-  def extract_and_format_date(date = Time.now)
-    date.strftime('%d/%m/%Y')
+  def extract_and_format_date(date = nil)
+    d = date.present? ? date : Time.now
+    d.strftime('%d/%m/%Y')
   end
 
   # Converte horas em formato brasileiro
@@ -53,7 +54,8 @@ module ApplicationHelper
   #
   # @param Time
   # @return [String] definido mediante o Time
-  def extract_and_format_time(time = Time.now)
-    time.strftime('%H:%M')
+  def extract_and_format_time(time = nil)
+    t = time.present? ? time : Time.now
+    t.strftime('%H:%M')
   end
 end
