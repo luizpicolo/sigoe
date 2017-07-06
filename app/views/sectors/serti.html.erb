@@ -21,8 +21,16 @@
   </div>
   <% end %>
 
+  <% if can? :manage, Position %>
   <div class="column">
+    <%= link_to positions_path do %>
+      <section>
+        <i class="ion-android-people"></i>
+        <h1>Cargos/Funçôes</h1>
+      </section>
+    <% end %>
   </div>
+  <% end %>
 
   <div class="column">
   </div>

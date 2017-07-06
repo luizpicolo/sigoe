@@ -19,6 +19,7 @@
 #  name                   :string
 #  siape                  :integer
 #  sector_id              :integer
+#  position_id            :integer
 #
 
 require 'rails_helper'
