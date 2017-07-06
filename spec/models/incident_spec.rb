@@ -5,12 +5,15 @@
 #  id            :integer          not null, primary key
 #  student_id    :integer
 #  user_id       :integer
-#  local         :integer
+#  institution   :integer
 #  description   :text
 #  date_incident :date
 #  soluction     :text
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
+#  course_id     :integer
+#  time_incident :time
+#  assistant_id  :integer
 #
 
 require 'rails_helper'
@@ -25,6 +28,7 @@ RSpec.describe Incident, type: :model do
   it { should validate_presence_of :user  }
   it { should validate_presence_of :institution  }
   it { should validate_presence_of :description  }
+  it { should validate_presence_of :assistant  }
   it { should validate_presence_of :date_incident  }
   it { should validate_presence_of :time_incident  }
 
@@ -32,6 +36,7 @@ RSpec.describe Incident, type: :model do
   it { should have_db_column :id }
   it { should have_db_column :student_id }
   it { should have_db_column :user_id }
+  it { should have_db_column :assistant_id }
   it { should have_db_column :course_id }
   it { should have_db_column :institution }
   it { should have_db_column :date_incident }
@@ -40,7 +45,6 @@ RSpec.describe Incident, type: :model do
   it { should have_db_column :description }
 
   # Indexes
-  it { should have_db_index ["student_id"] }
   it { should have_db_index ["student_id"] }
   it { should have_db_index ["user_id"] }
   it { should have_db_index ["institution"] }
@@ -51,6 +55,7 @@ RSpec.describe Incident, type: :model do
 
   # Associations
   it { should belong_to(:student) }
+  it { should belong_to(:assistant) }
   it { should belong_to(:user) }
   it { should belong_to(:course) }
 

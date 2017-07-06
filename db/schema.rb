@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170526085842) do
+ActiveRecord::Schema.define(version: 20170705160324) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20170526085842) do
     t.datetime "updated_at", null: false
     t.integer "course_id"
     t.time "time_incident"
+    t.integer "assistant_id"
     t.index ["course_id"], name: "index_incidents_on_course_id"
     t.index ["date_incident"], name: "index_incidents_on_date_incident"
     t.index ["institution"], name: "index_incidents_on_institution"
@@ -51,6 +52,13 @@ ActiveRecord::Schema.define(version: 20170526085842) do
     t.string "user"
     t.integer "local"
     t.index ["title"], name: "index_keypasses_on_title"
+  end
+
+  create_table "positions", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_positions_on_name"
   end
 
   create_table "sectors", id: :serial, force: :cascade do |t|
@@ -90,7 +98,9 @@ ActiveRecord::Schema.define(version: 20170526085842) do
     t.string "name"
     t.integer "siape"
     t.integer "sector_id"
+    t.bigint "position_id"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["position_id"], name: "index_users_on_position_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["sector_id"], name: "index_users_on_sector_id"
     t.index ["username"], name: "index_users_on_username", unique: true
@@ -100,5 +110,6 @@ ActiveRecord::Schema.define(version: 20170526085842) do
   add_foreign_key "incidents", "students"
   add_foreign_key "incidents", "users"
   add_foreign_key "students", "courses"
+  add_foreign_key "users", "positions"
   add_foreign_key "users", "sectors"
 end

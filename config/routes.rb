@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   root 'home#index'
 
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-
   # Devise Routes
   devise_for :user, path: 'auth', path_names: {
       sign_in: 'login',
@@ -24,4 +22,5 @@ Rails.application.routes.draw do
   resources :students, except: [:show]
   resources :courses, except: [:show]
   resources :incidents, except: [:show]
+  resources :positions, except: [:show]
 end

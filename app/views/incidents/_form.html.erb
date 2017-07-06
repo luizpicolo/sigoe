@@ -21,6 +21,15 @@
 
   <div class="control is-grouped">
     <div class="control is-expanded">
+      <%= f.label :assistant_id, 'Assistente', class: 'label' %>
+      <p class="control">
+        <span class="select">
+          <%= f.select :assistant_id, User.get_by_position('Assistente de Alunos'), {}, { :class => "select2 select is-medium" } %>
+        </span>
+      </p>
+    </div>
+
+    <div class="control is-expanded">
       <%= f.label :date_incident, 'Data ocorrência', class: 'label' %>
       <%= f.text_field :date_incident, class: 'input is-medium date', value: extract_and_format_date(model.date_incident), placeholder: 'Data ocorrência', required: true %>
     </div>
