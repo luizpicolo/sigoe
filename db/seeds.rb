@@ -29,10 +29,15 @@ Sector.create([
   }
 ])
 
+Position.create([
+  { name: 'Técnico em Tecnologia da Informação' }
+])
+
 User.create({
   name: 'admin',
   siape: '12345678',
   sector_id: Sector.first.id,
+  position_id: Position.first.id,
   username: 'admin',
   email: 'admin@admin.com',
   password: '12345678',
