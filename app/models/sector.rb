@@ -16,7 +16,7 @@ class Sector < ApplicationRecord
   friendly_id :initial, use: :slugged
 
   # Validações
-  validates :name, :initial, presence: true, uniqueness: true
+  validates :name, :initial, presence: true
 
   # Associações
   has_many :users
