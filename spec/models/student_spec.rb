@@ -55,6 +55,18 @@ RSpec.describe Student, type: :model do
     end
   end
 
+  describe "#get_all" do
+    it "should return an array" do
+      @student = Student.get_all
+      expect(@student).to be_an_instance_of(Array)
+
+      @student.each do |student|
+        expect(student[0]).to be_kind_of(String)
+        expect(student[1]).to be_kind_of(Integer)
+      end
+    end
+  end
+
   describe '#search' do
     it "find user by name" do
       expect(Student.search(@student.name)).to eq([@student])
