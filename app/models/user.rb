@@ -8,7 +8,7 @@
 #  reset_password_token   :string
 #  reset_password_sent_at :datetime
 #  remember_created_at    :datetime
-#  sign_in_count          :integer          default("0"), not null
+#  sign_in_count          :integer          default(0), not null
 #  current_sign_in_at     :datetime
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :inet
@@ -19,6 +19,7 @@
 #  name                   :string
 #  siape                  :integer
 #  sector_id              :integer
+#  position_id            :integer
 #
 
 class User < ApplicationRecord
@@ -37,6 +38,7 @@ class User < ApplicationRecord
 
   # Associações
   belongs_to :sector
+  belongs_to :position
 
   # Atributos para busca com SearchCop
   search_scope :search do
@@ -50,6 +52,14 @@ class User < ApplicationRecord
   # @return [Array] contendo os atributos para a busca
   def self.ordenation_attributes
     [["ID",'id'], ["Nome",'name']]
+  end
+
+  # Retorna um vetor com os atributos que serão utilizados para a
+  # busca nas listagens de usuários
+  #
+  # @return [Array] contendo os atributos para a busca
+  def self.get_by_position(name_position)
+    Position.find_by_name(name_position).users.collect {|p| [ p.name, p.id ] }
   end
 
   # Verifica se o usuário selecionado é o usuário que esta logado

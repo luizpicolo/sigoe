@@ -19,6 +19,7 @@
 #  name                   :string
 #  siape                  :integer
 #  sector_id              :integer
+#  position_id            :integer
 #
 
 FactoryGirl.define do
@@ -30,6 +31,7 @@ FactoryGirl.define do
     password_confirmation pwd
     username { Faker::Internet.user_name }
     siape { Faker::Number.number(7) }
-    sector 
+    sector
+    position factory: :position
   end
 end
