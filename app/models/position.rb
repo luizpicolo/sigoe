@@ -14,6 +14,8 @@ class Position < ApplicationRecord
   # Validações
   validates :name, presence: true
 
+  # Associações
+  has_many :users
 
   # Atributos para busca com SearchCop
   search_scope :search do
