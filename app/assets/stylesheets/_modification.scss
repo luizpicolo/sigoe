@@ -5,7 +5,7 @@ a {
 }
 
 .container {
-  max-width: 920px;
+  max-width: 98%;
 }
 
 .in-mobile-expand {
@@ -16,7 +16,7 @@ a {
 
 .is-grouped {
   @media(max-width: 767px) {
-    
+
   }
 }
 
@@ -32,4 +32,18 @@ a {
   @media(max-width: 767px) {
      text-align: center
   }
+}
+
+.active {
+  @extend .is-active;
+  background: $green !important;
+  color: $white !important;
+}
+
+.menu-label {
+  font-size: 15px;
+}
+
+.profile {
+  margin: 20px 0;
 }

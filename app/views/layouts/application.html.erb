@@ -39,9 +39,13 @@
   <main class="main">
     <div class="container">
       <div class="no-print"><%= render_breadcrumbs %></div>
-      <div class="title">Institulo Federal de Mato Grosso do Sul</div>
-      <div class="subtitle">Sistema de gestão interna</div>
-      <%= yield %>
+      <div class="columns">
+        <div class="column is-one-quarter">
+          <%= render 'layouts/image' %>
+          <%= render 'layouts/nav' %>
+        </div>
+        <div class="column"><%= yield %></div>
+      </div>
     </div>
   </main>
 

@@ -1,0 +1,30 @@
+<aside class="menu">
+  <p class="menu-label">
+    Administração
+  </p>
+  <ul class="menu-list">
+    <% if can? :manage, User %>
+      <li><%= active_link_to 'Usuários', users_path %></li>
+    <% end %>
+    <% if can? :manage, Keypass %>
+      <li><%= active_link_to 'Senhas', keypasses_path %></li>
+    <% end %>
+    <% if can? :manage, Position %>
+      <li><%= active_link_to 'Cargos / Funçôes', positions_path %></li>
+    <% end %>
+  </ul>
+  <p class="menu-label">
+    DIREN
+  </p>
+  <ul class="menu-list">
+    <% if can? :manage, Student %>
+      <li><%= active_link_to 'Estudantes', students_path %></li>
+    <% end %>
+    <% if can? :manage, Course %>
+      <li><%= active_link_to 'Cursos', courses_path %></li>
+    <% end %>
+    <% if can? :manage, Incident %>
+      <li><%= active_link_to 'Ocorrências', incidents_path %></li>
+    <% end %>
+  </ul>
+</aside>
