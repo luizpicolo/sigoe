@@ -16,14 +16,16 @@
  *= require alert_message
 */
 
+// IFMS Colos
+$green: hsl(130, 54%,  40%) !default;
+$red:   hsl(358, 78%, 45%) !default;
+
 @import "font-awesome-sprockets";
 @import "font-awesome";
-
-// librarys
-@import "bulma";
 @import 'ionicons';
 
 // device
+@import "bulma";
 @import "devise/devise";
 
 // Imports

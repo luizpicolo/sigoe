@@ -1,11 +1,4 @@
 GIT
-  remote: https://github.com/luizpicolo/ifmsui-rails
-  revision: a914ab57c4079ad222a1ed51eccb3af203f83e1e
-  specs:
-    ifmsui-rails (1.0.0)
-      sass (~> 3.2)
-
-GIT
   remote: https://github.com/thoughtbot/shoulda-matchers.git
   revision: ead87017a6c15adce66a87dce8ee2ece91d0d27c
   branch: rails-5
@@ -77,6 +70,8 @@ GEM
       railties (>= 3.0)
     breadcrumbs_on_rails (3.0.1)
     builder (3.2.3)
+    bulma-rails (0.4.3)
+      sass (~> 3.2)
     byebug (9.0.6)
     cancancan (2.0.0)
     capybara (2.14.0)
@@ -298,7 +293,7 @@ GEM
     ruby-graphviz (1.2.3)
     ruby-progressbar (1.8.1)
     rubyzip (1.2.1)
-    sass (3.4.24)
+    sass (3.4.25)
     sass-rails (5.0.6)
       railties (>= 4.0.0, < 6)
       sass (~> 3.1)
@@ -376,6 +371,7 @@ DEPENDENCIES
   bootstrap-wysihtml5-rails
   bootstrap-wysihtml5-rails-font-awesome
   breadcrumbs_on_rails
+  bulma-rails (~> 0.4.3)
   byebug
   cancancan
   capybara
@@ -395,7 +391,6 @@ DEPENDENCIES
   font-awesome-sass
   friendly_id (~> 5.1.0)
   htmlcompressor
-  ifmsui-rails!
   ionicons-rails
   jbuilder
   jquery-rails

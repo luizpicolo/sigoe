@@ -4,19 +4,9 @@ a {
   color: $green;
 }
 
-.container {
-  max-width: 98%;
-}
-
 .in-mobile-expand {
   @media(max-width: 767px) {
     width: 100%;
-  }
-}
-
-.is-grouped {
-  @media(max-width: 767px) {
-
   }
 }
 
