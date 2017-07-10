@@ -47,8 +47,26 @@ a {
 .profile {
   margin: 20px 0;
 }
+
+fieldset {
+    font-family: sans-serif;
+    border: 1px solid $green;
+    border-radius: 5px;
+    padding: 15px;
+}
+
+fieldset legend {
+    padding: 5px 10px ;
+    font-size: 14px;
+    margin-left: 20px;
+}
+
 .is-64x64 {
   height: 64px;
   width: 64px;
   overflow: hidden;
+}
+
+.margin-top-20px {
+  margin-top: 20px;
 }
