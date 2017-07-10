@@ -23,6 +23,7 @@
 #
 
 class User < ApplicationRecord
+  mount_uploader :avatar, UserUploader
   include SearchCop
 
   # Include default devise modules. Others available are:

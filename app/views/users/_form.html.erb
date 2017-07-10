@@ -3,6 +3,10 @@
     <%= f.label :name, 'Nome', class: 'label' %>
     <%= f.text_field :name, class: 'input is-medium', placeholder: 'Nome', required: true %>
   </p>
+      <p class="control is-expanded">
+        <%= f.label :avatar, 'Imagem', class: 'label' %>
+        <%= f.file_field :avatar, class: 'input is-medium', placeholder: 'Nome', required: true %>
+      </p>
 
   <p class="control">
     <%= f.label :email, class: 'label' %>
