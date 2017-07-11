@@ -1,5 +1,11 @@
 // Tables
 
+table {
+  a {
+    color: $green;
+  }
+}
+
 @media screen and (max-width: 850px) {
   table {
     position: relative;
