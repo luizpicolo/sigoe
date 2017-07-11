@@ -4,13 +4,13 @@
     <div class="field is-horizontal">
       <div class="field-body">
         <div class="field">
-          <p class="control is-expanded">
+          <p class="control">
             <%= f.label :name, 'Nome', class: 'label' %>
             <%= f.text_field :name, class: 'input is-medium', placeholder: 'Nome', required: true %>
           </p>
         </div>
         <div class="field">
-          <p class="control is-expanded">
+          <p class="control">
             <%= f.label :avatar, 'Imagem', class: 'label' %>
             <%= f.file_field :avatar, class: 'input is-medium', placeholder: 'Nome', required: true %>
           </p>
@@ -29,22 +29,22 @@
     <div class="field is-horizontal">
       <div class="field-body">
         <div class="field">
-          <p class="control is-expanded">
+          <p class="control">
             <%= f.label :siape, class: 'label' %>
             <%= f.text_field :siape, class: 'input is-medium', placeholder: 'SIAPE', required: true %>
           </p>
         </div>
         <div class="field">
+          <%= f.label :sector_id, 'Setor', class: 'label' %>
           <p class="control">
-            <%= f.label :sector_id, 'Setor', class: 'label' %>
             <span class="select is-medium">
               <%= f.select :sector_id, Sector.initials, { prompt: "Selecione o setor" }, { :class => "select2" } %>
             </span>
           </p>
         </div>
         <div class="field">
+          <%= f.label :position_id, 'Cargo/Função', class: 'label' %>
           <p class="control">
-            <%= f.label :position_id, 'Cargo/Função', class: 'label' %>
             <span class="select is-medium">
               <%= f.select :position_id, Position.get_all, { prompt: "Selecione o cargo" }, { :class => "select2" } %>
             </span>
@@ -56,25 +56,33 @@
 
   <fieldset>
     <legend>Dados de acesso</legend>
-    <div class="control is-grouped">
-      <p class="control is-expanded">
-        <%= f.label :username, 'Usuário', class: 'label' %>
-        <%= f.text_field :username, class: 'input is-medium', placeholder: 'Usuário', required: true %>
-      </p>
-      <p class="control is-expanded">
-        <%= f.label :password, 'Senha', class: 'label' %>
-        <%= f.password_field :password, class: 'input is-medium', placeholder: 'Senha' %>
-      </p>
-      <p class="control is-expanded">
-        <%= f.label :password_confirmation, 'Repetir senha', class: 'label' %>
-        <%= f.password_field :password_confirmation, class: 'input is-medium', placeholder: 'Confimação senha' %>
-      </p>
+    <div class="field is-horizontal">
+      <div class="field-body">
+        <div class="field">
+          <p class="control">
+            <%= f.label :username, 'Usuário', class: 'label' %>
+            <%= f.text_field :username, class: 'input is-medium', placeholder: 'Usuário', required: true %>
+          </p>
+        </div>
+        <div class="field">
+          <p class="control">
+            <%= f.label :password, 'Senha', class: 'label' %>
+            <%= f.password_field :password, class: 'input is-medium', placeholder: 'Senha' %>
+          </p>
+        </div>
+        <div class="field">
+          <p class="control">
+            <%= f.label :password_confirmation, 'Repetir senha', class: 'label' %>
+            <%= f.password_field :password_confirmation, class: 'input is-medium', placeholder: 'Confimação senha' %>
+          </p>
+        </div>
+      </div>
     </div>
   </fieldset>
 
-  <div class="control is-grouped is-pulled-left margin-top-20px ">
+  <div class="control is-grouped is-pulled-left margin-top-20px">
     <p class="control">
-      <%= f.submit "Salvar", class: "button is-success is-medium"%>
+      <%= f.submit "Salvar", class: "button is-success is-medium in-mobile-expand"%>
     </p>
   </div>
 <% end %>

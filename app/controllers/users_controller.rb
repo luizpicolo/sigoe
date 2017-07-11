@@ -5,14 +5,14 @@ class UsersController < ApplicationController
   add_breadcrumb "Home", :root_path
 
   def index
-    add_breadcrumb "SERTI", sector_actions_path('serti')
+    add_breadcrumb "Serti", sector_actions_path('serti')
     add_breadcrumb "Usuários"
 
     @users = User.search(params[:search]).page(params[:page])
   end
 
   def new
-    add_breadcrumb "SERTI", sector_actions_path('serti')
+    add_breadcrumb "Serti", sector_actions_path('serti')
     add_breadcrumb "Usuários", :users_path
     add_breadcrumb "Novo usuário"
 
@@ -30,7 +30,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    add_breadcrumb "SERTI", sector_actions_path('serti')
+    add_breadcrumb "Serti", sector_actions_path('serti')
     add_breadcrumb "Usuários", :users_path
     add_breadcrumb "Atualizar usuário"
   end
