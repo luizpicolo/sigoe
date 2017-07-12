@@ -24,7 +24,6 @@ RSpec.describe Incident, type: :model do
   end
 
   # Validations
-  it { should validate_presence_of :student }
   it { should validate_presence_of :user  }
   it { should validate_presence_of :institution  }
   it { should validate_presence_of :description  }
@@ -49,9 +48,6 @@ RSpec.describe Incident, type: :model do
   it { should have_db_index ["user_id"] }
   it { should have_db_index ["institution"] }
   it { should have_db_index ["date_incident"] }
-
-  # Delegats
-  it { should delegate_method(:name).to(:student).with_prefix }
 
   # Associations
   it { should belong_to(:student) }

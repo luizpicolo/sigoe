@@ -29,9 +29,6 @@ class Incident < ApplicationRecord
   belongs_to :course, optional: true
   belongs_to :assistant, class_name: 'User', foreign_key: 'assistant_id'
 
-  # Delegates
-  # delegate :name, to: :student, prefix: true
-
   # Atributos para busca com SearchCop
   search_scope :search do
     attributes student: "student.name"
