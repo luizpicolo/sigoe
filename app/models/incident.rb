@@ -19,22 +19,26 @@
 class Incident < ApplicationRecord
   include SearchCop
 
-  validates :student, :user, :assistant, :institution, :description,
+  validates :user, :assistant, :institution, :description,
 	    :date_incident, :time_incident, presence: true
 
   enum institution: [:ifms, :ufms, :cemid]
 
-  belongs_to :student
+  belongs_to :student, optional: true
   belongs_to :user
   belongs_to :course
   belongs_to :assistant, class_name: 'User', foreign_key: 'assistant_id'
 
   # Delegates
-  delegate :name, to: :student, prefix: true
+  # delegate :name, to: :student, prefix: true
 
   # Atributos para busca com SearchCop
   search_scope :search do
     attributes student: "student.name"
+  end
+
+  def student_name
+    student.present? ? student.name : "Todos os estudantes"
   end
 
   # Retorna um vetor com os atributos que serão utilizados para a

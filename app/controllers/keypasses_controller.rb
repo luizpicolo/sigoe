@@ -5,14 +5,14 @@ class KeypassesController < ApplicationController
   add_breadcrumb "Home", :root_path
 
   def index
-    add_breadcrumb "SERTI", sector_actions_path('serti')
+    add_breadcrumb "Serti", sector_actions_path('serti')
     add_breadcrumb "Senhas"
 
     @keypasses = Keypass.search(params[:search]).order('id asc').page(params[:page])
   end
 
   def new
-    add_breadcrumb "SERTI", sector_actions_path('serti')
+    add_breadcrumb "Serti", sector_actions_path('serti')
     add_breadcrumb "Senhas", :users_path
     add_breadcrumb "Nova Senha"
 
@@ -30,7 +30,7 @@ class KeypassesController < ApplicationController
   end
 
   def edit
-    add_breadcrumb "SERTI", sector_actions_path('serti')
+    add_breadcrumb "Serti", sector_actions_path('serti')
     add_breadcrumb "Senhas", :keypasses_path
     add_breadcrumb "Editar Senha"
   end

@@ -1,9 +1,9 @@
-<div class="columns shortcuts">
+<div class="columns is-multiline shortcuts">
   <% @sectors.each do |s|%>
-  <div class="column">
+  <div class="column is-one-quarter">
     <%= link_to sector_actions_path(s.slug.downcase) do %>
       <section>
-        <i class="<%= s.icon %>"></i>
+        <i class="<%= s.icon %> icons"></i>
         <h1><%= s.initial %></h1>
       </section>
     <% end %>

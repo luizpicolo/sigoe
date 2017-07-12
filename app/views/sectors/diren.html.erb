@@ -1,6 +1,6 @@
-<div class="columns shortcuts">
+<div class="columns is-multiline shortcuts">
   <% if can? :read, Student %>
-  <div class="column">
+  <div class="column is-one-quarter">
     <%= link_to students_path do %>
       <section>
         <i class="ion-ios-people-outline"></i>
@@ -11,7 +11,7 @@
   <% end %>
 
   <% if can? :manage, Course %>
-  <div class="column">
+  <div class="column is-one-quarter">
     <%= link_to courses_path do %>
       <section>
         <i class="fa fa-university icons"></i>
@@ -22,7 +22,7 @@
   <% end %>
 
   <% if can? :manage, Incident %>
-  <div class="column">
+  <div class="column is-one-quarter">
     <%= link_to incidents_path do %>
       <section>
         <i class="fa fa-book icons"></i>
@@ -31,7 +31,4 @@
     <% end %>
   </div>
   <% end %>
-
-  <div class="column">
-  </div>
 </div>

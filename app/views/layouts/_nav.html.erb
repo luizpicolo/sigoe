@@ -1,7 +1,9 @@
 <aside class="menu">
+  <% if can? :manage, User %>
   <p class="menu-label">
     Serti
   </p>
+  <% end %>
   <ul class="menu-list">
     <% if can? :manage, User %>
       <li><%= active_link_to 'Usuários', users_path %></li>

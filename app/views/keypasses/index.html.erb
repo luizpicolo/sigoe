@@ -20,7 +20,6 @@
       <th>Titulo</th>
       <th>Local</th>
       <th>Usuário</th>
-      <th>Senha</th>
       <th></th>
     </tr>
   </thead>
@@ -31,11 +30,8 @@
       <td><%= k.title %></td>
       <td><%= k.local %></td>
       <td><%= k.user %></td>
-      <td>
-        <input type="text" class="input" id="id_<%= k.id %>" value="<%= k.key %>">
-      </td>
       <td class="has-text-right">
-        <a class="clipboard button is-addons in-mobile-expand" data-clipboard-action="copy" data-clipboard-target="#id_<%= k.id %>">
+        <a class="clipboard button in-mobile-expand" data-clipboard-text="<%= k.key %>">
           <span class="icon">
             <i class="ion-ios-copy"></i>
           </span>

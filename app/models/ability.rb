@@ -8,24 +8,30 @@ class Ability
   def initialize(user)
     user ||= User.new
 
-    if user.it_is_part_of_the_sector?('serti')
-      can :manage, :all
-      can :access, :rails_admin
+    if user.it_is_part_of_the_sector?('assal')
+      can :manage, Incident
     end
 
     if user.it_is_part_of_the_sector?('audi')
       can :manage, Student
     end
 
-    if user.it_is_part_of_the_sector?('prof')
-      can :read, Student
-      can :read, Incident
-    end
-
     if user.it_is_part_of_the_sector?('diren')
       can :manage, Student
       can :manage, Course
       can :manage, Incident
+    end
+
+    if user.it_is_part_of_the_sector?('prof')
+      can :read, Student
+    end
+
+    if user.it_is_part_of_the_sector?('serti')
+      can :manage, :all
+    end
+
+    if user.it_is_part_of_the_sector?('teclabinf')
+      can :read, Keypass
     end
   end
 end

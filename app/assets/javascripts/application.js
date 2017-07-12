@@ -25,7 +25,17 @@ document.addEventListener('turbolinks:load', function() {
   //$('.select2').select2();
 
   // Clipboard JS
-  var clip = new Clipboard('.clipboard');
+  var clipboard = new Clipboard('.clipboard');
+
+  clipboard.on('success', function(e) {
+    alert('Senha copiada para sua área de tranferência');
+    e.clearSelection();
+  });
+
+  clipboard.on('error', function(e) {
+      console.error('Action:', e.action);
+      console.error('Trigger:', e.trigger);
+  });
 
   // Select 2
   $(".select2").select2();
