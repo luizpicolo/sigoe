@@ -26,7 +26,7 @@ class Incident < ApplicationRecord
 
   belongs_to :student, optional: true
   belongs_to :user
-  belongs_to :course
+  belongs_to :course, optional: true
   belongs_to :assistant, class_name: 'User', foreign_key: 'assistant_id'
 
   # Delegates
@@ -38,7 +38,7 @@ class Incident < ApplicationRecord
   end
 
   def student_name
-    student.present? ? student.name : "Todos os estudantes"
+    student.present? ? student.name : "Aluno não relacionado"
   end
 
   # Retorna um vetor com os atributos que serão utilizados para a
