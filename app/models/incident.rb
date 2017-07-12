@@ -38,7 +38,11 @@ class Incident < ApplicationRecord
   end
 
   def student_name
-    student.present? ? student.name : "Aluno não relacionado"
+    student.present? ? student.name : " ---- "
+  end
+
+  def course_initial
+    course.present? ? course.initial : " ---- "
   end
 
   # Retorna um vetor com os atributos que serão utilizados para a
