@@ -15,5 +15,8 @@ FactoryGirl.define do
     name { Faker::Name.name }
     course factory: :course
     photo { Faker::Placeholdit.image }
+    responsible { Faker::Name.name }
+    responsible_contact { Faker::Internet.email }
+    contact { Faker::Internet.email }
   end
 end

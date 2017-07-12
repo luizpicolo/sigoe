@@ -9,8 +9,8 @@ class PositionsController < ApplicationController
     add_breadcrumb "Cargos/Função"
 
     @positions = Position.order("#{set_order}": :asc)
-                     .search(params[:search])
-                     .page(params[:page]).per(set_amount_return)
+                         .search(params[:search])
+                         .page(params[:page]).per(set_amount_return)
   end
 
   def new

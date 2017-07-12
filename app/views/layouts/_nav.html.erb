@@ -25,6 +25,7 @@
     <% end %>
     <% if can? :manage, Incident %>
       <li><%= active_link_to 'Ocorrências', incidents_path %></li>
+      <li><%= active_link_to 'Relatório ocorrências', new_report_incident_path %></li>
     <% end %>
   </ul>
 </aside>

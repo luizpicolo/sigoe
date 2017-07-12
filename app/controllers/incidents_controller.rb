@@ -5,7 +5,7 @@ class IncidentsController < ApplicationController
   add_breadcrumb "Home", :root_path
 
   def index
-    add_breadcrumb "DIREN", sector_actions_path('diren')
+    add_breadcrumb "Diren", sector_actions_path('diren')
     add_breadcrumb "Ocorrências"
 
     @incidents = Incident.order("#{set_order}": :asc)
@@ -14,7 +14,7 @@ class IncidentsController < ApplicationController
   end
 
   def new
-    add_breadcrumb "DIREN", sector_actions_path('diren')
+    add_breadcrumb "Diren", sector_actions_path('diren')
     add_breadcrumb "Ocorrências", :incidents_path
     add_breadcrumb "Nova ocorrências"
 
@@ -33,7 +33,7 @@ class IncidentsController < ApplicationController
   end
 
   def edit
-    add_breadcrumb "DIREN", sector_actions_path('diren')
+    add_breadcrumb "Diren", sector_actions_path('diren')
     add_breadcrumb "Ocorrências", :incidents_path
     add_breadcrumb "Atualizar Ocorrência"
   end
@@ -73,7 +73,7 @@ class IncidentsController < ApplicationController
 
   def incident_params
     params.require(:incident).permit(
-      :student_id, :course_id, :date_incident, :time_incident, :institution,
+      :student_id, :course_id, :date_incident, :assistant_id, :time_incident, :institution,
       :description, :soluction
     )
   end

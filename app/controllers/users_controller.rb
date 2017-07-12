@@ -8,7 +8,9 @@ class UsersController < ApplicationController
     add_breadcrumb "Serti", sector_actions_path('serti')
     add_breadcrumb "Usuários"
 
-    @users = User.search(params[:search]).page(params[:page])
+    @users = User.order("#{set_order}": :asc)
+                 .search(params[:search])
+                 .page(params[:page])
   end
 
   def new
@@ -58,6 +60,10 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
+  end
+
+  def set_order
+    params[:order] == "" || params[:order].nil? ? 'id' : params[:order]
   end
 
   def check_password(user_params)
