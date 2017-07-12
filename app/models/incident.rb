@@ -32,6 +32,7 @@ class Incident < ApplicationRecord
   # Atributos para busca com SearchCop
   search_scope :search do
     attributes student: "student.name"
+    attributes course: "course.name"
   end
 
   def student_name

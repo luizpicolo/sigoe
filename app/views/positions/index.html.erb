@@ -7,9 +7,10 @@
       <span>Novo cargo</span>
     <% end %>
   </div>
-
-  <% show_search_error_message(@positions, params) %>
-  <%= render 'layouts/search', path: positions_path, v: attr_order(@positions) %>
+  <div class="column">
+    <% show_search_error_message(@positions, params) %>
+    <%= render 'layouts/search', path: positions_path, v: attr_order(@positions) %>
+  </div>
 </div>
 
 <table class="table is-striped">

@@ -7,9 +7,10 @@
       <span>Novo curso</span>
     <% end %>
   </div>
-
-  <% show_search_error_message(@courses, params) %>
-  <%= render 'layouts/search', path: courses_path, v: attr_order(@courses) %>
+  <div class="column">  
+    <% show_search_error_message(@courses, params) %>
+    <%= render 'layouts/search', path: courses_path, v: attr_order(@courses) %>
+  </div>
 </div>
 
 <table class="table is-striped">

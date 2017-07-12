@@ -1,10 +1,7 @@
-<!doctype html>
-<html class="no-js" lang="pt-br">
+<html>
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Relatório</title>
-
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <title>Paginated HTML</title>
     <style type="text/css">
       body {
         font-family: Arial;
@@ -56,46 +53,57 @@
         /*float: left;*/
         margin: 4px 10px 0 0;
       }
+      div.page {
+        page-break-after: always;
+        page-break-inside: avoid;
+      }
     </style>
 
   </head>
-
   <body>
-    <header>
-      <div>
-        <h1><%= image_tag 'cabecalho.png', width: 770 %></h1><br>
-          <h2>Relatório de ocorrências</h2>
+    <% @incidents.each do |incident| %>
+      <div class="page">
+        <header>
+          <div>
+            <h1><%= image_tag 'cabecalho.png', width: 770 %></h1><br>
+              <h2>Relatório de ocorrências</h2>
+          </div>
+        </header>
+
+        <div class="info_student">
+          <p><b><%= incident&.student&.name %></b></p>
+          <p><b><%= incident&.student&.course_name %></b></p>
+          <% if incident&.student&.responsible.present? %>
+          <p><b>Responsável:</b> <%= incident&.student&.responsible %> / <%= incident&.student&.responsible_contact %> </p>
+          <% end %>
+          <p> Data ocorrência: <b><%= extract_and_format_date(incident&.date_incident) %></b></p>
+          <p> Hora ocorrência: <b><%= extract_and_format_time(incident&.time_incident) %></b></p>
+        </div>
+
+        <div class="description">
+          <p><b>Problema ocorrido</b></p>
+          <%= incident&.description %>
+          <% if incident&.soluction.present? %>
+          <p><b>Solução adoata para o problema</b></p>
+          <%= incident&.soluction %>
+          <% end %>
+        </div>
+
+        <div class="footer">
+          <div>
+            <p>Aluno(a)</p>
+            <p>____________________________</p>
+          </div>
+          <div>
+            <p>Responsável</p>
+            <p>____________________________</p>
+          </div>
+        </div>
+
+        <div class="date">
+          Data de comparecimento do responsável: ____ de _____________ de 201__
+        </div>
       </div>
-    </header>
-
-    <div class="info_student">
-      <p><b>Nome estudante</b></p>
-      <p><b>Responsável:</b> nome do responsável / Contato responsável </p>
-      <p> De <b></b> à <b>22/22/2222</b></p>
-    </div>
-
-    <div class="description">
-      <p>De <b>22/22/2222</b> à <b><22/22/2222</b></p>
-
-      <p><b>Problema ocorrido</b></p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      <p><b>Solução adoata para o problema</b></p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    </div>
-
-    <div class="footer">
-      <div>
-        <p>Aluno(a)</p>
-        <p>____________________________</p>
-      </div>
-      <div>
-        <p>Responsável</p>
-        <p>____________________________</p>
-      </div>
-    </div>
-
-    <div class="date">
-      Data de comparecimento do responsável: ____ de _____________ de 201__
-    </div>
+    <% end %>
   </body>
 </html>
