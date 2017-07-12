@@ -7,6 +7,7 @@ gem 'active_link_to'
 gem 'bootstrap-wysihtml5-rails'
 gem 'bootstrap-wysihtml5-rails-font-awesome'
 gem "breadcrumbs_on_rails"
+gem "bulma-rails", "~> 0.4.3"
 gem 'carrierwave'
 gem 'carrierwave-ftp', require: 'carrierwave/storage/sftp'
 gem 'cancancan'
@@ -18,7 +19,6 @@ gem 'figaro'
 gem 'friendly_id', '~> 5.1.0'
 gem 'font-awesome-sass'
 gem 'htmlcompressor'
-gem "ifmsui-rails", git: 'https://github.com/luizpicolo/ifmsui-rails'
 gem 'ionicons-rails' ## Será removido no futuro
 gem 'jbuilder'
 gem 'jquery-rails'

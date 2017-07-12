@@ -1,6 +1,6 @@
 <aside class="menu">
   <p class="menu-label">
-    Administração
+    Serti
   </p>
   <ul class="menu-list">
     <% if can? :manage, User %>
@@ -14,7 +14,7 @@
     <% end %>
   </ul>
   <p class="menu-label">
-    DIREN
+    Diren
   </p>
   <ul class="menu-list">
     <% if can? :manage, Student %>
@@ -25,6 +25,7 @@
     <% end %>
     <% if can? :manage, Incident %>
       <li><%= active_link_to 'Ocorrências', incidents_path %></li>
+      <li><%= active_link_to 'Relatório ocorrências', new_report_incident_path %></li>
     <% end %>
   </ul>
 </aside>

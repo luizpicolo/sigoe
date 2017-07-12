@@ -22,5 +22,6 @@ Rails.application.routes.draw do
   resources :students, except: [:show]
   resources :courses, except: [:show]
   resources :incidents, except: [:show]
+  resources :report_incidents, only: [:new, :create]
   resources :positions, except: [:show]
 end

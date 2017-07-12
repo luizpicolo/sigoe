@@ -1,21 +1,37 @@
-<div class="column">
-  <%= form_tag(path, :method => "get", id: "search") do %>
-    <p class="control has-addons is-pulled-right">
-      <span class="select is-hidden-mobile">
-        <%= select_tag "order",
-          options_for_select(v,
-          params[:order]),
-          prompt: "Ordenar por",
-          onchange: "this.form.submit();" %>
-      </span>
-      <span class="select is-hidden-mobile">
-        <%= select_tag "return", options_for_search(params), prompt: "Total",
-            onchange: "this.form.submit();" %>
-      </span>
-      <%= text_field_tag :search, params[:search], class: "input", placeholder: "Buscar" %>
-      <%= button_tag(type: "submit", class: "button is-success", name: nil) do %>
-      Buscar
-      <% end %>
-    </p>
-  <% end %>
+<div class="field is-horizontal">
+  <div class="field-body">
+      <div class="field">
+        <%= form_tag(path, :method => "get", id: "search") do %>
+        <p class="control">
+          <span class="select is-hidden-mobile">
+            <%= select_tag "order",
+              options_for_select(v,
+              params[:order]),
+              prompt: "Ordenar por",
+              onchange: "this.form.submit();" %>
+          </span>
+        </p>
+      </div>
+      <div class="field">
+        <p class="control">
+          <span class="select is-hidden-mobile">
+            <%= select_tag "return", options_for_search(params), prompt: "Total",
+                onchange: "this.form.submit();" %>
+          </span>
+        </p>
+      </div>
+      <div class="field has-addons">
+        <p class="control is-expanded">
+          <%= text_field_tag :search, params[:search], class: "input search", placeholder: "Buscar" %>
+        </p>
+        <p class="control">
+          <a class="button is-success">
+            <%= button_tag(type: "submit", class: "button is-success", name: nil) do %>
+            Buscar
+            <% end %>
+          </a>
+        </p>
+        <% end %>
+      </div>
+  </div>
 </div>

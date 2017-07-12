@@ -38,13 +38,13 @@
 
   <main class="main">
     <div class="container">
-      <div class="no-print"><%= render_breadcrumbs %></div>
+      <div class="no-print breadcrumb_nav"><%= render_breadcrumbs %></div>
       <div class="columns">
         <div class="column is-one-quarter">
           <%= render 'layouts/image' %>
           <%= render 'layouts/nav' %>
         </div>
-        <div class="column"><%= yield %></div>
+        <div class="column main-data"><%= yield %></div>
       </div>
     </div>
   </main>

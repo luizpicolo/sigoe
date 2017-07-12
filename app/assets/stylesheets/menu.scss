@@ -1,0 +1,11 @@
+.menu {
+  .menu-label {
+    font-size: 15px;
+  }
+}
+
+.active {
+  @extend .is-active;
+  background: $green !important;
+  color: $white !important;
+}

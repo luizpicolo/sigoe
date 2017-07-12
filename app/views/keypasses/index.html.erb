@@ -7,9 +7,10 @@
       <span>Nova Senha</span>
     <% end %>
   </div>
-
-  <% show_search_error_message(@keypasses, params) %>
-  <%= render 'layouts/search', path: keypasses_path, v: attr_order(@keypasses) %>
+  <div class="column">
+    <% show_search_error_message(@keypasses, params) %>
+    <%= render 'layouts/search', path: keypasses_path, v: attr_order(@keypasses) %>
+  </div>
 </div>
 
 <table class="table is-striped">
