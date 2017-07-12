@@ -1,6 +1,6 @@
-<div class="columns no-print">
+<div class="columns">
   <% if can? :manage, Student %>
-  <div class="column">
+  <div class="column no-print">
     <%= link_to new_student_path, class: "button is-success in-mobile-expand" do %>
       <span class="icon">
         <i class="ion-plus-round"></i>
@@ -9,9 +9,10 @@
     <% end %>
   </div>
   <% end %>
-
-  <% show_search_error_message(@students, params) %>
-  <%= render 'layouts/search', path: students_path, v: attr_order(@students) %>
+  <div class="column no-print">
+    <% show_search_error_message(@students, params) %>
+    <%= render 'layouts/search', path: students_path, v: attr_order(@students) %>
+  </div>
 </div>
 
 <table class="table is-striped">
