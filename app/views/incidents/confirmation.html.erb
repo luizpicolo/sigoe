@@ -1,0 +1,14 @@
+<div class="content">
+  <h1 class="title is-3">Assinar ocorrência</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <div><b>Nome do estudante:</b> <%= @incident.student_name %></div>
+    <div><b>Curso/Turma:</b> <%= @incident.course.name %></div>
+    <div>
+      <b>Data/Hora ocorrência</b>
+      <%= extract_and_format_date @incident.date_incident  %> ás
+      <%= extract_and_format_time @incident.time_incident  %>
+    </div>
+    <div><b>Local:</b> <%= @incident.course.name %></div>
+    <br>
+    <%= render 'students/form_sign', incident: @incident %>
+</div>

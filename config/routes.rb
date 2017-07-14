@@ -21,7 +21,10 @@ Rails.application.routes.draw do
   resources :keypasses, except: [:show]
   resources :students, except: [:show]
   resources :courses, except: [:show]
-  resources :incidents, except: [:show]
+  resources :incidents, except: [:show] do
+    get :sign, to: 'incidents#confirmation'
+    post :sign, to: 'incidents#sign'
+  end
   resources :report_incidents, only: [:new, :create]
   resources :positions, except: [:show]
 end

@@ -1,7 +1,9 @@
 class IncidentsController < ApplicationController
   load_and_authorize_resource
 
-  before_action :set_incident, only: [:edit, :destroy, :update]
+  before_action :set_incident, only: [
+    :edit, :destroy, :update, :confirmation, :sign
+  ]
   add_breadcrumb "Home", :root_path
 
   def index
@@ -57,10 +59,35 @@ class IncidentsController < ApplicationController
     end
   end
 
+  ## Mostra a confirmação para que o estudante possa assinar
+  def confirmation
+    if @incident.student.ra.nil?
+      flash.now[:error] = "Por favor, cadastre uma senha e um R.A para o estudante"
+      redirect_to incidents_path
+    end
+  end
+
+  # Por meio de um usuário RA e senha
+  # o estudante assina a ocorrência dando ciencia do fato
+  def sign
+    if @incident.student.authenticate(params[:incident]['password'])
+      if @incident.update(signed_in: Time.now)
+        redirect_to incidents_path, flash: { success: 'Ocorrência assinada com sucesso' }
+      end
+    else
+      flash.now[:error] = "Sua senha esta incorreta"
+      render :confirmation
+    end
+  end
+
   private
 
   def set_incident
-    @incident = Incident.find(params[:id])
+    if params[:id]
+      @incident = Incident.find(params[:id])
+    else
+      @incident = Incident.find(params[:incident_id])
+    end
   end
 
   def set_order

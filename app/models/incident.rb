@@ -14,6 +14,7 @@
 #  course_id     :integer
 #  time_incident :time
 #  assistant_id  :integer
+#  signed_in     :datetime
 #
 
 class Incident < ApplicationRecord

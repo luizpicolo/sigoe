@@ -58,4 +58,8 @@ module ApplicationHelper
     t = time.present? ? time : Time.now
     t.strftime('%H:%M')
   end
+
+  def verificated?(val)
+    val ? '<i class="fa fa-check"></i>' : '<i class="fa fa-times"></i>'
+  end
 end

@@ -21,6 +21,8 @@
       <th>Estudante</th>
       <th>Turma</th>
       <th>Instituição</th>
+      <th>Assinado?</th>
+      <th>Verificado?</th>
       <th></th>
     </tr>
   </thead>
@@ -32,15 +34,19 @@
       <td><%= incident.student_name %></td>
       <td><%= incident.course_initial %></td>
       <td><%= incident.institution %></td>
+      <td class="has-text-centered"><%= verificated?(incident.signed_in?).html_safe %></td>
+      <td class="has-text-centered"><%= verificated?(false).html_safe %></td>
       <td class="has-text-right">
         <div class="dropdown">
           <span class="button is-danger in-mobile-expand">Ações</span>
           <div class="dropdown-content">
-            <%= link_to incident_path(incident), method: :delete, data: { confirm: 'Tem certeza que deseja excluir?' }, class: 'button' do %>
-              <span class="icon">
-                <i class="ion-close"></i>
-              </span>
-              <span>Assinar</span>
+            <% if incident.signed_in.nil? %>
+              <%= link_to incident_sign_path(incident), class: 'button' do %>
+                <span class="icon">
+                  <i class="ion-document-text"></i>
+                </span>
+                <span>Assinar</span>
+              <% end %>
             <% end %>
             <%= link_to edit_incident_path(incident), class: 'button is-success' do %>
               <span class="icon">
@@ -60,5 +66,13 @@
     <% end %>
   </tbody>
 </table>
+
+<div class="modal">
+  <div class="modal-background"></div>
+  <div class="modal-content">
+    <!-- Any other Bulma elements you want -->
+  </div>
+  <button class="modal-close is-large"></button>
+</div>
 
 <%= paginate @incidents %>

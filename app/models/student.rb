@@ -27,7 +27,7 @@ class Student < ApplicationRecord
 
   # Validações
   validates :name, :course, :responsible, :responsible_contact,
-            :contact, :ra, presence: true
+            :ra, presence: true
 
   # Associações
   belongs_to :course
