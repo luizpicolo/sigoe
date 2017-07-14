@@ -2,17 +2,23 @@
 #
 # Table name: students
 #
-#  id         :integer          not null, primary key
-#  name       :string
-#  course_id  :integer
-#  photo      :string
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id                  :integer          not null, primary key
+#  name                :string
+#  course_id           :integer
+#  photo               :string
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#  responsible         :string
+#  responsible_contact :string
+#  contact             :string
+#  ra                  :integer
+#  password            :string
+#  password_digest     :string
 #
 
 class Student < ApplicationRecord
   has_secure_password
-  
+
   mount_uploader :photo, StudentUploader
   include SearchCop
 
@@ -20,7 +26,8 @@ class Student < ApplicationRecord
   delegate :initial, to: :course, prefix: true
 
   # Validações
-  validates :name, :course, presence: true
+  validates :name, :course, :responsible, :responsible_contact,
+            :contact, :ra, presence: true
 
   # Associações
   belongs_to :course

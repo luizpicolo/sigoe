@@ -2,12 +2,18 @@
 #
 # Table name: students
 #
-#  id         :integer          not null, primary key
-#  name       :string
-#  course_id  :integer
-#  photo      :string
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id                  :integer          not null, primary key
+#  name                :string
+#  course_id           :integer
+#  photo               :string
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#  responsible         :string
+#  responsible_contact :string
+#  contact             :string
+#  ra                  :integer
+#  password            :string
+#  password_digest     :string
 #
 
 require 'rails_helper'
@@ -20,6 +26,9 @@ RSpec.describe Student, type: :model do
   # Validations
   it { should validate_presence_of(:name) }
   it { should validate_presence_of(:course) }
+  it { should validate_presence_of(:ra) }
+  it { should validate_presence_of(:responsible) }
+  it { should validate_presence_of(:responsible_contact) }
 
   # Columns
   it { should have_db_column :id }

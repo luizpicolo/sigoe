@@ -20,6 +20,7 @@
 #  siape                  :integer
 #  sector_id              :integer
 #  position_id            :integer
+#  avatar                 :string
 #
 
 class User < ApplicationRecord
