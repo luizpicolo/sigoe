@@ -29,6 +29,7 @@
 /config/application.yml
 
 /.idea/
+/vendor/assets/components/*
 
 # Documentation
 /doc/

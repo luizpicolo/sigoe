@@ -1,9 +1,0 @@
-{
-  "name": "components",
-  "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
-  "dependencies": {
-    "jquery-mask-plugin": "^1.14.10"
-  }
-}

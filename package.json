@@ -1,5 +1,12 @@
 {
+  "name": "siai-ifms-na",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:ifms-na/siai-ifms-na.git",
+  "author": "Luiz Picolo <luizpicolo@gmail.com>",
+  "license": "MIT",
   "dependencies": {
+    "fancybox": "^3.0.0",
     "jquery-mask-plugin": "^1.14.10",
     "select2": "^4.0.3"
   }
