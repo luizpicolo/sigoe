@@ -6,13 +6,6 @@
       </span>
       <span>Nova ocorrência</span>
     <% end %>
-
-    <%= link_to new_report_incident_path, class: "button is-success in-mobile-expand" do %>
-      <span class="icon">
-        <i class="fa fa-pencil-square-o"></i>
-      </span>
-      <span>Gerar relatório</span>
-    <% end %>
   </div>
   <div class="column">
     <% show_search_error_message(@incidents, params) %>
