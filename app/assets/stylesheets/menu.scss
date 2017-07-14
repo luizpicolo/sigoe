@@ -1,6 +1,17 @@
+// Lateral
 .menu {
   .menu-label {
     font-size: 15px;
+  }
+}
+
+.menu-aside {
+  background: #FFF;
+
+  @media(max-width: 767px) {
+    position: absolute;
+    top: -170px;
+    left: -280px;
   }
 }
 
