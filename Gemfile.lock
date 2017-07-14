@@ -64,10 +64,6 @@ GEM
     bindex (0.5.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
-    bootstrap-wysihtml5-rails (0.3.3.8)
-      railties (>= 3.0)
-    bootstrap-wysihtml5-rails-font-awesome (0.3.1.25)
-      railties (>= 3.0)
     breadcrumbs_on_rails (3.0.1)
     builder (3.2.3)
     bulma-rails (0.4.3)
@@ -371,8 +367,6 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   better_errors
   binding_of_caller
-  bootstrap-wysihtml5-rails
-  bootstrap-wysihtml5-rails-font-awesome
   breadcrumbs_on_rails
   bulma-rails (~> 0.4.3)
   byebug

@@ -4,8 +4,6 @@ ruby '2.3.1'
 
 gem 'alert_message'
 gem 'active_link_to'
-gem 'bootstrap-wysihtml5-rails'
-gem 'bootstrap-wysihtml5-rails-font-awesome'
 gem 'breadcrumbs_on_rails'
 gem 'bulma-rails', '~> 0.4.3'
 gem 'bcrypt', '~> 3.1.7'
