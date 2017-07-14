@@ -12,8 +12,8 @@ require 'capybara/rails'
 require 'support/controller_helpers'
 
 # externals
-require 'coveralls'
-Coveralls.wear!('rails')
+require 'simplecov'
+SimpleCov.start
 
 # Add additional requires below this line. Rails is not loaded until this point!
 
