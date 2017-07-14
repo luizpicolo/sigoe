@@ -31,18 +31,22 @@
       <td><%= user.siape %></td>
       <td><%= user.sector_initial %></td>
       <td class="has-text-right">
-        <%= link_to edit_user_path(user), class: 'button is-success in-mobile-expand' do %>
-          <span class="icon">
-            <i class="ion-edit"></i>
-          </span>
-          <span>Editar</span>
-        <% end %>
-        <%= link_to user_path(user), method: :delete, data: { confirm: 'Tem certeza que deseja excluir?' }, class: 'button is-danger in-mobile-expand', disabled: user.is_current?(current_user) do %>
-          <span class="icon">
-            <i class="ion-close"></i>
-          </span>
-          <span>Excluir</span>
-        <% end %>
+        <div class="dropdown">
+          <span class="button is-danger in-mobile-expand">Ações</span>
+          <div class="dropdown-content">
+            <%= link_to edit_user_path(user), class: 'button is-success in-mobile-expand' do %>
+              <span class="icon">
+                <i class="ion-edit"></i>
+              </span>
+              <span>Editar</span>
+            <% end %>
+            <%= link_to user_path(user), method: :delete, data: { confirm: 'Tem certeza que deseja excluir?' }, class: 'button is-danger in-mobile-expand', disabled: user.is_current?(current_user) do %>
+              <span class="icon">
+                <i class="ion-close"></i>
+              </span>
+              <span>Excluir</span>
+            <% end %>
+          </div>
       </td>
     </tr>
     <% end %>

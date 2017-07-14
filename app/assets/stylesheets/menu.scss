@@ -9,3 +9,37 @@
   background: $green !important;
   color: $white !important;
 }
+
+// Drop down lista
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    margin-right: 50px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+    right: 20px;
+    top: 0;
+    text-align: left;
+
+    @media(max-width: 767px) {
+      right: -50px;
+      top: -100px;
+    }
+
+    a {
+      display: block;
+      padding: 5px 0;
+    }
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}

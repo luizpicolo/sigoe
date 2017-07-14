@@ -7,7 +7,7 @@
       <span>Novo curso</span>
     <% end %>
   </div>
-  <div class="column">  
+  <div class="column">
     <% show_search_error_message(@courses, params) %>
     <%= render 'layouts/search', path: courses_path, v: attr_order(@courses) %>
   </div>
@@ -29,18 +29,22 @@
       <td><%= course.name %></td>
       <td><%= link_to course.initial, students_path(course.params_search) %></td>
       <td class="has-text-right no-print">
-        <%= link_to edit_course_path(course), class: 'button is-success in-mobile-expand' do %>
-          <span class="icon">
-            <i class="ion-edit"></i>
-          </span>
-          <span>Editar</span>
-        <% end %>
-        <%= link_to course_path(course), method: :delete, data: { confirm: 'Tem certeza?' }, class: 'button is-danger in-mobile-expand' do %>
-          <span class="icon">
-            <i class="ion-close"></i>
-          </span>
-          <span>Excluir</span>
-        <% end %>
+        <div class="dropdown">
+          <span class="button is-danger in-mobile-expand">Ações</span>
+          <div class="dropdown-content">
+            <%= link_to edit_course_path(course), class: 'button is-success in-mobile-expand' do %>
+              <span class="icon">
+                <i class="ion-edit"></i>
+              </span>
+              <span>Editar</span>
+            <% end %>
+            <%= link_to course_path(course), method: :delete, data: { confirm: 'Tem certeza?' }, class: 'button is-danger in-mobile-expand' do %>
+              <span class="icon">
+                <i class="ion-close"></i>
+              </span>
+              <span>Excluir</span>
+            <% end %>
+          </div>
       </td>
     </tr>
     <% end %>
