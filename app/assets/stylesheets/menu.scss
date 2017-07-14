@@ -6,9 +6,9 @@
 }
 
 .menu-aside {
-  background: #FFF;
 
   @media(max-width: 767px) {
+    background: #FFF;
     position: absolute;
     top: -170px;
     left: -280px;
