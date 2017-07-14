@@ -6,8 +6,9 @@ gem 'alert_message'
 gem 'active_link_to'
 gem 'bootstrap-wysihtml5-rails'
 gem 'bootstrap-wysihtml5-rails-font-awesome'
-gem "breadcrumbs_on_rails"
-gem "bulma-rails", "~> 0.4.3"
+gem 'breadcrumbs_on_rails'
+gem 'bulma-rails', '~> 0.4.3'
+gem 'bcrypt', '~> 3.1.7'
 gem 'carrierwave'
 gem 'carrierwave-ftp', require: 'carrierwave/storage/sftp'
 gem 'cancancan'
@@ -67,7 +68,7 @@ group :development do
   gem 'rails_best_practices', '~> 1.18', '>= 1.18.1'
   gem 'rb-readline'
   gem 'rename'
-  gem "rails-erd"
+  gem 'rails-erd'
 end
 
 group :staging, :production do

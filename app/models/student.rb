@@ -11,6 +11,8 @@
 #
 
 class Student < ApplicationRecord
+  has_secure_password
+  
   mount_uploader :photo, StudentUploader
   include SearchCop
 

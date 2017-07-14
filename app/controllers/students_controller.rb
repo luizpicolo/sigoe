@@ -38,7 +38,7 @@ class StudentsController < ApplicationController
   end
 
   def update
-    if @student.update(student_params)
+    if @student.update(check_password(student_params))
       redirect_to students_path, flash: { success: 'Estudante atualizado com sucesso' }
     else
       flash.now[:error] = @student.errors.full_messages
@@ -70,9 +70,20 @@ class StudentsController < ApplicationController
     params[:return] == "" || params[:return].nil? ? '15' : params[:return]
   end
 
+  def check_password(user_params)
+    if user_params[:password].empty?
+      user_params.delete(:password)
+      user_params.delete(:password_confirmation)
+      user_params
+    else
+      user_params
+    end
+  end
+
   def student_params
     params.require(:student).permit(
-      :name, :photo, :course_id, :responsible, :responsible_contact, :contact
+      :name, :photo, :course_id, :responsible, :responsible_contact, :contact,
+      :password, :password_confirmation, :ra
     )
   end
 end

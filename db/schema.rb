@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170712002932) do
+ActiveRecord::Schema.define(version: 20170713155043) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,6 +80,9 @@ ActiveRecord::Schema.define(version: 20170712002932) do
     t.string "responsible"
     t.string "responsible_contact"
     t.string "contact"
+    t.integer "ra"
+    t.string "password"
+    t.string "password_digest"
     t.index ["course_id"], name: "index_students_on_course_id"
     t.index ["name"], name: "index_students_on_name"
   end
