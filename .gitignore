@@ -30,6 +30,7 @@
 
 /.idea/
 /vendor/assets/components/*
+yarn.lock
 
 # Documentation
 /doc/
