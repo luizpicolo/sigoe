@@ -57,7 +57,9 @@ RSpec.describe Incident, type: :model do
   it { should belong_to(:course) }
 
   # Enums
-  it { should define_enum_for(:institution).with(["ifms", "ufms", "cemid"]) }
+  it { should define_enum_for(:institution).with(["Ifms", "Ufms", "Cemid"]) }
+  it { should define_enum_for(:is_resolved).with(["Não", "Sim"]) }
+  it { should define_enum_for(:type_student).with(['Não Residente', 'Residente']) }
 
   # Methods
   describe '#search' do

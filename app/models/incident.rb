@@ -23,7 +23,9 @@ class Incident < ApplicationRecord
   validates :user, :assistant, :institution, :description,
 	    :date_incident, :time_incident, presence: true
 
-  enum institution: [:ifms, :ufms, :cemid]
+  enum institution: ['Ifms', 'Ufms', 'Cemid']
+  enum is_resolved: ['Não', 'Sim']
+  enum type_student: ['Não Residente', 'Residente']
 
   belongs_to :student, optional: true
   belongs_to :user

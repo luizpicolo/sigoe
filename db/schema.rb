@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170714163239) do
+ActiveRecord::Schema.define(version: 20170717183459) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,8 @@ ActiveRecord::Schema.define(version: 20170714163239) do
     t.time "time_incident"
     t.integer "assistant_id"
     t.datetime "signed_in"
+    t.integer "is_resolved"
+    t.integer "type_student"
     t.index ["course_id"], name: "index_incidents_on_course_id"
     t.index ["date_incident"], name: "index_incidents_on_date_incident"
     t.index ["institution"], name: "index_incidents_on_institution"

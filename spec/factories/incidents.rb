@@ -23,7 +23,7 @@ FactoryGirl.define do
     user factory: :user
     assistant factory: :user
     course factory: :course
-    institution { 'ifms' }
+    institution { 'Ifms' }
     description { Faker::Lorem.words(255) }
     date_incident Time.now
     time_incident '10:00:00'

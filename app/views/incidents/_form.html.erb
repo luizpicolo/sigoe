@@ -32,7 +32,7 @@
           <%= f.label :assistant_id, 'Assistente', class: 'label' %>
           <p class="control">
             <span class="select">
-              <%= f.select :assistant_id, User.get_by_position('Assistente de Alunos'), {}, { :class => "select2 select is-medium" } %>
+              <%= f.select :assistant_id, User.get_by_position('Assistente de Alunos'), {}, { :class => "is-medium" } %>
             </span>
           </p>
         </div>
@@ -40,7 +40,23 @@
           <%= f.label :institution, 'Instituição', class: 'label' %>
           <p class="control">
             <span class="select">
-              <%= f.select :institution, Incident.institutions.keys.to_a, {}, { :class => "select2 select is-medium" } %>
+              <%= f.select :institution, Incident.institutions.keys.to_a, {}, { :class => "is-medium" } %>
+            </span>
+          </p>
+        </div>
+        <div class="field">
+          <%= f.label :type_student, 'Estudente é?', class: 'label' %>
+          <p class="control">
+            <span class="select">
+              <%= f.select :type_student, Incident.type_students.keys.to_a, {}, { :class => "is-medium" } %>
+            </span>
+          </p>
+        </div>
+        <div class="field">
+          <%= f.label :is_resolved, 'Ocorrências resolvida?', class: 'label' %>
+          <p class="control">
+            <span class="select">
+              <%= f.select :is_resolved, Incident.is_resolveds.keys.to_a, {}, { :class => "is-medium" } %>
             </span>
           </p>
         </div>
