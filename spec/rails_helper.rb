@@ -13,7 +13,9 @@ require 'support/controller_helpers'
 
 # externals
 require 'simplecov'
-SimpleCov.start
+SimpleCov.start do
+  add_filter "app/uploaders"
+end
 
 # Add additional requires below this line. Rails is not loaded until this point!
 
