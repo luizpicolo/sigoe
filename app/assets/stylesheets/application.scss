@@ -20,12 +20,10 @@
 $green: hsl(130, 54%,  40%) !default;
 $red:   hsl(358, 78%, 45%) !default;
 
-// Fonts
+// All Imports
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import 'ionicons';
-
-// Imports
 @import "modification";
 @import "icons";
 @import "bulma";
