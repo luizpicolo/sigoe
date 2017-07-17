@@ -16,13 +16,14 @@ module UserHelpers
   def create_new_user(options = {})
     name = options[:name] || Faker::Name.name
     email = options[:email] || Faker::Internet.email
+    sector = options[:sector] || "SERTI"
     password = options[:password]
 
     fill_in 'Nome', with: name
     fill_in 'Email', with: email
     fill_in 'Usuário', with: Faker::Internet.user_name
     fill_in 'Siape', with: Faker::Number.number(7)
-    select "SERTI", :from => "Setor"
+    select sector, :from => "Setor"
     pwd = Faker::Internet.password
     fill_in 'Senha', with: pwd
     fill_in 'Repetir senha', with: password || pwd

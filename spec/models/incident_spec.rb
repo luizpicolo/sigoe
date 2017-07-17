@@ -61,8 +61,12 @@ RSpec.describe Incident, type: :model do
 
   # Methods
   describe '#search' do
-    it "find student by student" do
+    it "find incident by student" do
       expect(Incident.search(@incident.student_name)).to eq([@incident])
+    end
+
+    it "find incident by course" do
+      expect(Incident.search(@incident.course.name)).to eq([@incident])
     end
   end
 
