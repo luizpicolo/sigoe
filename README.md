@@ -34,7 +34,13 @@ O SIAI (Sistema de Apoio interno) é um software desenvolvido com o objetivo de 
 
 **Terceiro passo:** Acesso o projeto e execute o comando
 
-    bundle install && rails db:create && rails db:migrate && rails db:seed
+    bundle install && rails db:create && rails db:migrate && rails db:seed && ./bin/yarn install
+
+## Testes
+
+Para executar os testes use
+
+    rspec
 
 ## License
 
