@@ -29,7 +29,6 @@
 /config/application.yml
 
 /.idea/
-/vendor/assets/components/*
 yarn.lock
 
 # Documentation
