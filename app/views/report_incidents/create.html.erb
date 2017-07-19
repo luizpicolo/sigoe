@@ -78,6 +78,7 @@
           <% end %>
           <p> Data ocorrência: <b><%= extract_and_format_date(incident&.date_incident) %></b></p>
           <p> Hora ocorrência: <b><%= extract_and_format_time(incident&.time_incident) %></b></p>
+          <p> Local: <b><%= incident.institution.upcase %></b></p>
         </div>
 
         <div class="description">
