@@ -2,6 +2,8 @@ class ReportIncidentsController < ApplicationController
   load_and_authorize_resource Incident
   add_breadcrumb "Home", :root_path
 
+  skip_before_action :verify_authenticity_token  
+
   def new
     add_breadcrumb "Diren", sector_actions_path('diren')
     add_breadcrumb "Ocorrências", :incidents_path
