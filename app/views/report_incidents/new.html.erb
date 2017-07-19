@@ -1,8 +1,8 @@
 <div class="content">
   <h1 class="title is-3">Gerar relatório de ocorrências</h1>
-  <%= form_with url: report_incidents_path, method: :post do |f|%>
+  <%= form_with url: report_incidents_path << ".pdf", method: :post do |f|%>
   <fieldset>
-    <legend>Dados estudante</legend>
+    <legend>Dados ocorrência</legend>
     <div class="field is-horizontal">
       <div class="field-body">
         <div class="field">
@@ -24,18 +24,33 @@
       </div>
     </div>
 
+    <div class="field">
+      <%= f.label :student, 'Residente?', class: 'label' %>
+      <p class="control">
+        <span class="select">
+          <%= f.select :type_student, Incident.type_students.map { |key, value| [key.humanize, value] }, { include_blank: true }, { :class => "is-medium" } %>
+        </span>
+      </p>
+      <%= f.label :student, 'Instituição', class: 'label' %>
+      <p class="control">
+        <span class="select">
+          <%= f.select :institution, Incident.institutions.map { |key, value| [key.upcase, value] }, { include_blank: true }, { :class => "is-medium", include_blank: true } %>
+        </span>
+      </p>
+    </div>
+
     <div class="field is-horizontal">
       <div>
         <div class="field">
           <p class="control">
             <%= f.label :date_start, 'Data início', class: 'label' %>
-            <%= f.text_field :date_start, class: 'input is-medium date', placeholder: 'Data ocorrência' %>
+            <%= f.text_field :date_start, class: 'input is-medium date calendar', placeholder: 'Data início' %>
           </p>
         </div>
         <div class="field">
           <p class="control">
             <%= f.label :date_final, 'Data final', class: 'label' %>
-            <%= f.text_field :date_final, class: 'input is-medium date', placeholder: 'Data ocorrência' %>
+            <%= f.text_field :date_final, class: 'input is-medium date calendar', placeholder: 'Data fim' %>
           </p>
         </div>
       </div>

@@ -63,12 +63,49 @@ RSpec.describe Incident, type: :model do
 
   # Methods
   describe '#search' do
-    it "find incident by student" do
-      expect(Incident.search(@incident.student_name)).to eq([@incident])
+
+    context "find with one param" do
+      it "find incident by student" do
+        conditionals = {}
+        conditionals[:student] = @incident.student.id
+        expect(Incident.search(conditionals)).to eq([@incident])
+      end
+
+      it "find incident by course" do
+        conditionals = {}
+        conditionals[:course] = @incident.course.id
+        expect(Incident.search(conditionals)).to eq([@incident])
+      end
+
+      it "find incident by institution" do
+        conditionals = {}
+        conditionals[:institution] = 0
+        expect(Incident.search(conditionals)).to eq([@incident])
+      end
+
+      it "find incident by type_student" do
+        conditionals = {}
+        conditionals[:type_student] = 1
+        expect(Incident.search(conditionals)).to eq([@incident])
+      end
+
+      it "find incident by range date" do
+        conditionals = {}
+        range_date = "date_incident >= #{@incident.date_incident - 1.day} AND date_incident <= #{@incident.date_incident + 1.day}"
+        expect(Incident.search(conditionals).search(range_date)).to eq([@incident])
+      end
     end
 
-    it "find incident by course" do
-      expect(Incident.search(@incident.course.name)).to eq([@incident])
+    context "find with all params" do
+      it "find incident " do
+        conditionals = {}
+        conditionals[:student] = @incident.student.id
+        conditionals[:course] = @incident.course.id
+        conditionals[:institution] = 0
+        conditionals[:type_student] = 1
+        range_date = "date_incident >= #{@incident.date_incident - 1.day} AND date_incident <= #{@incident.date_incident + 1.day}"
+        expect(Incident.search(conditionals).search(range_date)).to eq([@incident])
+      end
     end
   end
 

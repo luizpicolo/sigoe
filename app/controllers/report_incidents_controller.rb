@@ -9,11 +9,30 @@ class ReportIncidentsController < ApplicationController
   end
 
   def create
-    if params[:date_start].present? && params[:date_final].present?
-      @incidents = Incident.where(date_incident: params[:date_start]..params[:date_final])
+    incidents = Incident.search(set_conditional).search(set_date_range)
+    if incidents.present?
+      @incidents = incidents
+      render layout: false
     else
-      @incidents = Incident.all
+      flash[:error] = "Não foi encontrada ocorrência para este parâmetros"
+      redirect_back(fallback_location: incidents_path)
     end
-    render layout: false
+  end
+
+  private
+
+  def set_conditional
+    conditionals = {}
+    conditionals[:student] = params[:student] if params[:student].present?
+    conditionals[:course] = params[:course] if params[:course].present?
+    conditionals[:type_student] = params[:type_student] if params[:type_student].present?
+    conditionals[:institution] = params[:institution] if params[:institution].present?
+    conditionals
+  end
+
+  def set_date_range
+    if params[:date_start].present? && params[:date_final].present?
+      "date_incident >= #{params[:date_start]} AND date_incident <= #{params[:date_final]}"
+    end
   end
 end

@@ -27,6 +27,7 @@ FactoryGirl.define do
     description { Faker::Lorem.words(255) }
     date_incident Time.now
     time_incident '10:00:00'
+    type_student { 'Residente' }
     signed_in Time.now
     soluction { Faker::Lorem.words(255) }
   end
