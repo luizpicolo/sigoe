@@ -78,7 +78,12 @@ class User < ApplicationRecord
   # @param [String] _sector
   # @return [Boolean] true se o usuário faz parte do sertor
   # @return [Boolean] false se o usuário não faz parte do setro
-  def it_is_part_of_the_sector?(_sector)
-    sector.initial.downcase == _sector ? true : false
+  def it_is_part_of_the_sector?(*_sectors)
+    _sectors.each do |_sector|
+      if sector.initial.downcase == _sector
+        return true
+      end
+    end
+    return false
   end
 end
