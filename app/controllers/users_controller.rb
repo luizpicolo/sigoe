@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   load_and_authorize_resource
+  skip_authorize_resource only: :change_password
 
   before_action :set_user, only: [:edit, :destroy, :update]
   add_breadcrumb "Home", :root_path
@@ -42,7 +43,7 @@ class UsersController < ApplicationController
       redirect_to users_path, flash: { success: 'Usuário atualizado com sucesso' }
     else
       flash.now[:error] = @user.errors.full_messages
-      render :edit
+      render commit_action(params[:commit])
     end
   end
 
@@ -56,10 +57,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def change_password
+    @user = current_user
+  end
+
   private
 
   def set_user
-    @user = User.find(params[:id])
+    @user = User.find(current_user.id)
   end
 
   def set_order
@@ -74,6 +79,11 @@ class UsersController < ApplicationController
     else
       user_params
     end
+  end
+
+  def commit_action(commit)
+    return :change_password if commit == "Trocar senha"
+    return :edit if commit == "Salvar"
   end
 
   def user_params

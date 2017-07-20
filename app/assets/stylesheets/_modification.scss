@@ -54,3 +54,13 @@ fieldset legend {
 .fa-times {
   color: $red;
 }
+
+.field_with_errors {
+  label {
+    color: $red;
+  }
+
+  input {
+    border-color: $red;
+  }
+}
