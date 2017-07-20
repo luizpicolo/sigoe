@@ -52,6 +52,7 @@
             </span>
           </p>
         </div>
+        <% if current_user.it_is_part_of_the_sector?('diren', 'serti') %>
         <div class="field">
           <%= f.label :is_resolved, 'Ocorrências resolvida?', class: 'label' %>
           <p class="control">
@@ -60,6 +61,7 @@
             </span>
           </p>
         </div>
+        <% end %>
       </div>
     </div>
   </fieldset>
@@ -89,12 +91,14 @@
           <%= f.text_area :description, class: 'textarea is-medium', placeholder: 'Ocorrência' %>
         </p>
       </div>
-      <div class="field">
-        <p class="control">
-          <%= f.label :soluction, 'Solução', class: 'label' %>
-          <%= f.text_area :soluction, class: 'textarea is-medium', placeholder: 'Solução' %>
-        </p>
-      </div>
+      <% if current_user.it_is_part_of_the_sector?('diren', 'serti') %>
+        <div class="field">
+          <p class="control">
+            <%= f.label :soluction, 'Solução', class: 'label' %>
+            <%= f.text_area :soluction, class: 'textarea is-medium', placeholder: 'Solução' %>
+          </p>
+        </div>
+      <% end %>
     </div>
   </fieldset>
 
