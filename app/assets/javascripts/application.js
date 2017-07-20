@@ -70,7 +70,8 @@ document.addEventListener('turbolinks:load', function() {
   $('.time').mask('00:00');
 
   // Mobile menu
-  $('.menu-mobile').on('click', function(){
-    $('.menu-aside').toggle().css('left', '-10px');
+  $('.menu-mobile').on('click touchstart', function(e){
+    $('.menu-aside').toggleClass('menu-mobile-active');
+    e.preventDefault();
   })
 });
