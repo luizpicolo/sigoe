@@ -1,4 +1,10 @@
 <aside class="menu no-print">
+  <p class="menu-label">
+    Minhas informações
+  </p>
+  <ul class="menu-list">
+    <li><%= active_link_to 'Trocar senha', user_change_password_path(current_user) %></li>
+  </ul>
   <% if can? :manage, User %>
   <p class="menu-label">
     Serti

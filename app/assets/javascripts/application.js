@@ -68,4 +68,10 @@ document.addEventListener('turbolinks:load', function() {
   // Macks
   $('.date').mask('00/00/0000');
   $('.time').mask('00:00');
+
+  // Mobile menu
+  $('.menu-mobile').on('click touchstart', function(e){
+    $('.menu-aside').toggleClass('menu-mobile-active');
+    e.preventDefault();
+  })
 });

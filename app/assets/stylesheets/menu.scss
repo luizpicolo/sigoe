@@ -6,13 +6,40 @@
 }
 
 .menu-aside {
+  -webkit-transition: width 2s; /* For Safari 3.1 to 6.0 */
+  transition: width 2s;
 
   @media(max-width: 767px) {
+    transform: translateX(-300px);
+    transition: all .25s linear;
     background: #FFF;
+    border: 1px solid #CCC;
     position: absolute;
     top: -170px;
-    left: -280px;
+    z-index: 4;
   }
+}
+
+.menu-mobile {
+  position: absolute;
+  top: 2px;
+  right: 5px;
+  display: none;
+
+  div {
+    width: 25px;
+    height: 2px;
+    background-color: black;
+    margin: 6px 0;
+  }
+
+  @media(max-width: 767px){
+    display: block;
+  }
+}
+
+.menu-mobile-active {
+  transform: translateX(0);
 }
 
 .active {
@@ -23,32 +50,32 @@
 
 // Drop down lista
 .dropdown {
-    position: relative;
-    display: inline-block;
+  position: relative;
+  display: inline-block;
 }
 
 .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    margin-right: 50px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    padding: 12px 16px;
-    z-index: 1;
-    right: 20px;
-    top: 0;
-    text-align: left;
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  margin-right: 50px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+  right: 20px;
+  top: 0;
+  text-align: left;
 
-    @media(max-width: 767px) {
-      right: -50px;
-      top: -100px;
-    }
+  @media(max-width: 767px) {
+    right: -50px;
+    top: -100px;
+  }
 
-    a {
-      display: block;
-      padding: 5px 0;
-    }
+  a {
+    display: block;
+    padding: 5px 0;
+  }
 }
 
 .dropdown:hover .dropdown-content {

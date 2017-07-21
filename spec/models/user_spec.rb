@@ -71,6 +71,10 @@ RSpec.describe User, type: :model do
       expect(@user.it_is_part_of_the_sector?('serti')).to eq(true)
     end
 
+    it 'return true how two params and if the sector is currect' do
+      expect(@user.it_is_part_of_the_sector?('diren', 'serti')).to eq(true)
+    end
+
     it 'return false if the sector is not currect' do
       expect(@user.it_is_part_of_the_sector?('wrong_sector')).to eq(false)
     end
