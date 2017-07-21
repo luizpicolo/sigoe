@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   load_and_authorize_resource
-  skip_authorize_resource only: :change_password
+  skip_authorize_resource only: [:change_password, :update]
 
   before_action :set_user, only: [:edit, :destroy, :update]
   add_breadcrumb "Home", :root_path
