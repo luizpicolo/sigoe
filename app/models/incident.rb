@@ -49,6 +49,10 @@ class Incident < ApplicationRecord
     course.present? ? course.initial : " ---- "
   end
 
+  def signed_by_student_in
+    signed_in.strftime('%d/%m/%Y as %H:%M') if signed_in.present?
+  end
+
   # Retorna um vetor com os atributos que serão utilizados para a
   # busca nas listagens de ocorrencias
   #

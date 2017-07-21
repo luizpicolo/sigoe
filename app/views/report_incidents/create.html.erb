@@ -35,7 +35,11 @@
       .date {
         margin-top: 40px;
         margin-left: -20px;
-        text-align: center;
+        text-align: right;
+      }
+
+      .date p {
+        margin-bottom: 10px;
       }
 
       .description {
@@ -76,9 +80,9 @@
           <% if incident&.student&.responsible.present? %>
           <p><b>Responsável:</b> <%= incident&.student&.responsible %> / <%= incident&.student&.responsible_contact %> </p>
           <% end %>
-          <p> Data ocorrência: <b><%= extract_and_format_date(incident&.date_incident) %></b></p>
-          <p> Hora ocorrência: <b><%= extract_and_format_time(incident&.time_incident) %></b></p>
+          <p> Data ocorrência: <b><%= extract_and_format_date(incident&.date_incident) %> às <%= extract_and_format_time(incident&.time_incident) %></b></p>
           <p> Local: <b><%= incident.institution.upcase %></b></p>
+          <p> Assinado digitalmente em: <b><%= incident.signed_by_student_in %></b></p>
         </div>
 
         <div class="description">
@@ -102,7 +106,8 @@
         </div>
 
         <div class="date">
-          Data de comparecimento do responsável: ____ de _____________ de 201__
+          <p>Data de comparecimento do responsável: ____ de _____________ de 20___</p>
+          <p>Arquivado na pasta do estudante em: ____ de _____________ de 20___</p>
         </div>
       </div>
     <% end %>
