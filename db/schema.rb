@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170717183459) do
+ActiveRecord::Schema.define(version: 20170725191414) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20170717183459) do
     t.datetime "signed_in"
     t.integer "is_resolved"
     t.integer "type_student"
+    t.integer "sanction"
     t.index ["course_id"], name: "index_incidents_on_course_id"
     t.index ["date_incident"], name: "index_incidents_on_date_incident"
     t.index ["institution"], name: "index_incidents_on_institution"
@@ -90,6 +91,24 @@ ActiveRecord::Schema.define(version: 20170717183459) do
     t.index ["name"], name: "index_students_on_name"
   end
 
+  create_table "tickets", id: :serial, force: :cascade do |t|
+    t.string "from"
+    t.string "to"
+    t.string "subject"
+    t.integer "priority", default: 0
+    t.text "description"
+    t.integer "status", default: 0
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "local"
+    t.integer "answer"
+    t.index ["from"], name: "index_tickets_on_from"
+    t.index ["status"], name: "index_tickets_on_status"
+    t.index ["to"], name: "index_tickets_on_to"
+    t.index ["user_id"], name: "index_tickets_on_user_id"
+  end
+
   create_table "users", id: :serial, force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -120,6 +139,7 @@ ActiveRecord::Schema.define(version: 20170717183459) do
   add_foreign_key "incidents", "students"
   add_foreign_key "incidents", "users"
   add_foreign_key "students", "courses"
+  add_foreign_key "tickets", "users"
   add_foreign_key "users", "positions"
   add_foreign_key "users", "sectors"
 end

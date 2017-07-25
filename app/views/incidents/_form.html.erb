@@ -23,7 +23,6 @@
     </div>
   </fieldset>
 
-
   <fieldset>
     <legend>Dados do assistente</legend>
     <div class="field is-horizontal">
@@ -93,8 +92,17 @@
       </div>
       <% if current_user.it_is_part_of_the_sector?('diren', 'serti') %>
         <div class="field">
+          <%= f.label :sanction, 'Sanção aplicada', class: 'label' %>
           <p class="control">
-            <%= f.label :soluction, 'Solução', class: 'label' %>
+            <span class="select">
+              <%= f.select :sanction, Incident.sanctions.keys.to_a, { prompt: "Selecione o tipo de sanção aplicada" }, { :class => "select2 select is-medium" } %>
+            </span>
+          </p>
+        </div>
+
+        <div class="field">
+          <p class="control">
+            <%= f.label :soluction, 'Descrição da solução', class: 'label' %>
             <%= f.text_area :soluction, class: 'textarea is-medium', placeholder: 'Solução' %>
           </p>
         </div>
