@@ -60,6 +60,6 @@ module ApplicationHelper
   end
 
   def verificated?(val)
-    val ? '<i class="fa fa-check"></i>' : '<i class="fa fa-times"></i>'
+    val == 1 || val == true ? '<i class="fa fa-check"></i>' : '<i class="fa fa-times"></i>'
   end
 end
