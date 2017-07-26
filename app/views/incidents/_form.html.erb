@@ -90,24 +90,35 @@
           <%= f.text_area :description, class: 'textarea is-medium', placeholder: 'Ocorrência' %>
         </p>
       </div>
-      <% if current_user.it_is_part_of_the_sector?('diren', 'serti') %>
-        <div class="field">
-          <%= f.label :sanction, 'Sanção aplicada', class: 'label' %>
-          <p class="control">
-            <span class="select">
-              <%= f.select :sanction, Incident.sanctions.keys.to_a, { prompt: "Selecione o tipo de sanção aplicada" }, { :class => "select2 select is-medium" } %>
-            </span>
-          </p>
+    </div>
+    <% if current_user.it_is_part_of_the_sector?('diren', 'serti') %>
+      <div class="field is-horizontal">
+        <div class="field-body">
+          <div class="field">
+            <%= f.label :sanction, 'Sanção aplicada', class: 'label' %>
+            <p class="control">
+              <span class="select">
+                <%= f.select :sanction, Incident.sanctions.collect {|p| [ p.first, p.last ] }, { prompt: "Selecione o tipo de sanção aplicada" }, { :class => "select2 select is-medium" } %>
+              </span>
+            </p>
+          </div>
+          <div class="field">
+            <p class="control padding-top-40">
+              <a href="http://www.ifms.edu.br/wp-content/uploads/2016/04/Anexo_Resolução-001_2017_Regulamento-Disciplinar-Discente-Atualização.pdf" target="_blank">Acesse aqui o Regulamento Disciplinar Discente</a>
+            </p>
+          </div>
         </div>
+      </div>
 
+      <div class="field">
         <div class="field">
           <p class="control">
             <%= f.label :soluction, 'Descrição da solução', class: 'label' %>
             <%= f.text_area :soluction, class: 'textarea is-medium', placeholder: 'Solução' %>
           </p>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </fieldset>
 
   <div class="margin-top-20px">
