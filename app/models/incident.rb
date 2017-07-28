@@ -26,7 +26,8 @@ class Incident < ApplicationRecord
   enum institution: ['Ifms', 'Ufms', 'Cemid']
   enum is_resolved: ['Não', 'Sim']
   enum type_student: ['Não Residente', 'Residente']
-  enum sanction: ['Advertência Verbal', 'Advertência Escrita', 'Suspensão', 'Desligamento']
+  enum sanction: ['Advertência Verbal', 'Advertência Escrita', 'Suspensão',
+                  'Desligamento']
 
   belongs_to :student, optional: true
   belongs_to :user

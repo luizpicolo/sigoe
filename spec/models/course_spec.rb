@@ -34,12 +34,14 @@ RSpec.describe Course, type: :model do
   it { should have_many(:students) }
 
   # Methods
-  describe "#names" do
-    it "should return an array" do
-      expect(Course.names).to be_an_instance_of(Array)
+  ['names', 'initials'].each do |method|
+    describe "##{method}" do
+      it "should return an array" do
+        expect(Course.method(method).call).to be_an_instance_of(Array)
 
-      Course.names.each do |name|
-        expect(name).to be_an_instance_of(Array)
+        Course.method(method).call.each do |name|
+          expect(name).to be_an_instance_of(Array)
+        end
       end
     end
   end

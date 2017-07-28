@@ -20,8 +20,7 @@
             padding-top: 0.75em !important;
         }
         .select2-selection__arrow {
-            height: 100% !important;
-            top: 0px !important;
+            display: none !important;
         }
     }
 
@@ -57,7 +56,7 @@
     height: 37px !important;
 
       .select2-selection__arrow {
-        top: 6px !important;
+        display: none !important;
       }
   }
 

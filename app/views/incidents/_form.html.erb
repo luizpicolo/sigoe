@@ -7,15 +7,15 @@
           <%= f.label :student_id, 'Estudante', class: 'label' %>
           <p class="control">
             <span class="select">
-              <%= f.select :student_id, Student.get_all, { prompt: "Selecione o estudante" }, { :class => "select2 select is-medium" } %>
+              <%= f.select :student_id, Student.get_all, { prompt: "Selecione o estudante" }, { :class => "select select2 is-medium" } %>
             </span>
           </p>
         </div>
         <div class="field">
-          <%= f.label :course_id, 'Turma', class: 'label' %>
+          <%= f.label :course_id, 'Curso', class: 'label' %>
           <p class="control">
             <span class="select">
-              <%= f.select :course_id, Course.names, { prompt: "Selecione a turma" }, { :class => "select2 select is-medium" } %>
+              <%= f.select :course_id, Course.names, { prompt: "Selecione o Curso" }, { :class => "select2 is-medium" } %>
             </span>
           </p>
         </div>

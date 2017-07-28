@@ -21,7 +21,10 @@ Rails.application.routes.draw do
     get :actions
   end
   resources :keypasses, except: [:show]
-  resources :students, except: [:show]
+  resources :students, except: [:show] do
+    get :import_xls, to: 'students#send_xls', on: :collection
+    post :import_xls, to: 'students#import_xls', on: :collection
+  end
   resources :courses, except: [:show]
   resources :incidents, except: [:show] do
     get :sign, to: 'incidents#confirmation'
