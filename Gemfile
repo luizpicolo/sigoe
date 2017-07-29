@@ -35,6 +35,7 @@ gem 'rails-env'
 gem 'randumb'
 gem 'sass-rails'
 gem 'search_cop'
+gem 'spreadsheet'
 gem 'turbolinks'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'uglifier'
