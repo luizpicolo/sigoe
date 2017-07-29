@@ -22,12 +22,19 @@ class Student < ApplicationRecord
   mount_uploader :photo, StudentUploader
   include SearchCop
 
+  enum course_situation: [
+    'Egresso', 'Falecido', 'Trancado', 'Transferido Externamente',
+    'Transferido Internamente', 'Em curso', 'Evadido', 'Desligado',
+    'Regime Domiciliar', 'Integralizado em fase escolar',
+    'Concluído', 'Enriquecimento Curricular', 'Em mobilidade acadêmica',
+    'Reprovado', 'Aluno Especial'
+  ]
+
   delegate :name, to: :course, prefix: true
   delegate :initial, to: :course, prefix: true
 
   # Validações
-  validates :name, :course, :responsible, :responsible_contact,
-            :ra, presence: true
+  validates :name, :course, :ra, presence: true
 
   # Associações
   belongs_to :course
