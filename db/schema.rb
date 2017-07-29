@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170725191414) do
+ActiveRecord::Schema.define(version: 20170726133944) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -87,6 +87,10 @@ ActiveRecord::Schema.define(version: 20170725191414) do
     t.integer "ra"
     t.string "password"
     t.string "password_digest"
+    t.string "enrollment"
+    t.string "cpf"
+    t.date "birth_date"
+    t.integer "course_situation"
     t.index ["course_id"], name: "index_students_on_course_id"
     t.index ["name"], name: "index_students_on_name"
   end
