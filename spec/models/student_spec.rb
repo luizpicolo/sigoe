@@ -27,8 +27,6 @@ RSpec.describe Student, type: :model do
   it { should validate_presence_of(:name) }
   it { should validate_presence_of(:course) }
   it { should validate_presence_of(:ra) }
-  it { should validate_presence_of(:responsible) }
-  it { should validate_presence_of(:responsible_contact) }
 
   # Columns
   it { should have_db_column :id }
