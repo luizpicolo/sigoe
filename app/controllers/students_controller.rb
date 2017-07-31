@@ -60,46 +60,12 @@ class StudentsController < ApplicationController
   end
 
   def import_xls
-    course_id = params[:course]
-    file_path = params[:xls].tempfile.path
-
-    course = Course.find(course_id)
-
-    book = Spreadsheet.open file_path
-    sheet1 = book.worksheet 0
-
-    column_name = sheet1.first
-
-    sheet1.each 1 do |row|
-      student = course.students.find_by_ra(row[2])
-      if student.present?
-        student.update({
-          name: row[3],
-          course: course,
-          contact: row[6],
-          ra: row[2].to_i,
-          enrollment: row[1],
-          cpf: row[4],
-          birth_date: row[5],
-          course_situation: row[7]
-        })
-      else
-        pwd = rand(000000000..999999999).to_s
-        Student.create({
-          name: row[3],
-          course: course,
-          contact: row[6],
-          ra: row[2].to_i,
-          enrollment: row[1],
-          password: pwd,
-          password_confirmation: pwd,
-          cpf: row[4],
-          birth_date: row[5],
-          course_situation: row[7]
-        })
-      end
+    course = Course.find(params[:course])
+    book = Spreadsheet.open params[:xls].tempfile.path
+    students_attributes = book.worksheet 0
+    students_attributes.each 1 do |attributes|
+      Student.import(attributes, course)
     end
-
     redirect_to students_path
   end
 

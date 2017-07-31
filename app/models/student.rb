@@ -52,11 +52,42 @@ class Student < ApplicationRecord
     order('name asc').collect {|p| [ p.name, p.id ] }
   end
 
+  def self.import(attributes, course)
+    student = find_by_ra(attributes[2]) || new
+    student.assign_attributes(set_attributes(student, course, attributes))
+    student.save
+  end
+
   # Retorna um vetor com os atributos que serão utilizados para a
   # busca nas listagens dos estudantes
   #
   # @return [Array] contendo os atributos para a busca
   def self.ordenation_attributes
     [["ID",'id'], ["Nome",'name']]
+  end
+
+  private
+
+  def self.set_attributes(student, course, attributes)
+    params = {
+      name: attributes[3],
+      course: course,
+      contact: attributes[6],
+      ra: attributes[2].to_i,
+      enrollment: attributes[1],
+      cpf: attributes[4],
+      birth_date: attributes[5],
+      course_situation: attributes[7]
+    }
+    check_password(student, params)
+  end
+
+  def self.check_password(student, params)
+    if student.password.nil?
+      params['password'] = rand(11111111..99999999).to_s
+      params
+    else
+      params
+    end
   end
 end
