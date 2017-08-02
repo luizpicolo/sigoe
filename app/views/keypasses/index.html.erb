@@ -1,10 +1,12 @@
 <div class="columns">
   <div class="column">
-    <%= link_to new_keypass_path, class: "button is-success in-mobile-expand" do %>
-      <span class="icon">
-        <i class="ion-plus-round"></i>
-      </span>
-      <span>Nova Senha</span>
+    <% if can? :create, Keypass %>
+      <%= link_to new_keypass_path, class: "button is-success in-mobile-expand" do %>
+        <span class="icon">
+          <i class="ion-plus-round"></i>
+        </span>
+        <span>Nova Senha</span>
+      <% end %>
     <% end %>
   </div>
   <div class="column">
