@@ -10,19 +10,19 @@ class Ability
 
     # Assistente de alunos
     if user.it_is_part_of_the_sector?('assal')
-      can :manage, Incident
+      can [:create, :update, :read], Incident
     end
 
     # Audio visual
     if user.it_is_part_of_the_sector?('audi')
-      can :manage, Student
+      can [:read, :update], Student
     end
 
     # Diretoria de ensino
     if user.it_is_part_of_the_sector?('diren')
-      can :manage, Student
-      can :manage, Course
+      can [:update, :read], Student
       can :manage, Incident
+      cannot :destroy, Incident
     end
 
     # Professores
@@ -36,7 +36,7 @@ class Ability
     end
 
     # Tecnicos de Lab em Informatica
-    if user.it_is_part_of_the_sector?('teclabinf')
+    if user.it_is_part_of_the_sector?('teclabinfo')
       can :read, Keypass
     end
   end

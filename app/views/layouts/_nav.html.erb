@@ -5,19 +5,17 @@
   <ul class="menu-list">
     <li><%= active_link_to 'Trocar senha', user_change_password_path(current_user) %></li>
   </ul>
-  <% if can? :manage, User %>
   <p class="menu-label">
     Serti
   </p>
-  <% end %>
   <ul class="menu-list">
-    <% if can? :manage, User %>
+    <% if can? :read, User %>
       <li><%= active_link_to 'Usuários', users_path %></li>
     <% end %>
-    <% if can? :manage, Keypass %>
+    <% if can? :read, Keypass %>
       <li><%= active_link_to 'Senhas', keypasses_path %></li>
     <% end %>
-    <% if can? :manage, Position %>
+    <% if can? :read, Position %>
       <li><%= active_link_to 'Cargos / Funçôes', positions_path %></li>
     <% end %>
   </ul>
@@ -25,13 +23,13 @@
     Diren
   </p>
   <ul class="menu-list">
-    <% if can? :manage, Student %>
+    <% if can? :read, Student %>
       <li><%= active_link_to 'Estudantes', students_path %></li>
     <% end %>
-    <% if can? :manage, Course %>
+    <% if can? :read, Course %>
       <li><%= active_link_to 'Cursos', courses_path %></li>
     <% end %>
-    <% if can? :manage, Incident %>
+    <% if can? :read, Incident %>
       <li><%= active_link_to 'Ocorrências', incidents_path %></li>
       <li><%= active_link_to 'Relatório ocorrências', new_report_incident_path %></li>
     <% end %>
