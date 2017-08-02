@@ -73,6 +73,10 @@ class User < ApplicationRecord
     current_user.id == id ? true : false
   end
 
+  def last_access
+    updated_at.strftime('%d/%m/%Y %H:%M')
+  end
+
   # Verifica se o usuário faz parte de um determinado sertor
   #
   # @param [String] _sector
