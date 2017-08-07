@@ -124,7 +124,7 @@ RSpec.describe User, type: :model do
   describe "ability" do
     context "user with sector 'Serti' " do
       sector = 'serti'
-      ['Student', 'Course', 'Keypass', 'Sector', 'User'].each do |entity|
+      ['Student', 'Course', 'Keypass', 'Sector', 'Incident', 'User'].each do |entity|
         it "should be able to manager entity #{entity}" do
           @ability = Ability.new(create_user_by_sector(sector))
           expect(@ability).to be_able_to(:manager, eval(entity))
@@ -134,12 +134,15 @@ RSpec.describe User, type: :model do
 
     context "user with sector 'Audi' " do
       sector = 'audi'
-      it "should be able to manager entity Student" do
+      it "should be able only to read and update entity Student" do
         @ability = Ability.new(create_user_by_sector(sector))
-        expect(@ability).to be_able_to(:manager, Student)
+        expect(@ability).to be_able_to(:read, Student)
+        expect(@ability).to be_able_to(:update, Student)
+        expect(@ability).not_to be_able_to(:create, Student)
+        expect(@ability).not_to be_able_to(:destroy, Student)
       end
 
-      ['Course', 'Keypass', 'Sector', 'User'].each do |entity|
+      ['Course', 'Incident', 'Keypass', 'Sector', 'User', 'Position'].each do |entity|
         it "should not be able to manager entity #{entity}" do
           @ability = Ability.new(create_user_by_sector(sector))
           expect(@ability).not_to be_able_to(:manager, eval(entity))
@@ -154,12 +157,12 @@ RSpec.describe User, type: :model do
         expect(@ability).to be_able_to(:read, Student)
       end
 
-      it "should be able to write entity Student" do
+      it "should not be able to write entity Student" do
         @ability = Ability.new(create_user_by_sector(sector))
         expect(@ability).not_to be_able_to(:write, Student)
       end
 
-      ['Course', 'Keypass', 'Sector', 'User'].each do |entity|
+      ['Course', 'Keypass', 'Incident', 'Sector', 'User', 'Position'].each do |entity|
         it "should not be able to manager entity #{entity}" do
           @ability = Ability.new(create_user_by_sector(sector))
           expect(@ability).not_to be_able_to(:manager, eval(entity))
@@ -169,14 +172,57 @@ RSpec.describe User, type: :model do
 
     context "user with sector 'Diren' " do
       sector = 'diren'
-      ['Student', 'Course'].each do |entity|
-        it "should be able to manager entity #{entity}" do
-          @ability = Ability.new(create_user_by_sector(sector))
-          expect(@ability).to be_able_to(:manager, eval(entity))
-        end
+      it "should be able to manager entity Student" do
+        entity = 'Student'
+        @ability = Ability.new(create_user_by_sector(sector))
+        expect(@ability).not_to be_able_to(:create, eval(entity))
+        expect(@ability).to be_able_to(:update, eval(entity))
+        expect(@ability).not_to be_able_to(:destroy, eval(entity))
       end
 
-      ['Keypass', 'Sector', 'User'].each do |entity|
+      it "should be able to manager entity Incident" do
+        entity = 'Incident'
+        @ability = Ability.new(create_user_by_sector(sector))
+        expect(@ability).to be_able_to(:create, eval(entity))
+        expect(@ability).to be_able_to(:update, eval(entity))
+        expect(@ability).not_to be_able_to(:destroy, eval(entity))
+      end
+
+      ['Keypass', 'Sector', 'User', 'Course', 'Position'].each do |entity|
+        it "should not be able to manager entity #{entity}" do
+          @ability = Ability.new(create_user_by_sector(sector))
+          expect(@ability).not_to be_able_to(:manager, eval(entity))
+        end
+      end
+    end
+
+    context "user with sector 'Assal' " do
+      sector = 'assal'
+      it "should be only able to create and update entity Incident" do
+        entity = 'Incident'
+        @ability = Ability.new(create_user_by_sector(sector))
+        expect(@ability).to be_able_to(:create, eval(entity))
+        expect(@ability).to be_able_to(:update, eval(entity))
+        expect(@ability).not_to be_able_to(:destroy, eval(entity))
+      end
+
+      ['Keypass', 'Sector', 'User', 'Course', 'Position', 'Student'].each do |entity|
+        it "should not be able to manager entity #{entity}" do
+          @ability = Ability.new(create_user_by_sector(sector))
+          expect(@ability).not_to be_able_to(:manager, eval(entity))
+        end
+      end
+    end
+
+    context "user with sector 'TecLabInfo' " do
+      sector = 'teclabinfo'
+      it "should be only able to read entity Keypass" do
+        entity = 'Keypass'
+        @ability = Ability.new(create_user_by_sector(sector))
+        expect(@ability).to be_able_to(:read, eval(entity))
+      end
+
+      ['Keypass', 'Sector', 'User', 'Course', 'Position', 'Student'].each do |entity|
         it "should not be able to manager entity #{entity}" do
           @ability = Ability.new(create_user_by_sector(sector))
           expect(@ability).not_to be_able_to(:manager, eval(entity))

@@ -36,7 +36,7 @@ class Ability
     end
 
     # Tecnicos de Lab em Informatica
-    if user.it_is_part_of_the_sector?('teclabinf')
+    if user.it_is_part_of_the_sector?('teclabinfo')
       can :read, Keypass
     end
   end
