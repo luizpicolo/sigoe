@@ -1,5 +1,5 @@
 <div class="columns shortcuts">
-  <% if can? :manage, User %>
+  <% if can? :read, User %>
   <div class="column">
     <%= link_to users_path do %>
       <section>
@@ -10,7 +10,7 @@
   </div>
   <% end %>
 
-  <% if can? :manage, Keypass %>
+  <% if can? :read, Keypass %>
   <div class="column">
     <%= link_to keypasses_path do %>
       <section>
@@ -21,7 +21,7 @@
   </div>
   <% end %>
 
-  <% if can? :manage, Position %>
+  <% if can? :read, Position %>
   <div class="column">
     <%= link_to positions_path do %>
       <section>

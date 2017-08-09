@@ -1,5 +1,5 @@
 <div class="columns is-multiline shortcuts">
-  <% if can? :manage, Keypass %>
+  <% if can? :read, Keypass %>
   <div class="column is-one-quarter">
     <%= link_to keypasses_path do %>
       <section>
