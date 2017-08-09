@@ -10,10 +10,20 @@
           </p>
         </div>
         <div class="field">
-          <p class="control">
-            <%= f.label :avatar, 'Imagem', class: 'label' %>
-            <%= f.file_field :avatar, class: 'input is-medium', placeholder: 'Nome' %>
-          </p>
+          <%= f.label :avatar, 'Imagem', class: 'label' %>
+          <div class="file is-medium is-success">
+            <label class="file-label">
+              <%= f.file_field :avatar, class: 'file-input' %>
+              <span class="file-cta">
+                <span class="file-icon">
+                  <i class="fa fa-upload"></i>
+                </span>
+                <span class="file-label">
+                  Selecione uma imagem
+                </span>
+              </span>
+            </label>
+          </div>
         </div>
       </div>
     </div>
