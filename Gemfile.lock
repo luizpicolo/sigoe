@@ -66,8 +66,6 @@ GEM
       debug_inspector (>= 0.0.1)
     breadcrumbs_on_rails (3.0.1)
     builder (3.2.3)
-    bulma-rails (0.4.3)
-      sass (~> 3.2)
     byebug (9.0.6)
     cancancan (2.0.0)
     capybara (2.14.4)
@@ -381,7 +379,6 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   breadcrumbs_on_rails
-  bulma-rails (~> 0.4.3)
   byebug
   cancancan
   capybara

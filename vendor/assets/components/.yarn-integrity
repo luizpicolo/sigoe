@@ -2,11 +2,13 @@
   "flags": [],
   "linkedModules": [],
   "topLevelPatters": [
+    "bulma@^0.5.1",
     "jquery-mask-plugin@^1.14.10",
     "select2@^4.0.3"
   ],
   "lockfileEntries": {
     "almond@~0.3.1": "https://registry.yarnpkg.com/almond/-/almond-0.3.3.tgz#a0e7c95ac7624d6417b4494b1e68bff693168a20",
+    "bulma@^0.5.1": "https://registry.yarnpkg.com/bulma/-/bulma-0.5.1.tgz#db2831c94afe732250c7b12527a7b792a4dc9ef8",
     "jquery-mask-plugin@^1.14.10": "https://registry.yarnpkg.com/jquery-mask-plugin/-/jquery-mask-plugin-1.14.11.tgz#57ba598416af6ea7ba9336eacb2a1bf0edbba1db",
     "jquery-mousewheel@~3.1.13": "https://registry.yarnpkg.com/jquery-mousewheel/-/jquery-mousewheel-3.1.13.tgz#06f0335f16e353a695e7206bf50503cb523a6ee5",
     "select2@^4.0.3": "https://registry.yarnpkg.com/select2/-/select2-4.0.3.tgz#207733fe91eacb9cb1a13f12463401f472449e0f"
