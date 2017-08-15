@@ -14,6 +14,10 @@
 #  ra                  :integer
 #  password            :string
 #  password_digest     :string
+#  enrollment          :string
+#  cpf                 :string
+#  birth_date          :date
+#  course_situation    :integer
 #
 
 class Student < ApplicationRecord

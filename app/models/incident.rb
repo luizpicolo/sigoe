@@ -15,6 +15,9 @@
 #  time_incident :time
 #  assistant_id  :integer
 #  signed_in     :datetime
+#  is_resolved   :integer
+#  type_student  :integer
+#  sanction      :integer
 #
 
 class Incident < ApplicationRecord

@@ -21,6 +21,7 @@
 #  sector_id              :integer
 #  position_id            :integer
 #  avatar                 :string
+#  course_id              :integer
 #
 
 class User < ApplicationRecord
