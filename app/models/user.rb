@@ -37,11 +37,12 @@ class User < ApplicationRecord
   validates :username, :sector, presence: true
 
   # Delegates
-  delegate :initial, :to => :sector, prefix: true
+  delegate :initial, to: :sector, prefix: true
 
   # Associações
   belongs_to :sector
   belongs_to :position
+  belongs_to :course
 
   # Atributos para busca com SearchCop
   search_scope :search do

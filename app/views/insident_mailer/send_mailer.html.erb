@@ -1,0 +1,159 @@
+<!doctype html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Simple Transactional Email</title>
+    <style>
+    /* -------------------------------------
+        INLINED WITH htmlemail.io/inline
+    ------------------------------------- */
+    /* -------------------------------------
+        RESPONSIVE AND MOBILE FRIENDLY STYLES
+    ------------------------------------- */
+    @media only screen and (max-width: 620px) {
+      table[class=body] h1 {
+        font-size: 28px !important;
+        margin-bottom: 10px !important;
+      }
+      table[class=body] p,
+            table[class=body] ul,
+            table[class=body] ol,
+            table[class=body] td,
+            table[class=body] span,
+            table[class=body] a {
+        font-size: 16px !important;
+      }
+      table[class=body] .wrapper,
+            table[class=body] .article {
+        padding: 10px !important;
+      }
+      table[class=body] .content {
+        padding: 0 !important;
+      }
+      table[class=body] .container {
+        padding: 0 !important;
+        width: 100% !important;
+      }
+      table[class=body] .main {
+        border-left-width: 0 !important;
+        border-radius: 0 !important;
+        border-right-width: 0 !important;
+      }
+      table[class=body] .btn table {
+        width: 100% !important;
+      }
+      table[class=body] .btn a {
+        width: 100% !important;
+      }
+      table[class=body] .img-responsive {
+        height: auto !important;
+        max-width: 100% !important;
+        width: auto !important;
+      }
+    }
+
+    /* -------------------------------------
+        PRESERVE THESE STYLES IN THE HEAD
+    ------------------------------------- */
+    @media all {
+      .ExternalClass {
+        width: 100%;
+      }
+      .ExternalClass,
+            .ExternalClass p,
+            .ExternalClass span,
+            .ExternalClass font,
+            .ExternalClass td,
+            .ExternalClass div {
+        line-height: 100%;
+      }
+      .apple-link a {
+        color: inherit !important;
+        font-family: inherit !important;
+        font-size: inherit !important;
+        font-weight: inherit !important;
+        line-height: inherit !important;
+        text-decoration: none !important;
+      }
+      .btn-primary table td:hover {
+        background-color: #34495e !important;
+      }
+      .btn-primary a:hover {
+        background-color: #34495e !important;
+        border-color: #34495e !important;
+      }
+    }
+    </style>
+  </head>
+  <body class="" style="background-color: #f6f6f6; font-family: sans-serif; -webkit-font-smoothing: antialiased; font-size: 14px; line-height: 1.4; margin: 0; padding: 0; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+    <table border="0" cellpadding="0" cellspacing="0" class="body" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; background-color: #f6f6f6;">
+      <tr>
+        <td style="font-family: sans-serif; font-size: 14px; vertical-align: top;">&nbsp;</td>
+        <td class="container" style="font-family: sans-serif; font-size: 14px; vertical-align: top; display: block; Margin: 0 auto; max-width: 580px; padding: 10px; width: 580px;">
+          <div class="content" style="box-sizing: border-box; display: block; Margin: 0 auto; max-width: 580px; padding: 10px;">
+
+            <!-- START CENTERED WHITE CONTAINER -->
+            <span class="preheader" style="color: transparent; display: none; height: 0; max-height: 0; max-width: 0; opacity: 0; overflow: hidden; mso-hide: all; visibility: hidden; width: 0;">This is preheader text. Some clients will show this text as a preview.</span>
+            <table class="main" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; background: #ffffff; border-radius: 3px;">
+
+              <!-- START MAIN CONTENT AREA -->
+              <tr>
+                <td class="wrapper" style="font-family: sans-serif; font-size: 14px; vertical-align: top; box-sizing: border-box; padding: 20px;">
+                  <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;">
+                    <tr>
+                      <td style="font-family: sans-serif; font-size: 14px; vertical-align: top;">
+                        <img src="data:image/png;base64,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" alt="">
+                        <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">Olá senhor(a) coordenador(a)</p>
+                        <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">Notificação de cadastro de ocorrências</p>
+                        <table border="0" cellpadding="0" cellspacing="0" class="btn btn-primary" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; box-sizing: border-box;">
+                          <tbody>
+                            <tr>
+                              <td align="left" style="font-family: sans-serif; font-size: 14px; vertical-align: top; padding-bottom: 15px;">
+                                <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: auto;">
+                                  <tbody>
+                                    <tr>
+                                      <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">Foi adicionado em nosso sistemas uma nova ocorrência relacionado ao curso que o senhor(a) coordena.</p>
+                                      <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">Para visualiza-la, por favor, acesse <a href="http://sistemas.na.ifms.edu.br">http://sistemas.na.ifms.edu.br</a> </p>
+                                      <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;"><b>Email enviado automaticamente. Por favor, não responda</b></p>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+            <!-- END MAIN CONTENT AREA -->
+            </table>
+
+            <!-- START FOOTER -->
+            <div class="footer" style="clear: both; Margin-top: 10px; text-align: center; width: 100%;">
+              <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;">
+                <tr>
+                  <td class="content-block" style="font-family: sans-serif; vertical-align: top; padding-bottom: 10px; padding-top: 10px; font-size: 12px; color: #999999; text-align: center;">
+                    <span class="apple-link" style="color: #999999; font-size: 12px; text-align: center;">IFMS - Instituto Federal de Mato Grosso do Sul / Campos Nova Andradina</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="content-block powered-by" style="font-family: sans-serif; vertical-align: top; padding-bottom: 10px; padding-top: 10px; font-size: 12px; color: #999999; text-align: center;">
+                    Email enviado automaticamente. Por favor, não responda
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <!-- END FOOTER -->
+
+          <!-- END CENTERED WHITE CONTAINER -->
+          </div>
+        </td>
+        <td style="font-family: sans-serif; font-size: 14px; vertical-align: top;">&nbsp;</td>
+      </tr>
+    </table>
+  </body>
+</html>

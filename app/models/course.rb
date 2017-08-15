@@ -18,9 +18,14 @@ class Course < ApplicationRecord
   # Associações
   has_many :students
   has_many :incidents
+  has_one :user
 
   search_scope :search do
     attributes :name
+  end
+
+  def coordinator
+    user
   end
 
   # Retorna um vetor contendo os nomes e seus respectivos IDs

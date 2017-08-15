@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170726133944) do
+ActiveRecord::Schema.define(version: 20170815131444) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -132,6 +132,8 @@ ActiveRecord::Schema.define(version: 20170726133944) do
     t.integer "sector_id"
     t.bigint "position_id"
     t.string "avatar"
+    t.bigint "course_id"
+    t.index ["course_id"], name: "index_users_on_course_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["position_id"], name: "index_users_on_position_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -144,6 +146,7 @@ ActiveRecord::Schema.define(version: 20170726133944) do
   add_foreign_key "incidents", "users"
   add_foreign_key "students", "courses"
   add_foreign_key "tickets", "users"
+  add_foreign_key "users", "courses"
   add_foreign_key "users", "positions"
   add_foreign_key "users", "sectors"
 end

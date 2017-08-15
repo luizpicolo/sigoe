@@ -31,19 +31,25 @@
 
   <fieldset>
     <legend>Dados Institucionais</legend>
-    <p class="control">
-      <%= f.label :email, class: 'label' %>
-      <%= f.email_field :email, class: 'input is-medium', placeholder: 'Email', required: true %>
-    </p>
-
     <div class="field is-horizontal">
       <div class="field-body">
+        <div class="field">
+          <p class="control">
+            <%= f.label :email, class: 'label' %>
+            <%= f.email_field :email, class: 'input is-medium', placeholder: 'Email', required: true %>
+          </p>
+        </div>
         <div class="field">
           <p class="control">
             <%= f.label :siape, class: 'label' %>
             <%= f.text_field :siape, class: 'input is-medium', placeholder: 'SIAPE', required: true %>
           </p>
         </div>
+      </div>
+    </div>
+
+    <div class="field is-horizontal">
+      <div class="field-body">
         <div class="field">
           <%= f.label :sector_id, 'Setor', class: 'label' %>
           <p class="control">
@@ -57,6 +63,14 @@
           <p class="control">
             <span class="select is-medium">
               <%= f.select :position_id, Position.get_all, { prompt: "Selecione o cargo" }, { :class => "select2" } %>
+            </span>
+          </p>
+        </div>
+        <div class="field">
+          <p class="control">
+            <%= f.label :course_id, "Coordenador?", class: 'label' %>
+            <span class="select is-medium">
+              <%= f.select :course_id, Course.initials, { prompt: "Curso Coordenado" }, { :class => "select2" } %>
             </span>
           </p>
         </div>
