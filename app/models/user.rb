@@ -42,7 +42,7 @@ class User < ApplicationRecord
   # Associações
   belongs_to :sector
   belongs_to :position
-  belongs_to :course
+  belongs_to :course, optional: true
 
   # Atributos para busca com SearchCop
   search_scope :search do
