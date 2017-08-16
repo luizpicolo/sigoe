@@ -3,7 +3,7 @@ class InsidentMailer < ApplicationMailer
     @contact = coordenation
     mail(
       to: coordenation,
-      from: 'ocorrencias@sistemas.na.ifms.edu.br',
+      from: 'sistemas.na@ifms.edu.br',
       subject: 'Nova ocorrência cadastrada'
     )
   end
