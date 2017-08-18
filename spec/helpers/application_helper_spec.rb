@@ -22,21 +22,21 @@ RSpec.describe ApplicationHelper, type: :helper do
 
   describe ".extract_and_format_date" do
     it 'return pt-br formated date with params' do
-      expect(helper.extract_and_format_date(Time.now)).to eql(Time.now.strftime("%d/%m/%Y"))
+      expect(helper.extract_and_format_date(Time.zone.now)).to eql(Time.zone.now.strftime("%d/%m/%Y"))
     end
 
     it 'return pt-br formated date within params' do
-      expect(helper.extract_and_format_date()).to eql(Time.now.strftime("%d/%m/%Y"))
+      expect(helper.extract_and_format_date()).to eql(Time.zone.now.strftime("%d/%m/%Y"))
     end
   end
 
   describe ".extract_and_format_time" do
     it 'return formated time with params' do
-      expect(helper.extract_and_format_time(Time.now)).to eql(Time.now.strftime("%H:%M"))
+      expect(helper.extract_and_format_time(Time.zone.now)).to eql(Time.zone.now.strftime("%H:%M"))
     end
 
     it 'return formated date within params' do
-      expect(helper.extract_and_format_time()).to eql(Time.now.strftime("%H:%M"))
+      expect(helper.extract_and_format_time()).to eql(Time.zone.now.strftime("%H:%M"))
     end
   end
 end

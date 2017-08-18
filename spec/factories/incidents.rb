@@ -28,10 +28,10 @@ FactoryGirl.define do
     course factory: :course
     institution { 'Ifms' }
     description { Faker::Lorem.words(255) }
-    date_incident Time.now
+    date_incident Time.zone.now
     time_incident '10:00:00'
     type_student { 'Residente' }
-    signed_in Time.now
+    signed_in Time.zone.now
     soluction { Faker::Lorem.words(255) }
   end
 end
