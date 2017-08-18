@@ -55,7 +55,7 @@ class Incident < ApplicationRecord
   end
 
   def signed_by_student_in
-    signed_in.strftime('%d/%m/%Y as %H:%M') if signed_in.present?
+    signed_in.strftime('%d/%m/%Y') if signed_in.present?
   end
 
   # Retorna um vetor com os atributos que serão utilizados para a
