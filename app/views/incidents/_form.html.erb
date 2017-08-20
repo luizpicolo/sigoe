@@ -47,7 +47,7 @@
           <%= f.label :type_student, 'Estudente é?', class: 'label' %>
           <p class="control">
             <span class="select">
-              <%= f.select :type_student, Incident.type_students.keys.to_a, {}, { :class => "is-medium" } %>
+              <%= f.select :type_student, human_enum_name('incident.type_student', Incident.type_students.keys), {}, { :class => "is-medium" } %>
             </span>
           </p>
         </div>
@@ -56,7 +56,7 @@
           <%= f.label :is_resolved, 'Ocorrências resolvida?', class: 'label' %>
           <p class="control">
             <span class="select">
-              <%= f.select :is_resolved, Incident.is_resolveds.keys.to_a, {}, { :class => "is-medium" } %>
+              <%= f.select :is_resolved, human_enum_name('incident.is_resolved', Incident.is_resolveds.keys), {}, { :class => "is-medium" } %>
             </span>
           </p>
         </div>
@@ -98,7 +98,7 @@
             <%= f.label :sanction, 'Sanção aplicada', class: 'label' %>
             <p class="control">
               <span class="select">
-                <%= f.select :sanction, Incident.sanctions.collect {|p| [ p.first, p.last ] }, { prompt: "Selecione o tipo de sanção aplicada" }, { :class => "select2 select is-medium" } %>
+                <%= f.select :sanction, human_enum_name('incident.sanction', Incident.sanctions.keys), { prompt: "Selecione o tipo de sanção aplicada" }, { :class => "select2 select is-medium" } %>
               </span>
             </p>
           </div>

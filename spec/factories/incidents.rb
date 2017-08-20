@@ -30,7 +30,7 @@ FactoryGirl.define do
     description { Faker::Lorem.words(255) }
     date_incident Time.zone.now
     time_incident '10:00:00'
-    type_student { 'Residente' }
+    type_student { 'resident' }
     signed_in Time.zone.now
     soluction { Faker::Lorem.words(255) }
   end

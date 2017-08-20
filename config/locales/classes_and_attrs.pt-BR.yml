@@ -22,7 +22,7 @@ pt-BR:
         local: "Local"
       course:
         name: 'Nome'
-      incident: 
+      incident:
         student: 'Estudante'
         institution: 'Instituição'
         description: 'Descrição'
@@ -30,3 +30,14 @@ pt-BR:
         time_incident: 'Hora ocorrência'
         course: 'Turma'
         user: 'Usuário'
+        is_resolved:
+          no_: 'Não'
+          yes_: 'Sim'
+        type_student:
+          non_resident: 'Não residente'
+          resident: 'Residente'
+        sanction:
+          verbal_warning: 'Advertência Verbal'
+          written_warning: 'Advertência escrita'
+          suspension: 'Suspensão'
+          quitting_school: 'Desligamento'

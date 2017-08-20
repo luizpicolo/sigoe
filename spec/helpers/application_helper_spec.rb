@@ -39,4 +39,19 @@ RSpec.describe ApplicationHelper, type: :helper do
       expect(helper.extract_and_format_time()).to eql(Time.zone.now.strftime("%H:%M"))
     end
   end
+
+  describe '.human_enum_name' do
+    let(:human_enum_name) {
+      helper.human_enum_name('incident.type_student', Incident.type_students.keys)
+    }
+
+    it 'return hash' do
+      expect(human_enum_name).to be_kind_of(Hash)
+    end
+
+    it 'return hash with translated key in pt-br' do
+      expect(human_enum_name['Não residente']).to eq('non_resident')
+      expect(human_enum_name['Residente']).to eq('resident')
+    end
+  end
 end

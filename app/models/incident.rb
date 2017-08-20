@@ -24,13 +24,17 @@ class Incident < ApplicationRecord
   include SearchCop
 
   validates :user, :assistant, :institution, :description,
-	    :date_incident, :time_incident, presence: true
+	          :date_incident, :time_incident, presence: true
 
   enum institution: ['Ifms', 'Ufms', 'Cemid']
-  enum is_resolved: ['Não', 'Sim']
-  enum type_student: ['Não Residente', 'Residente']
-  enum sanction: ['Advertência Verbal', 'Advertência Escrita', 'Suspensão',
-                  'Desligamento']
+  enum is_resolved: ['no_', 'yes_']
+  enum type_student: ['non_resident', 'resident']
+  enum sanction: [
+    'verbal_warning',
+    'written_warning',
+    'suspension',
+    'quitting_school'
+  ]
 
   belongs_to :student, optional: true
   belongs_to :user

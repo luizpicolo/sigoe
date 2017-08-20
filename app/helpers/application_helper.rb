@@ -62,4 +62,19 @@ module ApplicationHelper
   def verificated?(val)
     val == 1 || val == true ? '<i class="fa fa-check"></i>' : '<i class="fa fa-times"></i>'
   end
+
+  # Converte e traduz um conjunto de atributos em um hash
+  #
+  # @example human_enum_name('model', array_attrs) #=> {'value_traduzido' => 'sem_tradução'}
+  #
+  # @param String, Array
+  # @return [Hasg]
+  def human_enum_name(model, attrs)
+    hash = {}
+    attrs.each do |attr|
+      key = I18n.t("activerecord.attributes.#{model}.#{attr}")
+      hash[key] = attr
+    end
+    hash
+  end
 end

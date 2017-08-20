@@ -61,8 +61,9 @@ RSpec.describe Incident, type: :model do
 
   # Enums
   it { should define_enum_for(:institution).with(["Ifms", "Ufms", "Cemid"]) }
-  it { should define_enum_for(:is_resolved).with(["Não", "Sim"]) }
-  it { should define_enum_for(:type_student).with(['Não Residente', 'Residente']) }
+  it { should define_enum_for(:is_resolved).with(["no_", "yes_"]) }
+  it { should define_enum_for(:type_student).with(['non_resident', 'resident']) }
+  it { should define_enum_for(:sanction).with(['verbal_warning', 'written_warning', 'suspension', 'quitting_school']) }
 
   # Methods
   describe '#search' do
