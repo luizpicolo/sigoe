@@ -2,7 +2,7 @@ class IncidentsController < ApplicationController
   load_and_authorize_resource
 
   before_action :set_incident, only: [
-    :edit, :destroy, :update, :confirmation, :sign
+    :edit, :destroy, :update, :confirmation, :sign, :show
   ]
   add_breadcrumb "Home", :root_path
 
@@ -58,6 +58,12 @@ class IncidentsController < ApplicationController
       flash.now[:error] = @incident.errors.full_messages
       render :new
     end
+  end
+
+  def show
+    add_breadcrumb "Diren", sector_actions_path('diren')
+    add_breadcrumb "Ocorrências", :incidents_path
+    add_breadcrumb "visualizar ocorrência"
   end
 
   ## Mostra a confirmação para que o estudante possa assinar

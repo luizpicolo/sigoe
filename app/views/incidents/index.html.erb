@@ -43,7 +43,7 @@
           <span class="button is-danger in-mobile-expand">Ações</span>
           <div class="dropdown-content">
             <% if can? :read, Incident %>
-              <%= link_to '#', class: 'button is-success in-mobile-expand' do %>
+              <%= link_to incident_path(incident), class: 'button is-success in-mobile-expand' do %>
                 <span class="icon">
                   <i class="ion-search"></i>
                 </span>

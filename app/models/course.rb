@@ -18,14 +18,10 @@ class Course < ApplicationRecord
   # Associações
   has_many :students
   has_many :incidents
-  has_one :user
+  has_one :coordinator, class_name: 'User', foreign_key: 'course_id'
 
   search_scope :search do
     attributes :name
-  end
-
-  def coordinator
-    user
   end
 
   # Retorna um vetor contendo os nomes e seus respectivos IDs
