@@ -75,6 +75,13 @@ class User < ApplicationRecord
     current_user.id == id ? true : false
   end
 
+  # Retorna um vetor contendo os nomes e seus respectivos IDs
+  #
+  # @return [Array] contendo nomes e seus IDs
+  def self.get_all
+    order('name asc').collect {|p| [ p.name, p.id ] }
+  end
+
   def last_access
     updated_at.strftime('%d/%m/%Y %H:%M')
   end

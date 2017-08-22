@@ -31,7 +31,7 @@
           <%= f.label :assistant_id, 'Assistente', class: 'label' %>
           <p class="control">
             <span class="select">
-              <%= f.select :assistant_id, User.get_by_position('Assistente de Alunos'), {}, { :class => "is-medium" } %>
+              <%= f.select :assistant_id, User.get_all, {}, { :class => "select select2 is-medium" } %>
             </span>
           </p>
         </div>
@@ -39,7 +39,7 @@
           <%= f.label :institution, 'Instituição', class: 'label' %>
           <p class="control">
             <span class="select">
-              <%= f.select :institution, Incident.institutions.keys.to_a, {}, { :class => "is-medium" } %>
+              <%= f.select :institution, Incident.institutions.keys.to_a, {}, { :class => "select select2 is-medium" } %>
             </span>
           </p>
         </div>
@@ -47,20 +47,10 @@
           <%= f.label :type_student, 'Estudente é?', class: 'label' %>
           <p class="control">
             <span class="select">
-              <%= f.select :type_student, human_enum_name('incident.type_student', Incident.type_students.keys), {}, { :class => "is-medium" } %>
+              <%= f.select :type_student, human_enum_name('incident.type_student', Incident.type_students.keys), {}, { :class => "select select2 is-medium" } %>
             </span>
           </p>
         </div>
-        <% if current_user.it_is_part_of_the_sector?('diren', 'serti') %>
-        <div class="field">
-          <%= f.label :is_resolved, 'Ocorrências resolvida?', class: 'label' %>
-          <p class="control">
-            <span class="select">
-              <%= f.select :is_resolved, human_enum_name('incident.is_resolved', Incident.is_resolveds.keys), {}, { :class => "is-medium" } %>
-            </span>
-          </p>
-        </div>
-        <% end %>
       </div>
     </div>
   </fieldset>
@@ -98,10 +88,20 @@
             <%= f.label :sanction, 'Sanção aplicada', class: 'label' %>
             <p class="control">
               <span class="select">
-                <%= f.select :sanction, human_enum_name('incident.sanction', Incident.sanctions.keys), { prompt: "Selecione o tipo de sanção aplicada" }, { :class => "select2 select is-medium" } %>
+                <%= f.select :sanction, human_enum_name('incident.sanction', Incident.sanctions.keys), { prompt: "Sanção aplicada" }, { :class => "select2 select is-medium" } %>
               </span>
             </p>
           </div>
+          <% if current_user.it_is_part_of_the_sector?('diren', 'serti') %>
+          <div class="field">
+            <%= f.label :is_resolved, 'Ocorrências resolvida?', class: 'label' %>
+            <p class="control">
+              <span class="select">
+                <%= f.select :is_resolved, human_enum_name('incident.is_resolved', Incident.is_resolveds.keys), {}, { :class => "is-medium" } %>
+              </span>
+            </p>
+          </div>
+          <% end %>
           <div class="field">
             <p class="control padding-top-40">
               <a href="http://www.ifms.edu.br/wp-content/uploads/2016/04/Anexo_Resolução-001_2017_Regulamento-Disciplinar-Discente-Atualização.pdf" target="_blank">Acesse aqui o Regulamento Disciplinar Discente</a>
