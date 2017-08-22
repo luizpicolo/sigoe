@@ -24,13 +24,17 @@ class Incident < ApplicationRecord
   include SearchCop
 
   validates :user, :assistant, :institution, :description,
-	    :date_incident, :time_incident, presence: true
+	          :date_incident, :time_incident, presence: true
 
   enum institution: ['Ifms', 'Ufms', 'Cemid']
-  enum is_resolved: ['Não', 'Sim']
-  enum type_student: ['Não Residente', 'Residente']
-  enum sanction: ['Advertência Verbal', 'Advertência Escrita', 'Suspensão',
-                  'Desligamento']
+  enum is_resolved: ['no_', 'yes_']
+  enum type_student: ['non_resident', 'resident']
+  enum sanction: [
+    'verbal_warning',
+    'written_warning',
+    'suspension',
+    'quitting_school'
+  ]
 
   belongs_to :student, optional: true
   belongs_to :user
@@ -55,7 +59,7 @@ class Incident < ApplicationRecord
   end
 
   def signed_by_student_in
-    signed_in.strftime('%d/%m/%Y as %H:%M') if signed_in.present?
+    signed_in.strftime('%d/%m/%Y') if signed_in.present?
   end
 
   # Retorna um vetor com os atributos que serão utilizados para a

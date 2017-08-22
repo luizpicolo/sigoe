@@ -26,7 +26,7 @@ Rails.application.routes.draw do
     post :import_xls, to: 'students#import_xls', on: :collection
   end
   resources :courses, except: [:show]
-  resources :incidents, except: [:show] do
+  resources :incidents do
     get :sign, to: 'incidents#confirmation'
     post :sign, to: 'incidents#sign'
   end

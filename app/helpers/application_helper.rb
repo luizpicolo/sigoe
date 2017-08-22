@@ -39,27 +39,42 @@ module ApplicationHelper
 
   # Converte datas em formato brasileiro
   #
-  # @example extract_and_format_date(Time.now) #=> 10/10/2010
+  # @example extract_and_format_date(Time.zone.now) #=> 10/10/2010
   #
   # @param Time
   # @return [String] definido mediante o Time
   def extract_and_format_date(date = nil)
-    d = date.present? ? date : Time.now
+    d = date.present? ? date : Time.zone.now
     d.strftime('%d/%m/%Y')
   end
 
   # Converte horas em formato brasileiro
   #
-  # @example extract_and_format_date(Time.now) #=> 10:10
+  # @example extract_and_format_date(Time.zone.now) #=> 10:10
   #
   # @param Time
   # @return [String] definido mediante o Time
   def extract_and_format_time(time = nil)
-    t = time.present? ? time : Time.now
+    t = time.present? ? time : Time.zone.now
     t.strftime('%H:%M')
   end
 
   def verificated?(val)
     val == 1 || val == true ? '<i class="fa fa-check"></i>' : '<i class="fa fa-times"></i>'
+  end
+
+  # Converte e traduz um conjunto de atributos em um hash
+  #
+  # @example human_enum_name('model', array_attrs) #=> {'value_traduzido' => 'sem_tradução'}
+  #
+  # @param String, Array
+  # @return [Hasg]
+  def human_enum_name(model, attrs)
+    hash = {}
+    attrs.each do |attr|
+      key = I18n.t("activerecord.attributes.#{model}.#{attr}")
+      hash[key] = attr
+    end
+    hash
   end
 end

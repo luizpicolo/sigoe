@@ -2,7 +2,7 @@ class IncidentsController < ApplicationController
   load_and_authorize_resource
 
   before_action :set_incident, only: [
-    :edit, :destroy, :update, :confirmation, :sign
+    :edit, :destroy, :update, :confirmation, :sign, :show
   ]
   add_breadcrumb "Home", :root_path
 
@@ -60,6 +60,12 @@ class IncidentsController < ApplicationController
     end
   end
 
+  def show
+    add_breadcrumb "Diren", sector_actions_path('diren')
+    add_breadcrumb "Ocorrências", :incidents_path
+    add_breadcrumb "visualizar ocorrência"
+  end
+
   ## Mostra a confirmação para que o estudante possa assinar
   def confirmation
     if @incident.student.ra.nil?
@@ -72,7 +78,7 @@ class IncidentsController < ApplicationController
   # o estudante assina a ocorrência dando ciencia do fato
   def sign
     if @incident.student.authenticate(params[:incident]['password'])
-      if @incident.update(signed_in: Time.now)
+      if @incident.update(signed_in: Time.zone.now)
         redirect_to incidents_path, flash: { success: 'Ocorrência assinada com sucesso' }
       end
     else

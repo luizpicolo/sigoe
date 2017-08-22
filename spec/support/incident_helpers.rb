@@ -6,8 +6,8 @@ module IncidentHelpers
     select 'Residente', from: "Estudente é?"
     select 'Ifms', from: "Instituição"
     select 'Não', from: "Ocorrências resolvida?"
-    fill_in 'Data ocorrência', with: Time.now
-    fill_in 'Hora ocorrência', with: Time.now
+    fill_in 'Data ocorrência', with: Time.zone.now
+    fill_in 'Hora ocorrência', with: Time.zone.now
     fill_in 'Ocorrência', with: Faker::Lorem.characters(4)
 
     click_button 'Salvar'

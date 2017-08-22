@@ -22,21 +22,36 @@ RSpec.describe ApplicationHelper, type: :helper do
 
   describe ".extract_and_format_date" do
     it 'return pt-br formated date with params' do
-      expect(helper.extract_and_format_date(Time.now)).to eql(Time.now.strftime("%d/%m/%Y"))
+      expect(helper.extract_and_format_date(Time.zone.now)).to eql(Time.zone.now.strftime("%d/%m/%Y"))
     end
 
     it 'return pt-br formated date within params' do
-      expect(helper.extract_and_format_date()).to eql(Time.now.strftime("%d/%m/%Y"))
+      expect(helper.extract_and_format_date()).to eql(Time.zone.now.strftime("%d/%m/%Y"))
     end
   end
 
   describe ".extract_and_format_time" do
     it 'return formated time with params' do
-      expect(helper.extract_and_format_time(Time.now)).to eql(Time.now.strftime("%H:%M"))
+      expect(helper.extract_and_format_time(Time.zone.now)).to eql(Time.zone.now.strftime("%H:%M"))
     end
 
     it 'return formated date within params' do
-      expect(helper.extract_and_format_time()).to eql(Time.now.strftime("%H:%M"))
+      expect(helper.extract_and_format_time()).to eql(Time.zone.now.strftime("%H:%M"))
+    end
+  end
+
+  describe '.human_enum_name' do
+    let(:human_enum_name) {
+      helper.human_enum_name('incident.type_student', Incident.type_students.keys)
+    }
+
+    it 'return hash' do
+      expect(human_enum_name).to be_kind_of(Hash)
+    end
+
+    it 'return hash with translated key in pt-br' do
+      expect(human_enum_name['Não residente']).to eq('non_resident')
+      expect(human_enum_name['Residente']).to eq('resident')
     end
   end
 end
