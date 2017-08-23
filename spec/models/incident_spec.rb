@@ -30,6 +30,7 @@ RSpec.describe Incident, type: :model do
   # Validations
   it { should validate_presence_of :user  }
   it { should validate_presence_of :institution  }
+  it { should validate_presence_of :course  }
   it { should validate_presence_of :description  }
   it { should validate_presence_of :assistant  }
   it { should validate_presence_of :date_incident  }
