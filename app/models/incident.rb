@@ -23,7 +23,7 @@
 class Incident < ApplicationRecord
   include SearchCop
 
-  validates :user, :assistant, :institution, :description,
+  validates :user, :course, :assistant, :institution, :description,
 	          :date_incident, :time_incident, presence: true
 
   enum institution: ['Ifms', 'Ufms', 'Cemid']
