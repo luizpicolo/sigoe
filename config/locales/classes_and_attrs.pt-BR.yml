@@ -28,7 +28,7 @@ pt-BR:
         description: 'Descrição'
         date_incident: 'Data ocorrência'
         time_incident: 'Hora ocorrência'
-        course: 'Turma'
+        course: 'Curso'
         user: 'Usuário'
         is_resolved:
           no_: 'Não'
