@@ -20,7 +20,7 @@ class Ability
 
     # Diretoria de ensino
     if user.it_is_part_of_the_sector?('diren')
-      can [:update, :read], Student
+      can [:update, :create, :read], Student
       can :manage, Incident
       cannot :destroy, Incident
     end

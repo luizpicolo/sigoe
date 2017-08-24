@@ -176,7 +176,7 @@ RSpec.describe User, type: :model do
       it "should be able to manager entity Student" do
         entity = 'Student'
         @ability = Ability.new(create_user_by_sector(sector))
-        expect(@ability).not_to be_able_to(:create, eval(entity))
+        expect(@ability).to be_able_to(:create, eval(entity))
         expect(@ability).to be_able_to(:update, eval(entity))
         expect(@ability).not_to be_able_to(:destroy, eval(entity))
       end
