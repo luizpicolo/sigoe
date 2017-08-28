@@ -42,17 +42,21 @@
               </span>
               <span>Copiar</span>
             </a>
-            <%= link_to edit_keypass_path(k), class: 'button is-success in-mobile-expand' do %>
-              <span class="icon">
-                <i class="ion-edit"></i>
-              </span>
-              <span>Editar</span>
+            <% if can? :update, Keypass %>
+              <%= link_to edit_keypass_path(k), class: 'button is-success in-mobile-expand' do %>
+                <span class="icon">
+                  <i class="ion-edit"></i>
+                </span>
+                <span>Editar</span>
+              <% end %>
             <% end %>
-            <%= link_to keypass_path(k), method: :delete, data: { confirm: 'Tem certeza?' }, class: 'button is-danger in-mobile-expand' do %>
-              <span class="icon">
-                <i class="ion-close"></i>
-              </span>
-              <span>Excluir</span>
+            <% if can? :destroy, Keypass %>
+              <%= link_to keypass_path(k), method: :delete, data: { confirm: 'Tem certeza?' }, class: 'button is-danger in-mobile-expand' do %>
+                <span class="icon">
+                  <i class="ion-close"></i>
+                </span>
+                <span>Excluir</span>
+              <% end %>
             <% end %>
           </div>
       </td>

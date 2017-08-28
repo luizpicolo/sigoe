@@ -8,36 +8,12 @@ class Ability
   def initialize(user)
     user ||= User.new
 
-    # Assistente de alunos
-    if user.it_is_part_of_the_sector?('assal')
-      can [:create, :update, :read], Incident
-    end
-
-    # Audio visual
-    if user.it_is_part_of_the_sector?('audi')
-      can [:read, :update], Student
-    end
-
-    # Diretoria de ensino
-    if user.it_is_part_of_the_sector?('diren')
-      can [:update, :create, :read], Student
-      can :manage, Incident
-      cannot :destroy, Incident
-    end
-
-    # Professores
-    if user.it_is_part_of_the_sector?('prof')
-      can :read, Student
-    end
-
-    # admins
-    if user.it_is_part_of_the_sector?('serti')
-      can :manage, :all
-    end
-
-    # Tecnicos de Lab em Informatica
-    if user.it_is_part_of_the_sector?('teclabinfo')
-      can :read, Keypass
+    can [:manage], :all if user.admin?
+    user.permissions.each do |permission|
+      can [:create], eval(permission.entity) if permission.can_create?
+      can [:read], eval(permission.entity) if permission.can_read?
+      can [:update], eval(permission.entity) if permission.can_update?
+      can [:destroy], eval(permission.entity) if permission.can_destroy?
     end
   end
 end

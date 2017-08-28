@@ -34,6 +34,7 @@ FactoryGirl.define do
     username { Faker::Internet.user_name }
     siape { Faker::Number.number(7) }
     sector
+    admin false
     position factory: :position
   end
 end

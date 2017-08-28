@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170815131444) do
+ActiveRecord::Schema.define(version: 20170830163201) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20170815131444) do
     t.integer "is_resolved"
     t.integer "type_student"
     t.integer "sanction"
+    t.integer "school_group"
     t.index ["course_id"], name: "index_incidents_on_course_id"
     t.index ["date_incident"], name: "index_incidents_on_date_incident"
     t.index ["institution"], name: "index_incidents_on_institution"
@@ -56,6 +57,18 @@ ActiveRecord::Schema.define(version: 20170815131444) do
     t.string "user"
     t.integer "local"
     t.index ["title"], name: "index_keypasses_on_title"
+  end
+
+  create_table "permissions", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "entity"
+    t.boolean "can_create", default: false
+    t.boolean "can_read", default: false
+    t.boolean "can_update", default: false
+    t.boolean "can_destroy", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_permissions_on_user_id"
   end
 
   create_table "positions", force: :cascade do |t|
@@ -133,6 +146,7 @@ ActiveRecord::Schema.define(version: 20170815131444) do
     t.bigint "position_id"
     t.string "avatar"
     t.bigint "course_id"
+    t.boolean "admin", default: false
     t.index ["course_id"], name: "index_users_on_course_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["position_id"], name: "index_users_on_position_id"
@@ -144,6 +158,7 @@ ActiveRecord::Schema.define(version: 20170815131444) do
   add_foreign_key "incidents", "courses"
   add_foreign_key "incidents", "students"
   add_foreign_key "incidents", "users"
+  add_foreign_key "permissions", "users"
   add_foreign_key "students", "courses"
   add_foreign_key "tickets", "users"
   add_foreign_key "users", "courses"

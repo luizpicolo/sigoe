@@ -35,9 +35,27 @@ module UserHelpers
     s = FactoryGirl.create(:sector, initial: sector)
     return FactoryGirl.create(:user, sector: s)
   end
+
+  def add_permission(entity, user, options = {})
+    create = options[:create] || false
+    read = options[:read] || false
+    update = options[:update] || false
+    destroy = options[:destroy] || false
+
+    FactoryGirl.create(
+      :permission,
+      entity: entity,
+      user: user,
+      can_create: create,
+      can_read: read,
+      can_update: update,
+      can_destroy: destroy
+    )
+  end
 end
 
 RSpec.configure do |config|
   config.include UserHelpers, type: :feature
   config.include UserHelpers, type: :model
+  config.include UserHelpers, type: :controller
 end
