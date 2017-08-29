@@ -14,8 +14,8 @@
     <p><b>Problema ocorrido</b></p>
     <p><%= @incident&.description %></p>
     <% if @incident&.sanction.present? %>
-    <p><b>Sanção adota:</b> <%= I18n.t("activerecord.attributes.incident.sanction.#{incident&.sanction}") %></p>
     <p><b>Solução adoata para o problema</b></p>
+    <p><b>Sanção adota:</b> <%= I18n.t("activerecord.attributes.incident.sanction.#{@incident&.sanction}") %></p>
     <p><%= @incident&.soluction %></p>
     <% end %>
   </div>
