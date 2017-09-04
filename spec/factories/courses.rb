@@ -12,6 +12,6 @@
 FactoryGirl.define do
   factory :course do
     name { Faker::Name.name }
-    initial { Faker::Lorem.words(4) }
+    initial { Faker::Lorem.words(1).first }
   end
 end

@@ -40,9 +40,13 @@ class User < ApplicationRecord
   delegate :initial, to: :sector, prefix: true
 
   # Associações
+  has_many :permissions, dependent: :destroy
   belongs_to :sector
   belongs_to :position
   belongs_to :course, optional: true
+
+  # Nested form
+  accepts_nested_attributes_for :permissions
 
   # Atributos para busca com SearchCop
   search_scope :search do

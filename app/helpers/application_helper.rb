@@ -77,4 +77,8 @@ module ApplicationHelper
     end
     hash
   end
+
+  def models
+    ApplicationRecord.descendants.map(&:name)
+  end
 end

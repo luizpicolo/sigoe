@@ -26,6 +26,7 @@ class StudentsController < ApplicationController
     if @students.save
       redirect_to students_path, flash: { success: 'Estudante cadastro com sucesso' }
     else
+      puts @students.errors.full_messages
       flash.now[:error] = @students.errors.full_messages
       render :new
     end
@@ -49,7 +50,7 @@ class StudentsController < ApplicationController
   def destroy
     if @student.destroy
       flash[:success] = "Estudante deletado com sucesso"
-      redirect_back(fallback_location: users_path)
+      redirect_back(fallback_location: students_path)
     else
       flash.now[:error] = @student.errors.full_messages
       render :new

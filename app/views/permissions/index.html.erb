@@ -1,0 +1,68 @@
+<div class="columns">
+  <div class="column">
+    <% if can? :create, Permission %>
+      <%= link_to new_user_permission_path, class: "button is-success in-mobile-expand" do %>
+        <span class="icon">
+          <i class="ion-plus-round"></i>
+        </span>
+        <span>Adicionar Permissão</span>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="column">
+    <% show_search_error_message(@permissions, params) %>
+    <%= render 'layouts/search', path: user_permissions_path, v: attr_order(@permissions) %>
+  </div>
+</div>
+
+<table class="table is-striped is-fullwidth">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Usuário</th>
+      <th>Modelo</th>
+      <th>Criar</th>
+      <th>Ler</th>
+      <th>Atualizar</th>
+      <th>Deletar</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @permissions.each do |permission| %>
+    <tr>
+      <td><%= permission.id %></td>
+      <td><%= permission.user.name %></td>
+      <td><%= permission.entity %></td>
+      <td><%= verificated?(permission.can_create?).html_safe %></td>
+      <td><%= verificated?(permission.can_read?).html_safe %></td>
+      <td><%= verificated?(permission.can_update?).html_safe %></td>
+      <td><%= verificated?(permission.can_destroy?).html_safe %></td>
+      <td class="has-text-right">
+        <div class="dropdown">
+          <span class="button is-danger in-mobile-expand">Ações</span>
+          <div class="dropdown-content">
+            <% if can? :update, Permission %>
+              <%= link_to edit_user_permission_path(id: permission), class: 'button is-success in-mobile-expand' do %>
+                <span class="icon">
+                  <i class="ion-edit"></i>
+                </span>
+                <span>Editar</span>
+              <% end %>
+            <% end %>
+            <% if can? :destroy, Permission %>
+              <%= link_to user_permission_path(id: permission), method: :delete, data: { confirm: 'Tem certeza que deseja excluir?' }, class: 'button is-danger in-mobile-expand' do %>
+                <span class="icon">
+                  <i class="ion-close"></i>
+                </span>
+                <span>Excluir</span>
+              <% end %>
+            <% end %>
+          </div>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @permissions %>

@@ -19,7 +19,7 @@ FactoryGirl.define do
     user { Faker::Internet.user_name }
     key { Faker::Internet.email }
     local_service { Faker::Internet.email }
-    local { 1 }
+    local { 'ifms' }
     description { Faker::Internet.email }
   end
 end

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'permission/index'
+
   root 'home#index'
 
   # Devise Routes
@@ -16,6 +18,7 @@ Rails.application.routes.draw do
   # routes
   resources :users, except: [:show] do
     get :change_password
+    resources :permissions, except: [:show]
   end
   resources :sectors, except: [:show] do
     get :actions

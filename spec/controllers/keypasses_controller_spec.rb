@@ -3,14 +3,11 @@ require 'rails_helper'
 RSpec.describe KeypassesController, type: :controller do
   before(:each) do
     @user = FactoryGirl.create(:user)
-    sign_in @user
+    @attr = FactoryGirl.attributes_for(:keypass)
+    @model = FactoryGirl.create(:keypass)
+    @entity = 'Keypass'
+    @path = keypasses_path
   end
 
-  describe "GET #index" do
-    it "returns http success" do
-      get :index
-      expect(response).to have_http_status(:success)
-    end
-  end
-
+  include_examples "permission_controller"
 end

@@ -1,10 +1,12 @@
 <div class="columns no-print">
   <div class="column">
-    <%= link_to new_course_path, class: "button is-success in-mobile-expand" do %>
-      <span class="icon">
-        <i class="ion-plus-round"></i>
-      </span>
-      <span>Novo curso</span>
+    <% if can? :create, Course %>
+      <%= link_to new_course_path, class: "button is-success in-mobile-expand" do %>
+        <span class="icon">
+          <i class="ion-plus-round"></i>
+        </span>
+        <span>Novo curso</span>
+      <% end %>
     <% end %>
   </div>
   <div class="column">
@@ -32,17 +34,21 @@
         <div class="dropdown">
           <span class="button is-danger in-mobile-expand">Ações</span>
           <div class="dropdown-content">
-            <%= link_to edit_course_path(course), class: 'button is-success in-mobile-expand' do %>
-              <span class="icon">
-                <i class="ion-edit"></i>
-              </span>
-              <span>Editar</span>
+            <% if can? :update, Course %>
+              <%= link_to edit_course_path(course), class: 'button is-success in-mobile-expand' do %>
+                <span class="icon">
+                  <i class="ion-edit"></i>
+                </span>
+                <span>Editar</span>
+              <% end %>
             <% end %>
-            <%= link_to course_path(course), method: :delete, data: { confirm: 'Tem certeza?' }, class: 'button is-danger in-mobile-expand' do %>
-              <span class="icon">
-                <i class="ion-close"></i>
-              </span>
-              <span>Excluir</span>
+            <% if can? :destroy, Course %>
+              <%= link_to course_path(course), method: :delete, data: { confirm: 'Tem certeza?' }, class: 'button is-danger in-mobile-expand' do %>
+                <span class="icon">
+                  <i class="ion-close"></i>
+                </span>
+                <span>Excluir</span>
+              <% end %>
             <% end %>
           </div>
       </td>

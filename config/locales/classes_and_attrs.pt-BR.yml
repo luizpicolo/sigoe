@@ -3,8 +3,12 @@ pt-BR:
     models:
       user: "Usuários"
       keypass: "Senhas"
-      course: "Curso"
+      sector: "Setores"
+      position: "Posições"
+      student: "Estudantes"
+      course: "Cursos"
       incident: "Ocorrências"
+      permission: "Permissões"
 
     attributes:
       user:

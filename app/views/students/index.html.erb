@@ -8,7 +8,7 @@
         <span>Novo Estudante</span>
       <% end %>
     <% end %>
-    <% if can? :manager, Student %>
+    <% if current_user.admin? %>
       <%= link_to import_xls_students_path, class: "button is-success in-mobile-expand" do %>
         <span class="icon">
           <i class="ion-ios-upload-outline"></i>
@@ -44,14 +44,6 @@
         <div class="dropdown">
           <span class="button is-danger in-mobile-expand">Ações</span>
           <div class="dropdown-content">
-            <% if can? :read, Student %>
-              <%= link_to '#', class: 'button is-success in-mobile-expand' do %>
-                <span class="icon">
-                  <i class="ion-search"></i>
-                </span>
-                <span>Visualizar</span>
-              <% end %>
-            <% end %>
             <% if can? :update, Student %>
               <%= link_to edit_student_path(student), class: 'button is-success in-mobile-expand' do %>
                 <span class="icon">

@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20170825113851) do
+=======
+ActiveRecord::Schema.define(version: 20170830163201) do
+>>>>>>> 28d5a1302e2b7d9f8e1f1a240a400106e9c0574d
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +61,18 @@ ActiveRecord::Schema.define(version: 20170825113851) do
     t.string "user"
     t.integer "local"
     t.index ["title"], name: "index_keypasses_on_title"
+  end
+
+  create_table "permissions", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "entity"
+    t.boolean "can_create", default: false
+    t.boolean "can_read", default: false
+    t.boolean "can_update", default: false
+    t.boolean "can_destroy", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_permissions_on_user_id"
   end
 
   create_table "positions", force: :cascade do |t|
@@ -134,6 +150,7 @@ ActiveRecord::Schema.define(version: 20170825113851) do
     t.bigint "position_id"
     t.string "avatar"
     t.bigint "course_id"
+    t.boolean "admin", default: false
     t.index ["course_id"], name: "index_users_on_course_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["position_id"], name: "index_users_on_position_id"
@@ -145,6 +162,7 @@ ActiveRecord::Schema.define(version: 20170825113851) do
   add_foreign_key "incidents", "courses"
   add_foreign_key "incidents", "students"
   add_foreign_key "incidents", "users"
+  add_foreign_key "permissions", "users"
   add_foreign_key "students", "courses"
   add_foreign_key "tickets", "users"
   add_foreign_key "users", "courses"

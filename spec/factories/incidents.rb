@@ -27,11 +27,11 @@ FactoryGirl.define do
     assistant factory: :user
     course factory: :course
     institution { 'Ifms' }
-    description { Faker::Lorem.words(255) }
+    description { Faker::Lorem.paragraph(2) }
     date_incident Time.zone.now
     time_incident '10:00:00'
     type_student { 'resident' }
     signed_in Time.zone.now
-    soluction { Faker::Lorem.words(255) }
+    soluction { Faker::Lorem.paragraph(2) }
   end
 end
