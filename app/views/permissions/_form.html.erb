@@ -10,7 +10,15 @@
               <%= f.select :entity, models.to_a, { prompt: "Entidade" }, { :class => "select2" } %>
             </span>
           </p>
-        </div>        
+        </div>
+        <div class="field margin-top-40px">
+          <div class="control">
+            <label class="checkbox label">
+              <%= f.check_box :can_manage, class: 'checkbox' %>
+              Acesso completo
+            </label>
+          </div>
+        </div>
         <div class="field margin-top-40px">
           <div class="control">
             <label class="checkbox label">
