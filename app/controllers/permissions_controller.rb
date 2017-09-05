@@ -10,6 +10,7 @@ class PermissionsController < ApplicationController
 
     @permissions = Permission.order("#{set_order}": :desc)
                              .search(params[:search])
+                             .where(user_id: params[:user_id])
                              .page(params[:page]).per(set_amount_return)
   end
 
