@@ -18,6 +18,7 @@
 #  is_resolved   :integer
 #  type_student  :integer
 #  sanction      :integer
+#  school_group  :integer
 #
 
 require 'rails_helper'

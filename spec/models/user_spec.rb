@@ -22,6 +22,7 @@
 #  position_id            :integer
 #  avatar                 :string
 #  course_id              :integer
+#  admin                  :boolean          default(FALSE)
 #
 
 require 'rails_helper'
