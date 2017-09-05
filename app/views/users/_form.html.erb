@@ -100,6 +100,12 @@
             <%= f.password_field :password_confirmation, class: 'input is-medium', placeholder: 'Confimação senha' %>
           </p>
         </div>
+        <div class="field">
+          <p class="control">
+            <%= f.label :admin, 'Admin?', class: 'label' %>
+            <%= f.check_box :admin %>
+          </p>
+        </div>
       </div>
     </div>
   </fieldset>
