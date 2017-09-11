@@ -21,7 +21,7 @@
       <th>ID</th>
       <th>Usuário</th>
       <th>Modelo</th>
-      <th>Acesso completo</th>
+      <th>Opções extras</th>
       <th>Criar</th>
       <th>Ler</th>
       <th>Atualizar</th>
@@ -35,7 +35,7 @@
       <td><%= permission.id %></td>
       <td><%= permission.user.name %></td>
       <td><%= permission.entity %></td>
-      <td><%= verificated?(permission.can_manage?).html_safe %></td>
+      <td><%= verificated?(permission.can_extras?).html_safe %></td>
       <td><%= verificated?(permission.can_create?).html_safe %></td>
       <td><%= verificated?(permission.can_read?).html_safe %></td>
       <td><%= verificated?(permission.can_update?).html_safe %></td>

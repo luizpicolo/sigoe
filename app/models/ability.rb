@@ -10,7 +10,7 @@ class Ability
 
     can [:manage], :all if user.admin?
     user.permissions.each do |permission|
-      can [:manage], eval(permission.entity) if permission.can_manage?
+      can [:extras], eval(permission.entity) if permission.can_extras?
       can [:create], eval(permission.entity) if permission.can_create?
       can [:read], eval(permission.entity) if permission.can_read?
       can [:update], eval(permission.entity) if permission.can_update?
