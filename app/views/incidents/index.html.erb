@@ -50,7 +50,7 @@
                 <span>Visualizar</span>
               <% end %>
             <% end %>
-            <% if can? :extras, Incident %>
+            <% if can? :read, Incident %>
               <% if incident.signed_in.nil? && !incident.student.nil? %>
                 <%= link_to incident_sign_path(incident), class: 'button' do %>
                   <span class="icon">
