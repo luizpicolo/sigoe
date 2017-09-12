@@ -48,8 +48,8 @@ class Incident < ApplicationRecord
 
   # Atributos para busca com SearchCop
   search_scope :search do
-    attributes student: "student.id"
-    attributes course: "course.id"
+    attributes student: "student.name"
+    attributes course: "course.name"
     attributes institution: "institution"
     attributes type_student: "type_student"
     attributes date_incident: "date_incident"
@@ -73,6 +73,6 @@ class Incident < ApplicationRecord
   # @return [Array] contendo os atributos para a busca
   def self.ordenation_attributes
     [["ID",'id'], ["Estudante",'student_id'], ["Instituição",'institution'],
-     ["Data",'date_incident']]
+     ["Data",'date_incident'], ["Turma",'course_id']]
   end
 end
