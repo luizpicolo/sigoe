@@ -32,6 +32,7 @@ FactoryGirl.define do
     date_incident Time.zone.now
     time_incident '10:00:00'
     type_student { 'resident' }
+    sanction { 'verbal_warning' }
     signed_in Time.zone.now
     soluction { Faker::Lorem.paragraph(2) }
   end
