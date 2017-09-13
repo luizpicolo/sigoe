@@ -41,6 +41,7 @@ pt-BR:
           non_resident: 'Não residente'
           resident: 'Residente'
         sanction:
+          one: 'Sanção aplicada'
           verbal_warning: 'Advertência Verbal'
           written_warning: 'Advertência escrita'
           suspension: 'Suspensão'
