@@ -26,7 +26,6 @@ class Incident < ApplicationRecord
 
   validates :user, :course, :assistant, :institution, :description,
 	          :date_incident, :time_incident, presence: true
-  validates :sanction, presence: true, on: :update
 
   enum institution: ['Ifms', 'Ufms', 'Cemid']
   enum is_resolved: ['no_', 'yes_']
