@@ -4,6 +4,7 @@ class IncidentsController < ApplicationController
   before_action :set_incident, only: [
     :edit, :destroy, :update, :confirmation, :sign, :show
   ]
+
   add_breadcrumb "Home", :root_path
 
   def index

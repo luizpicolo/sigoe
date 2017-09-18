@@ -49,7 +49,7 @@ RSpec.shared_examples "permission_controller" do
     end
   end
 
-  describe "PUT #update" do
+  describe "DELETE #destroy" do
     it "returns http success if have destroy access permission" do
       add_permission @entity, @user, destroy: true
       sign_in @user

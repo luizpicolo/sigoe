@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(version: 20170911192831) do
     t.boolean "can_destroy", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "can_manage", default: true
+    t.boolean "can_manage", default: false
     t.boolean "can_extras", default: false
     t.index ["user_id"], name: "index_permissions_on_user_id"
   end
