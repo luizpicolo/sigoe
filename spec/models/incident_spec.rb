@@ -115,6 +115,70 @@ RSpec.describe Incident, type: :model do
     end
   end
 
+  describe '#student_name' do
+    let(:subject){ FactoryGirl.create(:incident) }
+
+    context 'When student are present' do
+      it 'Returns student name' do
+        expect(subject.student_name).to eq(subject.student.name)
+      end
+    end
+
+    context 'When student are not present' do
+      before do
+        allow(subject).to receive(:student).and_return(nil)
+      end
+
+      it "Returns ' ---- ' string" do
+        expect(subject.student_name).to eq(' ---- ')
+      end
+    end
+  end
+
+  describe '#course_initial' do
+    let(:subject){ FactoryGirl.create(:incident) }
+
+    context 'When course are present' do
+      it 'Returns course name' do
+        expect(subject.course_initial).to eq(subject.course.initial)
+      end
+    end
+
+    context 'When course are not present' do
+      before do
+        allow(subject).to receive(:course).and_return(nil)
+      end
+
+      it "Returns ' ---- ' string" do
+        expect(subject.course_initial).to eq(' ---- ')
+      end
+    end
+  end
+
+  describe '#signed_by_student_in' do
+    let(:subject){ FactoryGirl.create(:incident) }
+
+    context 'When signed_in field is present' do
+      before do
+        allow(subject).to receive(:signed_in).and_return(Time.new(2017, 10, 3))
+      end
+
+      it 'Returns formated signed_in date' do
+        expect(subject.signed_by_student_in).to eq('03/10/2017')
+      end
+    end
+
+    context 'When signed_in field is not present' do
+      before do
+        allow(subject).to receive(:signed_in).and_return(nil)
+      end
+
+      it 'Returns nil' do
+        expect(subject.signed_by_student_in).to eq(nil)
+      end
+    end
+  end
+
   describe ".ordenation_attributes" do
     ordenation_attributes = Incident.ordenation_attributes
 
