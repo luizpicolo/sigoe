@@ -110,24 +110,6 @@ ActiveRecord::Schema.define(version: 20170911192831) do
     t.index ["name"], name: "index_students_on_name"
   end
 
-  create_table "tickets", id: :serial, force: :cascade do |t|
-    t.string "from"
-    t.string "to"
-    t.string "subject"
-    t.integer "priority", default: 0
-    t.text "description"
-    t.integer "status", default: 0
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "local"
-    t.integer "answer"
-    t.index ["from"], name: "index_tickets_on_from"
-    t.index ["status"], name: "index_tickets_on_status"
-    t.index ["to"], name: "index_tickets_on_to"
-    t.index ["user_id"], name: "index_tickets_on_user_id"
-  end
-
   create_table "users", id: :serial, force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -162,7 +144,6 @@ ActiveRecord::Schema.define(version: 20170911192831) do
   add_foreign_key "incidents", "users"
   add_foreign_key "permissions", "users"
   add_foreign_key "students", "courses"
-  add_foreign_key "tickets", "users"
   add_foreign_key "users", "courses"
   add_foreign_key "users", "positions"
   add_foreign_key "users", "sectors"
