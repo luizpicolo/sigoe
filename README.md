@@ -8,7 +8,7 @@
 
 ![Em Desenvolvimento](http://messages.hellobits.com/success.svg?message=Em%20Desenvolvimento)
 
-Este sistema tem como base: Rails 5.0.2 e Ruby 2.3.1.
+Este sistema tem como base: Rails 5.1.4 e Ruby 2.3.1.
 
 O SIAI (Sistema de Apoio interno) é um software desenvolvido com o objetivo de auxiliar nos diversos setores do IFMS-NA (Institulo Federal de Mato Grosso do Sul - Campus Nova Andradina).
 
