@@ -1,37 +1,49 @@
 <%= form_for model do |f| %>
   <fieldset>
     <legend>Dados do estudante</legend>
-    <div class="field">
-      <%= f.label :student_id, 'Estudante', class: 'label' %>
-      <p class="control">
-        <div class="select">
-          <%= f.select :student_id, Student.get_all, { prompt: "Selecione o estudante" }, { :class => "select2 is-medium" } %>
+    <div class="columns">
+      <div class="column">
+        <div class="field">
+          <%= f.label :student_id, 'Estudante', class: 'label' %>
+          <p class="control">
+            <div class="select">
+              <%= f.select :student_id, Student.get_all, { prompt: "Selecione o estudante" }, { :class => "select2 is-medium" } %>
+            </div>
+          </p>
         </div>
-      </p>
-    </div>
-    <div class="field">
-      <%= f.label :course_id, 'Curso', class: 'label' %>
-      <p class="control">
-        <span class="select">
-          <%= f.select :course_id, Course.names, { prompt: "Selecione o Curso" }, { :class => "select2 is-medium" } %>
-        </span>
-      </p>
-    </div>
-    <div class="field">
-      <%= f.label :school_group, 'Turma', class: 'label' %>
-      <p class="control">
-        <span class="select">
-          <%= f.select :school_group, Incident.school_groups.keys.to_a, { prompt: "Selecione a Turma" }, { :class => "select select2 is-medium" } %>
-        </span>
-      </p>
-    </div>
-    <div class="field">
-      <%= f.label :type_student, 'Estudente é?', class: 'label' %>
-      <p class="control">
-        <span class="select">
-          <%= f.select :type_student, human_enum_name('incident.type_student', Incident.type_students.keys), {}, { :class => "select select2 is-medium" } %>
-        </span>
-      </p>
+        <div class="field">
+          <%= f.label :course_id, 'Curso', class: 'label' %>
+          <p class="control">
+            <span class="select">
+              <%= f.select :course_id, Course.names, { prompt: "Selecione o Curso" }, { :class => "select2 is-medium" } %>
+            </span>
+          </p>
+        </div>
+        <div class="field">
+          <%= f.label :school_group, 'Turma', class: 'label' %>
+          <p class="control">
+            <span class="select">
+              <%= f.select :school_group, Incident.school_groups.keys.to_a, { prompt: "Selecione a Turma" }, { :class => "select select2 is-medium" } %>
+            </span>
+          </p>
+        </div>
+        <div class="field">
+          <%= f.label :type_student, 'Estudente é?', class: 'label' %>
+          <p class="control">
+            <span class="select">
+              <%= f.select :type_student, human_enum_name('incident.type_student', Incident.type_students.keys), {}, { :class => "select select2 is-medium" } %>
+            </span>
+          </p>
+        </div>
+      </div>
+      <div class="column has-text-centered">
+        <% if !model.student&.photo.nil? %>
+          <%= link_to model.student.photo.to_s, class: 'fancybox' do %>
+            <%= image_tag model.student.photo.thumb %>
+            <p>Clique para ampliar</p>
+          <% end %>
+        <% end %>
+      </div>
     </div>
   </fieldset>
 

@@ -7,6 +7,7 @@
   "license": "MIT",
   "dependencies": {
     "bulma": "^0.5.1",
+    "fancybox": "^3.0.0",
     "jquery-mask-plugin": "^1.14.10",
     "select2": "^4.0.3"
   }
