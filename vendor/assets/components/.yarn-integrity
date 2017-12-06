@@ -2,16 +2,18 @@
   "flags": [],
   "linkedModules": [],
   "topLevelPatters": [
-    "bulma@^0.5.1",
+    "bulma@^0.6.1",
+    "fancybox@^3.0.0",
     "jquery-mask-plugin@^1.14.10",
     "select2@^4.0.3"
   ],
   "lockfileEntries": {
     "almond@~0.3.1": "https://registry.yarnpkg.com/almond/-/almond-0.3.3.tgz#a0e7c95ac7624d6417b4494b1e68bff693168a20",
-    "bulma@^0.5.1": "https://registry.yarnpkg.com/bulma/-/bulma-0.5.1.tgz#db2831c94afe732250c7b12527a7b792a4dc9ef8",
-    "jquery-mask-plugin@^1.14.10": "https://registry.yarnpkg.com/jquery-mask-plugin/-/jquery-mask-plugin-1.14.11.tgz#57ba598416af6ea7ba9336eacb2a1bf0edbba1db",
+    "bulma@^0.6.1": "https://registry.yarnpkg.com/bulma/-/bulma-0.6.1.tgz#5f21a77c0c06f7d80051c06628c23516081bd649",
+    "fancybox@^3.0.0": "https://registry.yarnpkg.com/fancybox/-/fancybox-3.0.0.tgz#8c21af8142c621bed7d551ba69c4c38eaecd2e04",
+    "jquery-mask-plugin@^1.14.10": "https://registry.yarnpkg.com/jquery-mask-plugin/-/jquery-mask-plugin-1.14.12.tgz#e6f8239d2c92b1f417303c1e3a7c72658248cc52",
     "jquery-mousewheel@~3.1.13": "https://registry.yarnpkg.com/jquery-mousewheel/-/jquery-mousewheel-3.1.13.tgz#06f0335f16e353a695e7206bf50503cb523a6ee5",
-    "select2@^4.0.3": "https://registry.yarnpkg.com/select2/-/select2-4.0.3.tgz#207733fe91eacb9cb1a13f12463401f472449e0f"
+    "select2@^4.0.3": "https://registry.yarnpkg.com/select2/-/select2-4.0.5.tgz#7aac50692561985b34d3b82ec55e226f8960d40a"
   },
   "files": [],
   "artifacts": {}

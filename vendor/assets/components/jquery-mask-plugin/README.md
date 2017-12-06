@@ -28,6 +28,9 @@ https://igorescobar.github.io/jQuery-Mask-Plugin/
   * HTML5 placeholder support.
   * Clear the field if it not matches support.
 
+## Want to buy me a beer? :heart_eyes:
+http://paypal.me/igorcescobar
+
 ## Install it via Package Managers
 ### Bower
 `bower install jquery-mask-plugin`
@@ -98,9 +101,10 @@ Before opening a new [issue](https://github.com/igorescobar/jQuery-Mask-Plugin/i
 #### [Add validation?](https://github.com/igorescobar/jQuery-Mask-Plugin/issues/387#issuecomment-192998092)
 #### [Field type number, email not working?](https://github.com/igorescobar/jQuery-Mask-Plugin/issues/450#issuecomment-253225719)
 #### [Want to keep the placeholder as the user types?](https://github.com/igorescobar/jQuery-Mask-Plugin/issues/450#issuecomment-253225719)
+#### [E-mail mask?](https://github.com/igorescobar/jQuery-Mask-Plugin/issues/582)
 
 ## Bugs?
-Did you read our [docs](https://igorescobar.github.io/jQuery-Mask-Plugin/)? Yes? Cool! So now... make sure that you have a *functional* [jsfiddle](http://jsfiddle.net/) exemplifying your problem and open an [issue](https://github.com/igorescobar/jQuery-Mask-Plugin/issues) for us. Don't know how to do it? Use this [fiddle example](http://jsfiddle.net/igorescobar/6pco4om7/).
+Did you read our [docs](https://igorescobar.github.io/jQuery-Mask-Plugin/docs.html)? Yes? Cool! So now... make sure that you have a *functional* [jsfiddle](http://jsfiddle.net/) exemplifying your problem and open an [issue](https://github.com/igorescobar/jQuery-Mask-Plugin/issues) for us. Don't know how to do it? Use this [fiddle example](http://jsfiddle.net/igorescobar/6pco4om7/).
 
 ## Contributing
  * **Bug Reporting**: Yes! You can contribute opening [issues](https://github.com/igorescobar/jQuery-Mask-Plugin/issues)!
@@ -128,23 +132,3 @@ grunt test
  * [Gabriel Schammah](https://github.com/gschammah)
  * [Marcelo Manzan](https://github.com/kawamanza)
  * [See the full list](https://github.com/igorescobar/jQuery-Mask-Plugin/graphs/contributors)
-
-## Help us!
-[![Click here to lend your support to: jQuery Mask Plugin and make a donation at pledgie.com !](https://pledgie.com/campaigns/22649.png?skin_name=chrome)](https://pledgie.com/campaigns/22649)
-
-[![Flattr this](https://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=igorescobar&url=https%3A%2F%2Fflattr.com%2Fprofile%2Figorescobar)
-
-## Donators (Thanks!)
- * Rinaldo Morato
- * [Marcelo Otowicz](http://www.ofen.com.br/)
- * Marcia Cristina Cava
- * [Igor Lima](https://github.com/igorlima)
- * Steve Binder
- * Douglas Patrocinio
- * Paulo Diogo Rodrigues Leão
- * Dorijan Covran
- * Amaro Mariño Malvido
- * Mark Guadagna
- * Serdar Selim Tulunoğlu
- * [Software Download](http://software-download.name)
- * [Full list](https://pledgie.com/campaigns/22649#donors)
