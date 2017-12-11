@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.3.1'
+ruby '2.3.5'
 
 gem 'alert_message'
 gem 'active_link_to'
