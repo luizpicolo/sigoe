@@ -37,3 +37,4 @@ yarn.lock
 /.yardoc/
 /erd.pdf
 /node_modules/
+# /vendor/assets/components/*

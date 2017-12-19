@@ -3,6 +3,7 @@ A jQuery Plugin to make masks on form fields and HTML elements.
 
 [![Build Status](https://travis-ci.org/igorescobar/jQuery-Mask-Plugin.png)](https://travis-ci.org/igorescobar/jQuery-Mask-Plugin)
 [![Code Climate](https://codeclimate.com/github/igorescobar/jQuery-Mask-Plugin.png)](https://codeclimate.com/github/igorescobar/jQuery-Mask-Plugin)
+[![jsDelivr Hits](https://data.jsdelivr.com/v1/package/npm/jquery-mask-plugin/badge?style=rounded)](https://www.jsdelivr.com/package/npm/jquery-mask-plugin)
 
 # Documentation, Demos & Usage Examples
 https://igorescobar.github.io/jQuery-Mask-Plugin/
@@ -85,7 +86,7 @@ To install, open terminal and navigate to your working directory.
 ### Typescript 2.x users
   * Use npm `npm install --save-dev @types/jquery-mask-plugin`.
 
-For configuration options and troubleshooting refer to these repositories: 
+For configuration options and troubleshooting refer to these repositories:
 * [Typings](https://github.com/typings/typings)
 * [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped)
 * [Typescript](https://github.com/Microsoft/TypeScript)
@@ -100,7 +101,7 @@ Before opening a new [issue](https://github.com/igorescobar/jQuery-Mask-Plugin/i
 #### [Prefix or sufix on the Mask](https://github.com/igorescobar/jQuery-Mask-Plugin/issues/166)
 #### [Add validation?](https://github.com/igorescobar/jQuery-Mask-Plugin/issues/387#issuecomment-192998092)
 #### [Field type number, email not working?](https://github.com/igorescobar/jQuery-Mask-Plugin/issues/450#issuecomment-253225719)
-#### [Want to keep the placeholder as the user types?](https://github.com/igorescobar/jQuery-Mask-Plugin/issues/450#issuecomment-253225719)
+#### [Want to keep the placeholder as the user types?](https://github.com/igorescobar/jQuery-Mask-Plugin/issues/633#issuecomment-350819224)
 #### [E-mail mask?](https://github.com/igorescobar/jQuery-Mask-Plugin/issues/582)
 
 ## Bugs?
