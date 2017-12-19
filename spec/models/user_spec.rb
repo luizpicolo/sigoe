@@ -30,7 +30,7 @@ require "cancan/matchers"
 
 RSpec.describe User, type: :model do
   before(:each) do
-    @user = FactoryGirl.create :user
+    @user = FactoryBot.create :user
   end
 
   # Validations
@@ -85,7 +85,7 @@ RSpec.describe User, type: :model do
   # Methods
   # describe '#get_by_position' do
   #   it 'return true if the sector is currect' do
-  #     @user_assistent = FactoryGirl.create :user,
+  #     @user_assistent = FactoryBot.create :user,
   #     @user_not_assistent =
   #     expect(@user.it_is_part_of_the_sector?('serti')).to eq(true)
   #   end

@@ -32,8 +32,8 @@ module UserHelpers
   end
 
   def create_user_by_sector(sector)
-    s = FactoryGirl.create(:sector, initial: sector)
-    return FactoryGirl.create(:user, sector: s)
+    s = FactoryBot.create(:sector, initial: sector)
+    return FactoryBot.create(:user, sector: s)
   end
 
   def add_permission(entity, user, options = {})
@@ -42,7 +42,7 @@ module UserHelpers
     update = options[:update] || false
     destroy = options[:destroy] || false
 
-    FactoryGirl.create(
+    FactoryBot.create(
       :permission,
       entity: entity,
       user: user,

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 context "User" do
   feature 'sign in' do
-    let!(:user) { FactoryGirl.create(:user) }
+    let!(:user) { FactoryBot.create(:user) }
 
     scenario 'with valid credentials' do
       sign_in user
@@ -16,7 +16,7 @@ context "User" do
   end
 
   feature 'sign out' do
-    let!(:user) { FactoryGirl.create(:user) }
+    let!(:user) { FactoryBot.create(:user) }
 
     scenario 'always works' do
       sign_in user

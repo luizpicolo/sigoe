@@ -25,7 +25,7 @@
 #  admin                  :boolean          default(FALSE)
 #
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :user do
     pwd = Faker::Internet.password
     name { Faker::Name.name }

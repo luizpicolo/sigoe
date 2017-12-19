@@ -13,7 +13,7 @@
 #  local         :integer
 #
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :keypass do
     title { Faker::Internet.email }
     user { Faker::Internet.user_name }

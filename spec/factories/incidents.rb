@@ -21,7 +21,7 @@
 #  school_group  :integer
 #
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :incident do
     student factory: :student
     user factory: :user

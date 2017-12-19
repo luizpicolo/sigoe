@@ -12,7 +12,7 @@ require 'rails_helper'
 
 RSpec.describe Position, type: :model do
   before(:each) do
-    @position = FactoryGirl.create :position
+    @position = FactoryBot.create :position
   end
 
   # Validations

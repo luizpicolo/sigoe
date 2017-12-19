@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.describe StudentsController, type: :controller do
   before(:each) do
-    @user = FactoryGirl.create(:user)
-    @attr = FactoryGirl.attributes_for(:student).merge({course_id: FactoryGirl.create(:course).id})
-    @model = FactoryGirl.create(:student)
+    @user = FactoryBot.create(:user)
+    @attr = FactoryBot.attributes_for(:student).merge({course_id: FactoryBot.create(:course).id})
+    @model = FactoryBot.create(:student)
     @entity = 'Student'
     @path = students_path
   end

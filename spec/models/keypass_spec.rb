@@ -17,7 +17,7 @@ require 'rails_helper'
 
 RSpec.describe Keypass, type: :model do
   before(:each) do
-    @keypass = FactoryGirl.create(:keypass)
+    @keypass = FactoryBot.create(:keypass)
   end
 
   # Validations

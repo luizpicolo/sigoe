@@ -2,11 +2,11 @@ require 'rails_helper'
 
 context "Manager entity Incident" do
   before(:each) do
-    @student = FactoryGirl.create(:student)
-    @course = FactoryGirl.create(:course)
-    @sector = FactoryGirl.create(:sector, initial: 'ASSAL')
-    @position = FactoryGirl.create(:position, name: 'Assistente de Alunos')
-    @user = FactoryGirl.create(:user, sector: @sector, position: @position)
+    @student = FactoryBot.create(:student)
+    @course = FactoryBot.create(:course)
+    @sector = FactoryBot.create(:sector, initial: 'ASSAL')
+    @position = FactoryBot.create(:position, name: 'Assistente de Alunos')
+    @user = FactoryBot.create(:user, sector: @sector, position: @position)
     sign_in @user
   end
 
@@ -20,13 +20,13 @@ context "Manager entity Incident" do
 
   feature 'sign' do
     scenario 'with signed incident' do
-      @incident = FactoryGirl.create(:incident, signed_in: nil)
+      @incident = FactoryBot.create(:incident, signed_in: nil)
       visit incidents_path
       expect(page).to have_link("Assinar", href: "/incidents/#{@incident.id}/sign")
     end
 
     scenario 'with not signed incident' do
-      @incident = FactoryGirl.create(:incident)
+      @incident = FactoryBot.create(:incident)
       visit incidents_path
       expect(page).to have_no_link("Assinar", href: "/incidents/#{@incident.id}/sign")
     end

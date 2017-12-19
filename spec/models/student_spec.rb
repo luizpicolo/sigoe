@@ -24,7 +24,7 @@ require 'rails_helper'
 
 RSpec.describe Student, type: :model do
   before(:each) do
-    @student = FactoryGirl.create(:student)
+    @student = FactoryBot.create(:student)
   end
 
   # Validations

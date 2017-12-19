@@ -2,8 +2,8 @@ require 'rails_helper'
 
 context "Manager (crud) entity Keypass" do
   before(:each) do
-    @user = FactoryGirl.create(:user)
-    @keypass = FactoryGirl.create(:keypass)
+    @user = FactoryBot.create(:user)
+    @keypass = FactoryBot.create(:keypass)
     sign_in @user
   end
 

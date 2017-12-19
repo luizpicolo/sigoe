@@ -2,7 +2,7 @@ require 'rails_helper'
 
 context "Manager (crud) entity User" do
   before(:each) do
-    @user = FactoryGirl.create(:user)
+    @user = FactoryBot.create(:user)
     sign_in @user
   end
 
@@ -40,7 +40,7 @@ context "Manager (crud) entity User" do
 
   feature 'delete' do
     scenario 'with user not current' do
-      new_user = FactoryGirl.create(
+      new_user = FactoryBot.create(
         :user,
         name: Faker::Name.name,
         email: Faker::Internet.email,

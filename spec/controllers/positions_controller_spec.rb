@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.describe PositionsController, type: :controller do
   before(:each) do
-    @user = FactoryGirl.create(:user)
-    @attr = FactoryGirl.attributes_for(:position)
-    @model = FactoryGirl.create(:position)
+    @user = FactoryBot.create(:user)
+    @attr = FactoryBot.attributes_for(:position)
+    @model = FactoryBot.create(:position)
     @entity = 'Position'
     @path = positions_path
   end

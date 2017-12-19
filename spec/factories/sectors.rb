@@ -12,7 +12,7 @@
 #
 
 # SERTI, AUDI, DIREN
-FactoryGirl.define do
+FactoryBot.define do
   factory :sector do
     name { Faker::Name.name }
     initial 'SERTI'

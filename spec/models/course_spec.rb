@@ -13,7 +13,7 @@ require 'rails_helper'
 
 RSpec.describe Course, type: :model do
   before(:each) do
-    @course = FactoryGirl.create(:course)
+    @course = FactoryBot.create(:course)
   end
 
   # Validations

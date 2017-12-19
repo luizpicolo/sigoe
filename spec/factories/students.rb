@@ -20,7 +20,7 @@
 #  course_situation    :integer
 #
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :student do
     pwd = Faker::Internet.password
     name { Faker::Name.name }

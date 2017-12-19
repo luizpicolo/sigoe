@@ -16,10 +16,10 @@ require 'rails_helper'
 RSpec.describe Sector, type: :model do
   before(:each) do
     # SERTI, AUDI, DIREN
-    @serti = FactoryGirl.create(:sector,  initial: 'serti')
-    @audi = FactoryGirl.create(:sector, initial: 'audi')
-    @diren = FactoryGirl.create(:sector, initial: 'diren')
-    @prof = FactoryGirl.create(:sector, initial: 'prof')
+    @serti = FactoryBot.create(:sector,  initial: 'serti')
+    @audi = FactoryBot.create(:sector, initial: 'audi')
+    @diren = FactoryBot.create(:sector, initial: 'diren')
+    @prof = FactoryBot.create(:sector, initial: 'prof')
 
     @sectors = Sector.initials
   end

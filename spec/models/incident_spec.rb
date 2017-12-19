@@ -25,7 +25,7 @@ require 'rails_helper'
 
 RSpec.describe Incident, type: :model do
   before(:each) do
-    @incident = FactoryGirl.create :incident
+    @incident = FactoryBot.create :incident
   end
 
   # Validations
@@ -116,7 +116,7 @@ RSpec.describe Incident, type: :model do
   end
 
   describe '#student_name' do
-    let(:subject){ FactoryGirl.create(:incident) }
+    let(:subject){ FactoryBot.create(:incident) }
 
     context 'When student are present' do
       it 'Returns student name' do
@@ -136,7 +136,7 @@ RSpec.describe Incident, type: :model do
   end
 
   describe '#course_initial' do
-    let(:subject){ FactoryGirl.create(:incident) }
+    let(:subject){ FactoryBot.create(:incident) }
 
     context 'When course are present' do
       it 'Returns course name' do
@@ -156,7 +156,7 @@ RSpec.describe Incident, type: :model do
   end
 
   describe '#signed_by_student_in' do
-    let(:subject){ FactoryGirl.create(:incident) }
+    let(:subject){ FactoryBot.create(:incident) }
 
     context 'When signed_in field is present' do
       before do

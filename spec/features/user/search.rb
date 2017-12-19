@@ -2,8 +2,8 @@ require 'rails_helper'
 
 context "Find users by your search scope" do
   before(:each) do
-    @sector = FactoryGirl.create(:sector)
-    @users = FactoryGirl.create_list(:user, 2, sector: @sector)
+    @sector = FactoryBot.create(:sector)
+    @users = FactoryBot.create_list(:user, 2, sector: @sector)
     sign_in @users.first
   end
 

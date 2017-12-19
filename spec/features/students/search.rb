@@ -2,8 +2,8 @@ require 'rails_helper'
 
 context "Find key by your search scope" do
   before(:each) do
-    @user = FactoryGirl.create(:user)
-    @student = FactoryGirl.create(:student)
+    @user = FactoryBot.create(:user)
+    @student = FactoryBot.create(:student)
     sign_in @user
   end
 

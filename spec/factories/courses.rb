@@ -9,7 +9,7 @@
 #  initial    :string
 #
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :course do
     name { Faker::Name.name }
     initial { Faker::Name.name }
