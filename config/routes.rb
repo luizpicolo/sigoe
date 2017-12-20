@@ -35,4 +35,5 @@ Rails.application.routes.draw do
   end
   resources :report_incidents, only: [:new, :create]
   resources :positions, except: [:show]
+  resources :patients, except: [:show]
 end

@@ -34,4 +34,12 @@
       <li><%= active_link_to 'Relatório ocorrências', new_report_incident_path %></li>
     <% end %>
   </ul>
+  <p class="menu-label">
+    Enfermaria
+  </p>
+  <ul class="menu-list">
+    <% if can? :read, Patient %>
+      <li><%= active_link_to 'Pacientes', patients_path %></li>
+    <% end %>
+  </ul>
 </aside>

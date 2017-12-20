@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170911192831) do
+ActiveRecord::Schema.define(version: 20171220114455) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,24 @@ ActiveRecord::Schema.define(version: 20170911192831) do
     t.datetime "updated_at", null: false
     t.string "initial"
     t.index ["name", "initial"], name: "index_courses_on_name_and_initial"
+  end
+
+  create_table "habits", force: :cascade do |t|
+    t.bigint "patient_id"
+    t.integer "sleep_rest"
+    t.time "amount_sleep_hours"
+    t.integer "physical_activity"
+    t.integer "amount_physical_activity"
+    t.integer "amount_fruit_vegetable"
+    t.integer "amount_read_meat"
+    t.integer "amount_white_meat"
+    t.integer "amount_juice"
+    t.integer "amount_water"
+    t.integer "amount_tea"
+    t.text "other_information"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["patient_id"], name: "index_habits_on_patient_id"
   end
 
   create_table "incidents", id: :serial, force: :cascade do |t|
@@ -57,6 +75,13 @@ ActiveRecord::Schema.define(version: 20170911192831) do
     t.string "user"
     t.integer "local"
     t.index ["title"], name: "index_keypasses_on_title"
+  end
+
+  create_table "patients", force: :cascade do |t|
+    t.bigint "student_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["student_id"], name: "index_patients_on_student_id"
   end
 
   create_table "permissions", force: :cascade do |t|
@@ -157,9 +182,11 @@ ActiveRecord::Schema.define(version: 20170911192831) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "habits", "patients"
   add_foreign_key "incidents", "courses"
   add_foreign_key "incidents", "students"
   add_foreign_key "incidents", "users"
+  add_foreign_key "patients", "students"
   add_foreign_key "permissions", "users"
   add_foreign_key "students", "courses"
   add_foreign_key "tickets", "users"
