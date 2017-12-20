@@ -10,7 +10,9 @@ class KeypassesController < ApplicationController
     add_breadcrumb "Serti", sector_actions_path('serti')
     add_breadcrumb "Senhas"
 
-    @keypasses = Keypass.search(params[:search]).order('id asc').page(params[:page])
+    @keypasses = Keypass.order("#{set_order}": :desc)
+                        .search(params[:search])
+                        .page(params[:page]).per(set_amount_return)
   end
 
   def new
