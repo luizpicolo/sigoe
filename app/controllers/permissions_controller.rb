@@ -1,4 +1,6 @@
 class PermissionsController < ApplicationController
+  include ParamsSearch
+
   load_and_authorize_resource
 
   before_action :set_permission, only: [:edit, :destroy, :update]
@@ -64,14 +66,6 @@ class PermissionsController < ApplicationController
 
   def set_permission
     @permission = Permission.find(params[:id])
-  end
-
-  def set_order
-    params[:order] == "" || params[:order].nil? ? 'id' : params[:order]
-  end
-
-  def set_amount_return
-    params[:return] == "" || params[:return].nil? ? '15' : params[:return]
   end
 
   def permission_params

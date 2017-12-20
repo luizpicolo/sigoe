@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  include ParamsSearch
+
   load_and_authorize_resource
   skip_authorize_resource only: [:change_password, :update]
 
@@ -66,11 +68,7 @@ class UsersController < ApplicationController
   def set_user
     @user = User.find(params[:id])
   end
-
-  def set_order
-    params[:order] == "" || params[:order].nil? ? 'id' : params[:order]
-  end
-
+  
   def check_password(user_params)
     if user_params[:password].empty?
       user_params.delete(:password)

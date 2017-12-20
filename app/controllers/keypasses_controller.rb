@@ -1,4 +1,6 @@
 class KeypassesController < ApplicationController
+  include ParamsSearch
+
   load_and_authorize_resource
 
   before_action :set_keypass, only: [:edit, :destroy, :update]

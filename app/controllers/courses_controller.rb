@@ -1,4 +1,6 @@
 class CoursesController < ApplicationController
+  include ParamsSearch
+
   load_and_authorize_resource
 
   before_action :set_course, only: [:edit, :destroy, :update]
@@ -61,15 +63,7 @@ class CoursesController < ApplicationController
   def set_course
     @courses = Course.find(params[:id])
   end
-
-  def set_order
-    params[:order] == "" || params[:order].nil? ? 'id' : params[:order]
-  end
-
-  def set_amount_return
-    params[:return] == "" || params[:return].nil? ? '15' : params[:return]
-  end
-
+  
   def course_params
     params.require(:course).permit(:name, :initial)
   end

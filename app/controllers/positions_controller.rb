@@ -1,4 +1,6 @@
 class PositionsController < ApplicationController
+  include ParamsSearch
+
   load_and_authorize_resource
 
   before_action :set_position, only: [:edit, :destroy, :update]
@@ -60,14 +62,6 @@ class PositionsController < ApplicationController
 
   def set_position
     @positions = Position.find(params[:id])
-  end
-
-  def set_order
-    params[:order] == "" || params[:order].nil? ? 'id' : params[:order]
-  end
-
-  def set_amount_return
-    params[:return] == "" || params[:return].nil? ? '15' : params[:return]
   end
 
   def position_params
