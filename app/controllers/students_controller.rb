@@ -1,4 +1,6 @@
 class StudentsController < ApplicationController
+  include ParamsSearch
+
   load_and_authorize_resource
 
   before_action :set_student, only: [:edit, :destroy, :update]
@@ -74,14 +76,6 @@ class StudentsController < ApplicationController
 
   def set_student
     @student = Student.find(params[:id])
-  end
-
-  def set_order
-    params[:order] == "" || params[:order].nil? ? 'id' : params[:order]
-  end
-
-  def set_amount_return
-    params[:return] == "" || params[:return].nil? ? '15' : params[:return]
   end
 
   def check_password(user_params)

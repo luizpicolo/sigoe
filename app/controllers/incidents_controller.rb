@@ -1,4 +1,6 @@
 class IncidentsController < ApplicationController
+  include ParamsSearch
+
   load_and_authorize_resource
 
   before_action :set_incident, only: [
@@ -102,14 +104,6 @@ class IncidentsController < ApplicationController
     else
       @incident = Incident.find(params[:incident_id])
     end
-  end
-
-  def set_order
-    params[:order] == "" || params[:order].nil? ? 'id' : params[:order]
-  end
-
-  def set_amount_return
-    params[:return] == "" || params[:return].nil? ? '15' : params[:return]
   end
 
   def incident_params
