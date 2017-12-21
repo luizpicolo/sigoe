@@ -2,6 +2,8 @@ class Patient < ApplicationRecord
   belongs_to :student
   has_many :habits
 
+  accepts_nested_attributes_for :habits
+
   include SearchCop
 
   # Atributos para busca com SearchCop

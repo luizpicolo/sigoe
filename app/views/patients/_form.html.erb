@@ -1,0 +1,74 @@
+<%= form_for patient do |f| %>
+  <fieldset>
+    <legend>Selecione o paciente</legend>
+    <div class="control select-type-patient">
+      <label class="radio">
+        <input type="radio" name="answer" id="is-server" checked>
+        Servidor
+      </label>
+      <label class="radio">
+        <input type="radio" name="answer" id="is-student">
+        Estudante
+      </label>
+    </div>
+
+    <div class="control">
+      <div class="field">
+        <%= f.label :student_id, 'Estudante', class: 'label is-hidden' %>
+        <p class="control">
+          <div class="select is-server">
+            <%= f.select :student_id, Student.get_all, { prompt: "Selecione o servidor" }, { :class => "select2 is-medium" } %>
+          </div>
+          <div class="select is-student">
+            <%= f.select :student_id, Student.get_all, { prompt: "Selecione o estudante" }, { :class => "select2 is-medium" } %>
+          </div>
+        </p>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Dados sobre habitos</legend>
+    <%= f.fields_for :habits do |ff| %>
+      <div class="field is-horizontal">
+        <div class="field-body">
+          <div class="field">
+            <%= ff.label :sleep_rest, "Sono e repouso", class: 'label' %>
+            <div class="select">
+              <%= ff.select :sleep_rest, Habit.sleep_rests.keys.to_a, {}, { :class => "" } %>
+            </div>
+          </div>
+          <div class="field has-addons">
+            <p class="control">
+              <%= ff.label :amount_sleep_hours, "Horas de sono", class: 'label' %>
+              <%= ff.text_field :amount_sleep_hours, class: 'input', placeholder: 'Horas de sono', required: true %>
+            </p>
+            <p class="control">
+              <a class="button is-static margin-top-32px">
+                Horas por Dia
+              </a>
+            </p>
+          </div>
+          <div class="field has-addons">
+            <p class="control">
+              <%= ff.label :physical_activity, "Atividade física", class: 'label' %>
+              <%= ff.text_field :physical_activity, class: 'input', placeholder: 'Atividade física', required: true %>
+            </p>
+            <p class="control">
+              <a class="button is-static margin-top-32px">
+                x semana
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+      </div>
+    <% end %>
+  </fieldset>
+
+  <div class="margin-top-20px">
+    <p class="control">
+      <%= f.submit "Salvar", class: "button is-success is-medium in-mobile-expand"%>
+    </p>
+  </div>
+<% end %>

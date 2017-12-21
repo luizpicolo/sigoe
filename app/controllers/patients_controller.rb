@@ -1,4 +1,6 @@
 class PatientsController < ApplicationController
+  include ParamsSearch
+
   load_and_authorize_resource
 
   # before_action :set_incident, only: [
@@ -16,13 +18,12 @@ class PatientsController < ApplicationController
                        .page(params[:page]).per(set_amount_return)
   end
 
-  private
+  def new
+    add_breadcrumb "Enfermaria", sector_actions_path('enfermaria')
+    add_breadcrumb "Pacientes", :patients_path
+    add_breadcrumb "Novo paciente"
 
-  def set_order
-    params[:order] == "" || params[:order].nil? ? 'id' : params[:order]
-  end
-
-  def set_amount_return
-    params[:return] == "" || params[:return].nil? ? '15' : params[:return]
+    @patient = Patient.new
+    @patient.habits.build
   end
 end
