@@ -10,7 +10,7 @@ class PositionsController < ApplicationController
     add_breadcrumb "DIREN", sector_actions_path('diren')
     add_breadcrumb "Cargos/Função"
 
-    @positions = Position.order("#{set_order}": :desc)
+    @positions = Position.order("#{set_order}": :asc)
                          .search(params[:search])
                          .page(params[:page]).per(set_amount_return)
   end

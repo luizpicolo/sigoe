@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     add_breadcrumb "Serti", sector_actions_path('serti')
     add_breadcrumb "Usuários"
 
-    @users = User.order("#{set_order}": :desc)
+    @users = User.order("#{set_order}": :asc)
                  .search(params[:search])
                  .page(params[:page])
   end
@@ -68,7 +68,7 @@ class UsersController < ApplicationController
   def set_user
     @user = User.find(params[:id])
   end
-  
+
   def check_password(user_params)
     if user_params[:password].empty?
       user_params.delete(:password)
