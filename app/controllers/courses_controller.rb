@@ -10,7 +10,7 @@ class CoursesController < ApplicationController
     add_breadcrumb "DIREN", sector_actions_path('diren')
     add_breadcrumb "Cursos"
 
-    @courses = Course.order("#{set_order}": :desc)
+    @courses = Course.order("#{set_order}": :asc)
                      .search(params[:search])
                      .page(params[:page]).per(set_amount_return)
   end
@@ -63,7 +63,7 @@ class CoursesController < ApplicationController
   def set_course
     @courses = Course.find(params[:id])
   end
-  
+
   def course_params
     params.require(:course).permit(:name, :initial)
   end

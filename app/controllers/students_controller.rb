@@ -10,7 +10,7 @@ class StudentsController < ApplicationController
     add_breadcrumb "Diren", sector_actions_path('diren')
     add_breadcrumb "Estudantes"
 
-    @students = Student.order("#{set_order}": :desc)
+    @students = Student.order("#{set_order}": :asc)
                        .search(params[:search])
                        .page(params[:page]).per(set_amount_return)
   end
