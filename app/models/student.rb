@@ -47,6 +47,7 @@ class Student < ApplicationRecord
   search_scope :search do
     attributes :name
     attributes :course => "course.name"
+    attributes :initial => "course.initial"
   end
 
   # Retorna um vetor contendo os nomes e seus respectivos IDs
