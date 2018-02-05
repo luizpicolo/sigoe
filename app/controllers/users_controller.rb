@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     add_breadcrumb "Serti", sector_actions_path('serti')
     add_breadcrumb "Usuários"
 
-    @users = User.order("#{set_order}": :asc)
+    @users = User.order("#{set_order}": :desc)
                  .search(params[:search])
                  .page(params[:page])
   end

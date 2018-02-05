@@ -10,7 +10,7 @@ class PermissionsController < ApplicationController
     add_breadcrumb "Serti", sector_actions_path('serti')
     add_breadcrumb "Usuários"
 
-    @permissions = Permission.order("#{set_order}": :asc)
+    @permissions = Permission.order("#{set_order}": :desc)
                              .search(params[:search])
                              .where(user_id: params[:user_id])
                              .page(params[:page]).per(set_amount_return)

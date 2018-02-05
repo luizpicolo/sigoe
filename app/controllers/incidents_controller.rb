@@ -13,7 +13,7 @@ class IncidentsController < ApplicationController
     add_breadcrumb "Diren", sector_actions_path('diren')
     add_breadcrumb "Ocorrências"
 
-    @incidents = Incident.order("#{set_order}": :asc)
+    @incidents = Incident.order("#{set_order}": :desc)
                          .search(params[:search])
                          .page(params[:page]).per(set_amount_return)
   end
