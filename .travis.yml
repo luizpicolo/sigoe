@@ -3,7 +3,7 @@ sudo: required
 dist: trusty
 rvm:
   - 2.3.5
-before_install: gem install bundler -v 1.13.2
+before_install: gem install bundler -v 1.16.0
 before_script:
   - cp config/application.yml.example config/application.yml
   - cp config/database.yml.example config/database.yml
