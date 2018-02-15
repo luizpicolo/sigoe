@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.3.5'
+ruby '2.5.0'
 
 gem 'alert_message'
 gem 'active_link_to'
@@ -28,7 +28,7 @@ gem 'mini_magick'
 gem 'modernizr-rails'
 gem 'pg'
 gem 'pdfkit'
-gem 'rails', '5.1.4'
+gem 'rails', '5.1.5'
 gem 'rails-i18n'
 gem 'rails-env'
 gem 'randumb'
