@@ -1,0 +1,2 @@
+class Morbid < ApplicationRecord
+end

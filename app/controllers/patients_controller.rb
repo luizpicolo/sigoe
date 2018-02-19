@@ -26,4 +26,31 @@ class PatientsController < ApplicationController
     @patient = Patient.new
     @patient.habits.build
   end
+
+  def create
+    #binding.pry
+    @patient = Patient.new(patient_params)
+    @patient.habits.new(patient_params['habit_attributes'])
+    if @patient.save
+      redirect_to patients_path, flash: { success: 'Paciente cadastro com sucesso' }
+    else
+      flash.now[:error] = @patient.errors.full_messages
+      render :new
+    end
+  end
+
+  private
+
+  def set_patient
+    @patient = Patient.find(params[:id])
+  end
+
+  def patient_params
+    params.require(:patient).permit(
+      :student_id, :habits_attributes => [:sleep_rest, :amount_sleep_hours, :physical_activity,
+      :amount_physical_activity, :amount_fruit_vegetable, :amount_red_meat,
+      :amount_white_meat, :amount_juice,  :amount_water, :amount_tea,
+      :other_information]
+    )
+  end
 end

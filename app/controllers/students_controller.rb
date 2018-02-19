@@ -28,7 +28,6 @@ class StudentsController < ApplicationController
     if @students.save
       redirect_to students_path, flash: { success: 'Estudante cadastro com sucesso' }
     else
-      puts @students.errors.full_messages
       flash.now[:error] = @students.errors.full_messages
       render :new
     end

@@ -26,11 +26,11 @@ ActiveRecord::Schema.define(version: 20171220114455) do
   create_table "habits", force: :cascade do |t|
     t.bigint "patient_id"
     t.integer "sleep_rest"
-    t.time "amount_sleep_hours"
+    t.integer "amount_sleep_hours"
     t.integer "physical_activity"
     t.integer "amount_physical_activity"
     t.integer "amount_fruit_vegetable"
-    t.integer "amount_read_meat"
+    t.integer "amount_red_meat"
     t.integer "amount_white_meat"
     t.integer "amount_juice"
     t.integer "amount_water"

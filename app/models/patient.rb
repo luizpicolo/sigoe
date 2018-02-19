@@ -4,6 +4,8 @@ class Patient < ApplicationRecord
 
   accepts_nested_attributes_for :habits
 
+  delegate :name, to: :student
+
   include SearchCop
 
   # Atributos para busca com SearchCop
