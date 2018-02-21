@@ -31,7 +31,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Morbid, type: :model do
+RSpec.describe Patient::Morbid, type: :model do
 
   # Relations
   it { is_expected.to belong_to :patient }

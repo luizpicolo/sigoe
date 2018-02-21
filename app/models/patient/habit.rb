@@ -19,7 +19,7 @@
 #  updated_at               :datetime         not null
 #
 
-class Habit < ApplicationRecord
+class Patient::Habit < ApplicationRecord
   # Validações
   validates :patient, presence: true
 

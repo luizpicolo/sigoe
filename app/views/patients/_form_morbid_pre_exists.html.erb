@@ -22,25 +22,25 @@
     <div class="field">
       <%= m.label :pre_existing_diseases_cardiopathy, 'Cardiopatia', class: 'label' %>
       <div class="select">
-        <%= m.select :pre_existing_diseases_cardiopathy, Morbid.pre_existing_diseases_cardiopathies.keys.to_a, {}, {} %>
+        <%= m.select :pre_existing_diseases_cardiopathy, Patient::Morbid.pre_existing_diseases_cardiopathies.keys.to_a, {}, {} %>
       </div>
     </div>
     <div class="field">
       <%= m.label :pre_existing_diseases_diabetes, 'Diabetes', class: 'label' %>
       <div class="select">
-        <%= m.select :pre_existing_diseases_diabetes, Morbid.pre_existing_diseases_diabetes.keys.to_a, {}, {} %>
+        <%= m.select :pre_existing_diseases_diabetes, Patient::Morbid.pre_existing_diseases_diabetes.keys.to_a, {}, {} %>
       </div>
     </div>
     <div class="field">
       <%= m.label :pre_existing_diseases_renal, 'Doença renal', class: 'label' %>
       <div class="select">
-        <%= m.select :pre_existing_diseases_renal, Morbid.pre_existing_diseases_renals.keys.to_a, {}, {} %>
+        <%= m.select :pre_existing_diseases_renal, Patient::Morbid.pre_existing_diseases_renals.keys.to_a, {}, {} %>
       </div>
     </div>
     <div class="field">
       <%= m.label :pre_existing_diseases_pneumopathy, 'Pneumopatia', class: 'label' %>
       <div class="select">
-        <%= m.select :pre_existing_diseases_pneumopathy, Morbid.pre_existing_diseases_pneumopathies.keys.to_a, {}, {} %>
+        <%= m.select :pre_existing_diseases_pneumopathy, Patient::Morbid.pre_existing_diseases_pneumopathies.keys.to_a, {}, {} %>
       </div>
     </div>
     <div class="field">

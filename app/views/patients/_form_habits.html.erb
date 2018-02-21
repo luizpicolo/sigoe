@@ -6,7 +6,7 @@
           <div class="field">
             <%= h.label :sleep_rest, "Sono e repouso", class: 'label' %>
             <div class="select">
-              <%= h.select :sleep_rest, Habit.sleep_rests.keys.to_a, {}, { :class => "" } %>
+              <%= h.select :sleep_rest, Patient::Habit.sleep_rests.keys.to_a, {}, { :class => "" } %>
             </div>
           </div>
           <div class="field has-addons">

@@ -17,5 +17,8 @@
 #  updated_at            :datetime         not null
 #
 
-class Physiological < ApplicationRecord
+require 'rails_helper'
+
+RSpec.describe Patient::Physiological, type: :model do
+  pending "add some examples to (or delete) #{__FILE__}"
 end

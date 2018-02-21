@@ -29,7 +29,7 @@
 #  updated_at                              :datetime         not null
 #
 
-class Morbid < ApplicationRecord
+class Patient::Morbid < ApplicationRecord
   # Validações
   validates :patient, presence: true
 
