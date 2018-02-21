@@ -1,12 +1,29 @@
-class Patient < ApplicationRecord
-  belongs_to :student
-  has_many :habits
+# == Schema Information
+#
+# Table name: patients
+#
+#  id         :integer          not null, primary key
+#  student_id :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
 
-  accepts_nested_attributes_for :habits
+class Patient < ApplicationRecord
+  include SearchCop
+
+  # Validações
+  validates :student, :habits, :physiologicals, :morbids, presence: true
+
+  belongs_to :student
+  has_many :habits, dependent: :destroy
+  has_many :morbids, dependent: :destroy
+  has_many :physiologicals, dependent: :destroy
+
+  accepts_nested_attributes_for :habits, allow_destroy: true
+  accepts_nested_attributes_for :morbids, allow_destroy: true
+  accepts_nested_attributes_for :physiologicals, allow_destroy: true
 
   delegate :name, to: :student
-
-  include SearchCop
 
   # Atributos para busca com SearchCop
   search_scope :search do

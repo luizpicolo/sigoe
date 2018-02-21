@@ -11,6 +11,8 @@
 #  can_destroy :boolean          default(FALSE)
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  can_manage  :boolean          default(FALSE)
+#  can_extras  :boolean          default(FALSE)
 #
 
 FactoryBot.define do
@@ -21,5 +23,7 @@ FactoryBot.define do
     can_read true
     can_update true
     can_destroy true
+    can_manage true
+    can_extras true
   end
 end

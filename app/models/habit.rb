@@ -1,6 +1,29 @@
+# == Schema Information
+#
+# Table name: habits
+#
+#  id                       :integer          not null, primary key
+#  patient_id               :integer
+#  sleep_rest               :integer
+#  amount_sleep_hours       :integer
+#  physical_activity        :integer
+#  amount_physical_activity :integer
+#  amount_fruit_vegetable   :integer
+#  amount_red_meat          :integer
+#  amount_white_meat        :integer
+#  amount_juice             :integer
+#  amount_water             :integer
+#  amount_tea               :integer
+#  other_information        :text
+#  created_at               :datetime         not null
+#  updated_at               :datetime         not null
+#
+
 class Habit < ApplicationRecord
+  # Validações
+  validates :patient, presence: true
+
   enum sleep_rest: ['Alterado', 'Satisfatório']
-  # enum physical_activity: ['Sim', 'Não']
 
   belongs_to :patient
 end

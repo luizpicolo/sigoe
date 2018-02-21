@@ -11,10 +11,15 @@
 #  can_destroy :boolean          default(FALSE)
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  can_manage  :boolean          default(FALSE)
+#  can_extras  :boolean          default(FALSE)
 #
 
 class Permission < ApplicationRecord
   include SearchCop
+
+  # Validações
+  validates :user, presence: true
 
   belongs_to :user
 

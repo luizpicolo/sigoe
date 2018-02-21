@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171220114455) do
+ActiveRecord::Schema.define(version: 20180220191953) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,6 +77,34 @@ ActiveRecord::Schema.define(version: 20171220114455) do
     t.index ["title"], name: "index_keypasses_on_title"
   end
 
+  create_table "morbids", force: :cascade do |t|
+    t.bigint "patient_id"
+    t.string "pre_existing_diseases_vascular_accident"
+    t.string "pre_existing_diseases_cancer"
+    t.string "pre_existing_diseases_hypertension"
+    t.integer "pre_existing_diseases_cardiopathy"
+    t.integer "pre_existing_diseases_diabetes"
+    t.integer "pre_existing_diseases_renal"
+    t.integer "pre_existing_diseases_pneumopathy"
+    t.text "others_pre_existing_diseases"
+    t.string "allergies_drugs"
+    t.string "allergies_foods"
+    t.string "allergies_cosmetics"
+    t.string "allergies_plaster"
+    t.string "allergies_wool"
+    t.text "others_allergies"
+    t.string "risk_factors_smoking"
+    t.string "risk_factors_ethicism"
+    t.string "risk_factors_chemotherapy"
+    t.string "risk_factors_radiotherapy"
+    t.string "risk_factors_chemical_dependency"
+    t.string "risk_factors_violence"
+    t.text "others_risk_factors"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["patient_id"], name: "index_morbids_on_patient_id"
+  end
+
   create_table "patients", force: :cascade do |t|
     t.bigint "student_id"
     t.datetime "created_at", null: false
@@ -96,6 +124,22 @@ ActiveRecord::Schema.define(version: 20171220114455) do
     t.boolean "can_manage", default: false
     t.boolean "can_extras", default: false
     t.index ["user_id"], name: "index_permissions_on_user_id"
+  end
+
+  create_table "physiologicals", force: :cascade do |t|
+    t.bigint "patient_id"
+    t.text "other_diseases"
+    t.text "continuing_medication"
+    t.text "previous_surgeries"
+    t.text "hospitalization"
+    t.text "first_menstruation"
+    t.text "complaints"
+    t.text "gestation"
+    t.text "children"
+    t.text "abortion"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["patient_id"], name: "index_physiologicals_on_patient_id"
   end
 
   create_table "positions", force: :cascade do |t|
@@ -186,8 +230,10 @@ ActiveRecord::Schema.define(version: 20171220114455) do
   add_foreign_key "incidents", "courses"
   add_foreign_key "incidents", "students"
   add_foreign_key "incidents", "users"
+  add_foreign_key "morbids", "patients"
   add_foreign_key "patients", "students"
   add_foreign_key "permissions", "users"
+  add_foreign_key "physiologicals", "patients"
   add_foreign_key "students", "courses"
   add_foreign_key "tickets", "users"
   add_foreign_key "users", "courses"
