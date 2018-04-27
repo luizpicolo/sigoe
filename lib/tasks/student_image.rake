@@ -5,15 +5,12 @@ namespace :student_image do
     require 'mechanize'
     require "open-uri"
 
-    path = Rails.root.join('config','application.yml')
-    data = YAML.load(File.open(path))
-
     @agent = Mechanize.new
     page = @agent.get("http://academico.ifms.edu.br/administrativo/")
     form = @agent.page.forms.first
 
-    form.field_with(:name => "data[Usuario][login]").value = data['USER_SIGA']
-    form.field_with(:name => "data[Usuario][senha]").value = data['PASSWORD_SIGA']
+    form.field_with(:name => "data[Usuario][login]").value = ENV['USER_SIGA']
+    form.field_with(:name => "data[Usuario][senha]").value = ENV['PASSWORD_SIGA']
     form.method = "POST"
     page = form.submit
 
