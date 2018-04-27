@@ -40,6 +40,7 @@ gem 'turbolinks'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'uglifier'
 gem 'wkhtmltopdf-binary'
+gem 'whenever', require: false
 
 group :development, :test do
   gem 'byebug', platform: :mri
