@@ -1,12 +1,12 @@
 <fieldset>
   <legend>Selecione o paciente</legend>
   <div class="control select-type-patient">
-    <label class="radio">
+    <!-- <label class="radio">
       <input type="radio" name="answer" id="is-server" checked>
       Servidor
-    </label>
+    </label> -->
     <label class="radio">
-      <input type="radio" name="answer" id="is-student">
+      <input type="radio" name="answer" id="is-student" checked>
       Estudante
     </label>
   </div>
@@ -18,9 +18,9 @@
         <div class="select is-server">
           <%= f.select :student_id, Student.get_all, { prompt: "Selecione o servidor" }, { :class => "select2 is-medium" } %>
         </div>
-        <div class="select is-student">
-          <%= f.select :student_id, Student.get_all, { prompt: "Selecione o estudante" }, { :class => "select2 is-medium" } %>
-        </div>
+        <!-- <div class="select is-student">
+          <% #= f.select :student_id, Student.get_all, { prompt: "Selecione o estudante" }, { :class => "select2 is-medium" } %>
+        </div> -->
       </p>
     </div>
   </div>

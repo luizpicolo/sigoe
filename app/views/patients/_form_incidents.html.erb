@@ -1,0 +1,34 @@
+<fieldset>
+  <legend>Dados iniciais</legend>
+    <%= form_for incident do |f| %>
+      <div class="field is-horizontal">
+        <div class="field-body">
+          <div class="field">
+            <%= f.label :companion, "Acompanhante", class: 'label' %>
+            <%= f.text_field :companion, class: 'input', placeholder: 'Acompanhante' %>
+          </div>
+          <div class="field">
+            <%= f.label :medical_referral, "Encaminhamento", class: 'label' %>
+            <div class="select is-fullwidth">
+              <%= f.select :medical_referral, Patient::Incident.medical_referrals.keys.to_a, {}, { :class => "" } %>
+            </div>
+          </div>
+          <div class="field">
+            <%= f.label :nursing_conduct, "Conduta", class: 'label' %>
+            <div class="select is-fullwidth">
+              <%= f.select :nursing_conduct, Patient::Incident.nursing_conducts.keys.to_a, {}, { :class => "" } %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <%= f.label :previous_medical_consultation, 'Avaliação da consulta anterior', class: 'label' %>
+        <%= f.text_area :previous_medical_consultation, class: 'textarea is-medium', placeholder: 'Avaliação da consulta anterior' %>
+      </div>
+      <div class="margin-top-20px">
+        <p class="control">
+          <%= f.submit "Salvar", class: "button is-success is-medium in-mobile-expand"%>
+        </p>
+      </div>
+    <% end %>
+  </fieldset>
