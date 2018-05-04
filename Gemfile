@@ -54,7 +54,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git', branch: 'rails-5'
   gem 'spring'
-  gem 'regressor'
+  gem 'regressor', git: 'https://github.com/luizpicolo/regressor.git', branch: 'Fix-FacotyBot'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'simplecov'
   gem 'rails-controller-testing'

@@ -30,7 +30,9 @@ module ApplicationHelper
   # @param relation [Activerecord::relation] relacionamento carregado do BD
   # @return [Object] definido mediante a String
   def convert_to_entity(relation)
-    eval(relation.class.to_s.split('::').first)
+    entity = relation.class.to_s
+    entity.slice!('::ActiveRecord_Relation')
+    eval(entity)
   end
 
   def  options_for_search(params)

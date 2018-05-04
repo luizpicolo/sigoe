@@ -36,6 +36,6 @@ Rails.application.routes.draw do
   resources :report_incidents, only: [:new, :create]
   resources :positions, except: [:show]
   resources :patients, except: [:show] do
-    get :incidents
+    resources :appointments, except: [:show], controller: 'patients/appointments'
   end
 end

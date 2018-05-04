@@ -18,6 +18,7 @@ class Patient < ApplicationRecord
   has_many :habits, dependent: :destroy
   has_many :morbids, dependent: :destroy
   has_many :physiologicals, dependent: :destroy
+  has_many :appointments, dependent: :destroy
 
   accepts_nested_attributes_for :habits, allow_destroy: true
   accepts_nested_attributes_for :morbids, allow_destroy: true
@@ -27,7 +28,19 @@ class Patient < ApplicationRecord
 
   # Atributos para busca com SearchCop
   search_scope :search do
-    attributes :name
+    attributes student: "student.name"
+  end
+
+  def photo
+    student&.photo.thumb
+  end
+
+  def last_appointments
+    appointments.last&.created_at
+  end
+
+  def last_complaints
+    appointments.last&.complaints
   end
 
   # Retorna um vetor com os atributos que serão utilizados para a
@@ -35,6 +48,6 @@ class Patient < ApplicationRecord
   #
   # @return [Array] contendo os atributos para a busca
   def self.ordenation_attributes
-    [["ID",'id'], ["Nome",'name']]
+    [["ID",'id'], ["Paciente",'student_id']]
   end
 end

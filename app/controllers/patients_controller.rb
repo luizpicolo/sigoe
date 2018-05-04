@@ -62,10 +62,6 @@ class PatientsController < ApplicationController
     end
   end
 
-  def incidents
-    @incident = Patient::Incident.new
-  end
-
   private
 
   def set_patient
@@ -74,10 +70,11 @@ class PatientsController < ApplicationController
 
   def patient_params
     params.require(:patient).permit(
-      :student_id, :habits_attributes => [:sleep_rest, :amount_sleep_hours, :physical_activity,
+      :student_id, :habits_attributes => [:id, :sleep_rest, :amount_sleep_hours, :physical_activity,
       :amount_physical_activity, :amount_fruit_vegetable, :amount_red_meat,
       :amount_white_meat, :amount_juice,  :amount_water, :amount_tea,
-      :other_information], :morbids_attributes => [:pre_existing_diseases_vascular_accident, :pre_existing_diseases_cancer, :pre_existing_diseases_hypertension, :pre_existing_diseases_cardiopathy, :pre_existing_diseases_diabetes, :pre_existing_diseases_renal, :pre_existing_diseases_pneumopathy, :others_pre_existing_diseases, :allergies_drugs, :allergies_foods, :allergies_cosmetics, :allergies_plaster, :allergies_wool, :others_allergies, :risk_factors_smoking, :risk_factors_ethicism, :risk_factors_chemotherapy, :risk_factors_radiotherapy, :risk_factors_chemical_dependency, :risk_factors_violence, :others_risk_factors], :physiologicals_attributes => [:other_diseases, :continuing_medication, :previous_surgeries, :hospitalization, :first_menstruation, :complaints, :gestation, :children, :abortion]
+      :other_information], :morbids_attributes => [:id, :pre_existing_diseases_vascular_accident, :pre_existing_diseases_cancer, :pre_existing_diseases_hypertension, :pre_existing_diseases_cardiopathy, :pre_existing_diseases_diabetes, :pre_existing_diseases_renal, :pre_existing_diseases_pneumopathy, :others_pre_existing_diseases, :allergies_drugs, :allergies_foods, :allergies_cosmetics, :allergies_plaster, :allergies_wool, :others_allergies, :risk_factors_smoking, :risk_factors_ethicism, :risk_factors_chemotherapy, :risk_factors_radiotherapy, :risk_factors_chemical_dependency, :risk_factors_violence, :others_risk_factors],
+      :physiologicals_attributes => [:id, :other_diseases, :continuing_medication, :previous_surgeries, :hospitalization, :first_menstruation, :complaints, :gestation, :children, :abortion]
     )
   end
 end
