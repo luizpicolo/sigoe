@@ -59,11 +59,6 @@ ActiveRecord::Schema.define(version: 20180503133421) do
     t.index ["title"], name: "index_keypasses_on_title"
   end
 
-  create_table "medical_records", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "patient_habits", force: :cascade do |t|
     t.bigint "patient_id"
     t.integer "sleep_rest"
@@ -173,38 +168,6 @@ ActiveRecord::Schema.define(version: 20180503133421) do
     t.index ["name", "initial", "slug"], name: "index_sectors_on_name_and_initial_and_slug"
   end
 
-  create_table "student_courses", id: :serial, force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "initial"
-    t.index ["name", "initial"], name: "index_student_courses_on_name_and_initial"
-  end
-
-  create_table "student_incidents", id: :serial, force: :cascade do |t|
-    t.integer "student_id"
-    t.integer "user_id"
-    t.integer "institution"
-    t.text "description"
-    t.date "date_incident"
-    t.text "soluction"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "course_id"
-    t.time "time_incident"
-    t.integer "assistant_id"
-    t.datetime "signed_in"
-    t.integer "is_resolved"
-    t.integer "type_student"
-    t.integer "sanction"
-    t.integer "school_group"
-    t.index ["course_id"], name: "index_student_incidents_on_course_id"
-    t.index ["date_incident"], name: "index_student_incidents_on_date_incident"
-    t.index ["institution"], name: "index_student_incidents_on_institution"
-    t.index ["student_id"], name: "index_student_incidents_on_student_id"
-    t.index ["user_id"], name: "index_student_incidents_on_user_id"
-  end
-
   create_table "students", id: :serial, force: :cascade do |t|
     t.string "name"
     t.integer "course_id"
@@ -273,18 +236,16 @@ ActiveRecord::Schema.define(version: 20180503133421) do
   end
 
   add_foreign_key "incidents", "courses"
+  add_foreign_key "incidents", "students"
   add_foreign_key "incidents", "users"
   add_foreign_key "patient_habits", "patients"
   add_foreign_key "patient_morbids", "patients"
   add_foreign_key "patient_physiologicals", "patients"
   add_foreign_key "patients", "students"
   add_foreign_key "permissions", "users"
-  add_foreign_key "student_incidents", "student_courses", column: "course_id"
-  add_foreign_key "student_incidents", "students"
-  add_foreign_key "student_incidents", "users"
-  add_foreign_key "students", "student_courses", column: "course_id"
+  add_foreign_key "students", "courses"
   add_foreign_key "tickets", "users"
+  add_foreign_key "users", "courses"
   add_foreign_key "users", "positions"
   add_foreign_key "users", "sectors"
-  add_foreign_key "users", "student_courses", column: "course_id"
 end
