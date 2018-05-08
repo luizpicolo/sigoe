@@ -36,12 +36,6 @@
         <div class="dropdown">
           <span class="button is-danger in-mobile-expand">Ações</span>
           <div class="dropdown-content">
-            <%= link_to patient_incidents_path(incident), class: 'button is-success in-mobile-expand' do %>
-              <span class="icon">
-                <i class="ion-android-clipboard"></i>
-              </span>
-              <span>Ocorrências</span>
-            <% end %>
             <% if can? :update, Patient::Incident %>
               <%= link_to edit_patient_incident_path(incident.patient_id, incident), class: 'button is-success in-mobile-expand' do %>
                 <span class="icon">

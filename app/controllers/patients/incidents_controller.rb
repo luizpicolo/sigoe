@@ -37,12 +37,13 @@ class Patients::IncidentsController < ApplicationController
     end
   end
 
-  # def edit
-  #   add_breadcrumb "Enfermaria", sector_actions_path('enfermaria')
-  #   add_breadcrumb "Pacientes", :users_path
-  #   add_breadcrumb "Atualizar paciente"
-  # end
-  #
+  def edit
+    add_breadcrumb "Enfermaria", sector_actions_path('enfermaria')
+    add_breadcrumb "Pacientes", :patients_path
+    add_breadcrumb "Ocorrências", :patient_incidents_path
+    add_breadcrumb "Atualizar Ocorrência"
+  end
+
   # def update
   #   if @patient.update(patient_params)
   #     redirect_to patients_path, flash: { success: 'Paciente atualizado com sucesso' }
