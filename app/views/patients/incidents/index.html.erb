@@ -1,0 +1,69 @@
+<div class="columns">
+  <div class="column no-print">
+    <% if can? :create, Patient::Incident %>
+      <%= link_to new_patient_incident_path, class: "button is-success in-mobile-expand" do %>
+        <span class="icon">
+          <i class="ion-plus-round"></i>
+        </span>
+        <span>Novo Ocorrência</span>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="column no-print">
+    <% show_search_error_message(@incidents, params) %>
+    <%= render 'layouts/search', path: patient_incidents_path, v: attr_order(@incidents) %>
+  </div>
+</div>
+
+<table class="table is-striped is-fullwidth">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nome</th>
+      <th>Data ocorrência</th>
+      <th>Queixa</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @incidents.each do |incident| %>
+    <tr>
+      <td><%= incident.id %></td>
+      <td><%= incident.patient.name %></td>
+      <td><%= extract_and_format_date incident.created_at %></td>
+      <td class="is-hidden-mobile"><%= incident.complaints %></td>
+      <td class="has-text-right no-print">
+        <div class="dropdown">
+          <span class="button is-danger in-mobile-expand">Ações</span>
+          <div class="dropdown-content">
+            <%= link_to patient_incidents_path(incident), class: 'button is-success in-mobile-expand' do %>
+              <span class="icon">
+                <i class="ion-android-clipboard"></i>
+              </span>
+              <span>Ocorrências</span>
+            <% end %>
+            <% if can? :update, Patient::Incident %>
+              <%= link_to edit_patient_incident_path(incident.patient_id, incident), class: 'button is-success in-mobile-expand' do %>
+                <span class="icon">
+                  <i class="ion-edit"></i>
+                </span>
+                <span>Editar</span>
+              <% end %>
+            <% end %>
+            <% if can? :destroy, Patient::Incident %>
+              <%= link_to patient_incident_path(incident.patient_id, incident), method: :delete, data: { confirm: 'Tem certeza que deseja excluir?' }, class: 'button is-danger in-mobile-expand' do %>
+                <span class="icon">
+                  <i class="ion-close"></i>
+                </span>
+                <span>Excluir</span>
+              <% end %>
+            <% end %>
+          </div>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @incidents %>
+<br />

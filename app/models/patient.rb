@@ -18,6 +18,7 @@ class Patient < ApplicationRecord
   has_many :habits, dependent: :destroy
   has_many :morbids, dependent: :destroy
   has_many :physiologicals, dependent: :destroy
+  has_many :incidents, class_name: 'Patient::Incident', dependent: :destroy
 
   accepts_nested_attributes_for :habits, allow_destroy: true
   accepts_nested_attributes_for :morbids, allow_destroy: true

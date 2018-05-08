@@ -62,10 +62,6 @@ class PatientsController < ApplicationController
     end
   end
 
-  def incidents
-    @incident = Patient::Incident.new
-  end
-
   private
 
   def set_patient

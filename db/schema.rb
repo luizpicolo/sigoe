@@ -83,12 +83,28 @@ ActiveRecord::Schema.define(version: 20180503133421) do
   end
 
   create_table "patient_incidents", force: :cascade do |t|
+    t.bigint "patient_id"
     t.string "companion"
     t.integer "medical_referral"
     t.integer "nursing_conduct"
     t.text "previous_medical_consultation"
+    t.integer "complaints"
+    t.text "description_complaint"
+    t.string "weight"
+    t.string "height"
+    t.string "abdominal_perimeter"
+    t.string "bloodvpressure"
+    t.string "temperature"
+    t.string "heart_rate"
+    t.string "respiratory_frequency"
+    t.string "blood_glucose"
+    t.integer "tanners_stage"
+    t.text "diagnosis"
+    t.text "prescription"
+    t.text "evolution"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["patient_id"], name: "index_patient_incidents_on_patient_id"
   end
 
   create_table "patient_morbids", force: :cascade do |t|
@@ -275,6 +291,7 @@ ActiveRecord::Schema.define(version: 20180503133421) do
   add_foreign_key "incidents", "courses"
   add_foreign_key "incidents", "users"
   add_foreign_key "patient_habits", "patients"
+  add_foreign_key "patient_incidents", "patients"
   add_foreign_key "patient_morbids", "patients"
   add_foreign_key "patient_physiologicals", "patients"
   add_foreign_key "patients", "students"

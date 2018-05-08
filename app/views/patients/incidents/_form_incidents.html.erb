@@ -1,0 +1,11 @@
+<%= form_for incident do |f| %>
+  <%= render 'form_inicial', f: f %>
+  <%= render 'form_medical_consultation_reasons', f: f %>
+  <%= render 'form_physical_exam', f: f %>
+
+  <div class="margin-top-20px">
+    <p class="control">
+      <%= f.submit "Salvar", class: "button is-success is-medium in-mobile-expand"%>
+    </p>
+  </div>
+<% end %>
