@@ -5,9 +5,11 @@
   <ul class="menu-list">
     <li><%= active_link_to 'Trocar senha', user_change_password_path(current_user) %></li>
   </ul>
+  <% if can? :read, User %>
   <p class="menu-label">
     Serti
   </p>
+  <% end %>
   <ul class="menu-list">
     <% if can? :read, User %>
       <li><%= active_link_to 'Usuários', users_path %></li>
@@ -19,9 +21,11 @@
       <li><%= active_link_to 'Cargos / Funçôes', positions_path %></li>
     <% end %>
   </ul>
+  <% if can? :read, Incident %>
   <p class="menu-label">
     Diren
   </p>
+  <% end %>
   <ul class="menu-list">
     <% if can? :read, Student %>
       <li><%= active_link_to 'Estudantes', students_path %></li>
@@ -34,9 +38,11 @@
       <li><%= active_link_to 'Relatório ocorrências', new_report_incident_path %></li>
     <% end %>
   </ul>
+  <% if can? :read, Patient %>
   <p class="menu-label">
     Enfermaria
   </p>
+  <% end %>
   <ul class="menu-list">
     <% if can? :read, Patient %>
       <li><%= active_link_to 'Pacientes', patients_path %></li>
