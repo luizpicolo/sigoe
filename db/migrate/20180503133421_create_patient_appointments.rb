@@ -1,6 +1,6 @@
-class CreatePatientIncidents < ActiveRecord::Migration[5.1]
+class CreatePatientAppointments < ActiveRecord::Migration[5.1]
   def change
-    create_table :patient_incidents do |t|
+    create_table :patient_appointments do |t|
       t.references :patient, foreign_key: true, index: true
       t.string :companion
       t.integer :medical_referral

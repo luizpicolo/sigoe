@@ -19,9 +19,9 @@
   <thead>
     <tr>
       <th>ID</th>
-      <th>Foto</th>
-      <th>Nome</th>
-      <th class="is-hidden-mobile">Curso</th>
+      <th>Paciente</th>
+      <th>Última ocorrência</th>
+      <th>Última queixa</th>
       <th></th>
     </tr>
   </thead>
@@ -29,14 +29,17 @@
     <% @patients.each do |patient| %>
     <tr>
       <td><%= patient.id %></td>
-      <td>test</td>
       <td><%= patient.name %></td>
-      <td class="is-hidden-mobile">ddd</td>
+      <td>
+        <%= extract_and_format_date patient.last_appointments %> às
+        <%= extract_and_format_time patient.last_appointments %>
+      </td>
+      <td><%= patient.last_complaints %></td>
       <td class="has-text-right no-print">
         <div class="dropdown">
           <span class="button is-danger in-mobile-expand">Ações</span>
           <div class="dropdown-content">
-            <%= link_to patient_incidents_path(patient), class: 'button is-success in-mobile-expand' do %>
+            <%= link_to patient_appointments_path(patient), class: 'button is-success in-mobile-expand' do %>
               <span class="icon">
                 <i class="ion-android-clipboard"></i>
               </span>

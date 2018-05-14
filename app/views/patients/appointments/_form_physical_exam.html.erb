@@ -110,7 +110,7 @@
         <div class="field">
           <%= f.label :tanners_stage, "Estágio de Tanner", class: 'label' %>
           <div class="select is-fullwidth">
-            <%= f.select :tanners_stage, Patient::Incident.tanners_stages.keys.to_a, {}, { :class => "" } %>
+            <%= f.select :tanners_stage, Patient::Appointment.tanners_stages.keys.to_a, {}, { :class => "" } %>
           </div>
         </div>
       </div>

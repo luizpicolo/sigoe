@@ -1,4 +1,4 @@
-class Patient::Incident < ApplicationRecord
+class Patient::Appointment < ApplicationRecord
   include SearchCop
 
   validates :patient, presence: true
@@ -6,7 +6,7 @@ class Patient::Incident < ApplicationRecord
   belongs_to :patient
 
   enum complaints: [
-    'Exame Preventivo', 'Febre', 'Picada Inset', 'Geniturinária', 'Orientação',
+    'Exame Preventivo', 'Febre', 'Picada Insetos', 'Geniturinária', 'Orientação',
     'Ocular/Auricular', 'Cólica Mestrual', 'Lesão', 'Gastrintestinal',
     'Tontura/Mal Estar', 'Cefaléia'
   ]
@@ -18,7 +18,8 @@ class Patient::Incident < ApplicationRecord
 
   # Atributos para busca com SearchCop
   search_scope :search do
-    attributes :name
+    attributes :complaints
+    attributes :created_at
   end
 
   # Retorna um vetor com os atributos que serão utilizados para a
@@ -26,6 +27,6 @@ class Patient::Incident < ApplicationRecord
   #
   # @return [Array] contendo os atributos para a busca
   def self.ordenation_attributes
-    [["ID",'id'], ["Nome",'name'], ["Data",'name']]
+    [["ID",'id'], ["Quiexas",'complaints'], ["Data",'created_at']]
   end
 end

@@ -9,13 +9,13 @@
         <div class="field">
           <%= f.label :medical_referral, "Encaminhamento", class: 'label' %>
           <div class="select is-fullwidth">
-            <%= f.select :medical_referral, Patient::Incident.medical_referrals.keys.to_a, {}, { :class => "" } %>
+            <%= f.select :medical_referral, Patient::Appointment.medical_referrals.keys.to_a, {}, { :class => "" } %>
           </div>
         </div>
         <div class="field">
           <%= f.label :nursing_conduct, "Conduta", class: 'label' %>
           <div class="select is-fullwidth">
-            <%= f.select :nursing_conduct, Patient::Incident.nursing_conducts.keys.to_a, {}, { :class => "" } %>
+            <%= f.select :nursing_conduct, Patient::Appointment.nursing_conducts.keys.to_a, {}, { :class => "" } %>
           </div>
         </div>
       </div>

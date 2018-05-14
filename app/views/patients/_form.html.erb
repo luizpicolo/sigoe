@@ -1,5 +1,5 @@
 <%= form_for patient do |f| %>
-  <%= render 'form_patient', f: f %>
+  <%= render 'form_patient', f: f if !patient.id? %>
   <%= render 'form_physiological', f: f %>
   <%= render 'form_morbids', f: f %>
   <%= render 'form_habits', f: f %>
