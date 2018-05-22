@@ -24,29 +24,29 @@ require 'rails_helper'
 RSpec.describe Patient::Habit, type: :model do
 
   # === Relations ===
-  it { is_expected.to belong_to :patient }
+  it { should belong_to :patient }
 
   # === Database (Columns) ===
-  it { is_expected.to have_db_column :id }
-  it { is_expected.to have_db_column :patient_id }
-  it { is_expected.to have_db_column :sleep_rest }
-  it { is_expected.to have_db_column :amount_sleep_hours }
-  it { is_expected.to have_db_column :physical_activity }
-  it { is_expected.to have_db_column :amount_physical_activity }
-  it { is_expected.to have_db_column :amount_fruit_vegetable }
-  it { is_expected.to have_db_column :amount_red_meat }
-  it { is_expected.to have_db_column :amount_white_meat }
-  it { is_expected.to have_db_column :amount_juice }
-  it { is_expected.to have_db_column :amount_water }
-  it { is_expected.to have_db_column :amount_tea }
-  it { is_expected.to have_db_column :other_information }
-  it { is_expected.to have_db_column :created_at }
-  it { is_expected.to have_db_column :updated_at }
+  it { should have_db_column :id }
+  it { should have_db_column :patient_id }
+  it { should have_db_column :sleep_rest }
+  it { should have_db_column :amount_sleep_hours }
+  it { should have_db_column :physical_activity }
+  it { should have_db_column :amount_physical_activity }
+  it { should have_db_column :amount_fruit_vegetable }
+  it { should have_db_column :amount_red_meat }
+  it { should have_db_column :amount_white_meat }
+  it { should have_db_column :amount_juice }
+  it { should have_db_column :amount_water }
+  it { should have_db_column :amount_tea }
+  it { should have_db_column :other_information }
+  it { should have_db_column :created_at }
+  it { should have_db_column :updated_at }
 
   # === Validations (Presence) ===
-  it { is_expected.to validate_presence_of :patient }
+  it { should validate_presence_of :patient }
 
   # === Enums ===
-  it { is_expected.to define_enum_for(:sleep_rest).with(["Alterado", "Satisfatório"]) }
+  it { should define_enum_for(:sleep_rest).with(["Alterado", "Satisfatório"]) }
 
 end

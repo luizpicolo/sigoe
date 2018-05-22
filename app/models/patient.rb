@@ -12,7 +12,8 @@ class Patient < ApplicationRecord
   include SearchCop
 
   # Validações
-  validates :student, :habits, :physiologicals, :morbids, presence: true
+  validates :student, :habits, :physiologicals,
+            :morbids, :appointments, presence: true
 
   belongs_to :student
   has_many :habits, dependent: :destroy

@@ -13,20 +13,25 @@ require 'rails_helper'
 RSpec.describe Patient, type: :model do
 
   # === Relations ===
-  it { is_expected.to belong_to :student }
-  it { is_expected.to have_many :habits }
-  it { is_expected.to have_many :morbids }
+  it { should belong_to :student }
+  it { should have_many :habits }
+  it { should have_many :morbids }
+  it { should have_many :physiologicals }
+  it { should have_many :appointments }
 
   # === Nested Attributes ===
-  it { is_expected.to accept_nested_attributes_for :habits }
-  it { is_expected.to accept_nested_attributes_for :morbids }
-
-  # === Database (Columns) ===
-  it { is_expected.to have_db_column :id }
-  it { is_expected.to have_db_column :student_id }
-  it { is_expected.to have_db_column :created_at }
-  it { is_expected.to have_db_column :updated_at }
+  it { should accept_nested_attributes_for :habits }
+  it { should accept_nested_attributes_for :morbids }
+  it { should accept_nested_attributes_for :physiologicals }
 
   # === Validations (Presence) ===
-  it { is_expected.to validate_presence_of :student }
+  it { should validate_presence_of :student }
+  it { should validate_presence_of :habits }
+  it { should validate_presence_of :physiologicals }
+  it { should validate_presence_of :morbids }
+  it { should validate_presence_of :appointments }
+  it { should validate_presence_of :student }
+
+  # === Validations (Presence) ===
+  it { should validate_presence_of :student }
 end

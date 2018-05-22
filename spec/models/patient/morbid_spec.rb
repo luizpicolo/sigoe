@@ -34,42 +34,42 @@ require 'rails_helper'
 RSpec.describe Patient::Morbid, type: :model do
 
   # Relations
-  it { is_expected.to belong_to :patient }
+  it { should belong_to :patient }
 
   # === Database (Columns) ===
-  it { is_expected.to have_db_column :id }
-  it { is_expected.to have_db_column :patient_id }
-  it { is_expected.to have_db_column :pre_existing_diseases_vascular_accident }
-  it { is_expected.to have_db_column :pre_existing_diseases_cancer }
-  it { is_expected.to have_db_column :pre_existing_diseases_hypertension }
-  it { is_expected.to have_db_column :pre_existing_diseases_cardiopathy }
-  it { is_expected.to have_db_column :pre_existing_diseases_diabetes }
-  it { is_expected.to have_db_column :pre_existing_diseases_renal }
-  it { is_expected.to have_db_column :pre_existing_diseases_pneumopathy }
-  it { is_expected.to have_db_column :others_pre_existing_diseases }
-  it { is_expected.to have_db_column :allergies_drugs }
-  it { is_expected.to have_db_column :allergies_foods }
-  it { is_expected.to have_db_column :allergies_cosmetics }
-  it { is_expected.to have_db_column :allergies_plaster }
-  it { is_expected.to have_db_column :allergies_wool }
-  it { is_expected.to have_db_column :others_allergies }
-  it { is_expected.to have_db_column :risk_factors_smoking }
-  it { is_expected.to have_db_column :risk_factors_ethicism }
-  it { is_expected.to have_db_column :risk_factors_chemotherapy }
-  it { is_expected.to have_db_column :risk_factors_radiotherapy }
-  it { is_expected.to have_db_column :risk_factors_chemical_dependency }
-  it { is_expected.to have_db_column :risk_factors_violence }
-  it { is_expected.to have_db_column :others_risk_factors }
-  it { is_expected.to have_db_column :created_at }
-  it { is_expected.to have_db_column :updated_at }
+  it { should have_db_column :id }
+  it { should have_db_column :patient_id }
+  it { should have_db_column :pre_existing_diseases_vascular_accident }
+  it { should have_db_column :pre_existing_diseases_cancer }
+  it { should have_db_column :pre_existing_diseases_hypertension }
+  it { should have_db_column :pre_existing_diseases_cardiopathy }
+  it { should have_db_column :pre_existing_diseases_diabetes }
+  it { should have_db_column :pre_existing_diseases_renal }
+  it { should have_db_column :pre_existing_diseases_pneumopathy }
+  it { should have_db_column :others_pre_existing_diseases }
+  it { should have_db_column :allergies_drugs }
+  it { should have_db_column :allergies_foods }
+  it { should have_db_column :allergies_cosmetics }
+  it { should have_db_column :allergies_plaster }
+  it { should have_db_column :allergies_wool }
+  it { should have_db_column :others_allergies }
+  it { should have_db_column :risk_factors_smoking }
+  it { should have_db_column :risk_factors_ethicism }
+  it { should have_db_column :risk_factors_chemotherapy }
+  it { should have_db_column :risk_factors_radiotherapy }
+  it { should have_db_column :risk_factors_chemical_dependency }
+  it { should have_db_column :risk_factors_violence }
+  it { should have_db_column :others_risk_factors }
+  it { should have_db_column :created_at }
+  it { should have_db_column :updated_at }
 
   # === Validations (Presence) ===
-  it { is_expected.to validate_presence_of :patient }
+  it { should validate_presence_of :patient }
 
   # === Enums ===
-  it { is_expected.to define_enum_for(:pre_existing_diseases_cardiopathy).with(["Cardiopatia congênita", "Doenças no miocárdio", "Infecção no coração", "Cardiopatia de válvulas", "Cardiopatia hipertensiva", "Cardiopatia Isquêmica"]) }
-  it { is_expected.to define_enum_for(:pre_existing_diseases_diabetes).with(["Tipo I", "Tipo II"]) }
-  it { is_expected.to define_enum_for(:pre_existing_diseases_renal).with(["Cálculos renais", "Infecção renal ou Pielonefrite", "Cistos renais", "Perda da função renal"]) }
-  it { is_expected.to define_enum_for(:pre_existing_diseases_pneumopathy).with(["Pneumopatia Intersticial", "Pneumopatia Aguda", "Pneumopatia Crônica", "Pneumopatia Ocupacional", "Pneumopatia Parasitária"]) }
+  it { should define_enum_for(:pre_existing_diseases_cardiopathy).with(["Cardiopatia congênita", "Doenças no miocárdio", "Infecção no coração", "Cardiopatia de válvulas", "Cardiopatia hipertensiva", "Cardiopatia Isquêmica"]) }
+  it { should define_enum_for(:pre_existing_diseases_diabetes).with(["Tipo I", "Tipo II"]) }
+  it { should define_enum_for(:pre_existing_diseases_renal).with(["Cálculos renais", "Infecção renal ou Pielonefrite", "Cistos renais", "Perda da função renal"]) }
+  it { should define_enum_for(:pre_existing_diseases_pneumopathy).with(["Pneumopatia Intersticial", "Pneumopatia Aguda", "Pneumopatia Crônica", "Pneumopatia Ocupacional", "Pneumopatia Parasitária"]) }
 
 end
