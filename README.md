@@ -8,23 +8,24 @@
 
 ![Em Desenvolvimento](http://messages.hellobits.com/success.svg?message=Em%20Desenvolvimento)
 
-Este sistema tem como base: Rails 5.1.4 e Ruby 2.3.1.
+Este sistema tem como base: Rails 5.1.5 e Ruby 2.5.0.
 
 O SIAI (Sistema de Apoio interno) é um software desenvolvido com o objetivo de auxiliar nos diversos setores do IFMS-NA (Institulo Federal de Mato Grosso do Sul - Campus Nova Andradina).
 
-## Módulos
+## Módulos de Gerenciamento
 
- - Gerenciamento de usuários
- - Gerenciamento de senhas
- - Gerenciamento de estudantes
- - Gerenciamento de setores
- - Gerenciamento de cursos
+ - Usuários
+ - Senhas
+ - Estudantes
+ - Setores
+ - Cursos
+ - Ocorrências
 
 ## Como usar
 
 **Primeiro passo:** Clone o projeto
 
-    git clone git@github.com:luizpicolo/siai-ifms-na.git
+    git clone git@github.com:ifms-na/siai-ifms-na.git
 
 **Segundo passo:** Renomeie os arquivos de configuração
 
