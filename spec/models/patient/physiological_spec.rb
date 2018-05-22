@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: physiologicals
+# Table name: patient_physiologicals
 #
 #  id                    :integer          not null, primary key
 #  patient_id            :integer
@@ -20,5 +20,21 @@
 require 'rails_helper'
 
 RSpec.describe Patient::Physiological, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  # === Database (Columns) ===
+  it { should have_db_column :id }
+  it { should have_db_column :patient_id }
+  it { should have_db_column :other_diseases }
+  it { should have_db_column :continuing_medication }
+  it { should have_db_column :previous_surgeries }
+  it { should have_db_column :hospitalization }
+  it { should have_db_column :first_menstruation }
+  it { should have_db_column :complaints }
+  it { should have_db_column :gestation }
+  it { should have_db_column :children }
+  it { should have_db_column :abortion }
+  it { should have_db_column :created_at }
+  it { should have_db_column :updated_at }
+
+  # === Database (Indexes) ===
+  it { should have_db_index ["patient_id"] }
 end

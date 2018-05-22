@@ -29,31 +29,41 @@ RSpec.describe Incident, type: :model do
   end
 
   # Validations
-  it { should validate_presence_of :user  }
-  it { should validate_presence_of :institution  }
-  it { should validate_presence_of :course  }
-  it { should validate_presence_of :description  }
-  it { should validate_presence_of :assistant  }
-  it { should validate_presence_of :date_incident  }
-  it { should validate_presence_of :time_incident  }
+  it { should validate_presence_of :user }
+  it { should validate_presence_of :course }
+  it { should validate_presence_of :assistant }
+  it { should validate_presence_of :institution }
+  it { should validate_presence_of :description }
+  it { should validate_presence_of :date_incident }
+  it { should validate_presence_of :time_incident }
+  it { should validate_presence_of :user }
+  it { should validate_presence_of :assistant }
 
   # Columns
   it { should have_db_column :id }
   it { should have_db_column :student_id }
   it { should have_db_column :user_id }
-  it { should have_db_column :assistant_id }
-  it { should have_db_column :course_id }
   it { should have_db_column :institution }
-  it { should have_db_column :date_incident }
-  it { should have_db_column :time_incident }
-  it { should have_db_column :soluction }
   it { should have_db_column :description }
+  it { should have_db_column :date_incident }
+  it { should have_db_column :soluction }
+  it { should have_db_column :created_at }
+  it { should have_db_column :updated_at }
+  it { should have_db_column :course_id }
+  it { should have_db_column :time_incident }
+  it { should have_db_column :assistant_id }
+  it { should have_db_column :signed_in }
+  it { should have_db_column :is_resolved }
+  it { should have_db_column :type_student }
+  it { should have_db_column :sanction }
+  it { should have_db_column :school_group }
 
   # Indexes
+  it { should have_db_index ["course_id"] }
+  it { should have_db_index ["date_incident"] }
+  it { should have_db_index ["institution"] }
   it { should have_db_index ["student_id"] }
   it { should have_db_index ["user_id"] }
-  it { should have_db_index ["institution"] }
-  it { should have_db_index ["date_incident"] }
 
   # Associations
   it { should belong_to(:student) }
@@ -64,8 +74,9 @@ RSpec.describe Incident, type: :model do
   # Enums
   it { should define_enum_for(:institution).with(["Ifms", "Ufms", "Cemid"]) }
   it { should define_enum_for(:is_resolved).with(["no_", "yes_"]) }
-  it { should define_enum_for(:type_student).with(['non_resident', 'resident']) }
-  it { should define_enum_for(:sanction).with(['verbal_warning', 'written_warning', 'suspension', 'quitting_school']) }
+  it { should define_enum_for(:type_student).with(["non_resident", "resident"]) }
+  it { should define_enum_for(:school_group).with(["1A", "1B", "2A", "2B", "3A", "3B", "4A", "4B", "5A", "5B", "6A", "6B", "7A", "7B", "8A", "8B", "9A", "9B", "10A", "10B"]) }
+  it { should define_enum_for(:sanction).with(["verbal_warning", "written_warning", "suspension", "quitting_school"]) }
 
   # Methods
   describe '#search' do

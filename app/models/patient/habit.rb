@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: habits
+# Table name: patient_habits
 #
 #  id                       :integer          not null, primary key
 #  patient_id               :integer
@@ -21,7 +21,7 @@
 
 class Patient::Habit < ApplicationRecord
   # Validações
-  validates :patient, presence: true
+  # validates :patient, presence: true
 
   enum sleep_rest: ['Alterado', 'Satisfatório']
 
