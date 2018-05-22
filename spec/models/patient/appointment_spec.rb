@@ -1,3 +1,32 @@
+
+# == Schema Information
+#
+# Table name: patient_appointments
+#
+#  id                            :integer          not null, primary key
+#  patient_id                    :integer
+#  companion                     :string
+#  medical_referral              :integer
+#  nursing_conduct               :integer
+#  previous_medical_consultation :text
+#  complaints                    :integer
+#  description_complaint         :text
+#  weight                        :string
+#  height                        :string
+#  abdominal_perimeter           :string
+#  bloodvpressure                :string
+#  temperature                   :string
+#  heart_rate                    :string
+#  respiratory_frequency         :string
+#  blood_glucose                 :string
+#  tanners_stage                 :integer
+#  diagnosis                     :text
+#  prescription                  :text
+#  evolution                     :text
+#  created_at                    :datetime         not null
+#  updated_at                    :datetime         not null
+#
+
 require 'rails_helper'
 
 RSpec.describe Patient::Appointment, type: :model do
@@ -31,10 +60,6 @@ RSpec.describe Patient::Appointment, type: :model do
 
   # === Database (Indexes) ===
   it { should have_db_index ["patient_id"] }
-
-  # === Validations (Presence) ===
-  it { should validate_presence_of :patient }
-  it { should validate_presence_of :patient }
 
   # === Enums ===
   it { should define_enum_for(:complaints).with(["Exame Preventivo", "Febre", "Picada Insetos", "Geniturinária", "Orientação", "Ocular/Auricular", "Cólica Mestrual", "Lesão", "Gastrintestinal", "Tontura/Mal Estar", "Cefaléia"]) }

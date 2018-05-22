@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: morbids
+# Table name: patient_morbids
 #
 #  id                                      :integer          not null, primary key
 #  patient_id                              :integer
@@ -31,7 +31,7 @@
 
 class Patient::Morbid < ApplicationRecord
   # Validações
-  validates :patient, presence: true
+  # validates :patient, presence: true
 
   belongs_to :patient
 

@@ -26,35 +26,26 @@
 #  updated_at                    :datetime         not null
 #
 
-class Patient::Appointment < ApplicationRecord
-  include SearchCop
-
-  # validates :patient, presence: true
-
-  belongs_to :patient
-
-  enum complaints: [
-    'Exame Preventivo', 'Febre', 'Picada Insetos', 'Geniturinária', 'Orientação',
-    'Ocular/Auricular', 'Cólica Mestrual', 'Lesão', 'Gastrintestinal',
-    'Tontura/Mal Estar', 'Cefaléia'
-  ]
-  enum medical_referral: ['Hospital', 'ESF', 'Família', 'Psicóloga']
-  enum nursing_conduct: ['Orientações', 'Observação', 'Encaminhamentos']
-  enum tanners_stage: [
-    'Estágio I', 'Estágio II', 'Estágio III', 'Estágio IV', 'Estágio V'
-  ]
-
-  # Atributos para busca com SearchCop
-  search_scope :search do
-    attributes :complaints
-    attributes :created_at
-  end
-
-  # Retorna um vetor com os atributos que serão utilizados para a
-  # busca nas listagens dos pacientes
-  #
-  # @return [Array] contendo os atributos para a busca
-  def self.ordenation_attributes
-    [["ID",'id'], ["Quiexas",'complaints'], ["Data",'created_at']]
-  end
+FactoryBot.define do
+    factory :appointment, class: Patient::Appointment do
+       patient factory: :patient
+       companion { Faker::Name.name }
+       medical_referral "Hospital"
+       nursing_conduct "Observação"
+       previous_medical_consultation { Faker::Lorem.paragraph(2) }
+       complaints  "Febre"
+       description_complaint { Faker::Lorem.paragraph(2) }
+       weight "100"
+       height "100"
+       abdominal_perimeter "100"
+       bloodvpressure "100"
+       temperature "100"
+       heart_rate  "100"
+       respiratory_frequency "100"
+       blood_glucose "100"
+       tanners_stage "Estágio II"
+       diagnosis { Faker::Lorem.paragraph(2) }
+       prescription { Faker::Lorem.paragraph(2) }
+       evolution { Faker::Lorem.paragraph(2) }
+    end
 end

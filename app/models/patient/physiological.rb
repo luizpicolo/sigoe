@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: physiologicals
+# Table name: patient_physiologicals
 #
 #  id                    :integer          not null, primary key
 #  patient_id            :integer

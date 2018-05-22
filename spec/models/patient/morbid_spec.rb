@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: morbids
+# Table name: patient_morbids
 #
 #  id                                      :integer          not null, primary key
 #  patient_id                              :integer
@@ -64,7 +64,7 @@ RSpec.describe Patient::Morbid, type: :model do
   it { should have_db_column :updated_at }
 
   # === Validations (Presence) ===
-  it { should validate_presence_of :patient }
+  # it { should validate_presence_of :patient }
 
   # === Enums ===
   it { should define_enum_for(:pre_existing_diseases_cardiopathy).with(["Cardiopatia congênita", "Doenças no miocárdio", "Infecção no coração", "Cardiopatia de válvulas", "Cardiopatia hipertensiva", "Cardiopatia Isquêmica"]) }
