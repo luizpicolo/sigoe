@@ -29,7 +29,6 @@ RSpec.describe Patient, type: :model do
   it { should validate_presence_of :habits }
   it { should validate_presence_of :physiologicals }
   it { should validate_presence_of :morbids }
-  it { should validate_presence_of :appointments }
   it { should validate_presence_of :student }
 
   # === Validations (Presence) ===

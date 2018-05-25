@@ -13,7 +13,7 @@ class Patient < ApplicationRecord
 
   # Validações
   validates :student, :habits, :physiologicals,
-            :morbids, :appointments, presence: true
+            :morbids, presence: true
 
   belongs_to :student
   has_many :habits, dependent: :destroy
