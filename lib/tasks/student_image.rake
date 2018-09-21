@@ -6,6 +6,7 @@ namespace :student_image do
     require "open-uri"
 
     @agent = Mechanize.new
+    @agent.agent.http.verify_mode = OpenSSL::SSL::VERIFY_NONE
     page = @agent.get("http://academico.ifms.edu.br/administrativo/")
     form = @agent.page.forms.first
 
