@@ -35,7 +35,7 @@ class User < ApplicationRecord
          :validatable
 
   # Validações
-  validates :username, :sector, presence: true
+  validates :username, presence: true
 
   # Delegates
   delegate :initial, to: :sector, prefix: true
