@@ -36,7 +36,6 @@ RSpec.describe User, type: :model do
   # Validations
   it { should validate_presence_of :email }
   it { should validate_presence_of :password  }
-  it { should validate_presence_of :sector  }
   it { should validate_presence_of :username  }
 
   # Columns
