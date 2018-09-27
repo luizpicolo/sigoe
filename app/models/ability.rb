@@ -12,6 +12,7 @@ class Ability
     user.permissions.each do |permission|
       # Permissões extras para ocorrências
       if permission.can_extras?
+        can [:sanction], eval(permission.entity) if permission.can_extras?
         can [:confirmation], eval(permission.entity) if permission.can_extras?
         can [:sign], eval(permission.entity) if permission.can_extras?
       end

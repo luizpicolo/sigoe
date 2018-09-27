@@ -97,7 +97,7 @@
         </p>
       </div>
     </div>
-    <% if current_user.it_is_part_of_the_sector?('diren', 'serti') %>
+    <% if can? :sanction, Incident %>
       <div class="field is-horizontal">
         <div class="field-body">
           <div class="field">
@@ -108,7 +108,7 @@
               </span>
             </p>
           </div>
-          <% if current_user.it_is_part_of_the_sector?('diren', 'serti') %>
+          <% if can? :sanction, Incident %>
           <div class="field">
             <%= f.label :is_resolved, 'Ocorrências resolvida?', class: 'label' %>
             <p class="control">
