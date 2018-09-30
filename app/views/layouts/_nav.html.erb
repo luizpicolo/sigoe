@@ -33,6 +33,9 @@
     <% if can? :read, Course %>
       <li><%= active_link_to 'Cursos', courses_path %></li>
     <% end %>
+    <% if can? :read, SchoolGroup %>
+      <li><%= active_link_to 'Turma', school_groups_path %></li>
+    <% end %>
     <% if can? :read, Incident %>
       <li><%= active_link_to 'Ocorrências', incidents_path %></li>
       <li><%= active_link_to 'Relatório ocorrências', new_report_incident_path %></li>

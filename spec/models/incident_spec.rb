@@ -2,23 +2,23 @@
 #
 # Table name: incidents
 #
-#  id            :integer          not null, primary key
-#  student_id    :integer
-#  user_id       :integer
-#  institution   :integer
-#  description   :text
-#  date_incident :date
-#  soluction     :text
-#  created_at    :datetime         not null
-#  updated_at    :datetime         not null
-#  course_id     :integer
-#  time_incident :time
-#  assistant_id  :integer
-#  signed_in     :datetime
-#  is_resolved   :integer
-#  type_student  :integer
-#  sanction      :integer
-#  school_group  :integer
+#  id              :integer          not null, primary key
+#  student_id      :integer
+#  user_id         :integer
+#  institution     :integer
+#  description     :text
+#  date_incident   :date
+#  soluction       :text
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  course_id       :integer
+#  time_incident   :time
+#  assistant_id    :integer
+#  signed_in       :datetime
+#  is_resolved     :integer
+#  type_student    :integer
+#  sanction        :integer
+#  school_group_id :integer
 #
 
 require 'rails_helper'
@@ -56,7 +56,7 @@ RSpec.describe Incident, type: :model do
   it { should have_db_column :is_resolved }
   it { should have_db_column :type_student }
   it { should have_db_column :sanction }
-  it { should have_db_column :school_group }
+  it { should have_db_column :school_group_id }
 
   # Indexes
   it { should have_db_index ["course_id"] }
@@ -70,12 +70,13 @@ RSpec.describe Incident, type: :model do
   it { should belong_to(:assistant) }
   it { should belong_to(:user) }
   it { should belong_to(:course) }
+  it { should belong_to(:school_group) }
 
   # Enums
   it { should define_enum_for(:institution).with(["Ifms", "Ufms", "Cemid"]) }
   it { should define_enum_for(:is_resolved).with(["no_", "yes_"]) }
   it { should define_enum_for(:type_student).with(["non_resident", "resident"]) }
-  it { should define_enum_for(:school_group).with(["1A", "1B", "2A", "2B", "3A", "3B", "4A", "4B", "5A", "5B", "6A", "6B", "7A", "7B", "8A", "8B", "9A", "9B", "10A", "10B"]) }
+  # it { should define_enum_for(:school_group).with(["1A", "1B", "2A", "2B", "3A", "3B", "4A", "4B", "5A", "5B", "6A", "6B", "7A", "7B", "8A", "8B", "9A", "9B", "10A", "10B"]) }
   it { should define_enum_for(:sanction).with(["verbal_warning", "written_warning", "suspension", "quitting_school"]) }
 
   # Methods

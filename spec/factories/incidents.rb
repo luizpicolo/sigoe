@@ -2,23 +2,23 @@
 #
 # Table name: incidents
 #
-#  id            :integer          not null, primary key
-#  student_id    :integer
-#  user_id       :integer
-#  institution   :integer
-#  description   :text
-#  date_incident :date
-#  soluction     :text
-#  created_at    :datetime         not null
-#  updated_at    :datetime         not null
-#  course_id     :integer
-#  time_incident :time
-#  assistant_id  :integer
-#  signed_in     :datetime
-#  is_resolved   :integer
-#  type_student  :integer
-#  sanction      :integer
-#  school_group  :integer
+#  id              :integer          not null, primary key
+#  student_id      :integer
+#  user_id         :integer
+#  institution     :integer
+#  description     :text
+#  date_incident   :date
+#  soluction       :text
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  course_id       :integer
+#  time_incident   :time
+#  assistant_id    :integer
+#  signed_in       :datetime
+#  is_resolved     :integer
+#  type_student    :integer
+#  sanction        :integer
+#  school_group_id :integer
 #
 
 FactoryBot.define do
@@ -27,6 +27,7 @@ FactoryBot.define do
     user factory: :user
     assistant factory: :user
     course factory: :course
+    school_group factory: :school_group
     institution { 'Ifms' }
     description { Faker::Lorem.paragraph(2) }
     date_incident Time.zone.now

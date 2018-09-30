@@ -2,23 +2,23 @@
 #
 # Table name: incidents
 #
-#  id            :integer          not null, primary key
-#  student_id    :integer
-#  user_id       :integer
-#  institution   :integer
-#  description   :text
-#  date_incident :date
-#  soluction     :text
-#  created_at    :datetime         not null
-#  updated_at    :datetime         not null
-#  course_id     :integer
-#  time_incident :time
-#  assistant_id  :integer
-#  signed_in     :datetime
-#  is_resolved   :integer
-#  type_student  :integer
-#  sanction      :integer
-#  school_group  :integer
+#  id              :integer          not null, primary key
+#  student_id      :integer
+#  user_id         :integer
+#  institution     :integer
+#  description     :text
+#  date_incident   :date
+#  soluction       :text
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  course_id       :integer
+#  time_incident   :time
+#  assistant_id    :integer
+#  signed_in       :datetime
+#  is_resolved     :integer
+#  type_student    :integer
+#  sanction        :integer
+#  school_group_id :integer
 #
 
 class Incident < ApplicationRecord
@@ -30,10 +30,10 @@ class Incident < ApplicationRecord
   enum institution: ['Ifms', 'Ufms', 'Cemid']
   enum is_resolved: ['no_', 'yes_']
   enum type_student: ['non_resident', 'resident']
-  enum school_group: [
-    '1A', '1B', '2A', '2B', '3A', '3B', '4A', '4B', '5A', '5B', '6A', '6B',
-    '7A', '7B', '8A', '8B', '9A', '9B', '10A', '10B'
-  ]
+  # enum school_group: [
+  #   '1A', '1B', '2A', '2B', '3A', '3B', '4A', '4B', '5A', '5B', '6A', '6B',
+  #   '7A', '7B', '8A', '8B', '9A', '9B', '10A', '10B'
+  # ]
   enum sanction: [
     'verbal_warning',
     'written_warning',
@@ -45,6 +45,7 @@ class Incident < ApplicationRecord
   belongs_to :user
   belongs_to :course, optional: true
   belongs_to :assistant, class_name: 'User', foreign_key: 'assistant_id'
+  belongs_to :school_group, optional: true
 
   # Atributos para busca com SearchCop
   search_scope :search do

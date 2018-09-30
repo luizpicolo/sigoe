@@ -20,10 +20,10 @@
           </p>
         </div>
         <div class="field">
-          <%= f.label :school_group, 'Turma', class: 'label' %>
+          <%= f.label :school_group_id, 'Turma', class: 'label' %>
           <p class="control">
             <span class="select">
-              <%= f.select :school_group, Incident.school_groups.keys.to_a, { prompt: "Selecione a Turma" }, { :class => "select select2 is-medium" } %>
+              <%= f.select :school_group_id, SchoolGroup.identifiers, { prompt: "Selecione a Turma" }, { :class => "select select2 is-medium" } %>
             </span>
           </p>
         </div>

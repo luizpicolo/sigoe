@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'permission/index'
-
   root 'home#index'
 
   # Devise Routes
@@ -38,4 +36,5 @@ Rails.application.routes.draw do
   resources :patients, except: [:show] do
     resources :appointments, except: [:show], controller: 'patients/appointments'
   end
+  resources :school_groups, except: [:show]
 end
