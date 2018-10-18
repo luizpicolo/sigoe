@@ -1,6 +1,6 @@
 version: '3'
 services:
-  db:
+  postgres:
     image: postgres
     environment:
       POSTGRES_DB: siai-ifms-na-db
@@ -9,15 +9,21 @@ services:
       - 5432:5432
     volumes:
       - postgres-data:/var/lib/postgresql/data
+
   web:
     build: .
     volumes:
       - .:/siai-ifms-na
     ports:
-      - 80:3000
+      # - 80:3000
       - 3000:3000
     command: /bin/bash -c 'rails s -b 0.0.0.0'
+    depends_on:
+      - postgres
     links:
-      - db
+      - postgres
+    environment:
+      DATABASE_URL: 'postgres://postgres:dbpassword@postgres:5432/siai-ifms-na-db'
+
 volumes:
   postgres-data:
