@@ -19,9 +19,9 @@
 #  name                   :string
 #  siape                  :integer
 #  sector_id              :integer
-#  position_id            :integer
+#  position_id            :bigint(8)
 #  avatar                 :string
-#  course_id              :integer
+#  course_id              :bigint(8)
 #  admin                  :boolean          default(FALSE)
 #
 

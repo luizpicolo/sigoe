@@ -2,8 +2,8 @@
 #
 # Table name: permissions
 #
-#  id          :integer          not null, primary key
-#  user_id     :integer
+#  id          :bigint(8)        not null, primary key
+#  user_id     :bigint(8)
 #  entity      :string
 #  can_create  :boolean          default(FALSE)
 #  can_read    :boolean          default(FALSE)

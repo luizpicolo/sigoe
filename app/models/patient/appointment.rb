@@ -2,8 +2,8 @@
 #
 # Table name: patient_appointments
 #
-#  id                            :integer          not null, primary key
-#  patient_id                    :integer
+#  id                            :bigint(8)        not null, primary key
+#  patient_id                    :bigint(8)
 #  companion                     :string
 #  medical_referral              :integer
 #  nursing_conduct               :integer

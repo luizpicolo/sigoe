@@ -2,8 +2,8 @@
 #
 # Table name: patient_habits
 #
-#  id                       :integer          not null, primary key
-#  patient_id               :integer
+#  id                       :bigint(8)        not null, primary key
+#  patient_id               :bigint(8)
 #  sleep_rest               :integer
 #  amount_sleep_hours       :integer
 #  physical_activity        :integer

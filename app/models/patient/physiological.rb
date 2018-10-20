@@ -2,8 +2,8 @@
 #
 # Table name: patient_physiologicals
 #
-#  id                    :integer          not null, primary key
-#  patient_id            :integer
+#  id                    :bigint(8)        not null, primary key
+#  patient_id            :bigint(8)
 #  other_diseases        :text
 #  continuing_medication :text
 #  previous_surgeries    :text

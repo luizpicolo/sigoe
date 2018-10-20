@@ -2,8 +2,8 @@
 #
 # Table name: patient_morbids
 #
-#  id                                      :integer          not null, primary key
-#  patient_id                              :integer
+#  id                                      :bigint(8)        not null, primary key
+#  patient_id                              :bigint(8)
 #  pre_existing_diseases_vascular_accident :string
 #  pre_existing_diseases_cancer            :string
 #  pre_existing_diseases_hypertension      :string
