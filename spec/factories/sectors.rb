@@ -15,6 +15,6 @@
 FactoryBot.define do
   factory :sector do
     name { Faker::Name.name }
-    initial 'SERTI'
+    initial { 'SERTI' }
   end
 end

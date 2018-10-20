@@ -18,7 +18,7 @@
 #
 
 FactoryBot.define do
-  factory :physiological do
+  factory :physiological, class: Patient::Physiological do
     
   end
 end
