@@ -30,28 +30,28 @@
 #
 
 FactoryBot.define do
-  factory :morbid do
+  factory :morbid, class: Patient::Morbid do
     patient factory: :patient
-    pre_existing_diseases_vascular_accident "Yes"
-    pre_existing_diseases_cancer "Yes"
-    pre_existing_diseases_hypertension "Yes"
-    pre_existing_diseases_cardiopathy "Doenças no miocárdio"
-    pre_existing_diseases_diabetes "Tipo I"
-    pre_existing_diseases_renal "Cálculos renais"
-    pre_existing_diseases_pneumopathy "Pneumopatia Intersticial"
-    others_pre_existing_diseases "Text"
-    allergies_drugs "Yes"
-    allergies_foods "Yes"
-    allergies_cosmetics "Yes"
-    allergies_plaster "Yes"
-    allergies_wool "Yes"
-    others_allergies "Text"
-    risk_factors_smoking "Yes"
-    risk_factors_ethicism "Yes"
-    risk_factors_chemotherapy "Yes"
-    risk_factors_radiotherapy "Yes"
-    risk_factors_chemical_dependency "Yes"
-    risk_factors_violence "Yes"
-    others_risk_factors "Text"
+    pre_existing_diseases_vascular_accident { "Yes" }
+    pre_existing_diseases_cancer { "Yes" }
+    pre_existing_diseases_hypertension { "Yes" }
+    pre_existing_diseases_cardiopathy { "Doenças no miocárdio" }
+    pre_existing_diseases_diabetes { "Tipo I" }
+    pre_existing_diseases_renal { "Cálculos renais" }
+    pre_existing_diseases_pneumopathy { "Pneumopatia Intersticial" }
+    others_pre_existing_diseases { "Text" }
+    allergies_drugs { "Yes" }
+    allergies_foods { "Yes" }
+    allergies_cosmetics { "Yes" }
+    allergies_plaster { "Yes" }
+    allergies_wool { "Yes" }
+    others_allergies { "Text" }
+    risk_factors_smoking { "Yes" }
+    risk_factors_ethicism { "Yes" }
+    risk_factors_chemotherapy { "Yes" }
+    risk_factors_radiotherapy { "Yes" }
+    risk_factors_chemical_dependency { "Yes" }
+    risk_factors_violence { "Yes" }
+    others_risk_factors { "Text" }
   end
 end

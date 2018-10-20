@@ -30,12 +30,12 @@ FactoryBot.define do
     pwd = Faker::Internet.password
     name { Faker::Name.name }
     email { Faker::Internet.email }
-    password pwd
-    password_confirmation pwd
+    password { pwd }
+    password_confirmation { pwd }
     username { Faker::Internet.user_name }
     siape { Faker::Number.number(7) }
     sector
-    admin false
+    admin { false }
     position factory: :position
   end
 end

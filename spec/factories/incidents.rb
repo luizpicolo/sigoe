@@ -30,11 +30,11 @@ FactoryBot.define do
     school_group factory: :school_group
     institution { 'Ifms' }
     description { Faker::Lorem.paragraph(2) }
-    date_incident Time.zone.now
-    time_incident '10:00:00'
+    date_incident { Time.zone.now }
+    time_incident { '10:00:00' }
     type_student { 'resident' }
     sanction { 'verbal_warning' }
-    signed_in Time.zone.now
+    signed_in { Time.zone.now }
     soluction { Faker::Lorem.paragraph(2) }
   end
 end

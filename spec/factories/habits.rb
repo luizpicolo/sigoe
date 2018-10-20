@@ -20,18 +20,18 @@
 #
 
 FactoryBot.define do
-  factory :habit do
+  factory :habit, class: Patient::Habit do
     patient factory: :patient
-    sleep_rest "Alterado"
-    amount_sleep_hours "1"
-    physical_activity "1"
-    amount_physical_activity "1"
-    amount_fruit_vegetable "1"
-    amount_red_meat "1"
-    amount_white_meat "1"
-    amount_juice "1"
-    amount_water "1"
-    amount_tea  "1"
-    other_information "Text"
+    sleep_rest { "Alterado" }
+    amount_sleep_hours { "1" }
+    physical_activity { "1" }
+    amount_physical_activity { "1" }
+    amount_fruit_vegetable { "1" }
+    amount_red_meat { "1" }
+    amount_white_meat { "1" }
+    amount_juice { "1" }
+    amount_water { "1" }
+    amount_tea  { "1" }
+    other_information { "Text" }
   end
 end

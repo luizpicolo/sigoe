@@ -25,12 +25,12 @@ FactoryBot.define do
     pwd = Faker::Internet.password
     name { Faker::Name.name }
     course factory: :course
-    ra '12345678'
+    ra { '12345678' }
     photo { Faker::Placeholdit.image }
     responsible { Faker::Name.name }
     responsible_contact { Faker::Internet.email }
     contact { Faker::Internet.email }
-    password pwd
-    password_confirmation pwd
+    password { pwd }
+    password_confirmation { pwd }
   end
 end

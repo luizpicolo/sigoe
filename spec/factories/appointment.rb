@@ -30,20 +30,20 @@ FactoryBot.define do
     factory :appointment, class: Patient::Appointment do
        patient factory: :patient
        companion { Faker::Name.name }
-       medical_referral "Hospital"
-       nursing_conduct "Observação"
+       medical_referral { "Hospital" }
+       nursing_conduct { "Observação" }
        previous_medical_consultation { Faker::Lorem.paragraph(2) }
-       complaints  "Febre"
+       complaints  { "Febre" }
        description_complaint { Faker::Lorem.paragraph(2) }
-       weight "100"
-       height "100"
-       abdominal_perimeter "100"
-       bloodvpressure "100"
-       temperature "100"
-       heart_rate  "100"
-       respiratory_frequency "100"
-       blood_glucose "100"
-       tanners_stage "Estágio II"
+       weight { "100" }
+       height { "100" }
+       abdominal_perimeter { "100" }
+       bloodvpressure { "100" }
+       temperature { "100" }
+       heart_rate  { "100" }
+       respiratory_frequency { "100" }
+       blood_glucose { "100" }
+       tanners_stage { "Estágio II" }
        diagnosis { Faker::Lorem.paragraph(2) }
        prescription { Faker::Lorem.paragraph(2) }
        evolution { Faker::Lorem.paragraph(2) }
