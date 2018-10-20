@@ -4,6 +4,7 @@ A jQuery Plugin to make masks on form fields and HTML elements.
 [![Build Status](https://travis-ci.org/igorescobar/jQuery-Mask-Plugin.png)](https://travis-ci.org/igorescobar/jQuery-Mask-Plugin)
 [![Code Climate](https://codeclimate.com/github/igorescobar/jQuery-Mask-Plugin.png)](https://codeclimate.com/github/igorescobar/jQuery-Mask-Plugin)
 [![jsDelivr Hits](https://data.jsdelivr.com/v1/package/npm/jquery-mask-plugin/badge?style=rounded)](https://www.jsdelivr.com/package/npm/jquery-mask-plugin)
+[![CDNJS](https://img.shields.io/cdnjs/v/jquery.mask.svg)](https://cdnjs.com/libraries/jquery.mask)
 
 # Documentation, Demos & Usage Examples
 https://igorescobar.github.io/jQuery-Mask-Plugin/
@@ -76,7 +77,7 @@ jQuery Mask Plugin has been tested with jQuery 1.7+ on all major browsers:
  * Android Default Browser v4+
 
 ## Typescript support
-Definition can be found [here](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/jquery-mask-plugin).
+Definition can be found [here](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/jquery-mask-plugin).
 
 To install, open terminal and navigate to your working directory.
 

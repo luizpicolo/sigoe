@@ -1,5 +1,7 @@
-fancyBox
+fancyBox (deprecated)
 ========
+
+**WARNING: This fork is deprecated. Please head over to https://www.npmjs.com/package/@fancyapps/fancybox for the official version**
 
 fancyBox is a tool that offers a nice and elegant way to add zooming functionality for images, html content and multi-media on your webpages.
 

@@ -1,8 +1,8 @@
 {
   "name": "bulma",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "homepage": "https://bulma.io",
-  "author": "Jeremy Thomas <bbxdesign@gmail.com> (http://jgthms.com)",
+  "author": "Jeremy Thomas <bbxdesign@gmail.com> (https://jgthms.com)",
   "description": "Modern CSS framework based on Flexbox",
   "main": "bulma.sass",
   "style": "bulma/css/bulma.css",
@@ -39,7 +39,8 @@
     "start": "npm run build-sass -- --watch",
     "start-docs": "npm run docs-sass -- --watch",
     "start-test": "npm run test-sass -- --watch",
-    "test-sass": "node-sass --output-style expanded docs/bulma-test.sass docs/css/bulma-test.css"
+    "test-sass": "node-sass --output-style expanded docs/bulma-test.sass docs/css/bulma-test.css",
+    "test-scss": "node-sass --output-style expanded docs/bulma-test.scss docs/css/bulma-test.css"
   },
   "files": [
     "css",

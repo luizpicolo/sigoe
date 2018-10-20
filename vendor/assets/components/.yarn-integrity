@@ -1,7 +1,11 @@
 {
+  "systemParams": "darwin-x64-57",
+  "modulesFolders": [
+    "vendor/assets/components"
+  ],
   "flags": [],
   "linkedModules": [],
-  "topLevelPatters": [
+  "topLevelPatterns": [
     "bulma@^0.6.1",
     "fancybox@^3.0.0",
     "jquery-mask-plugin@^1.14.10",
@@ -9,9 +13,9 @@
   ],
   "lockfileEntries": {
     "almond@~0.3.1": "https://registry.yarnpkg.com/almond/-/almond-0.3.3.tgz#a0e7c95ac7624d6417b4494b1e68bff693168a20",
-    "bulma@^0.6.1": "https://registry.yarnpkg.com/bulma/-/bulma-0.6.1.tgz#5f21a77c0c06f7d80051c06628c23516081bd649",
-    "fancybox@^3.0.0": "https://registry.yarnpkg.com/fancybox/-/fancybox-3.0.0.tgz#8c21af8142c621bed7d551ba69c4c38eaecd2e04",
-    "jquery-mask-plugin@^1.14.10": "https://registry.yarnpkg.com/jquery-mask-plugin/-/jquery-mask-plugin-1.14.13.tgz#a80368d3b1d1402e4d6963a8ae7797c49bc21fc6",
+    "bulma@^0.6.1": "https://registry.yarnpkg.com/bulma/-/bulma-0.6.2.tgz#f4b1d11d5acc51a79644eb0a2b0b10649d3d71f5",
+    "fancybox@^3.0.0": "https://registry.yarnpkg.com/fancybox/-/fancybox-3.0.1.tgz#13f6927449157ed026c69e78c2ba5bf0f1da9af7",
+    "jquery-mask-plugin@^1.14.10": "https://registry.yarnpkg.com/jquery-mask-plugin/-/jquery-mask-plugin-1.14.15.tgz#9daabb41024383cba2a793bacfa46ef8f87273a5",
     "jquery-mousewheel@~3.1.13": "https://registry.yarnpkg.com/jquery-mousewheel/-/jquery-mousewheel-3.1.13.tgz#06f0335f16e353a695e7206bf50503cb523a6ee5",
     "select2@^4.0.3": "https://registry.yarnpkg.com/select2/-/select2-4.0.5.tgz#7aac50692561985b34d3b82ec55e226f8960d40a"
   },
