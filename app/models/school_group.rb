@@ -27,7 +27,7 @@ class SchoolGroup < ApplicationRecord
   #
   # @return [Array] contendo as identificacoes
   def self.identifiers
-    all.collect {|p| [ p.identifier] }
+    order('identifier asc').collect {|p| [ p.identifier, p.id] }
   end
 
   # Retorna um vetor com os atributos que serão utilizados para a
