@@ -44,4 +44,4 @@ Para executar os testes use: `rspec`
 
 ## License
 
-SIAI usa a Licença MIT. Para mais detalhes leia ![LICENSE.txt](./LICENSE.txt)
+SIAI usa a Licença MIT. Para mais detalhes leia a [Licença de uso](./LICENSE.txt)
