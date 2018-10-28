@@ -6,12 +6,14 @@
 }
 
 .menu-aside {
+  overflow-y: scroll;
+  height: 100vh;
   -webkit-transition: width 2s; /* For Safari 3.1 to 6.0 */
   transition: width 2s;
 
-  @media(max-width: 767px) {
-    transform: translateX(-300px);
-    transition: all .25s linear;
+  @media (max-width: 767px) {
+    transform: translateX(-100%);
+    transition: transform .2s linear;
     background: #FFF;
     border: 1px solid #CCC;
     position: absolute;
@@ -25,6 +27,7 @@
   top: 2px;
   right: 5px;
   display: none;
+  padding: 8px;
 
   div {
     width: 25px;
@@ -39,8 +42,14 @@
 }
 
 .menu-mobile-active {
-  transform: translateX(0);
+  height: 100%;
+  overflow: hidden;
+
+  .menu-aside {
+    transform: translateX(0);
+  }
 }
+
 
 .active {
   @extend .is-active;
