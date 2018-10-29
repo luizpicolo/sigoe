@@ -76,7 +76,7 @@ document.addEventListener('turbolinks:load', function() {
 
   // Mobile menu
   $('.menu-mobile').on('click touchstart', function(e){
-    $('.menu-aside').toggleClass('menu-mobile-active');
+    $('html').toggleClass('menu-mobile-active');
     e.preventDefault();
   })
 
