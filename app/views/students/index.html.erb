@@ -37,7 +37,7 @@
     <% @students.each do |student| %>
     <tr>
       <td><%= student.id %></td>
-      <td><%= image_tag student&.photo.thumb %></td>
+      <td><%= image_tag student&.photo.thumb.to_s %></td>
       <td><%= student.name %></td>
       <td class="is-hidden-mobile"><%= student.course_initial %></td>
       <td class="has-text-right no-print">
