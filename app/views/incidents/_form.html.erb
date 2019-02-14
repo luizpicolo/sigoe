@@ -39,7 +39,7 @@
       <div class="column has-text-centered">
         <% if !model.student&.photo.nil? %>
           <%= link_to model.student.photo.to_s, class: 'fancybox' do %>
-            <%= image_tag model.student.photo.thumb %>
+            <%= image_tag model.student.photo.thumb.to_s %>
             <p>Clique para ampliar</p>
           <% end %>
         <% end %>
