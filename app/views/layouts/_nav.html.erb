@@ -7,7 +7,6 @@
   </ul>
   
   <% if (can? :read, User) || 
-        (can? :read, Keypass) || 
         (can? :read, Position) || 
         (can? :read, Student) || 
         (can? :read, Course) || 
@@ -19,9 +18,6 @@
   <ul class="menu-list">
     <% if can? :read, User %>
       <li><%= active_link_to 'Usuários', users_path %></li>
-    <% end %>
-    <% if can? :read, Keypass %>
-      <li><%= active_link_to 'Senhas', keypasses_path %></li>
     <% end %>
     <% if can? :read, Position %>
       <li><%= active_link_to 'Cargos / Funçôes', positions_path %></li>
