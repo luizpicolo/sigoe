@@ -21,7 +21,6 @@ Rails.application.routes.draw do
   resources :sectors, except: [:show] do
     get :actions
   end
-  resources :keypasses, except: [:show]
   resources :students, except: [:show] do
     get :import_xls, to: 'students#send_xls', on: :collection
     post :import_xls, to: 'students#import_xls', on: :collection
