@@ -2,7 +2,6 @@ pt-BR:
   activerecord:
     models:
       user: "Usuários"
-      keypass: "Senhas"
       sector: "Setores"
       position: "Posições"
       student: "Estudantes"
@@ -17,13 +16,6 @@ pt-BR:
         password_confirmation: "Confirmar senha"
         created_at: "Criado em"
         updated_at: "Atualizado em"
-      keypass:
-        title: "Título"
-        key: "Senha"
-        local_service: "Local do Serviço"
-        description: "Descrição"
-        user: "Usuário"
-        local: "Local"
       course:
         name: 'Nome'
       incident:
