@@ -5,9 +5,15 @@
   <ul class="menu-list">
     <li><%= active_link_to 'Trocar senha', user_change_password_path(current_user) %></li>
   </ul>
-  <% if can? :read, User %>
+  
+  <% if (can? :read, User) || 
+        (can? :read, Keypass) || 
+        (can? :read, Position) || 
+        (can? :read, Student) || 
+        (can? :read, Course) || 
+        (can? :read, SchoolGroup) %>
   <p class="menu-label">
-    Serti
+    Administrador
   </p>
   <% end %>
   <ul class="menu-list">
@@ -20,13 +26,6 @@
     <% if can? :read, Position %>
       <li><%= active_link_to 'Cargos / Funçôes', positions_path %></li>
     <% end %>
-  </ul>
-  <% if can? :read, Incident %>
-  <p class="menu-label">
-    Diren
-  </p>
-  <% end %>
-  <ul class="menu-list">
     <% if can? :read, Student %>
       <li><%= active_link_to 'Estudantes', students_path %></li>
     <% end %>
@@ -36,11 +35,20 @@
     <% if can? :read, SchoolGroup %>
       <li><%= active_link_to 'Turma', school_groups_path %></li>
     <% end %>
+  </ul>
+
+  <% if can? :read, Incident %>
+  <p class="menu-label">
+    Ocorrências
+  </p>
+  <% end %>
+  <ul class="menu-list">
     <% if can? :read, Incident %>
       <li><%= active_link_to 'Ocorrências', incidents_path %></li>
       <li><%= active_link_to 'Relatório ocorrências', new_report_incident_path %></li>
     <% end %>
   </ul>
+
   <% if can? :read, Patient %>
   <p class="menu-label">
     Enfermaria

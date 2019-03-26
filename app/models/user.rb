@@ -43,7 +43,7 @@ class User < ApplicationRecord
   # Associações
   has_many :permissions, dependent: :destroy
   belongs_to :sector
-  belongs_to :position
+  belongs_to :position, optional: true
   belongs_to :course, optional: true
 
   # Nested form

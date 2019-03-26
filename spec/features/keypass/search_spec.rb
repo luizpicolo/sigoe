@@ -4,6 +4,11 @@ context "Find key by your search scope" do
   before(:each) do
     @user = FactoryBot.create(:user)
     @keypass = FactoryBot.create(:keypass)
+    FactoryBot.create(
+      :permission, 
+      user: @user,
+      entity: Keypass
+    )
     sign_in @user
   end
 

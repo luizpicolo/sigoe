@@ -4,6 +4,11 @@ context "Find users by your search scope" do
   before(:each) do
     @sector = FactoryBot.create(:sector)
     @users = FactoryBot.create_list(:user, 2, sector: @sector)
+    FactoryBot.create(
+      :permission, 
+      user: @users.first,
+      entity: User
+    )
     sign_in @users.first
   end
 

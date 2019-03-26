@@ -4,6 +4,11 @@ context "Manager (crud) entity Students" do
   before(:each) do
     @user = FactoryBot.create(:user)
     @student = FactoryBot.create(:student)
+    FactoryBot.create(
+      :permission, 
+      user: @user,
+      entity: Student
+    )
     sign_in @user
   end
 

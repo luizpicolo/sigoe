@@ -1,7 +1,7 @@
 module IncidentHelpers
   def create_new_incident(options = {})
     select options[:student], from: "Estudante"
-    select options[:course], from: "Turma"
+    select options[:course], from: "Curso"
     select options[:user], from: "Assistente"
     select 'Residente', from: "Estudente é?"
     select 'Ifms', from: "Instituição"

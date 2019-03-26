@@ -4,6 +4,11 @@ context "Find key by your search scope" do
   before(:each) do
     @user = FactoryBot.create(:user)
     @course = FactoryBot.create(:course)
+    FactoryBot.create(
+      :permission, 
+      user: @user,
+      entity: Course
+    )
     sign_in @user
   end
 
