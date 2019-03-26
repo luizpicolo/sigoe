@@ -12,7 +12,6 @@ Este sistema tem como base: Rails 5.1.5 e Ruby 2.5.1.
 ## Módulos de Gerenciamento
 
     - Usuários
-    - Senhas
     - Estudantes
     - Setores
     - Cursos
