@@ -7,7 +7,6 @@ context "Check access permissions" do
 
   entities = [
     [Student, true], [Student, false],
-    [Position, true], [Position, false],
     [Course, true], [Course, false],
     [SchoolGroup, true], [SchoolGroup, false],
   ]
