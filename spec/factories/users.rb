@@ -19,7 +19,6 @@
 #  name                   :string
 #  siape                  :integer
 #  sector_id              :integer
-#  position_id            :bigint(8)
 #  avatar                 :string
 #  course_id              :bigint(8)
 #  admin                  :boolean          default(FALSE)
@@ -36,6 +35,5 @@ FactoryBot.define do
     siape { Faker::Number.number(7) }
     sector
     admin { false }
-    position factory: :position
   end
 end

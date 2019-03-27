@@ -5,8 +5,7 @@ context "When keeping Incident" do
     @student = FactoryBot.create(:student)
     @course = FactoryBot.create(:course)
     @sector = FactoryBot.create(:sector, initial: 'ASSAL')
-    @position = FactoryBot.create(:position, name: 'Assistente de Alunos')
-    @user = FactoryBot.create(:user, sector: @sector, position: @position)
+    @user = FactoryBot.create(:user, sector: @sector)
     FactoryBot.create(
       :permission, 
       user: @user,

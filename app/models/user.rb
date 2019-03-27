@@ -19,7 +19,6 @@
 #  name                   :string
 #  siape                  :integer
 #  sector_id              :integer
-#  position_id            :bigint(8)
 #  avatar                 :string
 #  course_id              :bigint(8)
 #  admin                  :boolean          default(FALSE)
@@ -43,7 +42,6 @@ class User < ApplicationRecord
   # Associações
   has_many :permissions, dependent: :destroy
   belongs_to :sector
-  belongs_to :position, optional: true
   belongs_to :course, optional: true
 
   # Nested form
@@ -62,15 +60,7 @@ class User < ApplicationRecord
   def self.ordenation_attributes
     [["ID",'id'], ["Nome",'name']]
   end
-
-  # Retorna um vetor com os atributos que serão utilizados para a
-  # busca nas listagens de usuários
-  #
-  # @return [Array] contendo os atributos para a busca
-  def self.get_by_position(name_position)
-    Position.find_by_name(name_position).users.collect {|p| [ p.name, p.id ] }
-  end
-
+  
   # Verifica se o usuário selecionado é o usuário que esta logado
   #
   # @param [Object User] current_user

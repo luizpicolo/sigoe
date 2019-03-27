@@ -5,8 +5,7 @@ RSpec.describe UsersController, type: :controller do
   before(:each) do
     @user = FactoryBot.create(:user)
     @attr = FactoryBot.attributes_for(:user)
-                       .merge({position_id: FactoryBot.create(:position).id})
-                       .merge({sector_id: FactoryBot.create(:sector).id})
+                      .merge({sector_id: FactoryBot.create(:sector).id})
     @model = @user
     @entity = 'User'
     @path = users_path

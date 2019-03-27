@@ -19,7 +19,6 @@
 #  name                   :string
 #  siape                  :integer
 #  sector_id              :integer
-#  position_id            :bigint(8)
 #  avatar                 :string
 #  course_id              :bigint(8)
 #  admin                  :boolean          default(FALSE)
@@ -80,16 +79,7 @@ RSpec.describe User, type: :model do
       expect(@user.it_is_part_of_the_sector?('wrong_sector')).to eq(false)
     end
   end
-
-  # Methods
-  # describe '#get_by_position' do
-  #   it 'return true if the sector is currect' do
-  #     @user_assistent = FactoryBot.create :user,
-  #     @user_not_assistent =
-  #     expect(@user.it_is_part_of_the_sector?('serti')).to eq(true)
-  #   end
-  # end
-
+  
   describe '#search' do
     it "find user by name" do
       expect(User.search(@user.name)).to eq([@user])

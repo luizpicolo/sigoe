@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_26_182603) do
+ActiveRecord::Schema.define(version: 2019_03_27_020747) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -155,13 +155,6 @@ ActiveRecord::Schema.define(version: 2019_03_26_182603) do
     t.index ["user_id"], name: "index_permissions_on_user_id"
   end
 
-  create_table "positions", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["name"], name: "index_positions_on_name"
-  end
-
   create_table "school_groups", force: :cascade do |t|
     t.string "name"
     t.string "identifier"
@@ -236,13 +229,11 @@ ActiveRecord::Schema.define(version: 2019_03_26_182603) do
     t.string "name"
     t.integer "siape"
     t.integer "sector_id"
-    t.bigint "position_id"
     t.string "avatar"
     t.bigint "course_id"
     t.boolean "admin", default: false
     t.index ["course_id"], name: "index_users_on_course_id"
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["position_id"], name: "index_users_on_position_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["sector_id"], name: "index_users_on_sector_id"
     t.index ["username"], name: "index_users_on_username", unique: true
@@ -260,6 +251,5 @@ ActiveRecord::Schema.define(version: 2019_03_26_182603) do
   add_foreign_key "students", "courses"
   add_foreign_key "tickets", "users"
   add_foreign_key "users", "courses"
-  add_foreign_key "users", "positions"
   add_foreign_key "users", "sectors"
 end
