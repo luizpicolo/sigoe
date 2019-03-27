@@ -59,14 +59,6 @@
           </p>
         </div>
         <div class="field">
-          <%= f.label :position_id, 'Cargo/Função', class: 'label' %>
-          <p class="control">
-            <span class="select is-medium">
-              <%= f.select :position_id, Position.get_all, { prompt: "Selecione o cargo" }, { :class => "select2" } %>
-            </span>
-          </p>
-        </div>
-        <div class="field">
           <p class="control">
             <%= f.label :course_id, "Coordenador?", class: 'label' %>
             <span class="select is-medium">
