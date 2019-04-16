@@ -71,6 +71,7 @@ RSpec.describe Incident, type: :model do
   it { should belong_to(:user) }
   it { should belong_to(:course) }
   it { should belong_to(:school_group) }
+  it { should have_and_belong_to_many(:prohibition_and_responsibilities) }
 
   # Enums
   it { should define_enum_for(:institution).with(["Ifms", "Ufms", "Cemid"]) }
