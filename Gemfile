@@ -38,6 +38,7 @@ gem 'randumb'
 gem 'sass-rails'
 gem 'search_cop'
 gem 'spreadsheet'
+gem 'seed_migration'
 gem 'turbolinks'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'uglifier'
