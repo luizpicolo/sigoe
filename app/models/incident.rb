@@ -71,6 +71,33 @@ class Incident < ApplicationRecord
     signed_in.strftime('%d/%m/%Y') if signed_in.present?
   end
 
+  ## Charts
+  def self.by_years
+    group_by_year(:created_at, format: "%Y").count
+  end
+
+  def self.by_courses
+    joins(:course).group(:'courses.initial').count
+  end
+
+  def self.by_is_resolved
+    result = group(:is_resolved).count 
+    result['Não'] = result.delete 'no_'
+    result['Sim'] = result.delete 'yes_'
+    result['Sem Categoria'] = result.delete nil
+    result
+  end
+
+  def self.by_sanction
+    result = group(:sanction).count
+    result['Suspensão'] = result.delete 'suspension'
+    result['Adv Escrita'] = result.delete 'written_warning'
+    result['Adv Verbal'] = result.delete 'verbal_warning'
+    result['Desligamento'] = result.delete 'quitting_school'
+    result['Sem Categoria'] = result.delete nil
+    result
+  end
+
   # Retorna um vetor com os atributos que serão utilizados para a
   # busca nas listagens de ocorrencias
   #

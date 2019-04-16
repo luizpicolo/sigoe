@@ -1,3 +1,26 @@
+<div class="columns is-multiline shortcuts is-hidden-mobile">
+  <div class="column is-half">
+    <h1 class="title">Por ano</h1>
+    <%= column_chart Incident.by_years %>
+  </div>
+  <div class="column is-half">
+    <h1 class="title">Por turmas</h1>
+    <%= bar_chart Incident.by_courses %>
+  </div>
+</div>
+
+<div class="columns is-multiline shortcuts is-hidden-mobile">
+  <div class="column is-half">
+    <h1 class="title">Resolvidas</h1>
+    <%= column_chart Incident.by_is_resolved %>
+  </div>
+  <div class="column is-half">
+    <h1 class="title">Sanções adotadas</h1>
+    <%= bar_chart Incident.by_sanction %>
+  </div>
+</div>
+
+
 <div class="columns is-multiline shortcuts">
   <% @sectors.each do |s|%>
   <div class="column is-one-quarter">

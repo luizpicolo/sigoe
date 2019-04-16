@@ -20,6 +20,8 @@
 //= require project/alert
 //= require alert_message
 //= require clipboard
+//= require highcharts
+//= require chartkick
 //= require turbolinks
 
 document.addEventListener('turbolinks:load', function() {
