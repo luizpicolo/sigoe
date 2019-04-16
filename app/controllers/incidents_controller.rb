@@ -110,7 +110,7 @@ class IncidentsController < ApplicationController
     params.require(:incident).permit(
       :student_id, :course_id, :date_incident, :assistant_id, :time_incident,
       :institution, :description, :soluction, :is_resolved, :type_student,
-      :sanction, :school_group
+      :sanction, :school_group, :prohibition_and_responsibility_ids => []
     )
   end
 end

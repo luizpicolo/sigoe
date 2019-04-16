@@ -35,3 +35,15 @@
     overflow: hidden;
   }
 }
+
+.lista-sancoes {
+  overflow-y: scroll;
+  height: 200px;
+  border: 1px solid $green;
+  border-radius: 5px;
+  padding: 10px;
+
+  .checkbox label{
+    cursor: pointer;
+  }
+}

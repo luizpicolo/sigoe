@@ -84,7 +84,9 @@
           <% end %>
           <p> Data ocorrência: <b><%= extract_and_format_date(incident&.date_incident) %> às <%= extract_and_format_time(incident&.time_incident) %></b></p>
           <p> Local: <b><%= incident.institution.upcase %></b></p>
-          <p> Assinado digitalmente em: <b><%= incident.signed_by_student_in %></b></p>
+          <% if incident.signed_by_student_in.present? %>
+          <p> Assinado digitalmente em: <b> <%= incident.signed_by_student_in %></b></p>
+          <% end %>
         </div>
 
         <div class="description">
@@ -92,8 +94,14 @@
           <%= incident&.description %>
           <% if incident&.sanction.present? %>
           <p><b>Solução adoata para o problema</b></p>
-          <p><b>Sanção adota:</b> <%= I18n.t("activerecord.attributes.incident.sanction.#{incident&.sanction}") %></p>
+          <p><b>Sanção adotada:</b> <%= I18n.t("activerecord.attributes.incident.sanction.#{incident&.sanction}") %></p>
           <%= incident&.soluction %>
+          <% if incident&.prohibition_and_responsibilities.present? %>
+          <p><b>Segundo o Capítulo IV das proibições e responsabilidades</b></p>
+          <% incident&.prohibition_and_responsibilities.each do |i| %>
+            <p><%= i.item %></p>
+          <% end %>
+          <% end %>
           <% end %>
         </div>
 

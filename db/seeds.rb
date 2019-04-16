@@ -1,41 +1,16 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
+# encoding: UTF-8
+# This file is auto-generated from the current content of the database. Instead
+# of editing this file, please use the migrations feature of Seed Migration to
+# incrementally modify your database, and then regenerate this seed file.
 #
-# Examples:
+# If you need to create the database on another system, you should be using
+# db:seed, not running all the migrations from scratch. The latter is a flawed
+# and unsustainable approach (the more migrations you'll amass, the slower
+# it'll run and the greater likelihood for issues).
 #
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+# It's strongly recommended to check this file into your version control system.
 
-Sector.create([
-  {
-    name: 'Serviço de Tecnilogia da informação e Suporte',
-    initial: 'SERTI',
-    icon: 'ion-monitor'
-  },
-  {
-    name: 'Diretoria de Ensino',
-    initial: 'DIREN',
-    icon: 'ion-university'
-  },
-  {
-    name: 'Áudio Visual',
-    initial: 'AUDI',
-    icon: 'ion-headphone'
-  },
-  {
-    name: 'Professores',
-    initial: 'PROF',
-    icon: 'fa fa-leanpub icon'
-  }
-])
+ActiveRecord::Base.transaction do
+end
 
-User.create({
-  name: 'admin',
-  siape: '12345678',
-  sector_id: Sector.first.id,
-  username: 'admin',
-  email: 'admin@admin.com',
-  password: '12345678',
-  password_confirmation: '12345678',
-  admin: true
-})
+SeedMigration::Migrator.bootstrap(20190416013528)
