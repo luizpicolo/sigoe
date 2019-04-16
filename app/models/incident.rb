@@ -46,6 +46,7 @@ class Incident < ApplicationRecord
   belongs_to :course, optional: true
   belongs_to :assistant, class_name: 'User', foreign_key: 'assistant_id'
   belongs_to :school_group, optional: true
+  has_and_belongs_to_many :prohibition_and_responsibilities
 
   # Atributos para busca com SearchCop
   search_scope :search do
