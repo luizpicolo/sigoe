@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_27_020747) do
+ActiveRecord::Schema.define(version: 2019_04_16_015404) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,11 @@ ActiveRecord::Schema.define(version: 2019_03_27_020747) do
     t.index ["institution"], name: "index_incidents_on_institution"
     t.index ["student_id"], name: "index_incidents_on_student_id"
     t.index ["user_id"], name: "index_incidents_on_user_id"
+  end
+
+  create_table "incidents_prohibition_and_responsibilities", force: :cascade do |t|
+    t.integer "incident_id"
+    t.integer "prohibition_and_responsibility_id"
   end
 
   create_table "patient_appointments", force: :cascade do |t|
@@ -155,6 +160,12 @@ ActiveRecord::Schema.define(version: 2019_03_27_020747) do
     t.index ["user_id"], name: "index_permissions_on_user_id"
   end
 
+  create_table "prohibition_and_responsibilities", force: :cascade do |t|
+    t.string "item"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "school_groups", force: :cascade do |t|
     t.string "name"
     t.string "identifier"
@@ -172,6 +183,12 @@ ActiveRecord::Schema.define(version: 2019_03_27_020747) do
     t.string "slug"
     t.string "icon"
     t.index ["name", "initial", "slug"], name: "index_sectors_on_name_and_initial_and_slug"
+  end
+
+  create_table "seed_migration_data_migrations", id: :serial, force: :cascade do |t|
+    t.string "version"
+    t.integer "runtime"
+    t.datetime "migrated_on"
   end
 
   create_table "students", id: :serial, force: :cascade do |t|
