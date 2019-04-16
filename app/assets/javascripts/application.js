@@ -19,9 +19,9 @@
 //= require fancybox/dist/js/jquery.fancybox
 //= require project/alert
 //= require alert_message
-//= require clipboard
 //= require highcharts
 //= require chartkick
+//= require clipboard
 //= require turbolinks
 
 document.addEventListener('turbolinks:load', function() {
