@@ -96,8 +96,14 @@
           <p><b>Solução adoata para o problema</b></p>
           <p><b>Sanção adotada:</b> <%= I18n.t("activerecord.attributes.incident.sanction.#{incident&.sanction}") %></p>
           <%= incident&.soluction %>
+          <% if incident&.student_duties.present? %>
+          <p><b>Segundo o Capítulo III, Art 4º que trata sobre os direitos e deveres do estudante</b></p>
+          <% incident&.student_duties.each do |i| %>
+            <p><%= i.item %></p>
+          <% end %>
+          <% end %>
           <% if incident&.prohibition_and_responsibilities.present? %>
-          <p><b>Segundo o Capítulo IV das proibições e responsabilidades</b></p>
+          <p><b>Segundo o Capítulo IV que trata sobre as proibições e responsabilidades</b></p>
           <% incident&.prohibition_and_responsibilities.each do |i| %>
             <p><%= i.item %></p>
           <% end %>
