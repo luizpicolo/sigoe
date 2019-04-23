@@ -124,13 +124,34 @@
       <div class="field">
         <div class="field">
           <label class="label">
-            Segundo o Capítulo IV das proibições e responsabilidades
+            Segundo o Capítulo III, Art 4º que trata sobre os direitos e deveres do estudante
             (<a href="http://www.ifms.edu.br/centrais-de-conteudo/documentos-institucionais/regulamentos/regulamento-disciplinar-do-estudante.pdf" target="_blank">
               Acesse aqui o Regulamento Disciplinar Discente
             </a>)
           </label>
           <div class="lista-sancoes">
-            <%= f.collection_check_boxes :prohibition_and_responsibility_ids, ProhibitionAndResponsibility.all, :id, :item, checked: @incident.prohibition_and_responsibilities.all.map(&:id) do |b| %>
+            <%= f.collection_check_boxes :student_duty_ids, Incident::StudentDuty.all, :id, :item, checked: @incident.student_duties.all.map(&:id) do |b| %>
+              <p class="control">
+                <label class="checkbox">
+                  <%= b.check_box %>
+                  <%= b.label %>
+                </label>
+              </p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="field">
+          <label class="label">
+            Segundo o Capítulo IV que trata sobre as proibições e responsabilidades
+            (<a href="http://www.ifms.edu.br/centrais-de-conteudo/documentos-institucionais/regulamentos/regulamento-disciplinar-do-estudante.pdf" target="_blank">
+              Acesse aqui o Regulamento Disciplinar Discente
+            </a>)
+          </label>
+          <div class="lista-sancoes">
+            <%= f.collection_check_boxes :prohibition_and_responsibility_ids, Incident::ProhibitionAndResponsibility.all, :id, :item, checked: @incident.prohibition_and_responsibilities.all.map(&:id) do |b| %>
               <p class="control">
                 <label class="checkbox">
                   <%= b.check_box %>

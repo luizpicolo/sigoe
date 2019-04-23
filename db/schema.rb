@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_16_015404) do
+ActiveRecord::Schema.define(version: 2019_04_22_223035) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,11 @@ ActiveRecord::Schema.define(version: 2019_04_16_015404) do
   create_table "incidents_prohibition_and_responsibilities", force: :cascade do |t|
     t.integer "incident_id"
     t.integer "prohibition_and_responsibility_id"
+  end
+
+  create_table "incidents_student_duties", force: :cascade do |t|
+    t.integer "incident_id"
+    t.integer "student_duty_id"
   end
 
   create_table "patient_appointments", force: :cascade do |t|
@@ -189,6 +194,12 @@ ActiveRecord::Schema.define(version: 2019_04_16_015404) do
     t.string "version"
     t.integer "runtime"
     t.datetime "migrated_on"
+  end
+
+  create_table "student_duties", force: :cascade do |t|
+    t.string "item"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "students", id: :serial, force: :cascade do |t|
