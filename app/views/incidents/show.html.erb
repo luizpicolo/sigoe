@@ -2,7 +2,7 @@
   <h1 class="title is-3">Ocorrência N#<%= @incident.id %></h1>
   <div class="content">
     <p><b><%= @incident&.student&.name %></b></p>
-    <p><b><%= @incident&.course&.name %> / <%= @incident&.school_group %></b></p>
+    <p><b><%= @incident&.course&.name %> <%= @incident&.school_group %></b></p>
     <% if @incident&.student&.responsible.present? %>
     <p><b>Responsável:</b> <%= @incident&.student&.responsible %> / <%= @incident&.student&.responsible_contact %> </p>
     <% end %>
@@ -11,18 +11,25 @@
     <p> Assinado digitalmente em: <b><%= @incident.signed_by_student_in %></b></p>
   </div>
   <div class="content">
-    <p><b>Problema ocorrido</b></p>
-    <p><%= @incident&.description %></p>
+    <p><b><h2>Problema ocorrido</h2></b></p>
+    <%= @incident&.description %>
     <% if @incident&.sanction.present? %>
-      <p><b>Solução adoata para o problema</b></p>
-      <p><b>Sanção adota:</b> <%= I18n.t("activerecord.attributes.incident.sanction.#{@incident&.sanction}") %></p>
-      <p><%= @incident&.soluction %></p>
-      <% if @incident&.prohibition_and_responsibilities.present? %>
-          <p><b>Segundo o Capítulo IV das proibições e responsabilidades</b></p>
-          <% @incident&.prohibition_and_responsibilities.each do |i| %>
-            <p><%= i.item %></p>
-          <% end %>
-      <% end %>
+    <p><b><h2>Solução adoata para o problema</h2></b></p>
+    <p><b>Sanção:</b> <%= I18n.t("activerecord.attributes.incident.sanction.#{@incident&.sanction}") %></p>
+    <% end %>
+    <%= @incident&.soluction %>
+    <br /><br />
+    <% if @incident&.student_duties.present? %>
+    <p><b>Segundo o Capítulo III, Art 4º que trata sobre os direitos e deveres do estudante</b></p>
+    <% @incident&.student_duties.each do |i| %>
+      <p><%= i.item %></p>
+    <% end %>
+    <% end %>
+    <% if @incident&.prohibition_and_responsibilities.present? %>
+    <p><b>Segundo o Capítulo IV que trata sobre as proibições e responsabilidades</b></p>
+    <% @incident&.prohibition_and_responsibilities.each do |i| %>
+    <p><%= i.item %></p>
+    <% end %>
     <% end %>
   </div>
 </div>
