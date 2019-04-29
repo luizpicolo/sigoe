@@ -36,7 +36,7 @@ class Incident < ApplicationRecord
     'suspension',
     'quitting_school'
   ]
-
+  
   belongs_to :student, optional: true
   belongs_to :user
   belongs_to :course, optional: true
@@ -84,6 +84,11 @@ class Incident < ApplicationRecord
     result['Não'] = result.delete 'no_'
     result['Sim'] = result.delete 'yes_'
     result['Sem Categoria'] = result.delete nil
+    result
+  end
+
+  def self.by_type_incident
+    result = joins(:type_incident).group(:'type_incidents.name').count
     result
   end
 
