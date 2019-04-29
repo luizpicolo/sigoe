@@ -108,9 +108,9 @@ class IncidentsController < ApplicationController
 
   def incident_params
     params.require(:incident).permit(
-      :student_id, :course_id, :date_incident, :assistant_id, :time_incident,
+      :type_incident_id, :student_id, :course_id, :date_incident, :assistant_id, :time_incident,
       :institution, :description, :soluction, :is_resolved, :type_student,
-      :sanction, :school_group, :prohibition_and_responsibility_ids => [], 
+      :sanction, :school_group, :prohibition_and_responsibility_ids => [],
       :student_duty_ids => []
     )
   end
