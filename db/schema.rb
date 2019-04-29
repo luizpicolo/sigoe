@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_22_223035) do
+ActiveRecord::Schema.define(version: 2019_04_27_014051) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,10 +40,13 @@ ActiveRecord::Schema.define(version: 2019_04_22_223035) do
     t.integer "type_student"
     t.integer "sanction"
     t.integer "school_group_id"
+    t.integer "type_incident"
+    t.bigint "type_incident_id"
     t.index ["course_id"], name: "index_incidents_on_course_id"
     t.index ["date_incident"], name: "index_incidents_on_date_incident"
     t.index ["institution"], name: "index_incidents_on_institution"
     t.index ["student_id"], name: "index_incidents_on_student_id"
+    t.index ["type_incident_id"], name: "index_incidents_on_type_incident_id"
     t.index ["user_id"], name: "index_incidents_on_user_id"
   end
 
@@ -240,6 +243,12 @@ ActiveRecord::Schema.define(version: 2019_04_22_223035) do
     t.index ["user_id"], name: "index_tickets_on_user_id"
   end
 
+  create_table "type_incidents", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", id: :serial, force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -269,6 +278,7 @@ ActiveRecord::Schema.define(version: 2019_04_22_223035) do
 
   add_foreign_key "incidents", "courses"
   add_foreign_key "incidents", "students"
+  add_foreign_key "incidents", "type_incidents"
   add_foreign_key "incidents", "users"
   add_foreign_key "patient_appointments", "patients"
   add_foreign_key "patient_habits", "patients"
