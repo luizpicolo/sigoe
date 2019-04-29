@@ -54,6 +54,7 @@ class Incident < ApplicationRecord
     attributes course_name: "course.name"
     attributes institution: "institution"
     attributes type_student: "type_student"
+    attributes type_incident: "type_incident.name"
     attributes date_incident: "date_incident"
   end
 
