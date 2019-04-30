@@ -28,6 +28,7 @@ FactoryBot.define do
     assistant factory: :user
     course factory: :course
     school_group factory: :school_group
+    type_incident factory: :type_incident
     institution { 'Ifms' }
     description { Faker::Lorem.paragraph(2) }
     date_incident { Time.zone.now }

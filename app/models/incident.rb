@@ -30,22 +30,19 @@ class Incident < ApplicationRecord
   enum institution: ['Ifms', 'Ufms', 'Cemid']
   enum is_resolved: ['no_', 'yes_']
   enum type_student: ['non_resident', 'resident']
-  # enum school_group: [
-  #   '1A', '1B', '2A', '2B', '3A', '3B', '4A', '4B', '5A', '5B', '6A', '6B',
-  #   '7A', '7B', '8A', '8B', '9A', '9B', '10A', '10B'
-  # ]
   enum sanction: [
     'verbal_warning',
     'written_warning',
     'suspension',
     'quitting_school'
   ]
-
+  
   belongs_to :student, optional: true
   belongs_to :user
   belongs_to :course, optional: true
   belongs_to :assistant, class_name: 'User', foreign_key: 'assistant_id'
   belongs_to :school_group, optional: true
+  belongs_to :type_incident, optional: true
   has_and_belongs_to_many :prohibition_and_responsibilities
   has_and_belongs_to_many :student_duties
 
@@ -57,6 +54,7 @@ class Incident < ApplicationRecord
     attributes course_name: "course.name"
     attributes institution: "institution"
     attributes type_student: "type_student"
+    attributes type_incident: "type_incident.name"
     attributes date_incident: "date_incident"
   end
 
@@ -86,6 +84,11 @@ class Incident < ApplicationRecord
     result['Não'] = result.delete 'no_'
     result['Sim'] = result.delete 'yes_'
     result['Sem Categoria'] = result.delete nil
+    result
+  end
+
+  def self.by_type_incident
+    result = joins(:type_incident).group(:'type_incidents.name').count
     result
   end
 
