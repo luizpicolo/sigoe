@@ -1,3 +1,4 @@
+<h1 class="title">Atalho rápido</h1>
 <div class="columns is-multiline shortcuts">
   <% @sectors.each do |s|%>
   <div class="column is-one-quarter">
@@ -12,24 +13,25 @@
 </div>
 
 
+<h1 class="title">Gráficos</h1>
 <div class="columns is-multiline shortcuts is-hidden-mobile">
   <div class="column is-half">
-    <h1 class="title">Por ano</h1>
+    <h2 class="subtitle">Por ano</h2>
     <%= column_chart Incident.by_years %>
   </div>
   <div class="column is-half">
-    <h1 class="title">Por turmas</h1>
+    <h1 class="subtitle">Por turmas</h1>
     <%= bar_chart Incident.by_courses %>
   </div>
 </div>
 
 <div class="columns is-multiline shortcuts is-hidden-mobile">
   <div class="column is-half">
-    <h1 class="title">Por tipo</h1>
+    <h1 class="subtitle">Por tipo</h1>
     <%= column_chart Incident.by_type_incident %>
   </div>
   <div class="column is-half">
-    <h1 class="title">Sanções adotadas</h1>
+    <h1 class="subtitle">Sanções adotadas</h1>
     <%= bar_chart Incident.by_sanction %>
   </div>
 </div>
