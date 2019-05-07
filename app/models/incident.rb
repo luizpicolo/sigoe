@@ -25,7 +25,7 @@ class Incident < ApplicationRecord
   include SearchCop
 
   validates :user, :course, :assistant, :institution, :description,
-	          :date_incident, :time_incident, presence: true
+	          :date_incident, :time_incident, :type_incident, presence: true
 
   enum institution: ['Ifms', 'Ufms', 'Cemid']
   enum is_resolved: ['no_', 'yes_']
@@ -42,7 +42,7 @@ class Incident < ApplicationRecord
   belongs_to :course, optional: true
   belongs_to :assistant, class_name: 'User', foreign_key: 'assistant_id'
   belongs_to :school_group, optional: true
-  belongs_to :type_incident, optional: true
+  belongs_to :type_incident
   has_and_belongs_to_many :prohibition_and_responsibilities
   has_and_belongs_to_many :student_duties
 

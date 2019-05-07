@@ -91,7 +91,7 @@
           <%= f.label :type_incident_id, 'Tipos da Ocorrência ', class: 'label' %>
           <p class="control">
             <span class="select">
-              <%= f.select :type_incident_id, Incident::TypeIncident.get_all, {}, { :class => "select select2 is-medium" } %>
+              <%= f.select :type_incident_id, Incident::TypeIncident.get_all, {:include_blank => 'Tipo de Ocorrência'}, { :class => "select select2 is-medium" } %>
             </span>
           </p>
         </div>
