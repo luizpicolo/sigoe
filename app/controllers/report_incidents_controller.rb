@@ -11,7 +11,7 @@ class ReportIncidentsController < ApplicationController
   end
 
   def create
-    incidents = Incident.search(set_conditional).search(set_date_range)
+    incidents = Incident.search(set_conditional).search(set_date_range).order(date_incident: :desc)
     if incidents.present?
       @incidents = incidents
       render layout: false
