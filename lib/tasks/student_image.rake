@@ -17,7 +17,7 @@ namespace :student_image do
 
     Student.all.each do |student|
       puts "http://academico.ifms.edu.br/administrativo/pessoa_fisicas/foto/" + student.ra.to_s
-      page = @agent.get("http://academico.ifms.edu.br/administrativo/pessoa_fisicas/foto/" + student.ra.to_s)
+      page = @agent.get("https://academico.ifms.edu.br/administrativo/pessoa_fisicas/foto/" + student.ra.to_s)
       File.open("public/uploads/tmp/" + student.ra.to_s + ".jpg","wb") do |file|
         file.puts page.body
         student.photo = file
