@@ -20,6 +20,7 @@ gem 'friendly_id', '~> 5.1.0'
 gem 'font-awesome-sass'
 gem 'groupdate'
 gem 'htmlcompressor'
+gem 'httparty'
 gem 'ionicons-rails' ## Será removido no futuro
 gem 'jbuilder'
 gem 'jquery-rails'
