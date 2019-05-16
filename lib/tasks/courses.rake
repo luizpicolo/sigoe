@@ -2,7 +2,7 @@ namespace :course do
   desc "Download Courses data by SigaEdu"
   task :get_data => :environment do
     url = "http://sistemas.na.ifms.edu.br:2694/courses?token=#{ENV['TOKEN_API']}"
-    response = HTTParty.get(url)
+    response = HTTParty.get(url, verify: true)
     data_courses = response.parsed_response
     data_courses.each do |data|
       course = Course.find_by_id(data['id'].to_i)
