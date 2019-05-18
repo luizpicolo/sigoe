@@ -6,6 +6,7 @@ context "When keeping Incident" do
     @course = FactoryBot.create(:course)
     @sector = FactoryBot.create(:sector, initial: 'ASSAL')
     @user = FactoryBot.create(:user, sector: @sector)
+    @type_incident = FactoryBot.create(:type_incident, name: 'Atraso')
     FactoryBot.create(
       :permission, 
       user: @user,
@@ -17,7 +18,7 @@ context "When keeping Incident" do
   feature 'i should create an entry' do
     scenario 'with valid data' do
       visit new_incident_path
-      create_new_incident user: @user.name, student: @student.name, course: @course.name
+      create_new_incident user: @user.name, student: @student.name, course: @course.name, type_incident: @type_incident.name
       expect(page).to have_content("Ocorrência cadastra com sucesso")
     end
   end

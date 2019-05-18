@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :type_incident, class: 'Incident::TypeIncident' do
-    name { "MyString" }
+    name { "TypeIncident" }
   end
 end

@@ -5,6 +5,7 @@ module IncidentHelpers
     select options[:user], from: "Assistente"
     select 'Residente', from: "Estudente é?"
     select 'Ifms', from: "Instituição"
+    select options[:type_incident], from: "Tipos da Ocorrência"
     select 'Não', from: "Ocorrências resolvida?"
     fill_in 'Data ocorrência', with: Time.zone.now
     fill_in 'Hora ocorrência', with: Time.zone.now
