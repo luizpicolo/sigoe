@@ -91,11 +91,6 @@
 
         <div class="description">
           <p><b>Problema ocorrido</b></p>
-          
-          <% if incident&.type_incident.present? %>
-          <p><b>Tipo da ocorrência:</b> <%= incident&.type_incident.name %></p>
-          <% end %>
-
           <%= incident&.description %>
           <% if incident&.sanction.present? %>
           <p><b>Solução adoata para o problema</b></p>
