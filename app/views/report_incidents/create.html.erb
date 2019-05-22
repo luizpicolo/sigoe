@@ -84,6 +84,9 @@
           <% end %>
           <p> Data ocorrência: <b><%= extract_and_format_date(incident&.date_incident) %> às <%= extract_and_format_time(incident&.time_incident) %></b></p>
           <p> Local: <b><%= incident.institution.upcase %></b></p>
+          <% if incident&.type_incident.present? %>
+          <p><b>Tipo da ocorrência:</b> <%= incident&.type_incident.name %></p>
+          <% end %>
           <% if incident.signed_by_student_in.present? %>
           <p> Assinado digitalmente em: <b> <%= incident.signed_by_student_in %></b></p>
           <% end %>
@@ -95,9 +98,6 @@
           <% if incident&.sanction.present? %>
           <p><b>Solução adoata para o problema</b></p>
           <p><b>Sanção adotada:</b> <%= I18n.t("activerecord.attributes.incident.sanction.#{incident&.sanction}") %></p>
-          <% if incident&.type_incident.present? %>
-          <p><b>Tipo da ocorrência:</b> <%= incident&.type_incident.name %></p>
-          <% end %>
           <%= incident&.soluction %>
           <% if incident&.student_duties.present? %>
           <p><b>Segundo o Capítulo III, Art 4º que trata sobre os direitos e deveres do estudante</b></p>
