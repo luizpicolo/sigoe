@@ -5,7 +5,9 @@
   "repository": "https://github.com/luizpicolo/siai-ifms-na",
   "logo": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Ruby_on_Rails_logo.svg",
   "scripts": {
-    "postdeploy": "bundle exec rake db:migrate"
+    "dokku": {
+      "postdeploy": "bundle exec rake db:migrate"
+    }
   },
   "env": {
     "RAILS_ENV": "production",
