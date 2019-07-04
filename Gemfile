@@ -9,7 +9,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'carrierwave'
 gem 'carrierwave-ftp', require: 'carrierwave/storage/sftp'
 gem 'cancancan'
-gem "chartkick"
+gem "chartkick", ">= 3.2.0"
 gem 'clipboard-rails'
 gem 'coffee-rails'
 gem 'devise'
