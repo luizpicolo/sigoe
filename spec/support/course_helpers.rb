@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module CourseHelpers
   def create_new_course(options = {})
     name = options[:name] || Faker::Name.name

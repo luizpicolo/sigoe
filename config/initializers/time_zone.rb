@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.env.on(:any) do
   # Configuration default for time zone
   config.time_zone = 'La Paz'

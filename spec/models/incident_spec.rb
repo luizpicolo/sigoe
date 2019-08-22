@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: incidents
@@ -59,11 +61,11 @@ RSpec.describe Incident, type: :model do
   it { should have_db_column :school_group_id }
 
   # Indexes
-  it { should have_db_index ["course_id"] }
-  it { should have_db_index ["date_incident"] }
-  it { should have_db_index ["institution"] }
-  it { should have_db_index ["student_id"] }
-  it { should have_db_index ["user_id"] }
+  it { should have_db_index ['course_id'] }
+  it { should have_db_index ['date_incident'] }
+  it { should have_db_index ['institution'] }
+  it { should have_db_index ['student_id'] }
+  it { should have_db_index ['user_id'] }
 
   # Associations
   it { should belong_to(:student) }
@@ -74,49 +76,48 @@ RSpec.describe Incident, type: :model do
   it { should have_and_belong_to_many(:prohibition_and_responsibilities) }
 
   # Enums
-  it { should define_enum_for(:institution).with(["Ifms", "Ufms", "Cemid"]) }
-  it { should define_enum_for(:is_resolved).with(["no_", "yes_"]) }
-  it { should define_enum_for(:type_student).with(["non_resident", "resident"]) }
+  it { should define_enum_for(:institution).with(%w[Ifms Ufms Cemid]) }
+  it { should define_enum_for(:is_resolved).with(%w[no_ yes_]) }
+  it { should define_enum_for(:type_student).with(%w[non_resident resident]) }
   # it { should define_enum_for(:school_group).with(["1A", "1B", "2A", "2B", "3A", "3B", "4A", "4B", "5A", "5B", "6A", "6B", "7A", "7B", "8A", "8B", "9A", "9B", "10A", "10B"]) }
-  it { should define_enum_for(:sanction).with(["verbal_warning", "written_warning", "suspension", "quitting_school"]) }
+  it { should define_enum_for(:sanction).with(%w[verbal_warning written_warning suspension quitting_school]) }
 
   # Methods
   describe '#search' do
-
-    context "find with one param" do
-      it "find incident by student" do
+    context 'find with one param' do
+      it 'find incident by student' do
         conditionals = {}
         conditionals[:student] = @incident.student.id
         expect(Incident.search(conditionals)).to eq([@incident])
       end
 
-      it "find incident by course" do
+      it 'find incident by course' do
         conditionals = {}
         conditionals[:course] = @incident.course.id
         expect(Incident.search(conditionals)).to eq([@incident])
       end
 
-      it "find incident by institution" do
+      it 'find incident by institution' do
         conditionals = {}
         conditionals[:institution] = 0
         expect(Incident.search(conditionals)).to eq([@incident])
       end
 
-      it "find incident by type_student" do
+      it 'find incident by type_student' do
         conditionals = {}
         conditionals[:type_student] = 1
         expect(Incident.search(conditionals)).to eq([@incident])
       end
 
-      it "find incident by range date" do
+      it 'find incident by range date' do
         conditionals = {}
         range_date = "date_incident >= #{@incident.date_incident - 1.day} AND date_incident <= #{@incident.date_incident + 1.day}"
         expect(Incident.search(conditionals).search(range_date)).to eq([@incident])
       end
     end
 
-    context "find with all params" do
-      it "find incident " do
+    context 'find with all params' do
+      it 'find incident ' do
         conditionals = {}
         conditionals[:student] = @incident.student.id
         conditionals[:course] = @incident.course.id
@@ -129,7 +130,7 @@ RSpec.describe Incident, type: :model do
   end
 
   describe '#student_name' do
-    let(:subject){ FactoryBot.create(:incident) }
+    let(:subject) { FactoryBot.create(:incident) }
 
     context 'When student are present' do
       it 'Returns student name' do
@@ -149,7 +150,7 @@ RSpec.describe Incident, type: :model do
   end
 
   describe '#course_initial' do
-    let(:subject){ FactoryBot.create(:incident) }
+    let(:subject) { FactoryBot.create(:incident) }
 
     context 'When course are present' do
       it 'Returns course name' do
@@ -169,7 +170,7 @@ RSpec.describe Incident, type: :model do
   end
 
   describe '#signed_by_student_in' do
-    let(:subject){ FactoryBot.create(:incident) }
+    let(:subject) { FactoryBot.create(:incident) }
 
     context 'When signed_in field is present' do
       before do
@@ -192,10 +193,10 @@ RSpec.describe Incident, type: :model do
     end
   end
 
-  describe ".ordenation_attributes" do
+  describe '.ordenation_attributes' do
     ordenation_attributes = Incident.ordenation_attributes
 
-    it "should return an array" do
+    it 'should return an array' do
       expect(ordenation_attributes).to be_an_instance_of(Array)
 
       ordenation_attributes.each do |attribute|

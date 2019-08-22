@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-context "User" do
+context 'User' do
   feature 'sign in' do
     let!(:user) { FactoryBot.create(:user) }
 

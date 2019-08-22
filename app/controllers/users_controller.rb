@@ -1,15 +1,17 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
   include ParamsSearch
 
   load_and_authorize_resource
-  skip_authorize_resource only: [:change_password, :update]
+  skip_authorize_resource only: %i[change_password update]
 
-  before_action :set_user, only: [:edit, :destroy, :update]
-  add_breadcrumb "Home", :root_path
+  before_action :set_user, only: %i[edit destroy update]
+  add_breadcrumb 'Home', :root_path
 
   def index
-    add_breadcrumb "Serti", sector_actions_path('serti')
-    add_breadcrumb "Usuários"
+    add_breadcrumb 'Serti', sector_actions_path('serti')
+    add_breadcrumb 'Usuários'
 
     @users = User.order("#{set_order}": :desc)
                  .search(params[:search])
@@ -17,9 +19,9 @@ class UsersController < ApplicationController
   end
 
   def new
-    add_breadcrumb "Serti", sector_actions_path('serti')
-    add_breadcrumb "Usuários", :users_path
-    add_breadcrumb "Novo usuário"
+    add_breadcrumb 'Serti', sector_actions_path('serti')
+    add_breadcrumb 'Usuários', :users_path
+    add_breadcrumb 'Novo usuário'
 
     @user = User.new
   end
@@ -35,9 +37,9 @@ class UsersController < ApplicationController
   end
 
   def edit
-    add_breadcrumb "Serti", sector_actions_path('serti')
-    add_breadcrumb "Usuários", :users_path
-    add_breadcrumb "Atualizar usuário"
+    add_breadcrumb 'Serti', sector_actions_path('serti')
+    add_breadcrumb 'Usuários', :users_path
+    add_breadcrumb 'Atualizar usuário'
   end
 
   def update
@@ -51,7 +53,7 @@ class UsersController < ApplicationController
 
   def destroy
     if @user.destroy
-      flash[:success] = "Usuário deletado com sucesso"
+      flash[:success] = 'Usuário deletado com sucesso'
       redirect_back(fallback_location: users_path)
     else
       flash.now[:error] = @user.errors.full_messages
@@ -80,8 +82,8 @@ class UsersController < ApplicationController
   end
 
   def commit_action(commit)
-    return :change_password if commit == "Trocar senha"
-    return :edit if commit == "Salvar"
+    return :change_password if commit == 'Trocar senha'
+    return :edit if commit == 'Salvar'
   end
 
   def user_params

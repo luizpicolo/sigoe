@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: students
@@ -44,17 +46,17 @@ RSpec.describe Student, type: :model do
   it { should have_db_column :updated_at }
 
   # Indexes
-  it { should have_db_index ["course_id"] }
-  it { should have_db_index ["name"] }
+  it { should have_db_index ['course_id'] }
+  it { should have_db_index ['name'] }
 
   # Delegats
   it { should delegate_method(:name).to(:course).with_prefix }
   it { should delegate_method(:initial).to(:course).with_prefix }
 
-  describe ".ordenation_attributes" do
+  describe '.ordenation_attributes' do
     ordenation_attributes = Student.ordenation_attributes
 
-    it "should return an array" do
+    it 'should return an array' do
       expect(ordenation_attributes).to be_an_instance_of(Array)
 
       ordenation_attributes.each do |attribute|
@@ -69,8 +71,8 @@ RSpec.describe Student, type: :model do
     end
   end
 
-  describe "#get_all" do
-    it "should return an array" do
+  describe '#get_all' do
+    it 'should return an array' do
       @student = Student.get_all
       expect(@student).to be_an_instance_of(Array)
 
@@ -82,11 +84,11 @@ RSpec.describe Student, type: :model do
   end
 
   describe '#search' do
-    it "find user by name" do
+    it 'find user by name' do
       expect(Student.search(@student.name)).to eq([@student])
     end
 
-    it "find user by initial of course" do
+    it 'find user by initial of course' do
       expect(Student.search(@student.course_name)).to eq([@student])
     end
   end

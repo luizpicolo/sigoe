@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: school_groups
@@ -12,6 +14,6 @@
 FactoryBot.define do
   factory :school_group do
     name { Faker::Name.name }
-    identifier { "12345" }
+    identifier { '12345' }
   end
 end

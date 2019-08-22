@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class InsidentMailer < ApplicationMailer
   def send_mailer(coordenation)
     @contact = coordenation

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: patient_appointments
@@ -29,7 +31,6 @@
 require 'rails_helper'
 
 RSpec.describe Patient::Appointment, type: :model do
-
   # === Relations ===
   it { should belong_to :patient }
 
@@ -58,11 +59,11 @@ RSpec.describe Patient::Appointment, type: :model do
   it { should have_db_column :updated_at }
 
   # === Database (Indexes) ===
-  it { should have_db_index ["patient_id"] }
+  it { should have_db_index ['patient_id'] }
 
   # === Enums ===
-  it { should define_enum_for(:complaints).with(["Exame Preventivo", "Febre", "Picada Insetos", "Geniturinária", "Orientação", "Ocular/Auricular", "Cólica Mestrual", "Lesão", "Gastrintestinal", "Tontura/Mal Estar", "Cefaléia"]) }
-  it { should define_enum_for(:medical_referral).with(["Hospital", "ESF", "Família", "Psicóloga"]) }
-  it { should define_enum_for(:nursing_conduct).with(["Orientações", "Observação", "Encaminhamentos"]) }
-  it { should define_enum_for(:tanners_stage).with(["Estágio I", "Estágio II", "Estágio III", "Estágio IV", "Estágio V"]) }
+  it { should define_enum_for(:complaints).with(['Exame Preventivo', 'Febre', 'Picada Insetos', 'Geniturinária', 'Orientação', 'Ocular/Auricular', 'Cólica Mestrual', 'Lesão', 'Gastrintestinal', 'Tontura/Mal Estar', 'Cefaléia']) }
+  it { should define_enum_for(:medical_referral).with(%w[Hospital ESF Família Psicóloga]) }
+  it { should define_enum_for(:nursing_conduct).with(%w[Orientações Observação Encaminhamentos]) }
+  it { should define_enum_for(:tanners_stage).with(['Estágio I', 'Estágio II', 'Estágio III', 'Estágio IV', 'Estágio V']) }
 end

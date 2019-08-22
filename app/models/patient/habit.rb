@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: patient_habits
@@ -23,7 +25,7 @@ class Patient::Habit < ApplicationRecord
   # Validações
   # validates :patient, presence: true
 
-  enum sleep_rest: ['Alterado', 'Satisfatório']
+  enum sleep_rest: %w[Alterado Satisfatório]
 
   belongs_to :patient
 end

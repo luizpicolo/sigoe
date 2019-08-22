@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: users
@@ -25,7 +27,7 @@
 #
 
 require 'rails_helper'
-require "cancan/matchers"
+require 'cancan/matchers'
 
 RSpec.describe User, type: :model do
   before(:each) do
@@ -57,10 +59,10 @@ RSpec.describe User, type: :model do
   it { should have_db_column :sector_id }
 
   # Indexes
-  it { should have_db_index ["email"] }
-  it { should have_db_index ["reset_password_token"] }
-  it { should have_db_index ["sector_id"] }
-  it { should have_db_index ["username"] }
+  it { should have_db_index ['email'] }
+  it { should have_db_index ['reset_password_token'] }
+  it { should have_db_index ['sector_id'] }
+  it { should have_db_index ['username'] }
 
   # Associations
   it { should belong_to(:sector) }
@@ -79,25 +81,25 @@ RSpec.describe User, type: :model do
       expect(@user.it_is_part_of_the_sector?('wrong_sector')).to eq(false)
     end
   end
-  
+
   describe '#search' do
-    it "find user by name" do
+    it 'find user by name' do
       expect(User.search(@user.name)).to eq([@user])
     end
 
-    it "find user by email" do
+    it 'find user by email' do
       expect(User.search(@user.email)).to eq([@user])
     end
 
-    it "find user by sector" do
+    it 'find user by sector' do
       expect(User.search(@user.sector.initial)).to eq([@user])
     end
   end
 
-  describe ".ordenation_attributes" do
+  describe '.ordenation_attributes' do
     ordenation_attributes = User.ordenation_attributes
 
-    it "should return an array" do
+    it 'should return an array' do
       expect(ordenation_attributes).to be_an_instance_of(Array)
 
       ordenation_attributes.each do |attribute|

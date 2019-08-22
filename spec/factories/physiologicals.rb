@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: physiologicals
@@ -19,6 +21,5 @@
 
 FactoryBot.define do
   factory :physiological, class: Patient::Physiological do
-    
   end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: patient_morbids
@@ -32,7 +34,6 @@
 require 'rails_helper'
 
 RSpec.describe Patient::Morbid, type: :model do
-
   # Relations
   it { should belong_to :patient }
 
@@ -67,9 +68,8 @@ RSpec.describe Patient::Morbid, type: :model do
   # it { should validate_presence_of :patient }
 
   # === Enums ===
-  it { should define_enum_for(:pre_existing_diseases_cardiopathy).with(["Cardiopatia congênita", "Doenças no miocárdio", "Infecção no coração", "Cardiopatia de válvulas", "Cardiopatia hipertensiva", "Cardiopatia Isquêmica"]) }
-  it { should define_enum_for(:pre_existing_diseases_diabetes).with(["Tipo I", "Tipo II"]) }
-  it { should define_enum_for(:pre_existing_diseases_renal).with(["Cálculos renais", "Infecção renal ou Pielonefrite", "Cistos renais", "Perda da função renal"]) }
-  it { should define_enum_for(:pre_existing_diseases_pneumopathy).with(["Pneumopatia Intersticial", "Pneumopatia Aguda", "Pneumopatia Crônica", "Pneumopatia Ocupacional", "Pneumopatia Parasitária"]) }
-
+  it { should define_enum_for(:pre_existing_diseases_cardiopathy).with(['Cardiopatia congênita', 'Doenças no miocárdio', 'Infecção no coração', 'Cardiopatia de válvulas', 'Cardiopatia hipertensiva', 'Cardiopatia Isquêmica']) }
+  it { should define_enum_for(:pre_existing_diseases_diabetes).with(['Tipo I', 'Tipo II']) }
+  it { should define_enum_for(:pre_existing_diseases_renal).with(['Cálculos renais', 'Infecção renal ou Pielonefrite', 'Cistos renais', 'Perda da função renal']) }
+  it { should define_enum_for(:pre_existing_diseases_pneumopathy).with(['Pneumopatia Intersticial', 'Pneumopatia Aguda', 'Pneumopatia Crônica', 'Pneumopatia Ocupacional', 'Pneumopatia Parasitária']) }
 end

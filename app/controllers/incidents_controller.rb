@@ -1,17 +1,19 @@
+# frozen_string_literal: true
+
 class IncidentsController < ApplicationController
   include ParamsSearch
 
   load_and_authorize_resource
 
-  before_action :set_incident, only: [
-    :edit, :destroy, :update, :confirmation, :sign, :show
+  before_action :set_incident, only: %i[
+    edit destroy update confirmation sign show
   ]
 
-  add_breadcrumb "Home", :root_path
+  add_breadcrumb 'Home', :root_path
 
   def index
-    add_breadcrumb "Diren", sector_actions_path('diren')
-    add_breadcrumb "Ocorrências"
+    add_breadcrumb 'Diren', sector_actions_path('diren')
+    add_breadcrumb 'Ocorrências'
 
     @incidents = Incident.order("#{set_order}": :desc)
                          .search(params[:search])
@@ -19,9 +21,9 @@ class IncidentsController < ApplicationController
   end
 
   def new
-    add_breadcrumb "Diren", sector_actions_path('diren')
-    add_breadcrumb "Ocorrências", :incidents_path
-    add_breadcrumb "Nova ocorrências"
+    add_breadcrumb 'Diren', sector_actions_path('diren')
+    add_breadcrumb 'Ocorrências', :incidents_path
+    add_breadcrumb 'Nova ocorrências'
 
     @incidents = Incident.new
   end
@@ -39,9 +41,9 @@ class IncidentsController < ApplicationController
   end
 
   def edit
-    add_breadcrumb "Diren", sector_actions_path('diren')
-    add_breadcrumb "Ocorrências", :incidents_path
-    add_breadcrumb "Atualizar Ocorrência"
+    add_breadcrumb 'Diren', sector_actions_path('diren')
+    add_breadcrumb 'Ocorrências', :incidents_path
+    add_breadcrumb 'Atualizar Ocorrência'
   end
 
   def update
@@ -55,7 +57,7 @@ class IncidentsController < ApplicationController
 
   def destroy
     if @incident.destroy
-      flash[:success] = "Ocorrência deletada com sucesso"
+      flash[:success] = 'Ocorrência deletada com sucesso'
       redirect_back(fallback_location: incidents_path)
     else
       flash.now[:error] = @incident.errors.full_messages
@@ -64,15 +66,15 @@ class IncidentsController < ApplicationController
   end
 
   def show
-    add_breadcrumb "Diren", sector_actions_path('diren')
-    add_breadcrumb "Ocorrências", :incidents_path
-    add_breadcrumb "visualizar ocorrência"
+    add_breadcrumb 'Diren', sector_actions_path('diren')
+    add_breadcrumb 'Ocorrências', :incidents_path
+    add_breadcrumb 'visualizar ocorrência'
   end
 
   ## Mostra a confirmação para que o estudante possa assinar
   def confirmation
     if @incident.student.ra.nil?
-      flash.now[:error] = "Por favor, cadastre uma senha e um R.A para o estudante"
+      flash.now[:error] = 'Por favor, cadastre uma senha e um R.A para o estudante'
       redirect_to incidents_path
     end
   end
@@ -85,7 +87,7 @@ class IncidentsController < ApplicationController
         redirect_to incidents_path, flash: { success: 'Ocorrência assinada com sucesso' }
       end
     else
-      flash.now[:error] = "Sua senha esta incorreta"
+      flash.now[:error] = 'Sua senha esta incorreta'
       render :confirmation
     end
   end
@@ -93,25 +95,23 @@ class IncidentsController < ApplicationController
   private
 
   def send_email_to(coordinator)
-    unless Rails.env.test?
-      InsidentMailer.send_mailer(coordinator).deliver_now
-    end
+    InsidentMailer.send_mailer(coordinator).deliver_now unless Rails.env.test?
   end
 
   def set_incident
-    if params[:id]
-      @incident = Incident.find(params[:id])
-    else
-      @incident = Incident.find(params[:incident_id])
-    end
+    @incident = if params[:id]
+                  Incident.find(params[:id])
+                else
+                  Incident.find(params[:incident_id])
+                end
   end
 
   def incident_params
     params.require(:incident).permit(
       :type_incident_id, :student_id, :course_id, :date_incident, :assistant_id, :time_incident,
       :institution, :description, :soluction, :is_resolved, :type_student,
-      :sanction, :school_group_id, :prohibition_and_responsibility_ids => [],
-      :student_duty_ids => []
+      :sanction, :school_group_id, prohibition_and_responsibility_ids: [],
+                                   student_duty_ids: []
     )
   end
 end

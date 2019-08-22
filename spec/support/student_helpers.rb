@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module StudentHelpers
   def create_new_student(options = {})
     name = options[:name] || Faker::Name.name
@@ -9,7 +11,7 @@ module StudentHelpers
     fill_in 'Confirmar senha', with: '123456789'
     fill_in 'student_responsible', with: name
     fill_in 'student_responsible_contact', with: 'email@ifms.edu.br'
-    select options[:course], :from => "Curso"
+    select options[:course], from: 'Curso'
     attach_file('Imagem', File.absolute_path('spec/fixtures/logo-ifms.jpg'))
 
     click_button 'Salvar'

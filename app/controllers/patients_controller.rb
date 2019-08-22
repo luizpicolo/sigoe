@@ -1,15 +1,17 @@
+# frozen_string_literal: true
+
 class PatientsController < ApplicationController
   include ParamsSearch
 
   load_and_authorize_resource
 
-  before_action :set_patient, only: [:edit, :destroy, :update, :show]
+  before_action :set_patient, only: %i[edit destroy update show]
 
-  add_breadcrumb "Home", :root_path
+  add_breadcrumb 'Home', :root_path
 
   def index
-    add_breadcrumb "Enfermaria", sector_actions_path('enfermaria')
-    add_breadcrumb "Pacientes"
+    add_breadcrumb 'Enfermaria', sector_actions_path('enfermaria')
+    add_breadcrumb 'Pacientes'
 
     @patients = Patient.order("#{set_order}": :desc)
                        .search(params[:search])
@@ -17,9 +19,9 @@ class PatientsController < ApplicationController
   end
 
   def new
-    add_breadcrumb "Enfermaria", sector_actions_path('enfermaria')
-    add_breadcrumb "Pacientes", :patients_path
-    add_breadcrumb "Novo paciente"
+    add_breadcrumb 'Enfermaria', sector_actions_path('enfermaria')
+    add_breadcrumb 'Pacientes', :patients_path
+    add_breadcrumb 'Novo paciente'
 
     @patient = Patient.new
     @patient.habits.build
@@ -38,9 +40,9 @@ class PatientsController < ApplicationController
   end
 
   def edit
-    add_breadcrumb "Enfermaria", sector_actions_path('enfermaria')
-    add_breadcrumb "Pacientes", :users_path
-    add_breadcrumb "Atualizar paciente"
+    add_breadcrumb 'Enfermaria', sector_actions_path('enfermaria')
+    add_breadcrumb 'Pacientes', :users_path
+    add_breadcrumb 'Atualizar paciente'
   end
 
   def update
@@ -54,7 +56,7 @@ class PatientsController < ApplicationController
 
   def destroy
     if @patient.destroy
-      flash[:success] = "Paciente deletado com sucesso"
+      flash[:success] = 'Paciente deletado com sucesso'
       redirect_back(fallback_location: patients_path)
     else
       flash.now[:error] = @student.errors.full_messages
@@ -70,11 +72,11 @@ class PatientsController < ApplicationController
 
   def patient_params
     params.require(:patient).permit(
-      :student_id, :habits_attributes => [:id, :sleep_rest, :amount_sleep_hours, :physical_activity,
-      :amount_physical_activity, :amount_fruit_vegetable, :amount_red_meat,
-      :amount_white_meat, :amount_juice,  :amount_water, :amount_tea,
-      :other_information], :morbids_attributes => [:id, :pre_existing_diseases_vascular_accident, :pre_existing_diseases_cancer, :pre_existing_diseases_hypertension, :pre_existing_diseases_cardiopathy, :pre_existing_diseases_diabetes, :pre_existing_diseases_renal, :pre_existing_diseases_pneumopathy, :others_pre_existing_diseases, :allergies_drugs, :allergies_foods, :allergies_cosmetics, :allergies_plaster, :allergies_wool, :others_allergies, :risk_factors_smoking, :risk_factors_ethicism, :risk_factors_chemotherapy, :risk_factors_radiotherapy, :risk_factors_chemical_dependency, :risk_factors_violence, :others_risk_factors],
-      :physiologicals_attributes => [:id, :other_diseases, :continuing_medication, :previous_surgeries, :hospitalization, :first_menstruation, :complaints, :gestation, :children, :abortion]
+      :student_id, habits_attributes: %i[id sleep_rest amount_sleep_hours physical_activity
+                                         amount_physical_activity amount_fruit_vegetable amount_red_meat
+                                         amount_white_meat amount_juice amount_water amount_tea
+                                         other_information], morbids_attributes: %i[id pre_existing_diseases_vascular_accident pre_existing_diseases_cancer pre_existing_diseases_hypertension pre_existing_diseases_cardiopathy pre_existing_diseases_diabetes pre_existing_diseases_renal pre_existing_diseases_pneumopathy others_pre_existing_diseases allergies_drugs allergies_foods allergies_cosmetics allergies_plaster allergies_wool others_allergies risk_factors_smoking risk_factors_ethicism risk_factors_chemotherapy risk_factors_radiotherapy risk_factors_chemical_dependency risk_factors_violence others_risk_factors],
+                   physiologicals_attributes: %i[id other_diseases continuing_medication previous_surgeries hospitalization first_menstruation complaints gestation children abortion]
     )
   end
 end

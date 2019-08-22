@@ -1,28 +1,30 @@
+# frozen_string_literal: true
+
 class Patients::AppointmentsController < ApplicationController
   include ParamsSearch
 
-  load_and_authorize_resource class: "Patient::Appointment", except: [:create]
+  load_and_authorize_resource class: 'Patient::Appointment', except: [:create]
 
-  before_action :set_appointment, only: [:edit, :destroy, :update, :show]
+  before_action :set_appointment, only: %i[edit destroy update show]
 
-  add_breadcrumb "Home", :root_path
+  add_breadcrumb 'Home', :root_path
 
   def index
-    add_breadcrumb "Enfermaria", sector_actions_path('enfermaria')
-    add_breadcrumb "Pacientes", :patients_path
-    add_breadcrumb "Ocorrências"
+    add_breadcrumb 'Enfermaria', sector_actions_path('enfermaria')
+    add_breadcrumb 'Pacientes', :patients_path
+    add_breadcrumb 'Ocorrências'
 
     @appointments = Patient::Appointment.order("#{set_order}": :desc)
-                                  .search(params[:search])
-                                  .where(patient_id: params[:patient_id])
-                                  .page(params[:page]).per(set_amount_return)
+                                        .search(params[:search])
+                                        .where(patient_id: params[:patient_id])
+                                        .page(params[:page]).per(set_amount_return)
   end
 
   def new
-    add_breadcrumb "Enfermaria", sector_actions_path('enfermaria')
-    add_breadcrumb "Pacientes", :patients_path
-    add_breadcrumb "Ocorrências", :patient_appointments_path
-    add_breadcrumb "Nova Ocorrência"
+    add_breadcrumb 'Enfermaria', sector_actions_path('enfermaria')
+    add_breadcrumb 'Pacientes', :patients_path
+    add_breadcrumb 'Ocorrências', :patient_appointments_path
+    add_breadcrumb 'Nova Ocorrência'
 
     @appointment = Patient::Appointment.new
   end
@@ -39,10 +41,10 @@ class Patients::AppointmentsController < ApplicationController
   end
 
   def edit
-    add_breadcrumb "Enfermaria", sector_actions_path('enfermaria')
-    add_breadcrumb "Pacientes", :patients_path
-    add_breadcrumb "Ocorrências", :patient_appointments_path
-    add_breadcrumb "Atualizar Ocorrência"
+    add_breadcrumb 'Enfermaria', sector_actions_path('enfermaria')
+    add_breadcrumb 'Pacientes', :patients_path
+    add_breadcrumb 'Ocorrências', :patient_appointments_path
+    add_breadcrumb 'Atualizar Ocorrência'
   end
 
   def update
@@ -56,7 +58,7 @@ class Patients::AppointmentsController < ApplicationController
 
   def destroy
     if @appointment.destroy
-      flash[:success] = "Ocorrência deletada com sucesso"
+      flash[:success] = 'Ocorrência deletada com sucesso'
       redirect_back(fallback_location: patient_appointments_path)
     else
       flash.now[:error] = @appointment.errors.full_messages
@@ -75,7 +77,7 @@ class Patients::AppointmentsController < ApplicationController
       :companion, :medical_referral,
       :nursing_conduct, :previous_medical_consultation, :complaints,
       :description_complaint, :weight, :height, :abdominal_perimeter,
-      :bloodvpressure , :temperature, :heart_rate, :respiratory_frequency,
+      :bloodvpressure, :temperature, :heart_rate, :respiratory_frequency,
       :blood_glucose, :tanners_stage, :diagnosis, :prescription, :evolution
     )
   end

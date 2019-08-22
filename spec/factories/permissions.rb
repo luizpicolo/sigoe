@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: permissions
@@ -18,7 +20,7 @@
 FactoryBot.define do
   factory :permission do
     user factory: :user
-    entity { "MyString" }
+    entity { 'MyString' }
     can_create { true }
     can_read { true }
     can_update { true }

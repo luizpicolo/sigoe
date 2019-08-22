@@ -1,5 +1,7 @@
-RSpec.shared_examples "permission_controller" do
-  {'index' => 'read', 'new' => 'create', 'edit' => 'update'}.each do |k, v|
+# frozen_string_literal: true
+
+RSpec.shared_examples 'permission_controller' do
+  { 'index' => 'read', 'new' => 'create', 'edit' => 'update' }.each do |k, v|
     describe "GET ##{k}" do
       it "returns http success if have #{v} access permission" do
         add_permission @entity, @user, "#{v}": true
@@ -17,15 +19,15 @@ RSpec.shared_examples "permission_controller" do
     end
   end
 
-  describe "POST #create" do
-    it "returns http success if have create access permission" do
+  describe 'POST #create' do
+    it 'returns http success if have create access permission' do
       add_permission @entity, @user, create: true
       sign_in @user
       post :create, params: { "#{@entity.downcase}": @attr }
       expect(response).to redirect_to(@path)
     end
 
-    it "not returns http success if not have create access permission" do
+    it 'not returns http success if not have create access permission' do
       add_permission @entity, @user, create: false
       sign_in @user
       post :create, params: { "#{@entity.downcase}": @attr }
@@ -33,15 +35,15 @@ RSpec.shared_examples "permission_controller" do
     end
   end
 
-  describe "PUT #update" do
-    it "returns http success if have update access permission" do
+  describe 'PUT #update' do
+    it 'returns http success if have update access permission' do
       add_permission @entity, @user, update: true
       sign_in @user
       put :update, params: { id: @model.id, "#{@entity.downcase}": @attr }
       expect(response).to redirect_to(@path)
     end
 
-    it "not returns http success if not have update access permission" do
+    it 'not returns http success if not have update access permission' do
       add_permission @entity, @user, update: false
       sign_in @user
       put :update, params: { id: @model.id, "#{@entity.downcase}": @attr }
@@ -49,15 +51,15 @@ RSpec.shared_examples "permission_controller" do
     end
   end
 
-  describe "DELETE #destroy" do
-    it "returns http success if have destroy access permission" do
+  describe 'DELETE #destroy' do
+    it 'returns http success if have destroy access permission' do
       add_permission @entity, @user, destroy: true
       sign_in @user
       delete :destroy, params: { id: @model.id }
       expect(response).to redirect_to(@path)
     end
 
-    it "not returns http success if not have destroy access permission" do
+    it 'not returns http success if not have destroy access permission' do
       add_permission @entity, @user, destroy: false
       sign_in @user
       delete :destroy, params: { id: @model.id }

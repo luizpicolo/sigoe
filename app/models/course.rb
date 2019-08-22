@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: courses
@@ -28,14 +30,14 @@ class Course < ApplicationRecord
   #
   # @return [Array] contendo os nomes e seus IDs
   def self.names
-    all.collect {|p| [ p.name, p.id ] }
+    all.collect { |p| [p.name, p.id] }
   end
 
   # Retorna um vetor contendo as initiais e seus respectivos IDs
   #
   # @return [Array] contendo as iniciais dos cursos e seus IDs
   def self.initials
-    order('initial asc').collect {|p| [ p.initial, p.id ] }
+    order('initial asc').collect { |p| [p.initial, p.id] }
   end
 
   # Retorna um vetor com os atributos que serão utilizados para a
@@ -43,7 +45,7 @@ class Course < ApplicationRecord
   #
   # @return [Array] contendo os atributos para a busca
   def self.ordenation_attributes
-    [["ID",'id'],["Nome",'name'],["Sigla",'initial']]
+    [%w[ID id], %w[Nome name], %w[Sigla initial]]
   end
 
   # Retorna um Hash contendo os dados para a listagem dos alunos segunda a

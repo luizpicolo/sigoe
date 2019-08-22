@@ -1,12 +1,14 @@
+# frozen_string_literal: true
+
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV['RAILS_ENV'] ||= 'test'
-require File.expand_path('../../config/environment', __FILE__)
+require File.expand_path('../config/environment', __dir__)
 # Prevent database truncation if the environment is production
-abort("The Rails environment is running in production mode!") if Rails.env.production?
+abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'spec_helper'
 require 'rspec/rails'
 require 'factory_bot_rails'
-require "email_spec"
+require 'email_spec'
 require 'capybara/rspec'
 require 'capybara/rails'
 require 'support/controller_helpers'
@@ -14,7 +16,7 @@ require 'support/controller_helpers'
 # externals
 require 'simplecov'
 SimpleCov.start :rails do
-  add_filter "app/uploaders"
+  add_filter 'app/uploaders'
 end
 
 # Add additional requires below this line. Rails is not loaded until this point!
@@ -81,8 +83,8 @@ RSpec.configure do |config|
   end
 
   # Devise
-  config.include Devise::Test::ControllerHelpers, :type => :controller
-  config.include ControllerHelpers, :type => :controller
+  config.include Devise::Test::ControllerHelpers, type: :controller
+  config.include ControllerHelpers, type: :controller
 
   # Shoulda Matchers
   Shoulda::Matchers.configure do |config|

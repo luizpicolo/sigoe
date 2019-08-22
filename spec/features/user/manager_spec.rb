@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-context "Manager (crud) entity User" do
+context 'Manager (crud) entity User' do
   before(:each) do
     @user = FactoryBot.create(:user)
     FactoryBot.create(
-      :permission, 
+      :permission,
       user: @user,
       entity: User
     )
@@ -15,19 +17,19 @@ context "Manager (crud) entity User" do
     scenario 'with valid data' do
       visit new_user_path
       create_new_user
-      expect(page).to have_content("Usuário cadastrado com sucesso")
+      expect(page).to have_content('Usuário cadastrado com sucesso')
     end
 
     scenario 'with existent email' do
       visit new_user_path
       create_new_user email: @user.email
-      expect(page).to have_content("Email já está em uso")
+      expect(page).to have_content('Email já está em uso')
     end
 
     scenario 'with password confirmation different of password' do
       visit new_user_path
       create_new_user password: 'wrongpassword'
-      expect(page).to have_content("Confirmar senha não é igual a Senha")
+      expect(page).to have_content('Confirmar senha não é igual a Senha')
     end
   end
 
@@ -37,7 +39,7 @@ context "Manager (crud) entity User" do
       new_name = Faker::Name.name
       fill_in 'Nome', with: new_name
       click_button 'Salvar'
-      expect(page).to have_content("Usuário atualizado com sucesso")
+      expect(page).to have_content('Usuário atualizado com sucesso')
       expect(page).to_not have_content(@user.name)
       expect(page).to have_content(new_name)
     end
@@ -50,11 +52,12 @@ context "Manager (crud) entity User" do
         name: Faker::Name.name,
         email: Faker::Internet.email,
         username: Faker::Internet.user_name,
-        sector: @user.sector)
+        sector: @user.sector
+      )
       visit users_path
       find("a[href='/users/#{new_user.id}']").click
       expect(page).to_not have_content(new_user.name)
-      expect(page).to have_content("Usuário deletado com sucesso")
+      expect(page).to have_content('Usuário deletado com sucesso')
     end
   end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: patients
@@ -29,7 +31,7 @@ class Patient < ApplicationRecord
 
   # Atributos para busca com SearchCop
   search_scope :search do
-    attributes student: "student.name"
+    attributes student: 'student.name'
   end
 
   def photo
@@ -49,6 +51,6 @@ class Patient < ApplicationRecord
   #
   # @return [Array] contendo os atributos para a busca
   def self.ordenation_attributes
-    [["ID",'id'], ["Paciente",'student_id']]
+    [%w[ID id], %w[Paciente student_id]]
   end
 end

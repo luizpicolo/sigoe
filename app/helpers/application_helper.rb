@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Módulo para funções diversas, sem associação com uma entidade em específico
 #
 module ApplicationHelper
@@ -35,8 +37,8 @@ module ApplicationHelper
     eval(entity)
   end
 
-  def  options_for_search(params)
-    options_for_select(["15", "30", "45", "50", "75", "100"], params[:return])
+  def options_for_search(params)
+    options_for_select(%w[15 30 45 50 75 100], params[:return])
   end
 
   # Converte datas em formato brasileiro

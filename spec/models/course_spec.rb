@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: courses
@@ -28,7 +30,7 @@ RSpec.describe Course, type: :model do
   it { should have_db_column :initial }
 
   # Indexes
-  it { should have_db_index ["name", "initial"] }
+  it { should have_db_index %w[name initial] }
 
   # Associations
   it { should have_many(:students) }
@@ -36,9 +38,9 @@ RSpec.describe Course, type: :model do
   it { should have_many :incidents }
 
   # Methods
-  ['names', 'initials'].each do |method|
+  %w[names initials].each do |method|
     describe "##{method}" do
-      it "should return an array" do
+      it 'should return an array' do
         expect(Course.method(method).call).to be_an_instance_of(Array)
 
         Course.method(method).call.each do |name|
@@ -48,10 +50,10 @@ RSpec.describe Course, type: :model do
     end
   end
 
-  describe ".ordenation_attributes" do
+  describe '.ordenation_attributes' do
     ordenation_attributes = Course.ordenation_attributes
 
-    it "should return an array" do
+    it 'should return an array' do
       expect(ordenation_attributes).to be_an_instance_of(Array)
 
       ordenation_attributes.each do |attribute|
@@ -66,12 +68,12 @@ RSpec.describe Course, type: :model do
     end
   end
 
-  describe "#params_search" do
-    it "should return an hash" do
+  describe '#params_search' do
+    it 'should return an hash' do
       expect(@course.params_search).to be_an_instance_of(Hash)
     end
 
-    it "should return hash key name with valeu name" do
+    it 'should return hash key name with valeu name' do
       expect(@course.params_search[:order]).to eq('name')
     end
 

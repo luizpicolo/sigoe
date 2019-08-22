@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe SectorsController, type: :controller do
@@ -6,8 +8,8 @@ RSpec.describe SectorsController, type: :controller do
     sign_in @user
   end
 
-  describe "GET #actions" do
-    %w(audi diren prof serti).each do |view|
+  describe 'GET #actions' do
+    %w[audi diren prof serti].each do |view|
       it "render template #{view} with success" do
         get :actions, params: { sector_id: view }
         expect(response).to render_template(view)

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: patient_appointments
@@ -38,8 +40,8 @@ class Patient::Appointment < ApplicationRecord
     'Ocular/Auricular', 'Cólica Mestrual', 'Lesão', 'Gastrintestinal',
     'Tontura/Mal Estar', 'Cefaléia'
   ]
-  enum medical_referral: ['Hospital', 'ESF', 'Família', 'Psicóloga']
-  enum nursing_conduct: ['Orientações', 'Observação', 'Encaminhamentos']
+  enum medical_referral: %w[Hospital ESF Família Psicóloga]
+  enum nursing_conduct: %w[Orientações Observação Encaminhamentos]
   enum tanners_stage: [
     'Estágio I', 'Estágio II', 'Estágio III', 'Estágio IV', 'Estágio V'
   ]
@@ -55,6 +57,6 @@ class Patient::Appointment < ApplicationRecord
   #
   # @return [Array] contendo os atributos para a busca
   def self.ordenation_attributes
-    [["ID",'id'], ["Quiexas",'complaints'], ["Data",'created_at']]
+    [%w[ID id], %w[Quiexas complaints], %w[Data created_at]]
   end
 end

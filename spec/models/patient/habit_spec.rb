@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: patient_habits
@@ -22,7 +24,6 @@
 require 'rails_helper'
 
 RSpec.describe Patient::Habit, type: :model do
-
   # === Relations ===
   it { should belong_to :patient }
 
@@ -47,6 +48,5 @@ RSpec.describe Patient::Habit, type: :model do
   # it { should validate_presence_of :patient }
 
   # === Enums ===
-  it { should define_enum_for(:sleep_rest).with(["Alterado", "Satisfatório"]) }
-
+  it { should define_enum_for(:sleep_rest).with(%w[Alterado Satisfatório]) }
 end

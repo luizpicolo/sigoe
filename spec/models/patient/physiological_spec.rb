@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: patient_physiologicals
@@ -36,5 +38,5 @@ RSpec.describe Patient::Physiological, type: :model do
   it { should have_db_column :updated_at }
 
   # === Database (Indexes) ===
-  it { should have_db_index ["patient_id"] }
+  it { should have_db_index ['patient_id'] }
 end

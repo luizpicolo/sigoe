@@ -1,14 +1,16 @@
+# frozen_string_literal: true
+
 class SchoolGroupsController < ApplicationController
   include ParamsSearch
 
   load_and_authorize_resource
 
-  before_action :set_school_group, only: [:edit, :destroy, :update]
-  add_breadcrumb "Home", :root_path
+  before_action :set_school_group, only: %i[edit destroy update]
+  add_breadcrumb 'Home', :root_path
 
   def index
-    add_breadcrumb "DIREN", sector_actions_path('diren')
-    add_breadcrumb "Turmas"
+    add_breadcrumb 'DIREN', sector_actions_path('diren')
+    add_breadcrumb 'Turmas'
 
     @school_groups = SchoolGroup.order("#{set_order}": :desc)
                                 .search(params[:search])
@@ -16,9 +18,9 @@ class SchoolGroupsController < ApplicationController
   end
 
   def new
-    add_breadcrumb "DIREN", sector_actions_path('diren')
-    add_breadcrumb "Turmas", :school_groups_path
-    add_breadcrumb "Nova Turma"
+    add_breadcrumb 'DIREN', sector_actions_path('diren')
+    add_breadcrumb 'Turmas', :school_groups_path
+    add_breadcrumb 'Nova Turma'
 
     @school_group = SchoolGroup.new
   end
@@ -34,9 +36,9 @@ class SchoolGroupsController < ApplicationController
   end
 
   def edit
-    add_breadcrumb "DIREN", sector_actions_path('diren')
-    add_breadcrumb "Turmas", :school_groups_path
-    add_breadcrumb "Atualizar turma"
+    add_breadcrumb 'DIREN', sector_actions_path('diren')
+    add_breadcrumb 'Turmas', :school_groups_path
+    add_breadcrumb 'Atualizar turma'
   end
 
   def update
@@ -50,7 +52,7 @@ class SchoolGroupsController < ApplicationController
 
   def destroy
     if @school_group.destroy
-      flash[:success] = "Turma deletada com sucesso"
+      flash[:success] = 'Turma deletada com sucesso'
       redirect_back(fallback_location: school_groups_path)
     else
       flash.now[:error] = @school_group.errors.full_messages

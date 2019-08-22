@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: patient_morbids
@@ -42,10 +44,8 @@ class Patient::Morbid < ApplicationRecord
   ]
   enum pre_existing_diseases_diabetes: ['Tipo I', 'Tipo II']
   enum pre_existing_diseases_renal: ['Cálculos renais',
-    'Infecção renal ou Pielonefrite', 'Cistos renais', 'Perda da função renal'
-  ]
+                                     'Infecção renal ou Pielonefrite', 'Cistos renais', 'Perda da função renal']
   enum pre_existing_diseases_pneumopathy: ['Pneumopatia Intersticial',
-    'Pneumopatia Aguda', 'Pneumopatia Crônica', 'Pneumopatia Ocupacional',
-    'Pneumopatia Parasitária'
-  ]
+                                           'Pneumopatia Aguda', 'Pneumopatia Crônica', 'Pneumopatia Ocupacional',
+                                           'Pneumopatia Parasitária']
 end

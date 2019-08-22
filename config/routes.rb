@@ -1,16 +1,18 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   root 'home#index'
 
   # Devise Routes
   devise_for :user, path: 'auth', path_names: {
-      sign_in: 'login',
-      sign_out: 'logout',
-      registration: 'register',
-      sign_up: 'signup'
+    sign_in: 'login',
+    sign_out: 'logout',
+    registration: 'register',
+    sign_up: 'signup'
   }, controllers: {
-      # :registrations => 'registrations',
-      :sessions => 'sessions',
-      #:omniauth_callbacks => 'omniauth_callbacks'
+    # :registrations => 'registrations',
+    sessions: 'sessions',
+    #:omniauth_callbacks => 'omniauth_callbacks'
   }
 
   # routes
@@ -30,7 +32,7 @@ Rails.application.routes.draw do
     get :sign, to: 'incidents#confirmation'
     post :sign, to: 'incidents#sign'
   end
-  resources :report_incidents, only: [:new, :create]
+  resources :report_incidents, only: %i[new create]
   resources :patients, except: [:show] do
     resources :appointments, except: [:show], controller: 'patients/appointments'
   end

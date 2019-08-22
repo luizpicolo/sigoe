@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: permissions
@@ -25,7 +27,7 @@ class Permission < ApplicationRecord
 
   # Atributos para busca com SearchCop
   search_scope :search do
-    attributes user: "user.name"
+    attributes user: 'user.name'
   end
 
   # Retorna um vetor com os atributos que serão utilizados para a
@@ -33,6 +35,6 @@ class Permission < ApplicationRecord
   #
   # @return [Array] contendo os atributos para a busca
   def self.ordenation_attributes
-    [["ID",'id'], ["User",'user']]
+    [%w[ID id], %w[User user]]
   end
 end
