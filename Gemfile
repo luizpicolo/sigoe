@@ -1,14 +1,13 @@
-# frozen_string_literal: true
 source 'https://rubygems.org'
-
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.5.1'
+ruby '2.6.3'
 
 gem 'active_link_to'
 gem 'alert_message'
 gem 'bcrypt', '~> 3.1.7'
 gem 'breadcrumbs_on_rails'
+gem 'bootsnap', '>= 1.4.2', require: false
 gem 'cancancan'
 gem 'carrierwave'
 gem 'carrierwave-ftp', require: 'carrierwave/storage/sftp'
@@ -25,7 +24,7 @@ gem 'groupdate'
 gem 'htmlcompressor'
 gem 'httparty'
 gem 'ionicons-rails' ## Será removido no futuro
-gem 'jbuilder'
+gem 'jbuilder', '~> 2.7'
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
 gem 'jquery-ui-rails'
@@ -36,25 +35,27 @@ gem 'mini_magick'
 gem 'modernizr-rails'
 gem 'pdfkit'
 gem 'pg'
+gem 'puma', '~> 3.11'
 gem 'rack', '>= 2.0.6'
-gem 'rails'
+gem 'rails', '~> 6.0.0'
 gem 'rails-env'
 gem 'rails-i18n'
 gem 'randumb'
-gem 'sass-rails'
+gem 'sass-rails', '~> 5'
 gem 'search_cop'
 gem 'seed_migration'
 gem 'spreadsheet'
-gem 'turbolinks'
-gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+gem 'turbolinks', '~> 5'
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'uglifier'
 gem 'whenever', require: false
 gem 'wkhtmltopdf-binary'
+gem 'webpacker', '~> 4.0'
 
 group :development, :test do
   gem 'binding_of_caller'
-  gem 'byebug', platform: :mri
-  gem 'capybara'
+  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'capybara', '>= 2.15'
   gem 'database_rewinder'
   gem 'email_spec'
   gem 'factory_bot_rails'
@@ -67,12 +68,13 @@ group :development, :test do
   gem 'simplecov'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'webdrivers'
 end
 
 group :development do
   gem 'annotate'
   gem 'better_errors'
-  gem 'listen', '~> 3.0.5'
+  gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'mina', '0.3.8'
   gem 'pry-byebug'
   gem 'puma', '~> 3.0'
@@ -80,13 +82,13 @@ group :development do
   gem 'rails_best_practices', '~> 1.18', '>= 1.18.1'
   gem 'rb-readline'
   gem 'rename'
-  gem 'web-console'
+  gem 'web-console', '>= 3.3.0'
   gem 'yard'
 end
 
 group :staging, :production do
   gem 'mini_racer'
-  gem 'passenger'
+  # gem 'passenger'
 end
 
 group :production do
