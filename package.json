@@ -1,15 +1,16 @@
 {
-  "name": "siai-ifms-na",
-  "version": "1.0.0",
-  "main": "index.js",
-  "repository": "git@github.com:ifms-na/siai-ifms-na.git",
-  "author": "Luiz Picolo <luizpicolo@gmail.com>",
-  "license": "MIT",
+  "name": "siai",
+  "private": true,
   "dependencies": {
+    "@rails/ujs": "^6.0.0-alpha",
+    "turbolinks": "^5.2.0",
+    "@rails/activestorage": "^6.0.0-alpha",
+    "@rails/actioncable": "^6.0.0-alpha",
     "bulma": "^0.6.1",
     "fancybox": "^3.0.0",
     "highcharts": "^7.1.1",
     "jquery-mask-plugin": "^1.14.10",
     "select2": "^4.0.3"
-  }
+  },
+  "version": "0.1.0"
 }
