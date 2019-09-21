@@ -77,7 +77,6 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'mina', '0.3.8'
   gem 'pry-byebug'
-  gem 'puma', '~> 3.0'
   gem 'rails-erd'
   gem 'rails_best_practices', '~> 1.18', '>= 1.18.1'
   gem 'rb-readline'
