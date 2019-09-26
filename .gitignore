@@ -18,6 +18,8 @@ config/*.log
 
 # Ignore ymls
 /config/database.yml
+/config/master.key
+config/initializers/secret_token.rb
 # /config/secrets.yml
 
 # Ignore Coverage
@@ -39,3 +41,8 @@ yarn.lock
 /erd.pdf
 /node_modules/
 # /vendor/assets/components/*
+
+# Ignore precompiled javascript packs
+/public/packs
+/public/packs-test
+/public/assets
