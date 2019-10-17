@@ -18,6 +18,8 @@ config/*.log
 
 # Ignore ymls
 /config/database.yml
+/config/master.key
+config/initializers/secret_token.rb
 # /config/secrets.yml
 
 # Ignore Coverage
@@ -42,6 +44,7 @@ yarn.lock
 
 /public/packs
 /public/packs-test
+/public/assets
 /node_modules
 /yarn-error.log
 yarn-debug.log*
