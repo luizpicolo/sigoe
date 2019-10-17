@@ -23,7 +23,7 @@ context 'Manager (crud) entity User' do
     scenario 'with existent email' do
       visit new_user_path
       create_new_user email: @user.email
-      expect(page).to have_content('Email já está em uso')
+      expect(page).to have_content('E-mail já está em uso')
     end
 
     scenario 'with password confirmation different of password' do
