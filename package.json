@@ -10,6 +10,7 @@
     "bulma": "^0.6.1",
     "fancybox": "^3.0.0",
     "highcharts": "^7.1.1",
+    "jquery": "^3.4.1",
     "jquery-mask-plugin": "^1.14.10",
     "select2": "^4.0.3",
     "turbolinks": "^5.2.0"
