@@ -2,7 +2,7 @@ language: ruby
 sudo: required
 dist: trusty
 rvm:
-  - 2.5.1
+  - 2.6.4
 before_install: gem install bundler -v 1.16.0
 before_script:
   - cp config/application.yml.example config/application.yml
