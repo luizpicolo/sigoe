@@ -7,8 +7,6 @@
 //= require fancybox/dist/js/jquery.fancybox
 //= require project/alert
 //= require alert_message
-//= require highcharts
-//= require chartkick
 //= require turbolinks
 
 document.addEventListener('turbolinks:load', function() {
