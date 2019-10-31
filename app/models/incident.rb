@@ -39,7 +39,7 @@ class Incident < ApplicationRecord
   
   belongs_to :student, optional: true
   belongs_to :user
-  belongs_to :course, optional: true
+  belongs_to :course
   belongs_to :assistant, class_name: 'User', foreign_key: 'assistant_id'
   belongs_to :school_group, optional: true
   belongs_to :type_incident
