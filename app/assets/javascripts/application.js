@@ -4,7 +4,6 @@
 //= require jquery-ui
 //= require select2/dist/js/select2
 //= require fancybox/dist/js/jquery.fancybox
-//= require project/alert
 //= require alert_message
 //= require turbolinks
 
