@@ -81,6 +81,7 @@ group :development do
   gem 'rb-readline'
   gem 'rename'
   gem 'rails-erd'
+  gem 'rubocop', require: false
 end
 
 group :staging, :production do
