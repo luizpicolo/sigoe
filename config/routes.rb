@@ -33,8 +33,5 @@ Rails.application.routes.draw do
     post :sign, to: 'incidents#sign'
   end
   resources :report_incidents, only: %i[new create]
-  resources :patients, except: [:show] do
-    resources :appointments, except: [:show], controller: 'patients/appointments'
-  end
   resources :school_groups, except: [:show]
 end

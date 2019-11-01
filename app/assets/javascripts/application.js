@@ -50,13 +50,4 @@ document.addEventListener('turbolinks:load', function() {
     $('html').toggleClass('menu-mobile-active');
     e.preventDefault();
   })
-
-  //
-  $('.is-student').hide();
-  $('.select-type-patient input').on('click touchstart', function(e){
-    var id = $(this).attr('id');
-    $('.is-student').hide();
-    $('.is-server').hide();
-    $('.' + id).show();
-  });
 });
