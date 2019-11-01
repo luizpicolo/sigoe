@@ -1,7 +1,6 @@
 //= require jquery
 //= require jquery-mask-plugin/dist/jquery.mask
 //= require jquery.turbolinks
-//= require jquery_ujs
 //= require jquery-ui
 //= require select2/dist/js/select2
 //= require fancybox/dist/js/jquery.fancybox
