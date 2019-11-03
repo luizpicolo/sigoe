@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.5.1'
+ruby '2.6.4'
 
 gem 'alert_message'
 gem 'active_link_to'
@@ -60,7 +60,7 @@ group :development, :test do
   gem 'faker'
   gem 'rspec-rails'
   gem 'selenium-webdriver'
-  gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git', branch: 'rails-5'
+  gem 'shoulda-matchers'
   gem 'spring'
   gem 'regressor', git: 'https://github.com/ndea/regressor.git'
   gem 'spring-watcher-listen', '~> 2.0.0'

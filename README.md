@@ -4,7 +4,7 @@
 
 O SIAI (Sistema de Apoio interno) é um software desenvolvido com o objetivo de auxiliar nos diversos setores do IFMS-NA (Institulo Federal de Mato Grosso do Sul - Campus Nova Andradina).
 
-Este sistema tem como base: Rails 5.1.5 e Ruby 2.5.1.
+Este sistema tem como base: Rails 5.1.5 e Ruby 2.6.4.
 
 [![Test Coverage](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/test_coverage)](https://codeclimate.com/github/luizpicolo/siai/test_coverage)
 [![Build Status](https://travis-ci.org/luizpicolo/siai.svg?branch=master)](https://travis-ci.org/luizpicolo/siai-ifms-na)

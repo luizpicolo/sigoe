@@ -66,11 +66,11 @@ RSpec.describe Incident, type: :model do
   it { should have_db_index ["user_id"] }
 
   # Associations
-  it { should belong_to(:student) }
+  it { should belong_to(:student).optional }
   it { should belong_to(:assistant) }
   it { should belong_to(:user) }
   it { should belong_to(:course) }
-  it { should belong_to(:school_group) }
+  it { should belong_to(:school_group).optional }
   it { should have_and_belong_to_many(:prohibition_and_responsibilities) }
 
   # Enums
