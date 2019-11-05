@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: school_groups
@@ -24,10 +26,10 @@ RSpec.describe SchoolGroup, type: :model do
   it { should validate_presence_of :name }
   it { should validate_presence_of :identifier }
 
-  describe ".ordenation_attributes" do
+  describe '.ordenation_attributes' do
     ordenation_attributes = SchoolGroup.ordenation_attributes
 
-    it "should return an array" do
+    it 'should return an array' do
       expect(ordenation_attributes).to be_an_instance_of(Array)
 
       ordenation_attributes.each do |attribute|

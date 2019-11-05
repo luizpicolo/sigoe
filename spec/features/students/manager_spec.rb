@@ -1,11 +1,13 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-context "Manager (crud) entity Students" do
+context 'Manager (crud) entity Students' do
   before(:each) do
     @user = FactoryBot.create(:user)
     @student = FactoryBot.create(:student)
     FactoryBot.create(
-      :permission, 
+      :permission,
       user: @user,
       entity: Student
     )
@@ -16,7 +18,7 @@ context "Manager (crud) entity Students" do
     scenario 'with valid data' do
       visit new_student_path
       create_new_student
-      expect(page).to have_content("Estudante cadastro com sucesso")
+      expect(page).to have_content('Estudante cadastro com sucesso')
     end
   end
 
@@ -26,7 +28,7 @@ context "Manager (crud) entity Students" do
       new_name = Faker::Name.name
       fill_in 'Nome', with: new_name
       click_button 'Salvar'
-      expect(page).to have_content("Estudante atualizado com sucesso")
+      expect(page).to have_content('Estudante atualizado com sucesso')
       expect(page).to_not have_content(@student.name)
       expect(page).to have_content(new_name)
     end
@@ -37,7 +39,7 @@ context "Manager (crud) entity Students" do
       visit students_path
       find("a[href='/students/#{@student.id}']").click
       expect(page).to_not have_content(@student.name)
-      expect(page).to have_content("Estudante deletado com sucesso")
+      expect(page).to have_content('Estudante deletado com sucesso')
     end
   end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: students
@@ -46,15 +48,15 @@ class Student < ApplicationRecord
   # Atributos para busca com SearchCop
   search_scope :search do
     attributes :name
-    attributes :course => "course.name"
-    attributes :initial => "course.initial"
+    attributes course: 'course.name'
+    attributes initial: 'course.initial'
   end
 
   # Retorna um vetor contendo os nomes e seus respectivos IDs
   #
   # @return [Array] contendo nomes e seus IDs
   def self.get_all
-    order('name asc').collect {|p| [ p.name, p.id ] }
+    order('name asc').collect { |p| [p.name, p.id] }
   end
 
   def self.import(attributes, course)
@@ -68,7 +70,7 @@ class Student < ApplicationRecord
   #
   # @return [Array] contendo os atributos para a busca
   def self.ordenation_attributes
-    [["ID",'id'], ["Nome",'name']]
+    [%w[ID id], %w[Nome name]]
   end
 
   private
@@ -89,7 +91,7 @@ class Student < ApplicationRecord
 
   def self.check_password(student, params)
     if student.password.nil?
-      params['password'] = rand(11111111..99999999).to_s
+      params['password'] = rand(11_111_111..99_999_999).to_s
       params
     else
       params

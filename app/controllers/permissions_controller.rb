@@ -1,14 +1,16 @@
+# frozen_string_literal: true
+
 class PermissionsController < ApplicationController
   include ParamsSearch
 
   load_and_authorize_resource
 
-  before_action :set_permission, only: [:edit, :destroy, :update]
-  add_breadcrumb "Home", :root_path
+  before_action :set_permission, only: %i[edit destroy update]
+  add_breadcrumb 'Home', :root_path
 
   def index
-    add_breadcrumb "Serti", sector_actions_path('serti')
-    add_breadcrumb "Usuários"
+    add_breadcrumb 'Serti', sector_actions_path('serti')
+    add_breadcrumb 'Usuários'
 
     @permissions = Permission.order("#{set_order}": :desc)
                              .search(params[:search])
@@ -17,9 +19,9 @@ class PermissionsController < ApplicationController
   end
 
   def new
-    add_breadcrumb "Serti", sector_actions_path('serti')
-    add_breadcrumb "Usuários", :users_path
-    add_breadcrumb "Permissões"
+    add_breadcrumb 'Serti', sector_actions_path('serti')
+    add_breadcrumb 'Usuários', :users_path
+    add_breadcrumb 'Permissões'
 
     @permission = Permission.new
   end
@@ -36,9 +38,9 @@ class PermissionsController < ApplicationController
   end
 
   def edit
-    add_breadcrumb "Serti", sector_actions_path('serti')
-    add_breadcrumb "Usuários", :users_path
-    add_breadcrumb "Atualizar Permissões"
+    add_breadcrumb 'Serti', sector_actions_path('serti')
+    add_breadcrumb 'Usuários', :users_path
+    add_breadcrumb 'Atualizar Permissões'
   end
 
   def update
@@ -54,7 +56,7 @@ class PermissionsController < ApplicationController
 
   def destroy
     if @permission.destroy
-      flash[:success] = "Permissões deletadas com sucesso"
+      flash[:success] = 'Permissões deletadas com sucesso'
       redirect_back(fallback_location: user_permissions_path)
     else
       flash.now[:error] = @permission.errors.full_messages

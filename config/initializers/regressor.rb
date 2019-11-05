@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 # If the regressor gem is inside a group wrap your initializer in
-if !Rails.env.production?
+unless Rails.env.production?
   Regressor.configure do |config|
     # Defines the path where the generated files for your models will be placed
     # config.regression_path = 'spec/models/regression'

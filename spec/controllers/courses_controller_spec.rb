@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe CoursesController, type: :controller do
@@ -9,14 +11,14 @@ RSpec.describe CoursesController, type: :controller do
     @path = courses_path
   end
 
-  include_examples "permission_controller"
+  include_examples 'permission_controller'
 
-  describe "POST #create" do
+  describe 'POST #create' do
     context 'params with empty value' do
-      it "renders page with error message" do
+      it 'renders page with error message' do
         add_permission @entity, @user, create: true
         sign_in @user
-        post :create, params: { "#{@entity.downcase}": { name: '' }}
+        post :create, params: { "#{@entity.downcase}": { name: '' } }
         expect(response).to render_template(:new)
         expect(flash[:error]).to_not be_nil
         expect(flash[:error].first).to match(/não pode ficar em branco/)
@@ -24,9 +26,9 @@ RSpec.describe CoursesController, type: :controller do
     end
   end
 
-  describe "PUT #update" do
+  describe 'PUT #update' do
     context 'params with empty value' do
-      it "renders page with error message" do
+      it 'renders page with error message' do
         add_permission @entity, @user, update: true
         sign_in @user
         put :update, params: { id: @model.id, "#{@entity.downcase}": { name: '' } }
@@ -37,9 +39,9 @@ RSpec.describe CoursesController, type: :controller do
     end
   end
 
-  describe "DELETE #destroy" do
+  describe 'DELETE #destroy' do
     context 'params with empty value' do
-      it "renders page with error message" do
+      it 'renders page with error message' do
         expect_any_instance_of(Course).to receive(:destroy).and_return(false)
 
         add_permission @entity, @user, destroy: true

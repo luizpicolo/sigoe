@@ -1,13 +1,15 @@
+# frozen_string_literal: true
+
 class ReportIncidentsController < ApplicationController
   load_and_authorize_resource Incident
-  add_breadcrumb "Home", :root_path
+  add_breadcrumb 'Home', :root_path
 
-  skip_before_action :verify_authenticity_token  
+  skip_before_action :verify_authenticity_token
 
   def new
-    add_breadcrumb "Diren", sector_actions_path('diren')
-    add_breadcrumb "Ocorrências", :incidents_path
-    add_breadcrumb "Relatório ocorrências"
+    add_breadcrumb 'Diren', sector_actions_path('diren')
+    add_breadcrumb 'Ocorrências', :incidents_path
+    add_breadcrumb 'Relatório ocorrências'
   end
 
   def create
@@ -16,7 +18,7 @@ class ReportIncidentsController < ApplicationController
       @incidents = incidents
       render layout: false
     else
-      flash[:error] = "Não foi encontrada ocorrência para este parâmetros"
+      flash[:error] = 'Não foi encontrada ocorrência para este parâmetros'
       redirect_back(fallback_location: incidents_path)
     end
   end

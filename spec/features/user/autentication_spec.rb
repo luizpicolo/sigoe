@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-context "User" do
+context 'User' do
   feature 'sign in' do
     let!(:user) { FactoryBot.create(:user) }
 
@@ -11,7 +13,7 @@ context "User" do
 
     scenario 'with invalid credentials' do
       sign_in user, password: 'wrongpassword'
-      expect(page).to have_content('Invalido Username ou senha.')
+      expect(page).to have_content('Inválido Username ou senha.')
     end
   end
 

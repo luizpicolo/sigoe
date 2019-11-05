@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-context "Check access permissions" do
+context 'Check access permissions' do
   before(:each) do
     @user = FactoryBot.create(:user)
   end
@@ -8,14 +10,14 @@ context "Check access permissions" do
   entities = [
     [Student, true], [Student, false],
     [Course, true], [Course, false],
-    [SchoolGroup, true], [SchoolGroup, false],
+    [SchoolGroup, true], [SchoolGroup, false]
   ]
-  
+
   entities.each do |(entity, value)|
     feature "manager #{entity}" do
       before(:each) do
         @permissions = FactoryBot.create(
-          :permission, 
+          :permission,
           user: @user,
           entity: entity,
           can_read: value

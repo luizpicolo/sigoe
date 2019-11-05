@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: incidents
@@ -25,18 +27,18 @@ class Incident < ApplicationRecord
   include SearchCop
 
   validates :user, :course, :assistant, :institution, :description,
-	          :date_incident, :time_incident, :type_incident, presence: true
+            :date_incident, :time_incident, :type_incident, presence: true
 
-  enum institution: ['Ifms', 'Ufms', 'Cemid']
-  enum is_resolved: ['no_', 'yes_']
-  enum type_student: ['non_resident', 'resident']
-  enum sanction: [
-    'verbal_warning',
-    'written_warning',
-    'suspension',
-    'quitting_school'
+  enum institution: %w[Ifms Ufms Cemid]
+  enum is_resolved: %w[no_ yes_]
+  enum type_student: %w[non_resident resident]
+  enum sanction: %w[
+    verbal_warning
+    written_warning
+    suspension
+    quitting_school
   ]
-  
+
   belongs_to :student, optional: true
   belongs_to :user
   belongs_to :course, optional: true
@@ -48,22 +50,22 @@ class Incident < ApplicationRecord
 
   # Atributos para busca com SearchCop
   search_scope :search do
-    attributes student: "student.id"
-    attributes course: "course.id"
-    attributes student_name: "student.name"
-    attributes course_name: "course.name"
-    attributes institution: "institution"
-    attributes type_student: "type_student"
-    attributes type_incident: "type_incident.name"
-    attributes date_incident: "date_incident"
+    attributes student: 'student.id'
+    attributes course: 'course.id'
+    attributes student_name: 'student.name'
+    attributes course_name: 'course.name'
+    attributes institution: 'institution'
+    attributes type_student: 'type_student'
+    attributes type_incident: 'type_incident.name'
+    attributes date_incident: 'date_incident'
   end
 
   def student_name
-    student.present? ? student.name : " ---- "
+    student.present? ? student.name : ' ---- '
   end
 
   def course_initial
-    course.present? ? course.initial : " ---- "
+    course.present? ? course.initial : ' ---- '
   end
 
   def signed_by_student_in
@@ -72,7 +74,7 @@ class Incident < ApplicationRecord
 
   ## Charts
   def self.by_years
-    group_by_year(:created_at, format: "%Y").count
+    group_by_year(:created_at, format: '%Y').count
   end
 
   def self.by_courses
@@ -80,7 +82,7 @@ class Incident < ApplicationRecord
   end
 
   def self.by_is_resolved
-    result = group(:is_resolved).count 
+    result = group(:is_resolved).count
     result['Não'] = result.delete 'no_'
     result['Sim'] = result.delete 'yes_'
     result['Sem Categoria'] = result.delete nil
@@ -107,7 +109,7 @@ class Incident < ApplicationRecord
   #
   # @return [Array] contendo os atributos para a busca
   def self.ordenation_attributes
-    [["ID",'id'], ["Estudante",'student_id'], ["Instituição",'institution'],
-     ["Data",'date_incident'], ["Turma",'course_id']]
+    [%w[ID id], %w[Estudante student_id], %w[Instituição institution],
+     %w[Data date_incident], %w[Turma course_id]]
   end
 end

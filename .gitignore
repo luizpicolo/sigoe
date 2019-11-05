@@ -42,7 +42,13 @@ yarn.lock
 /node_modules/
 # /vendor/assets/components/*
 
-# Ignore precompiled javascript packs
 /public/packs
 /public/packs-test
 /public/assets
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity
+
+# Ignore master key for decrypting credentials and more.
+/config/master.key

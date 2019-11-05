@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-context "When keeping Incident" do
+context 'When keeping Incident' do
   before(:each) do
     @student = FactoryBot.create(:student)
     @course = FactoryBot.create(:course)
@@ -8,7 +10,7 @@ context "When keeping Incident" do
     @user = FactoryBot.create(:user, sector: @sector)
     @type_incident = FactoryBot.create(:type_incident, name: 'Atraso')
     FactoryBot.create(
-      :permission, 
+      :permission,
       user: @user,
       entity: Incident
     )
@@ -19,7 +21,7 @@ context "When keeping Incident" do
     scenario 'with valid data' do
       visit new_incident_path
       create_new_incident user: @user.name, student: @student.name, course: @course.name, type_incident: @type_incident.name
-      expect(page).to have_content("Ocorrência cadastra com sucesso")
+      expect(page).to have_content('Ocorrência cadastra com sucesso')
     end
   end
 
@@ -27,13 +29,13 @@ context "When keeping Incident" do
     scenario 'see a button to sign a unsigned incident' do
       @incident = FactoryBot.create(:incident, signed_in: nil)
       visit incidents_path
-      expect(page).to have_link("Assinar", href: "/incidents/#{@incident.id}/sign")
+      expect(page).to have_link('Assinar', href: "/incidents/#{@incident.id}/sign")
     end
 
     scenario 'not see a button with not signed incident' do
       @incident = FactoryBot.create(:incident)
       visit incidents_path
-      expect(page).to have_no_link("Assinar", href: "/incidents/#{@incident.id}/sign")
+      expect(page).to have_no_link('Assinar', href: "/incidents/#{@incident.id}/sign")
     end
   end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateIncidentesProhibitionAndResponsibilities < ActiveRecord::Migration[5.2]
   def change
     create_table :incidents_prohibition_and_responsibilities do |t|

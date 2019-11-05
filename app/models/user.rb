@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: users
@@ -50,7 +52,7 @@ class User < ApplicationRecord
   # Atributos para busca com SearchCop
   search_scope :search do
     attributes :name, :email, :siape
-    attributes :sector => "sector.initial"
+    attributes sector: 'sector.initial'
   end
 
   # Retorna um vetor com os atributos que serão utilizados para a
@@ -58,23 +60,23 @@ class User < ApplicationRecord
   #
   # @return [Array] contendo os atributos para a busca
   def self.ordenation_attributes
-    [["ID",'id'], ["Nome",'name']]
+    [%w[ID id], %w[Nome name]]
   end
-  
+
   # Verifica se o usuário selecionado é o usuário que esta logado
   #
   # @param [Object User] current_user
   # @return [Boolean] true se o usuário for igual ao usuário logo
   # @return [Boolean] false se o usuário for diferente ao usuário logo
   def is_current?(current_user)
-    current_user.id == id ? true : false
+    current_user.id == id
   end
 
   # Retorna um vetor contendo os nomes e seus respectivos IDs
   #
   # @return [Array] contendo nomes e seus IDs
   def self.get_all
-    order('name asc').collect {|p| [ p.name, p.id ] }
+    order('name asc').collect { |p| [p.name, p.id] }
   end
 
   def last_access
@@ -88,10 +90,8 @@ class User < ApplicationRecord
   # @return [Boolean] false se o usuário não faz parte do setro
   def it_is_part_of_the_sector?(*_sectors)
     _sectors.each do |_sector|
-      if sector.initial.downcase == _sector
-        return true
-      end
+      return true if sector.initial.downcase == _sector
     end
-    return false
+    false
   end
 end

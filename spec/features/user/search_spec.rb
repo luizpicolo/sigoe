@@ -1,11 +1,13 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-context "Find users by your search scope" do
+context 'Find users by your search scope' do
   before(:each) do
     @sector = FactoryBot.create(:sector)
     @users = FactoryBot.create_list(:user, 2, sector: @sector)
     FactoryBot.create(
-      :permission, 
+      :permission,
       user: @users.first,
       entity: User
     )
@@ -13,7 +15,7 @@ context "Find users by your search scope" do
   end
 
   feature 'search user' do
-    ['name', 'email', 'siape', 'sector'].each do |attr|
+    %w[name email siape sector].each do |attr|
       scenario "find with attribute #{attr}" do
         visit users_path
         fill_in 'search', with: @users.first.read_attribute(attr)
@@ -22,11 +24,11 @@ context "Find users by your search scope" do
       end
     end
 
-    scenario "find with fail attribute" do
+    scenario 'find with fail attribute' do
       visit users_path
       fill_in 'search', with: 'wrong_attribute'
       click_button 'Buscar'
-      expect(page).to have_content("Sua busca por wrong_attribute não obteve resutados")
+      expect(page).to have_content('Sua busca por wrong_attribute não obteve resutados')
     end
   end
 end

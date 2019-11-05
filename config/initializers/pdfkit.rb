@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'pdfkit'
 
 Rails.env.on(:any) do

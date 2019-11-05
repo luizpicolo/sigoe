@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: sectors
@@ -40,10 +42,10 @@ RSpec.describe Sector, type: :model do
   it { should have_db_column :icon }
 
   # Indexes
-  it { should have_db_index ["name", "initial", "slug"] }
+  it { should have_db_index %w[name initial slug] }
 
-  describe "#initials" do
-    it "should return an array" do
+  describe '#initials' do
+    it 'should return an array' do
       expect(@sectors).to be_an_instance_of(Array)
 
       @sectors.each do |sector|
@@ -51,7 +53,7 @@ RSpec.describe Sector, type: :model do
       end
     end
 
-    ['serti', 'audi', 'diren', 'prof'].each do |sector|
+    %w[serti audi diren prof].each do |sector|
       it "should return sector #{sector}" do
         expect(@sectors).to include(a_string_starting_with(sector))
       end

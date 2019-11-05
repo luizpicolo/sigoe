@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: sectors
@@ -25,6 +27,6 @@ class Sector < ApplicationRecord
   #
   # @return [Array] contendo as inicias e seus IDs
   def self.initials
-    all.collect {|p| [ p.initial, p.id ] }
+    all.collect { |p| [p.initial, p.id] }
   end
 end

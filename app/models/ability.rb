@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Permite ou restringe acesso a determinadas funcionalidades do sistema
 #
 # @see https://github.com/ryanb/cancan/wiki/defining-abilities

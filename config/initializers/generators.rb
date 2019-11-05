@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.env.on(:any) do
   # Disabel Generate assets and helpes
   config.generators.assets = false
