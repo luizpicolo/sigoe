@@ -7,6 +7,7 @@ before_install: gem install bundler -v 1.16.0
 addons:
   postgresql: "9.6"
 before_script:
+  - yarn install 
   - cp config/application.yml.example config/application.yml
   - cp config/database.yml.example config/database.yml
   - cp config/secrets.yml.example config/secrets.yml
