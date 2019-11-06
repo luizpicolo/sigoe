@@ -1,0 +1,66 @@
+AllCops:
+  Exclude:
+    - 'bin/*'
+    - 'cache/**/*'
+    - 'tmp/**/*'
+    - 'db/data/*'
+    - 'db/data_schema.rb'
+    - 'db/migrate/*'
+    - 'db/schema.rb'
+    - 'lib/aws-sdk.rb'
+    - 'vendor/**/*'
+  TargetRubyVersion: 2.5.3
+
+Metrics/LineLength:
+  Exclude:
+    - 'config/initializers/connection.rb'
+    - 'config/environments/*.rb'
+    - 'db/seeds.rb'
+  Max: 100
+
+Style/Documentation:
+  Enabled: false
+
+Layout/IndentFirstHashElement:
+  EnforcedStyle: special_inside_parentheses
+  SupportedStyles:
+    - special_inside_parentheses
+    - consistent
+    - align_braces
+  IndentationWidth: 4
+
+Layout/IndentFirstArrayElement:
+  EnforcedStyle: special_inside_parentheses
+  SupportedStyles:
+    - special_inside_parentheses
+    - consistent
+    - align_braces
+  IndentationWidth: 4
+
+Style/BlockComments:
+  Enabled: false
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+  SupportedStyles:
+    - indented
+    - indented_relative_to_receiver
+  IndentationWidth: 4
+
+Metrics/AbcSize:
+  Max: 20
+
+Metrics/BlockLength:
+  Exclude:
+    - 'Rakefile'
+    - '**/*.rake'
+    - 'spec/**/*.rb'
+    - 'config/environments/*.rb'
+    - 'config/routes.rb'
+
+Metrics/ModuleLength:
+  Exclude:
+    - 'spec/**/*.rb'
+
+Style/BracesAroundHashParameters:
+  EnforcedStyle: context_dependent

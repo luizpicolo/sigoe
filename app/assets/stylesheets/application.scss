@@ -16,14 +16,13 @@
  *= require alert_message
 */
 
-// IFMS Colos
+// IFMS Colors
 $green: hsl(130, 54%,  40%) !default;
 $red:   hsl(358, 78%, 45%) !default;
 
 // All Imports
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import "ionicons";
 @import "modification";
 @import "icons";
 @import "bulma/bulma";

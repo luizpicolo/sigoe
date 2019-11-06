@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.3'
+ruby '2.6.4'
 
 gem 'active_link_to'
 gem 'alert_message'
@@ -24,7 +24,6 @@ gem 'friendly_id', '~> 5.1.0'
 gem 'groupdate'
 gem 'htmlcompressor'
 gem 'httparty'
-gem 'ionicons-rails' ## Será removido no futuro
 gem 'jbuilder', '~> 2.7'
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
@@ -49,6 +48,7 @@ gem 'sass-rails'
 gem 'search_cop'
 gem 'seed_migration'
 gem 'spreadsheet'
+gem 'sprockets-rails', '2.3.3'
 gem 'turbolinks', '~> 5'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'uglifier'
@@ -68,9 +68,9 @@ group :development, :test do
   gem 'regressor', git: 'https://github.com/ndea/regressor.git'
   gem 'rspec-rails', '~> 4.0.0.beta2'
   gem 'selenium-webdriver'
-  gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git', branch: 'rails-5'
-  gem 'simplecov'
+  gem 'shoulda-matchers'
   gem 'spring'
+  gem 'simplecov', '~> 0.12.0'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'webdrivers'
 end
@@ -86,12 +86,12 @@ group :development do
   gem 'rb-readline'
   gem 'rename'
   gem 'web-console', '>= 3.3.0'
-  gem 'yard'
+  gem 'rails-erd'
+  gem 'rubocop', require: false
 end
 
 group :staging, :production do
   gem 'mini_racer'
-  # gem 'passenger'
 end
 
 group :production do
