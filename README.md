@@ -7,7 +7,7 @@ O SIGOE (Sistema para o Gerenciamento de Ocorrências Escolares) é um software 
 Este sistema tem como base: Rails 6.0.1 e Ruby 2.6.4.
 
 [![Test Coverage](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/test_coverage)](https://codeclimate.com/github/luizpicolo/siai/test_coverage)
-[![Build Status](https://travis-ci.org/luizpicolo/siai.svg?branch=master)](https://travis-ci.org/luizpicolo/siai-ifms-na)
+[![Build Status](https://travis-ci.org/luizpicolo/sigoe.svg?branch=master)](https://travis-ci.org/luizpicolo/sigoe)
 
 ## Como usar
 
