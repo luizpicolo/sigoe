@@ -79,7 +79,7 @@ group :development do
   gem 'annotate'
   gem 'better_errors'
   gem 'listen', '>= 3.0.5', '< 3.2'
-  gem 'mina', '0.3.8'
+  gem 'mina', '1.2.3'
   gem 'pry-byebug'
   gem 'rails-erd'
   gem 'rails_best_practices', '~> 1.18', '>= 1.18.1'
