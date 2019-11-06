@@ -70,7 +70,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'shoulda-matchers'
   gem 'spring'
-  gem 'simplecov', '~> 0.12.0'
+  gem 'simplecov', '~> 0.17.1'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'webdrivers'
 end
