@@ -530,7 +530,6 @@ DEPENDENCIES
   spreadsheet
   spring
   spring-watcher-listen (~> 2.0.0)
-  sprockets-rails (= 2.3.3)
   turbolinks (~> 5)
   turnout
   tzinfo-data
