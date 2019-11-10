@@ -3,7 +3,7 @@
     <% if can? :create, User %>
       <%= link_to new_user_path, class: "button is-success in-mobile-expand" do %>
         <span class="icon">
-          <i class="ion-plus-round"></i>
+          <i class="fas fa-plus"></i>
         </span>
         <span>Novo Usuário</span>
       <% end %>
@@ -41,7 +41,7 @@
             <% if can? :update, User %>
               <%= link_to edit_user_path(user), class: 'button is-success in-mobile-expand' do %>
                 <span class="icon">
-                  <i class="ion-edit"></i>
+                  <i class="fas fa-edit"></i>
                 </span>
                 <span>Editar</span>
               <% end %>
@@ -49,7 +49,7 @@
             <% if can? :read, Permission %>
               <%= link_to user_permissions_path(user), class: 'button is-success in-mobile-expand' do %>
                 <span class="icon">
-                  <i class="ion-edit"></i>
+                  <i class="fas fa-unlock-alt"></i>
                 </span>
                 <span>Permissões</span>
               <% end %>
@@ -57,7 +57,7 @@
             <% if can? :destroy, User %>
               <%= link_to user_path(user), method: :delete, data: { confirm: 'Tem certeza que deseja excluir?' }, class: 'button is-danger in-mobile-expand', disabled: user.is_current?(current_user) do %>
                 <span class="icon">
-                  <i class="ion-close"></i>
+                  <i class="far fa-trash-alt"></i>
                 </span>
                 <span>Excluir</span>
               <% end %>

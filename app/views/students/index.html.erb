@@ -3,7 +3,7 @@
     <% if can? :create, Student %>
       <%= link_to new_student_path, class: "button is-success in-mobile-expand" do %>
         <span class="icon">
-          <i class="ion-plus-round"></i>
+          <i class="fas fa-plus"></i>
         </span>
         <span>Novo Estudante</span>
       <% end %>
@@ -47,7 +47,7 @@
             <% if can? :update, Student %>
               <%= link_to edit_student_path(student), class: 'button is-success in-mobile-expand' do %>
                 <span class="icon">
-                  <i class="ion-edit"></i>
+                  <i class="fas fa-edit"></i>
                 </span>
                 <span>Editar</span>
               <% end %>
@@ -55,7 +55,7 @@
             <% if can? :destroy, Student %>
               <%= link_to student_path(student), method: :delete, data: { confirm: 'Tem certeza que deseja excluir?' }, class: 'button is-danger in-mobile-expand' do %>
                 <span class="icon">
-                  <i class="ion-close"></i>
+                  <i class="far fa-trash-alt"></i>
                 </span>
                 <span>Excluir</span>
               <% end %>

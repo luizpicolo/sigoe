@@ -3,7 +3,7 @@
     <% if can? :create, Incident %>
       <%= link_to new_incident_path, class: "button is-success in-mobile-expand" do %>
         <span class="icon">
-          <i class="ion-plus-round"></i>
+          <i class="fas fa-plus"></i>
         </span>
         <span>Nova ocorrência</span>
       <% end %>
@@ -45,7 +45,7 @@
             <% if can? :read, Incident %>
               <%= link_to incident_path(incident), class: 'button is-success in-mobile-expand' do %>
                 <span class="icon">
-                  <i class="ion-search"></i>
+                  <i class="fas fa-search"></i>
                 </span>
                 <span>Visualizar</span>
               <% end %>
@@ -54,7 +54,7 @@
               <% if incident.signed_in.nil? && !incident.student.nil? %>
                 <%= link_to incident_sign_path(incident), class: 'button' do %>
                   <span class="icon">
-                    <i class="ion-document-text"></i>
+                    <i class="far fa-file-alt"></i>
                   </span>
                   <span>Assinar</span>
                 <% end %>
@@ -63,7 +63,7 @@
             <% if can? :update, Incident %>
               <%= link_to edit_incident_path(incident), class: 'button is-success' do %>
                 <span class="icon">
-                  <i class="ion-edit"></i>
+                  <i class="fas fa-edit"></i>
                 </span>
                 <span>Editar</span>
               <% end %>
@@ -71,7 +71,7 @@
             <% if can? :destroy, Incident %>
               <%= link_to incident_path(incident), method: :delete, data: { confirm: 'Tem certeza que deseja excluir?' }, class: 'button is-danger' do %>
                 <span class="icon">
-                  <i class="ion-close"></i>
+                  <i class="far fa-trash-alt"></i>
                 </span>
                 <span>Excluir</span>
               <% end %>

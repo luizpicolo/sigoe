@@ -3,7 +3,7 @@
     <% if can? :create, Course %>
       <%= link_to new_course_path, class: "button is-success in-mobile-expand" do %>
         <span class="icon">
-          <i class="ion-plus-round"></i>
+          <i class="fas fa-plus"></i>
         </span>
         <span>Novo curso</span>
       <% end %>
@@ -37,7 +37,7 @@
             <% if can? :update, Course %>
               <%= link_to edit_course_path(course), class: 'button is-success in-mobile-expand' do %>
                 <span class="icon">
-                  <i class="ion-edit"></i>
+                  <i class="fas fa-edit"></i>
                 </span>
                 <span>Editar</span>
               <% end %>
@@ -45,7 +45,7 @@
             <% if can? :destroy, Course %>
               <%= link_to course_path(course), method: :delete, data: { confirm: 'Tem certeza?' }, class: 'button is-danger in-mobile-expand' do %>
                 <span class="icon">
-                  <i class="ion-close"></i>
+                  <i class="far fa-trash-alt"></i>
                 </span>
                 <span>Excluir</span>
               <% end %>

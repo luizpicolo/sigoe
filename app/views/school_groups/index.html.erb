@@ -3,7 +3,7 @@
     <% if can? :create, SchoolGroup %>
       <%= link_to new_school_group_path, class: "button is-success in-mobile-expand" do %>
         <span class="icon">
-          <i class="ion-plus-round"></i>
+          <i class="fas fa-plus"></i>
         </span>
         <span>Nova Turma</span>
       <% end %>
@@ -37,7 +37,7 @@
             <% if can? :update, SchoolGroup %>
               <%= link_to edit_school_group_path(school_group), class: 'button is-success in-mobile-expand' do %>
                 <span class="icon">
-                  <i class="ion-edit"></i>
+                  <i class="fas fa-edit"></i>
                 </span>
                 <span>Editar</span>
               <% end %>
@@ -45,7 +45,7 @@
             <% if can? :destroy, SchoolGroup %>
               <%= link_to school_group_path(school_group), method: :delete, data: { confirm: 'Tem certeza?' }, class: 'button is-danger in-mobile-expand' do %>
                 <span class="icon">
-                  <i class="ion-close"></i>
+                  <i class="far fa-trash-alt"></i>
                 </span>
                 <span>Excluir</span>
               <% end %>
