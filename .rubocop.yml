@@ -21,7 +21,7 @@ Metrics/LineLength:
 Style/Documentation:
   Enabled: false
 
-Layout/IndentFirstHashElement:
+Layout/FirstHashElementIndentation:
   EnforcedStyle: special_inside_parentheses
   SupportedStyles:
     - special_inside_parentheses
@@ -29,7 +29,7 @@ Layout/IndentFirstHashElement:
     - align_braces
   IndentationWidth: 4
 
-Layout/IndentFirstArrayElement:
+Layout/FirstArrayElementIndentation:
   EnforcedStyle: special_inside_parentheses
   SupportedStyles:
     - special_inside_parentheses
