@@ -14,8 +14,8 @@ class UsersController < ApplicationController
     add_breadcrumb 'Usuários'
 
     @users = User.order("#{set_order}": :desc)
-                 .search(params[:search])
-                 .page(params[:page])
+        .search(params[:search])
+        .page(params[:page])
   end
 
   def new

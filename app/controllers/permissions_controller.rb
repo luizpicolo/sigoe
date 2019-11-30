@@ -13,9 +13,9 @@ class PermissionsController < ApplicationController
     add_breadcrumb 'Usuários'
 
     @permissions = Permission.order("#{set_order}": :desc)
-                             .search(params[:search])
-                             .where(user_id: params[:user_id])
-                             .page(params[:page]).per(set_amount_return)
+        .search(params[:search])
+        .where(user_id: params[:user_id])
+        .page(params[:page]).per(set_amount_return)
   end
 
   def new
@@ -46,7 +46,7 @@ class PermissionsController < ApplicationController
   def update
     if @permission.update(permission_params)
       redirect_to user_permissions_path(user_id: @permission.user_id), flash: {
-        success: 'Permissões atualizadas com sucesso'
+          success: 'Permissões atualizadas com sucesso'
       }
     else
       flash.now[:error] = @permission.errors.full_messages

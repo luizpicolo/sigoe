@@ -1,20 +1,5 @@
-<h1 class="title">Atalho rápido</h1>
-<div class="columns is-multiline shortcuts">
-  <% @sectors.each do |s|%>
-  <div class="column is-one-quarter">
-    <%= link_to sector_actions_path(s.slug.downcase) do %>
-      <section>
-        <i class="<%= s.icon %> icons"></i>
-        <h1><%= s.initial %></h1>
-      </section>
-    <% end %>
-  </div>
-  <% end %>
-</div>
-
-
 <h1 class="title">Gráficos</h1>
-<div class="columns is-multiline shortcuts is-hidden-mobile">
+<div class="columns is-multiline shortcuts">
   <div class="column is-half">
     <h2 class="subtitle">Por ano</h2>
     <%= column_chart Incident.by_years %>
@@ -25,7 +10,7 @@
   </div>
 </div>
 
-<div class="columns is-multiline shortcuts is-hidden-mobile">
+<div class="columns is-multiline shortcuts">
   <div class="column is-half">
     <h1 class="subtitle">Por tipo</h1>
     <%= column_chart Incident.by_type_incident %>

@@ -11,9 +11,6 @@ document.addEventListener('turbolinks:load', function() {
   // Select 2
   $(".select2").select2();
 
-  // fancybox
-  $(".fancybox").fancybox({ parent: "body"});
-
   // Calendar
   $(".calendar").datepicker();
 
@@ -46,7 +43,7 @@ document.addEventListener('turbolinks:load', function() {
 
   // Mobile menu
   $('.menu-mobile').on('click touchstart', function(e){
-    $('html').toggleClass('menu-mobile-active');
     e.preventDefault();
+    $('html').toggleClass('menu-mobile-active');
   })
 });

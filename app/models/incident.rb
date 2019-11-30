@@ -33,10 +33,10 @@ class Incident < ApplicationRecord
   enum is_resolved: %w[no_ yes_]
   enum type_student: %w[non_resident resident]
   enum sanction: %w[
-    verbal_warning
-    written_warning
-    suspension
-    quitting_school
+      verbal_warning
+      written_warning
+      suspension
+      quitting_school
   ]
 
   belongs_to :student, optional: true

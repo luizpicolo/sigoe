@@ -29,11 +29,11 @@ class Student < ApplicationRecord
   include SearchCop
 
   enum course_situation: [
-    'Egresso', 'Falecido', 'Trancado', 'Transferido Externamente',
-    'Transferido Internamente', 'Em curso', 'Evadido', 'Desligado',
-    'Regime Domiciliar', 'Integralizado em fase escolar',
-    'Concluído', 'Enriquecimento Curricular', 'Em mobilidade acadêmica',
-    'Reprovado', 'Aluno Especial'
+      'Egresso', 'Falecido', 'Trancado', 'Transferido Externamente',
+      'Transferido Internamente', 'Em curso', 'Evadido', 'Desligado',
+      'Regime Domiciliar', 'Integralizado em fase escolar',
+      'Concluído', 'Enriquecimento Curricular', 'Em mobilidade acadêmica',
+      'Reprovado', 'Aluno Especial'
   ]
 
   delegate :name, to: :course, prefix: true
@@ -77,14 +77,14 @@ class Student < ApplicationRecord
 
   def self.set_attributes(student, course, attributes)
     params = {
-      name: attributes[3],
-      course: course,
-      contact: attributes[6],
-      ra: attributes[2].to_i,
-      enrollment: attributes[1],
-      cpf: attributes[4],
-      birth_date: attributes[5],
-      course_situation: attributes[7]
+        name: attributes[3],
+        course: course,
+        contact: attributes[6],
+        ra: attributes[2].to_i,
+        enrollment: attributes[1],
+        cpf: attributes[4],
+        birth_date: attributes[5],
+        course_situation: attributes[7]
     }
     check_password(student, params)
   end

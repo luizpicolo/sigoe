@@ -13,8 +13,8 @@ class SchoolGroupsController < ApplicationController
     add_breadcrumb 'Turmas'
 
     @school_groups = SchoolGroup.order("#{set_order}": :desc)
-                                .search(params[:search])
-                                .page(params[:page]).per(set_amount_return)
+        .search(params[:search])
+        .page(params[:page]).per(set_amount_return)
   end
 
   def new

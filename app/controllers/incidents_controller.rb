@@ -6,7 +6,7 @@ class IncidentsController < ApplicationController
   load_and_authorize_resource
 
   before_action :set_incident, only: %i[
-    edit destroy update confirmation sign show
+      edit destroy update confirmation sign show
   ]
 
   add_breadcrumb 'Home', :root_path
@@ -16,8 +16,8 @@ class IncidentsController < ApplicationController
     add_breadcrumb 'Ocorrências'
 
     @incidents = Incident.order("#{set_order}": :desc)
-                         .search(params[:search])
-                         .page(params[:page]).per(set_amount_return)
+        .search(params[:search])
+        .page(params[:page]).per(set_amount_return)
   end
 
   def new

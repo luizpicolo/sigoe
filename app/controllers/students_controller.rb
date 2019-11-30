@@ -13,8 +13,8 @@ class StudentsController < ApplicationController
     add_breadcrumb 'Estudantes'
 
     @students = Student.order("#{set_order}": :desc)
-                       .search(params[:search])
-                       .page(params[:page]).per(set_amount_return)
+        .search(params[:search])
+        .page(params[:page]).per(set_amount_return)
   end
 
   def new

@@ -15,6 +15,7 @@
     "ionicons": "^4.6.3",
     "jquery": "^3.4.1",
     "jquery-mask-plugin": "^1.14.10",
+    "jquery-ui": "^1.12.1",
     "select2": "^4.0.3",
     "turbolinks": "^5.2.0"
   },
