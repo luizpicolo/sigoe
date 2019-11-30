@@ -52,9 +52,9 @@ gem 'sprockets-rails', '3.2.1'
 gem 'turbolinks', '~> 5'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'uglifier'
-gem 'webpacker', '~> 4.1'
 gem 'whenever', require: false
 gem 'wkhtmltopdf-binary'
+gem 'webpacker', '~> 4.2'
 
 group :development, :test do
   gem 'binding_of_caller'
