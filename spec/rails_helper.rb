@@ -15,7 +15,7 @@ require 'support/controller_helpers'
 
 # externals
 require 'simplecov'
-SimpleCov.start :rails do
+SimpleCov.start do
   add_filter 'app/uploaders'
 end
 
