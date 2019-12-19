@@ -39,12 +39,12 @@ gem 'pdfkit'
 gem 'pg'
 gem 'puma', '~> 4.3'
 gem 'rack', '>= 2.0.6'
-gem 'rails', '~> 6.0.2'
+gem 'rails', '~> 6.0.2.1'
 gem 'rails-env'
 gem 'rails-i18n'
 gem 'randumb'
 gem 'rubyzip', '>= 1.3.0'
-gem 'sass-rails'
+gem 'sassc-rails'
 gem 'search_cop'
 gem 'seed_migration'
 gem 'spreadsheet'
@@ -84,7 +84,7 @@ group :development do
   gem 'rails_best_practices', '~> 1.18', '>= 1.18.1'
   gem 'rb-readline'
   gem 'rename'
-  gem 'rubocop', '~> 0.78.0', require: false
+  gem 'rubocop', '~> 0.77.0', require: false
   gem 'web-console', '>= 3.3.0'
 end
 
