@@ -49,7 +49,7 @@ gem 'search_cop'
 gem 'seed_migration'
 gem 'spreadsheet'
 gem 'sprockets-rails'
-gem 'sprockets', '4.0.0'
+gem 'sprockets', '~> 4.0'
 gem 'turbolinks', '~> 5'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'uglifier'
