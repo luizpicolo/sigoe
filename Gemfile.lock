@@ -386,7 +386,7 @@ GEM
     search_cop (1.1.0)
       treetop
     seed_migration (1.2.3)
-    selenium-webdriver (3.142.6)
+    selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
     sexp_processor (4.13.0)
