@@ -87,7 +87,7 @@ GEM
       msgpack (~> 1.0)
     breadcrumbs_on_rails (3.0.1)
     builder (3.2.4)
-    byebug (11.0.1)
+    byebug (11.1.0)
     cancancan (3.0.2)
     capybara (3.30.0)
       addressable
