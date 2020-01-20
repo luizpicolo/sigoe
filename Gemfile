@@ -67,7 +67,7 @@ group :development, :test do
   gem 'faker'
   gem 'rails-controller-testing'
   gem 'regressor', git: 'https://github.com/ndea/regressor.git'
-  gem 'rspec-rails', '~> 4.0.0.beta2'
+  gem 'rspec-rails', '~> 4.0.0.beta4'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers'
   gem 'simplecov', '~> 0.17.1'
