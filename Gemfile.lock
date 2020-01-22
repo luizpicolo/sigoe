@@ -397,7 +397,7 @@ GEM
       json (>= 1.8, < 3)
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.2)
-    spreadsheet (1.2.5)
+    spreadsheet (1.2.6)
       ruby-ole (>= 1.0)
     spring (2.1.0)
     spring-watcher-listen (2.0.1)
