@@ -392,11 +392,10 @@ GEM
     sexp_processor (4.13.0)
     shoulda-matchers (4.2.0)
       activesupport (>= 4.2.0)
-    simplecov (0.17.1)
+    simplecov (0.18.0)
       docile (~> 1.1)
-      json (>= 1.8, < 3)
-      simplecov-html (~> 0.10.0)
-    simplecov-html (0.10.2)
+      simplecov-html (~> 0.11.0)
+    simplecov-html (0.11.0)
     spreadsheet (1.2.6)
       ruby-ole (>= 1.0)
     spring (2.1.0)
@@ -526,7 +525,7 @@ DEPENDENCIES
   seed_migration
   selenium-webdriver
   shoulda-matchers
-  simplecov (~> 0.17.1)
+  simplecov (~> 0.18.0)
   spreadsheet
   spring
   spring-watcher-listen (~> 2.0.0)
