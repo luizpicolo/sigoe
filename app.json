@@ -1,8 +1,8 @@
 {
-  "name": "SIAI",
-  "description": "Sistema de Apoio Interno.",
+  "name": "SIGOE",
+  "description": "Sistema para o controle de ocorrências escolares",
   "website": "http://www.ifms.edu.br",
-  "repository": "https://github.com/luizpicolo/siai-ifms-na",
+  "repository": "https://github.com/luizpicolo/sigoe",
   "logo": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Ruby_on_Rails_logo.svg",
   "scripts": {
     "dokku": {
