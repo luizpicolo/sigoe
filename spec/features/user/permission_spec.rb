@@ -9,8 +9,7 @@ context 'Check access permissions' do
 
   entities = [
       [Student, true], [Student, false],
-      [Course, true], [Course, false],
-      [SchoolGroup, true], [SchoolGroup, false]
+      [Course, true], [Course, false]
   ]
 
   entities.each do |(entity, value)|

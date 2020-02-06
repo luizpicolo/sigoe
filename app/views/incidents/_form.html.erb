@@ -20,15 +20,7 @@
           </p>
         </div>
         <div class="field">
-          <%= f.label :school_group_id, 'Turma', class: 'label' %>
-          <p class="control">
-            <span class="select">
-              <%= f.select :school_group_id, SchoolGroup.identifiers, { prompt: "Selecione a Turma" }, { :class => "select select2 is-medium" } %>
-            </span>
-          </p>
-        </div>
-        <div class="field">
-          <%= f.label :type_student, 'Estudente é?', class: 'label' %>
+          <%= f.label :type_student, 'Estudante é?', class: 'label' %>
           <p class="control">
             <span class="select">
               <%= f.select :type_student, human_enum_name('incident.type_student', Incident.type_students.keys), {}, { :class => "select select2 is-medium" } %>

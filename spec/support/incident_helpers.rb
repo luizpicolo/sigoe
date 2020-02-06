@@ -5,7 +5,7 @@ module IncidentHelpers
     select options[:student], from: 'Estudante'
     select options[:course], from: 'Curso'
     select options[:user], from: 'Assistente'
-    select 'Residente', from: 'Estudente é?'
+    select 'Residente', from: 'Estudante é?'
     select 'Ifms', from: 'Instituição'
     select options[:type_incident], from: 'Tipos da Ocorrência'
     select 'Não', from: 'Ocorrências resolvida?'

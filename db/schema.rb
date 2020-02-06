@@ -39,7 +39,6 @@ ActiveRecord::Schema.define(version: 2019_04_27_014051) do
     t.integer "is_resolved"
     t.integer "type_student"
     t.integer "sanction"
-    t.integer "school_group_id"
     t.bigint "type_incident_id"
     t.index ["course_id"], name: "index_incidents_on_course_id"
     t.index ["date_incident"], name: "index_incidents_on_date_incident"
@@ -171,15 +170,6 @@ ActiveRecord::Schema.define(version: 2019_04_27_014051) do
     t.string "item"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "school_groups", force: :cascade do |t|
-    t.string "name"
-    t.string "identifier"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["identifier"], name: "index_school_groups_on_identifier"
-    t.index ["name"], name: "index_school_groups_on_name"
   end
 
   create_table "sectors", id: :serial, force: :cascade do |t|

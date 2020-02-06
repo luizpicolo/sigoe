@@ -20,7 +20,6 @@
 #  is_resolved     :integer
 #  type_student    :integer
 #  sanction        :integer
-#  school_group_id :integer
 #
 
 FactoryBot.define do
@@ -29,7 +28,6 @@ FactoryBot.define do
     user factory: :user
     assistant factory: :user
     course factory: :course
-    school_group factory: :school_group
     type_incident factory: :type_incident
     institution { 'Ifms' }
     description { Faker::Lorem.paragraph(2) }

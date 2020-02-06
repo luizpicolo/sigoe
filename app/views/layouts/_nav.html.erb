@@ -8,8 +8,7 @@
   
   <% if (can? :read, User) || 
         (can? :read, Student) || 
-        (can? :read, Course) || 
-        (can? :read, SchoolGroup) %>
+        (can? :read, Course) %>
   <p class="menu-label">
     Administrador
   </p>
@@ -23,9 +22,6 @@
     <% end %>
     <% if can? :read, Course %>
       <li><%= active_link_to 'Cursos', courses_path %></li>
-    <% end %>
-    <% if can? :read, SchoolGroup %>
-      <li><%= active_link_to 'Turma', school_groups_path %></li>
     <% end %>
   </ul>
 
