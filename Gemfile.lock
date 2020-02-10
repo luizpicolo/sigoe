@@ -575,9 +575,9 @@ DEPENDENCIES
   spreadsheet
   spring
   spring-watcher-listen (~> 2.0.0)
-  sprockets (~> 4.0)
+  sprockets
   sprockets-rails
-  turbolinks (~> 5)
+  turbolinks
   turnout
   tzinfo-data
   uglifier
