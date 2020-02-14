@@ -526,7 +526,7 @@ DEPENDENCIES
   seed_migration
   selenium-webdriver
   shoulda-matchers
-  simplecov (~> 0.18.0)
+  simplecov (~> 0.18.2)
   spreadsheet
   spring
   spring-watcher-listen (~> 2.0.0)
