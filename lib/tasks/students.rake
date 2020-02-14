@@ -15,6 +15,7 @@ namespace :student do
       student.cpf = data['cpf']
       student.birth_date = data['data_de_nascimento']
       student.course_situation = data['situacao_no_curso']
+      student.enrollment = data['matricula']
       student.save(validate: false)
     end
   end
