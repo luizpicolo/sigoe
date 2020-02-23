@@ -18,7 +18,7 @@ class ReportIncidentsController < ApplicationController
       @incidents = incidents
       render layout: false
     else
-      flash[:error] = 'Não foi encontrada ocorrência para este parâmetros'
+      flash[:error] = 'Não foi encontrada ocorrência para estes parâmetros'
       redirect_back(fallback_location: incidents_path)
     end
   end
