@@ -29,6 +29,7 @@
       <th>ID</th>
       <th>Foto</th>
       <th>Nome</th>
+      <th class="is-hidden-mobile">Turma</th>
       <th class="is-hidden-mobile">Curso</th>
       <th></th>
     </tr>
@@ -39,6 +40,7 @@
       <td><%= student.id %></td>
       <td><%= image_tag student&.photo.thumb.to_s %></td>
       <td><%= student.name %></td>
+      <td><%= student.school_group&.identification %></td>
       <td class="is-hidden-mobile"><%= student.course_initial %></td>
       <td class="has-text-right no-print">
         <div class="dropdown">

@@ -1,0 +1,27 @@
+<%= form_for school_group do |f| %>
+<fieldset>
+  <legend>Descrição</legend>
+  <div class="field is-horizontal">
+    <div class="field-body">
+      <div class="field">
+        <p class="control">
+          <%= f.label :name, "Nome", class: 'label' %>
+          <%= f.text_field :name, class: 'input is-medium', placeholder: 'Nome', required: true %>
+        </p>
+      </div>
+      <div class="field">
+        <p class="control">
+          <%= f.label :identifier, "Identificador", class: 'label' %>
+          <%= f.text_field :identifier, class: 'input is-medium', placeholder: 'Identificador', required: true %>
+        </p>
+      </div>
+    </div>
+  </div>
+</fieldset>
+
+<div class="margin-top-20px">
+  <p class="control">
+    <%= f.submit "Salvar", class: "button is-success is-medium in-mobile-expand"%>
+  </p>
+</div>
+<% end %>
