@@ -31,7 +31,6 @@ RSpec.describe Incident, type: :model do
 
   # Validations
   it { should validate_presence_of :user }
-  it { should validate_presence_of :course }
   it { should validate_presence_of :assistant }
   it { should validate_presence_of :institution }
   it { should validate_presence_of :description }
@@ -69,7 +68,6 @@ RSpec.describe Incident, type: :model do
   it { should belong_to(:student).optional }
   it { should belong_to(:assistant) }
   it { should belong_to(:user) }
-  it { should belong_to(:course) }
   it { should have_and_belong_to_many(:prohibition_and_responsibilities) }
 
   # Enums
@@ -84,12 +82,6 @@ RSpec.describe Incident, type: :model do
       it 'find incident by student' do
         conditionals = {}
         conditionals[:student] = @incident.student.id
-        expect(Incident.search(conditionals)).to eq([@incident])
-      end
-
-      it 'find incident by course' do
-        conditionals = {}
-        conditionals[:course] = @incident.course.id
         expect(Incident.search(conditionals)).to eq([@incident])
       end
 
@@ -116,7 +108,6 @@ RSpec.describe Incident, type: :model do
       it 'find incident ' do
         conditionals = {}
         conditionals[:student] = @incident.student.id
-        conditionals[:course] = @incident.course.id
         conditionals[:institution] = 0
         conditionals[:type_student] = 1
         range_date = "date_incident >= #{@incident.date_incident - 1.day} AND date_incident <= #{@incident.date_incident + 1.day}"
@@ -141,26 +132,6 @@ RSpec.describe Incident, type: :model do
 
       it "Returns ' ---- ' string" do
         expect(subject.student_name).to eq(' ---- ')
-      end
-    end
-  end
-
-  describe '#course_initial' do
-    let(:subject) { FactoryBot.create(:incident) }
-
-    context 'When course are present' do
-      it 'Returns course name' do
-        expect(subject.course_initial).to eq(subject.course.initial)
-      end
-    end
-
-    context 'When course are not present' do
-      before do
-        allow(subject).to receive(:course).and_return(nil)
-      end
-
-      it "Returns ' ---- ' string" do
-        expect(subject.course_initial).to eq(' ---- ')
       end
     end
   end
