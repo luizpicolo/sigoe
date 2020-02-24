@@ -113,10 +113,10 @@
           </p>
         </div>
         <div class="field">
-          <%= f.label :school_group, 'Turma', class: 'label' %>
+          <%= f.label :school_group_id, 'Turma', class: 'label' %>
           <p class="control">
             <span class="select is-medium">
-              <%= f.select :school_group_id, SchoolGroup.get_all, { prompt: "Turma" }, { :class => "" } %>
+              <%= f.select :school_group_id, SchoolGroup.get_all, {}, { :class => "" } %>
             </span>
           </p>
         </div>
