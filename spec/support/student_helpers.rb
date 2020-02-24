@@ -12,6 +12,7 @@ module StudentHelpers
     fill_in 'student_responsible', with: name
     fill_in 'student_responsible_contact', with: 'email@ifms.edu.br'
     select options[:course], from: 'Curso'
+    select options[:school_group], from: 'Turma'
     attach_file('Imagem', File.absolute_path('spec/fixtures/logo-ifms.jpg'))
 
     click_button 'Salvar'

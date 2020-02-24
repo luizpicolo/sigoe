@@ -27,6 +27,7 @@ FactoryBot.define do
     pwd = Faker::Internet.password
     name { Faker::Name.name }
     course factory: :course
+    school_group factory: :school_group
     ra { '12345678' }
     photo { Faker::Placeholdit.image }
     responsible { Faker::Name.name }

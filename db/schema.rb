@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_27_014051) do
+ActiveRecord::Schema.define(version: 2020_02_22_151132) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 2019_04_27_014051) do
     t.integer "type_student"
     t.integer "sanction"
     t.bigint "type_incident_id"
+    t.integer "school_group_id"
     t.index ["course_id"], name: "index_incidents_on_course_id"
     t.index ["date_incident"], name: "index_incidents_on_date_incident"
     t.index ["institution"], name: "index_incidents_on_institution"
@@ -172,6 +173,15 @@ ActiveRecord::Schema.define(version: 2019_04_27_014051) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "school_groups", force: :cascade do |t|
+    t.string "name"
+    t.string "identifier"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["identifier"], name: "index_school_groups_on_identifier"
+    t.index ["name"], name: "index_school_groups_on_name"
+  end
+
   create_table "sectors", id: :serial, force: :cascade do |t|
     t.string "name"
     t.string "initial"
@@ -210,8 +220,10 @@ ActiveRecord::Schema.define(version: 2019_04_27_014051) do
     t.string "cpf"
     t.date "birth_date"
     t.integer "course_situation"
+    t.bigint "school_group_id"
     t.index ["course_id"], name: "index_students_on_course_id"
     t.index ["name"], name: "index_students_on_name"
+    t.index ["school_group_id"], name: "index_students_on_school_group_id"
   end
 
   create_table "type_incidents", force: :cascade do |t|
@@ -258,6 +270,7 @@ ActiveRecord::Schema.define(version: 2019_04_27_014051) do
   add_foreign_key "patients", "students"
   add_foreign_key "permissions", "users"
   add_foreign_key "students", "courses"
+  add_foreign_key "students", "school_groups"
   add_foreign_key "users", "courses"
   add_foreign_key "users", "sectors"
 end

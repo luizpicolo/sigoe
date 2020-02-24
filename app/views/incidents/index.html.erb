@@ -21,7 +21,7 @@
       <th>ID</th>
       <th>Data</th>
       <th>Estudante</th>
-      <th>Turma</th>
+      <th>Curso</th>
       <th>Instituição</th>
       <th>Assinado?</th>
       <th>Verificado?</th>
@@ -34,7 +34,7 @@
       <td><%= incident.id %></td>
       <td><%= extract_and_format_date(incident.date_incident) %></td>
       <td><%= incident.student_name %></td>
-      <td><%= incident.course_initial %></td>
+      <td><%= incident.student.course.name %></td>
       <td><%= incident.institution %></td>
       <td class="has-text-centered"><%= verificated?(incident.signed_in?).html_safe %></td>
       <td class="has-text-centered"><%= verificated?(incident.read_attribute_before_type_cast(:is_resolved)).html_safe %></td>

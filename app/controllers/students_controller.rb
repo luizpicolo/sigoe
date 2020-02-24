@@ -78,21 +78,19 @@ class StudentsController < ApplicationController
     @student = Student.find(params[:id])
   end
 
-  def check_password(user_params)
-    if user_params[:password].empty?
-      user_params.delete(:password)
-      user_params.delete(:password_confirmation)
-      user_params
+  def check_password(student_params)
+    if student_params[:password].empty?
+      student_params.delete(:password)
+      student_params.delete(:password_confirmation)
+      student_params
     else
-      user_params
+      student_params
     end
   end
 
   def student_params
     params.require(:student).permit(
-      :name, :photo, :course_id, :responsible, :responsible_contact, :contact,
-      :password, :password_confirmation, :ra, :cpf, :course_situation,
-      :enrollment
+      :name, :photo, :course_id, :responsible, :responsible_contact, :contact, :password, :password_confirmation, :ra, :cpf, :course_situation, :enrollment, :school_group_id
     )
   end
 end

@@ -25,7 +25,7 @@
 class Incident < ApplicationRecord
   include SearchCop
 
-  validates :user, :course, :assistant, :institution, :description,
+  validates :user, :assistant, :institution, :description,
             :date_incident, :time_incident, :type_incident, presence: true
 
   enum institution: %w[Ifms Ufms Cemid]
@@ -40,7 +40,7 @@ class Incident < ApplicationRecord
 
   belongs_to :student, optional: true
   belongs_to :user
-  belongs_to :course
+  #belongs_to :course
   belongs_to :assistant, class_name: 'User', foreign_key: 'assistant_id'
   belongs_to :type_incident
   has_and_belongs_to_many :prohibition_and_responsibilities
@@ -49,9 +49,9 @@ class Incident < ApplicationRecord
   # Atributos para busca com SearchCop
   search_scope :search do
     attributes student: 'student.id'
-    attributes course: 'course.id'
+    #attributes course: 'course.id'
     attributes student_name: 'student.name'
-    attributes course_name: 'course.name'
+    #attributes course_name: 'course.name'
     attributes institution: 'institution'
     attributes type_student: 'type_student'
     attributes type_incident: 'type_incident.name'
@@ -60,10 +60,6 @@ class Incident < ApplicationRecord
 
   def student_name
     student.present? ? student.name : ' ---- '
-  end
-
-  def course_initial
-    course.present? ? course.initial : ' ---- '
   end
 
   def signed_by_student_in
@@ -76,7 +72,8 @@ class Incident < ApplicationRecord
   end
 
   def self.by_courses
-    joins(:course).group(:'courses.initial').count
+    group_by_year(:created_at, format: '%Y').count
+    #joins(:course).group(:'courses.initial').count
   end
 
   def self.by_is_resolved

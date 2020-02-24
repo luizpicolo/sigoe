@@ -44,12 +44,14 @@ class Student < ApplicationRecord
 
   # Associações
   belongs_to :course
+  belongs_to :school_group
 
   # Atributos para busca com SearchCop
   search_scope :search do
     attributes :name
     attributes course: 'course.name'
     attributes initial: 'course.initial'
+    attributes school_group: 'school_group.name'
   end
 
   # Retorna um vetor contendo os nomes e seus respectivos IDs
