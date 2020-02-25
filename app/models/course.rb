@@ -19,7 +19,7 @@ class Course < ApplicationRecord
 
   # Associações
   has_many :students
-  has_many :incidents
+  #has_many :incidents
   has_one :coordinator, class_name: 'User', foreign_key: 'course_id'
 
   search_scope :search do

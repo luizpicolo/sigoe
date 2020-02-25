@@ -35,7 +35,6 @@ RSpec.describe Course, type: :model do
   # Associations
   it { should have_many(:students) }
   it { should have_one :coordinator }
-  it { should have_many :incidents }
 
   # Methods
   %w[names initials].each do |method|

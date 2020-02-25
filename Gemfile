@@ -71,7 +71,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 4.0.0.beta4'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers'
-  gem 'simplecov', '~> 0.18.2'
+  gem 'simplecov', '~> 0.18.3'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'webdrivers'
@@ -86,7 +86,7 @@ group :development do
   gem 'rails_best_practices', '~> 1.19'
   gem 'rb-readline'
   gem 'rename'
-  gem 'rubocop', '~> 0.79.0', require: false
+  gem 'rubocop', '~> 0.80.0', require: false
   gem 'web-console', '>= 3.3.0'
 end
 

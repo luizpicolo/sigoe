@@ -27,7 +27,6 @@ FactoryBot.define do
     student factory: :student
     user factory: :user
     assistant factory: :user
-    course factory: :course
     type_incident factory: :type_incident
     institution { 'Ifms' }
     description { Faker::Lorem.paragraph(2) }
