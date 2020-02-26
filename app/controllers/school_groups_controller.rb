@@ -62,6 +62,10 @@ class SchoolGroupsController < ApplicationController
 
   private
 
+  def set_order
+    params[:order] == '' || params[:order].nil? ? 'name' : params[:order]
+  end
+
   def set_school_group
     @school_group = SchoolGroup.find(params[:id])
   end
