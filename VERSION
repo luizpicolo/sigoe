@@ -1,6 +1,6 @@
 1.3.0.1
- - [Cadastro de ocorrências]
-  - Retornada opção de curso relacionado a ocorrências. Agora será mantido um histórico independente da mudança futura de curso por parte do estudante
+  - [Cadastro de ocorrências]
+    - Retornada opção de curso relacionado a ocorrências. Agora será mantido um histórico independente da mudança futura de curso por parte do estudante
 1.3.0
   - [Adicionada turmas] - Todos os estudantes estão associados a uma turma;
   - [update de turmas pelo Sistema Acadêmico] - As turmas são consumidas diretamente do sistemas acadêmico e associadas ao estudante;
