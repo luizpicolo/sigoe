@@ -49,6 +49,7 @@ RSpec.describe Incident, type: :model do
   it { should have_db_column :soluction }
   it { should have_db_column :created_at }
   it { should have_db_column :updated_at }
+  it { should have_db_column :course_id }
   it { should have_db_column :time_incident }
   it { should have_db_column :assistant_id }
   it { should have_db_column :signed_in }
@@ -57,6 +58,7 @@ RSpec.describe Incident, type: :model do
   it { should have_db_column :sanction }
 
   # Indexes
+  it { should have_db_index ['course_id'] }
   it { should have_db_index ['date_incident'] }
   it { should have_db_index ['institution'] }
   it { should have_db_index ['student_id'] }
@@ -83,6 +85,12 @@ RSpec.describe Incident, type: :model do
         expect(Incident.search(conditionals)).to eq([@incident])
       end
 
+      it 'find incident by course' do
+        conditionals = {}
+        conditionals[:course] = @incident.course.id
+        expect(Incident.search(conditionals)).to eq([@incident])
+      end
+
       it 'find incident by institution' do
         conditionals = {}
         conditionals[:institution] = 0
@@ -106,6 +114,7 @@ RSpec.describe Incident, type: :model do
       it 'find incident ' do
         conditionals = {}
         conditionals[:student] = @incident.student.id
+        conditionals[:course] = @incident.course.id
         conditionals[:institution] = 0
         conditionals[:type_student] = 1
         range_date = "date_incident >= #{@incident.date_incident - 1.day} AND date_incident <= #{@incident.date_incident + 1.day}"
@@ -133,7 +142,7 @@ RSpec.describe Incident, type: :model do
       end
     end
   end
-
+  
   describe '#signed_by_student_in' do
     let(:subject) { FactoryBot.create(:incident) }
 

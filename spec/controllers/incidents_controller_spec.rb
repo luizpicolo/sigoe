@@ -12,7 +12,6 @@ RSpec.describe IncidentsController, type: :controller do
         .merge(user_id: @user.id)
         .merge(type_incident_id: @type_incident.id)
         .merge(assistant_id: @user.id)
-        .merge(course_id: @student.course.id)
     @model = FactoryBot.create(:incident)
     @entity = 'Incident'
     @path = incidents_path

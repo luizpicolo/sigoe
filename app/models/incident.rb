@@ -40,6 +40,7 @@ class Incident < ApplicationRecord
 
   belongs_to :student, optional: true
   belongs_to :user
+  belongs_to :course, optional: true
   belongs_to :assistant, class_name: 'User', foreign_key: 'assistant_id'
   belongs_to :type_incident
   has_and_belongs_to_many :prohibition_and_responsibilities
@@ -48,6 +49,7 @@ class Incident < ApplicationRecord
   # Atributos para busca com SearchCop
   search_scope :search do
     attributes student: 'student.id'
+    attributes course: 'course.id'
     attributes student_name: 'student.name'
     attributes institution: 'institution'
     attributes type_student: 'type_student'
@@ -69,13 +71,7 @@ class Incident < ApplicationRecord
   end
 
   def self.by_courses
-    array = []
-    result = joins(:student).group(:'students.course_id').count
-    result.each do |value|
-      course = Course.find(value[0])
-      array << [course.name, value[1]]
-    end
-    array
+    joins(:course).group(:'courses.name').count
   end
 
   def self.by_is_resolved

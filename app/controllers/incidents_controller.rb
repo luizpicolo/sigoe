@@ -31,6 +31,7 @@ class IncidentsController < ApplicationController
   def create
     @incident = Incident.new(incident_params)
     @incident.user = current_user
+    @incident.course = course_by_student(incident_params[:student_id])
     if @incident.save
       # send_email_to(@incident&.course&.coordinator&.email)
       redirect_to incidents_path, flash: { success: 'Ocorrência cadastra com sucesso' }
@@ -93,6 +94,10 @@ class IncidentsController < ApplicationController
   end
 
   private
+
+  def course_by_student(student_id)
+    Student.find(student_id).course
+  end
 
   def send_email_to(coordinator)
     InsidentMailer.send_mailer(coordinator).deliver_now unless Rails.env.test?
