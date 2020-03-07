@@ -66,6 +66,7 @@ jobs:
             - v1-bundle-{{ checksum "Gemfile.lock" }}
       - run: gem install bundler
       - run: bundle --path vendor/bundle
+      - run: cp config/database.yml.example config/database.yml && cp config/application.yml.example config/application.yml && cp config/secrets.yml.example config/secrets.yml
       - run:
           name: Precompile assets
           command: bundle exec rake assets:precompile
