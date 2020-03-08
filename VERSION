@@ -1,3 +1,5 @@
+1.3.0.2
+    - [Erro de compilação] - Corrigido erro de compilação. Mantida gem sprockets versão 3.7.2 e removida versão 4. 
 1.3.0.1
   - [Cadastro de ocorrências]
     - Retornada opção de curso relacionado a ocorrências. Agora será mantido um histórico independente da mudança futura de curso por parte do estudante
