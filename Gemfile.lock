@@ -370,7 +370,8 @@ GEM
       rexml
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 1.7)
-    ruby-graphviz (1.2.4)
+    ruby-graphviz (1.2.5)
+      rexml
     ruby-ole (1.2.12.2)
     ruby-progressbar (1.10.1)
     ruby-vips (2.0.17)
