@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   checkout_code:
     docker:
-      - image: circleci/ruby:2.6.4-stretch-node
+      - image: circleci/ruby:2.6.5-stretch-node
       - image: circleci/postgres:9.4.12-alpine
     working_directory: ~/circleci-demo-workflows
     steps:
@@ -15,7 +15,7 @@ jobs:
 
   bundle_dependencies:
     docker:
-      - image: circleci/ruby:2.6.4-stretch-node
+      - image: circleci/ruby:2.6.5-stretch-node
       - image: circleci/postgres:9.4.12-alpine
     working_directory: ~/circleci-demo-workflows
     steps:
@@ -27,14 +27,16 @@ jobs:
             - v1-bundle-{{ checksum "Gemfile.lock" }}
       - run: gem install bundler
       - run: bundle install --path vendor/bundle
+      - run: yarn install --frozen-lockfile
       - save_cache:
           key: v1-bundle-{{ checksum "Gemfile.lock" }}
           paths:
             - ~/circleci-demo-workflows/vendor/bundle
+            - ~/circleci-demo-workflows/node_modules
 
   rake_test:
     docker:
-      - image: circleci/ruby:2.6.4-stretch-node
+      - image: circleci/ruby:2.6.5-stretch-node
       - image: circleci/postgres:9.4.12-alpine
     working_directory: ~/circleci-demo-workflows
     steps:
@@ -48,13 +50,14 @@ jobs:
       - run: bundle --path vendor/bundle
       - run: cp config/database.yml.example config/database.yml && cp config/application.yml.example config/application.yml && cp config/secrets.yml.example config/secrets.yml
       - run: bundle exec rake db:create db:schema:load
+      - run: yarn install
       - run:
           name: Run tests
           command: bundle exec rake
 
   precompile_assets:
     docker:
-      - image: circleci/ruby:2.6.4-stretch-node
+      - image: circleci/ruby:2.6.5-stretch-node
       - image: circleci/postgres:9.4.12-alpine
     working_directory: ~/circleci-demo-workflows
     steps:
