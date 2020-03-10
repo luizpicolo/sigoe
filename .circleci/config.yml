@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   checkout_code:
     docker:
-      - image: circleci/ruby:2.6.4-stretch-node
+      - image: circleci/ruby:2.6.5-stretch-node
       - image: circleci/postgres:9.4.12-alpine
     working_directory: ~/circleci-demo-workflows
     steps:
@@ -15,7 +15,7 @@ jobs:
 
   bundle_dependencies:
     docker:
-      - image: circleci/ruby:2.6.4-stretch-node
+      - image: circleci/ruby:2.6.5-stretch-node
       - image: circleci/postgres:9.4.12-alpine
     working_directory: ~/circleci-demo-workflows
     steps:
@@ -34,7 +34,7 @@ jobs:
 
   rake_test:
     docker:
-      - image: circleci/ruby:2.6.4-stretch-node
+      - image: circleci/ruby:2.6.5-stretch-node
       - image: circleci/postgres:9.4.12-alpine
     working_directory: ~/circleci-demo-workflows
     steps:
@@ -54,7 +54,7 @@ jobs:
 
   precompile_assets:
     docker:
-      - image: circleci/ruby:2.6.4-stretch-node
+      - image: circleci/ruby:2.6.5-stretch-node
       - image: circleci/postgres:9.4.12-alpine
     working_directory: ~/circleci-demo-workflows
     steps:
