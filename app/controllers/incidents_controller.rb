@@ -33,7 +33,7 @@ class IncidentsController < ApplicationController
     @incident.user = current_user
     @incident.course = course_by_student(incident_params[:student_id])
     if @incident.save
-      # send_email_to(@incident&.course&.coordinator&.email)
+      send_email_to(@incident&.course&.coordinator&.email)
       redirect_to incidents_path, flash: { success: 'Ocorrência cadastra com sucesso' }
     else
       flash.now[:error] = @incident.errors.full_messages
