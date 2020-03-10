@@ -2,7 +2,7 @@ language: ruby
 sudo: required
 dist: trusty
 rvm:
-  - 2.6.4
+  - 2.6.5
 before_install: gem install bundler -v 2.0.1
 addons:
   postgresql: "9.6"

@@ -9,7 +9,7 @@ AllCops:
     - 'db/schema.rb'
     - 'lib/aws-sdk.rb'
     - 'vendor/**/*'
-  TargetRubyVersion: 2.5.3
+  TargetRubyVersion: 2.6.5
 
 Metrics/LineLength:
   Exclude:
