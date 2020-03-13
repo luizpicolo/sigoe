@@ -100,7 +100,9 @@ class IncidentsController < ApplicationController
   end
 
   def send_email_to(coordinator)
-    InsidentMailer.send_mailer(coordinator).deliver_now unless Rails.env.test?
+    if coordinator.present?
+      InsidentMailer.send_mailer(coordinator).deliver_now
+    end
   end
 
   def set_incident
