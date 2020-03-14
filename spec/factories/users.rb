@@ -36,6 +36,7 @@ FactoryBot.define do
     username { Faker::Internet.user_name }
     siape { Faker::Number.number(7) }
     sector
+    status { true }
     admin { false }
   end
 end
