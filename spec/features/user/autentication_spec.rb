@@ -15,6 +15,11 @@ context 'User' do
       sign_in user, password: 'wrongpassword'
       expect(page).to have_content('Inválido Username ou senha.')
     end
+
+    scenario 'with status false' do
+      sign_in FactoryBot.create(:user, status: false)
+      expect(page).to have_content('Para continuar, faça login ou registre-se.')
+    end
   end
 
   feature 'sign out' do
