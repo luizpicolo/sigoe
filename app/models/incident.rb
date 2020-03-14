@@ -50,6 +50,7 @@ class Incident < ApplicationRecord
   search_scope :search do
     attributes student: 'student.id'
     attributes course: 'course.id'
+    attributes course_name: 'course.name'
     attributes student_name: 'student.name'
     attributes institution: 'institution'
     attributes type_student: 'type_student'

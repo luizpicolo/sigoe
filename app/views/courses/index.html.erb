@@ -29,11 +29,29 @@
     <tr>
       <td><%= course.id %></td>
       <td><%= course.name %></td>
-      <td><%= link_to course.initial, students_path(course.params_search) %></td>
+      <td><%= course.initial %></td>
       <td class="has-text-right no-print">
         <div class="dropdown">
           <span class="button is-danger in-mobile-expand">Ações</span>
           <div class="dropdown-content">
+            <% if can? :destroy, Course %>
+              <%= link_to students_path(course.params_search), class: 'button is-success in-mobile-expand' do %>
+                <span class="icon">
+                  <i class="far fa-list"></i>
+                </span>
+                <span>Estudantes</span>
+              <% end %>
+            <% end %>
+
+            <% if can? :destroy, Course %>
+              <%= link_to incidents_path(course.params_search), class: 'button is-success  in-mobile-expand' do %>
+                <span class="icon">
+                  <i class="far fa-list"></i>
+                </span>
+                <span>Ocorrências</span>
+              <% end %>
+            <% end %>
+
             <% if can? :update, Course %>
               <%= link_to edit_course_path(course), class: 'button is-success in-mobile-expand' do %>
                 <span class="icon">

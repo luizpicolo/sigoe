@@ -48,11 +48,10 @@ class Course < ApplicationRecord
     [%w[ID id], %w[Nome name], %w[Sigla initial]]
   end
 
-  # Retorna um Hash contendo os dados para a listagem dos alunos segunda a
-  # turma
+  # Retorna um Hash contendo os dados para a listagem dos estudantes e ocorrências segunda a turma
   #
   # @return [HASH] com chave para a ordem, quantidade de retorno e item a ser buscado
   def params_search
-    { order: 'name', return: 100, search: initial.downcase }
+    { order: 'id', return: 100, search: initial.downcase }
   end
 end
