@@ -65,8 +65,8 @@ module ApplicationHelper
     t.strftime('%H:%M')
   end
 
-  def verificated?(val)
-    val == 1 || val == true ? '<i class="fa fa-check"></i>' : '<i class="fa fa-times"></i>'
+  def status?(val)
+    val == 1 || val == true ? '<i title="Ativo" class="fa fa-check"></i>' : '<i title="Inativo" class="fa fa-times"></i>'
   end
 
   # Converte e traduz um conjunto de atributos em um hash

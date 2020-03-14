@@ -32,7 +32,7 @@
       <td><%= user.id %></td>
       <td><%= user.name %></td>
       <td><%= user.siape %></td>
-      <td class="has-text-centered"><%= verificated?(user.status).html_safe %></td>
+      <td class="has-text-centered"><%= status?(user.status).html_safe %></td>
       <td><%= user.last_access %></td>
       <td class="has-text-right">
         <div class="dropdown">

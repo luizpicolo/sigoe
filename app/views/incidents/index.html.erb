@@ -36,8 +36,8 @@
       <td><%= incident.student_name %></td>
       <td><%= incident.student.course.name %></td>
       <td><%= incident.institution %></td>
-      <td class="has-text-centered"><%= verificated?(incident.signed_in?).html_safe %></td>
-      <td class="has-text-centered"><%= verificated?(incident.read_attribute_before_type_cast(:is_resolved)).html_safe %></td>
+      <td class="has-text-centered"><%= status?(incident.signed_in?).html_safe %></td>
+      <td class="has-text-centered"><%= status?(incident.read_attribute_before_type_cast(:is_resolved)).html_safe %></td>
       <td class="has-text-right">
         <div class="dropdown">
           <span class="button is-danger in-mobile-expand">Ações</span>
