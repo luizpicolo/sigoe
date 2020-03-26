@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   add_breadcrumb 'Home', :root_path
 
   def index
-    add_breadcrumb 'Serti', sector_actions_path('serti')
+    add_breadcrumb 'Administrador'
     add_breadcrumb 'Usuários'
 
     @users = User.order("#{set_order}": :desc)
@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   end
 
   def new
-    add_breadcrumb 'Serti', sector_actions_path('serti')
+    add_breadcrumb 'Administrador'
     add_breadcrumb 'Usuários', :users_path
     add_breadcrumb 'Novo usuário'
 
@@ -37,7 +37,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    add_breadcrumb 'Serti', sector_actions_path('serti')
+    add_breadcrumb 'Administrador'
     add_breadcrumb 'Usuários', :users_path
     add_breadcrumb 'Atualizar usuário'
   end
@@ -62,6 +62,9 @@ class UsersController < ApplicationController
   end
 
   def change_password
+    add_breadcrumb 'Minhas Informações'
+    add_breadcrumb 'Trocar Senha'
+
     @user = current_user
   end
 
@@ -88,7 +91,7 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(
-      :name, :siape, :sector_id, :username, :email, :password,
+      :name, :siape, :username, :email, :password,
       :password_confirmation, :status, :avatar, :course_id, :admin
     )
   end

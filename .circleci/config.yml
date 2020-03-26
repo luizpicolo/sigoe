@@ -49,7 +49,7 @@ jobs:
       - run: gem install bundler
       - run: bundle --path vendor/bundle
       - run: cp config/database.yml.example config/database.yml && cp config/application.yml.example config/application.yml && cp config/secrets.yml.example config/secrets.yml
-      - run: bundle exec rake db:create db:schema:load
+      - run: bundle exec rake db:create db:migrate
       - run: yarn install
       - run:
           name: Run tests

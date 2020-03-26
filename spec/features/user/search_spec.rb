@@ -4,8 +4,7 @@ require 'rails_helper'
 
 context 'Find users by your search scope' do
   before(:each) do
-    @sector = FactoryBot.create(:sector)
-    @users = FactoryBot.create_list(:user, 2, sector: @sector)
+    @users = FactoryBot.create_list(:user, 2)
     FactoryBot.create(
       :permission,
       user: @users.first,
@@ -15,7 +14,7 @@ context 'Find users by your search scope' do
   end
 
   feature 'search user' do
-    %w[name email siape sector].each do |attr|
+    %w[name email siape].each do |attr|
       scenario "find with attribute #{attr}" do
         visit users_path
         fill_in 'search', with: @users.first.read_attribute(attr)

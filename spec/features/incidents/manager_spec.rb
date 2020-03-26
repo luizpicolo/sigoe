@@ -6,8 +6,7 @@ context 'When keeping Incident' do
   before(:each) do
     @student = FactoryBot.create(:student)
     @course = FactoryBot.create(:course)
-    @sector = FactoryBot.create(:sector, initial: 'ASSAL')
-    @user = FactoryBot.create(:user, sector: @sector)
+    @user = FactoryBot.create(:user)
     @type_incident = FactoryBot.create(:type_incident, name: 'Atraso')
     FactoryBot.create(
       :permission,

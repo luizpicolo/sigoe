@@ -12,8 +12,8 @@ class IncidentsController < ApplicationController
   add_breadcrumb 'Home', :root_path
 
   def index
-    add_breadcrumb 'Diren', sector_actions_path('diren')
     add_breadcrumb 'Ocorrências'
+    add_breadcrumb 'Lista de Ocorrências'
 
     @incidents = Incident.order("#{set_order}": :desc)
         .search(params[:search])
@@ -21,8 +21,8 @@ class IncidentsController < ApplicationController
   end
 
   def new
-    add_breadcrumb 'Diren', sector_actions_path('diren')
-    add_breadcrumb 'Ocorrências', :incidents_path
+    add_breadcrumb 'Ocorrências'
+    add_breadcrumb 'Lista de Ocorrências', :incidents_path
     add_breadcrumb 'Nova ocorrências'
 
     @incidents = Incident.new
@@ -42,8 +42,8 @@ class IncidentsController < ApplicationController
   end
 
   def edit
-    add_breadcrumb 'Diren', sector_actions_path('diren')
-    add_breadcrumb 'Ocorrências', :incidents_path
+    add_breadcrumb 'Ocorrências'
+    add_breadcrumb 'Lista de Ocorrências', :incidents_path
     add_breadcrumb 'Atualizar Ocorrência'
   end
 
@@ -67,8 +67,8 @@ class IncidentsController < ApplicationController
   end
 
   def show
-    add_breadcrumb 'Diren', sector_actions_path('diren')
-    add_breadcrumb 'Ocorrências', :incidents_path
+    add_breadcrumb 'Ocorrências'
+    add_breadcrumb 'Lista de Ocorrências', :incidents_path
     add_breadcrumb 'visualizar ocorrência'
   end
 

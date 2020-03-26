@@ -9,7 +9,7 @@ class StudentsController < ApplicationController
   add_breadcrumb 'Home', :root_path
 
   def index
-    add_breadcrumb 'Diren', sector_actions_path('diren')
+    add_breadcrumb 'Administrador'
     add_breadcrumb 'Estudantes'
 
     @students = Student.order("#{set_order}": :desc)
@@ -18,7 +18,7 @@ class StudentsController < ApplicationController
   end
 
   def new
-    add_breadcrumb 'Diren', sector_actions_path('diren')
+    add_breadcrumb 'Administrador'
     add_breadcrumb 'Estudantes', :students_path
     add_breadcrumb 'Novo estudante'
 
@@ -36,7 +36,7 @@ class StudentsController < ApplicationController
   end
 
   def edit
-    add_breadcrumb 'Diren', sector_actions_path('diren')
+    add_breadcrumb 'Administrador'
     add_breadcrumb 'Estudantes', :users_path
     add_breadcrumb 'Atualizar estudante'
   end
@@ -60,7 +60,11 @@ class StudentsController < ApplicationController
     end
   end
 
-  def send_xls; end
+  def send_xls; 
+    add_breadcrumb 'Administrador'
+    add_breadcrumb 'Estudantes', :users_path
+    add_breadcrumb 'Importar XLS'
+  end
 
   def import_xls
     course = Course.find(params[:course])

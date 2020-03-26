@@ -9,7 +9,7 @@ class SchoolGroupsController < ApplicationController
   add_breadcrumb 'Home', :root_path
 
   def index
-    add_breadcrumb 'DIREN', sector_actions_path('diren')
+    add_breadcrumb 'Administrador'
     add_breadcrumb 'Turmas'
 
     @school_groups = SchoolGroup.order("#{set_order}": :desc)
@@ -18,7 +18,7 @@ class SchoolGroupsController < ApplicationController
   end
 
   def new
-    add_breadcrumb 'DIREN', sector_actions_path('diren')
+    add_breadcrumb 'Administrador'
     add_breadcrumb 'Turmas', :school_groups_path
     add_breadcrumb 'Nova Turma'
 
@@ -36,7 +36,7 @@ class SchoolGroupsController < ApplicationController
   end
 
   def edit
-    add_breadcrumb 'DIREN', sector_actions_path('diren')
+    add_breadcrumb 'Administrador'
     add_breadcrumb 'Turmas', :school_groups_path
     add_breadcrumb 'Atualizar turma'
   end

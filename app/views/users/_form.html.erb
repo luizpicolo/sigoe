@@ -51,14 +51,6 @@
     <div class="field is-horizontal">
       <div class="field-body">
         <div class="field">
-          <%= f.label :sector_id, 'Setor', class: 'label' %>
-          <p class="control">
-            <span class="select is-medium">
-              <%= f.select :sector_id, Sector.initials, { prompt: "Selecione o setor" }, { :class => "select2" } %>
-            </span>
-          </p>
-        </div>
-        <div class="field">
           <p class="control">
             <%= f.label :course_id, "Coordenador?", class: 'label' %>
             <span class="select is-medium">

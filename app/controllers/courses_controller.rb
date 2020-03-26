@@ -9,7 +9,7 @@ class CoursesController < ApplicationController
   add_breadcrumb 'Home', :root_path
 
   def index
-    add_breadcrumb 'DIREN', sector_actions_path('diren')
+    add_breadcrumb 'Administrador'
     add_breadcrumb 'Cursos'
 
     @courses = Course.order("#{set_order}": :desc)
@@ -18,7 +18,7 @@ class CoursesController < ApplicationController
   end
 
   def new
-    add_breadcrumb 'DIREN', sector_actions_path('diren')
+    add_breadcrumb 'Administrador'
     add_breadcrumb 'Cursos', :courses_path
     add_breadcrumb 'Novo curso'
 
@@ -36,7 +36,7 @@ class CoursesController < ApplicationController
   end
 
   def edit
-    add_breadcrumb 'DIREN', sector_actions_path('diren')
+    add_breadcrumb 'Administrador'
     add_breadcrumb 'Cursos', :courses_path
     add_breadcrumb 'Atualizar curso'
   end

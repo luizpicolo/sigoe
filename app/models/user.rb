@@ -20,7 +20,6 @@
 #  username               :string           default(""), not null
 #  name                   :string
 #  siape                  :integer
-#  sector_id              :integer
 #  avatar                 :string
 #  course_id              :bigint(8)
 #  admin                  :boolean          default(FALSE)
@@ -38,12 +37,8 @@ class User < ApplicationRecord
   # Validações
   validates :username, presence: true
 
-  # Delegates
-  delegate :initial, to: :sector, prefix: true
-
   # Associações
   has_many :permissions, dependent: :destroy
-  belongs_to :sector
   belongs_to :course, optional: true
 
   # Nested form
@@ -52,7 +47,6 @@ class User < ApplicationRecord
   # Atributos para busca com SearchCop
   search_scope :search do
     attributes :name, :email, :siape
-    attributes sector: 'sector.initial'
   end
 
   # Retorna um vetor com os atributos que serão utilizados para a
@@ -81,17 +75,5 @@ class User < ApplicationRecord
 
   def last_access
     updated_at.strftime('%d/%m/%Y %H:%M')
-  end
-
-  # Verifica se o usuário faz parte de um determinado sertor
-  #
-  # @param [String] _sector
-  # @return [Boolean] true se o usuário faz parte do sertor
-  # @return [Boolean] false se o usuário não faz parte do setro
-  def it_is_part_of_the_sector?(*_sectors)
-    _sectors.each do |_sector|
-      return true if sector.initial.downcase == _sector
-    end
-    false
   end
 end

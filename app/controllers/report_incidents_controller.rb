@@ -7,8 +7,8 @@ class ReportIncidentsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def new
-    add_breadcrumb 'Diren', sector_actions_path('diren')
-    add_breadcrumb 'Ocorrências', :incidents_path
+    add_breadcrumb 'Ocorrências'
+    add_breadcrumb 'Lista de Ocorrências', :incidents_path
     add_breadcrumb 'Relatório ocorrências'
   end
 

@@ -2,7 +2,6 @@ pt-BR:
   activerecord:
     models:
       user: "Usuários"
-      sector: "Setores"
       student: "Estudantes"
       course: "Cursos"
       incident: "Ocorrências"
