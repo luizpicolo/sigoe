@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2020_03_14_034731) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "initial"
+    t.index ["name", "initial"], name: "index_courses_on_name_and_initial"
   end
 
   create_table "incidents", id: :serial, force: :cascade do |t|
@@ -211,6 +212,7 @@ ActiveRecord::Schema.define(version: 2020_03_14_034731) do
     t.integer "course_situation"
     t.bigint "school_group_id"
     t.index ["course_id"], name: "index_students_on_course_id"
+    t.index ["name"], name: "index_students_on_name"
     t.index ["school_group_id"], name: "index_students_on_school_group_id"
   end
 
