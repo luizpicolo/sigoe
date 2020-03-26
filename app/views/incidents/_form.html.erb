@@ -39,7 +39,7 @@
           <%= f.label :assistant_id, 'Assistente', class: 'label' %>
           <p class="control">
             <span class="select">
-              <%= f.select :assistant_id, User.get_all, {}, { :class => "select select2 is-medium" } %>
+              <%= f.select :assistant_id, User.get_all, { selected: current_user.id }, { :class => "select select2 is-medium" } %>
             </span>
           </p>
         </div>
