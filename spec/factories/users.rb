@@ -20,7 +20,6 @@
 #  username               :string           default(""), not null
 #  name                   :string
 #  siape                  :integer
-#  sector_id              :integer
 #  avatar                 :string
 #  course_id              :bigint(8)
 #  admin                  :boolean          default(FALSE)
@@ -35,7 +34,6 @@ FactoryBot.define do
     password_confirmation { pwd }
     username { Faker::Internet.user_name }
     siape { Faker::Number.number(7) }
-    sector
     status { true }
     admin { false }
   end

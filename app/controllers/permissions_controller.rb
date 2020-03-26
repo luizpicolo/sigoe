@@ -9,7 +9,7 @@ class PermissionsController < ApplicationController
   add_breadcrumb 'Home', :root_path
 
   def index
-    add_breadcrumb 'Serti', sector_actions_path('serti')
+    add_breadcrumb 'Administrador'
     add_breadcrumb 'Usuários'
 
     @permissions = Permission.order("#{set_order}": :desc)
@@ -19,7 +19,7 @@ class PermissionsController < ApplicationController
   end
 
   def new
-    add_breadcrumb 'Serti', sector_actions_path('serti')
+    add_breadcrumb 'Administrador'
     add_breadcrumb 'Usuários', :users_path
     add_breadcrumb 'Permissões'
 
@@ -38,7 +38,7 @@ class PermissionsController < ApplicationController
   end
 
   def edit
-    add_breadcrumb 'Serti', sector_actions_path('serti')
+    add_breadcrumb 'Administrador'
     add_breadcrumb 'Usuários', :users_path
     add_breadcrumb 'Atualizar Permissões'
   end

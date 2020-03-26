@@ -20,7 +20,6 @@ ActiveRecord::Schema.define(version: 2020_03_14_034731) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "initial"
-    t.index ["name", "initial"], name: "index_courses_on_name_and_initial"
   end
 
   create_table "incidents", id: :serial, force: :cascade do |t|
@@ -182,16 +181,6 @@ ActiveRecord::Schema.define(version: 2020_03_14_034731) do
     t.index ["name"], name: "index_school_groups_on_name"
   end
 
-  create_table "sectors", id: :serial, force: :cascade do |t|
-    t.string "name"
-    t.string "initial"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "slug"
-    t.string "icon"
-    t.index ["name", "initial", "slug"], name: "index_sectors_on_name_and_initial_and_slug"
-  end
-
   create_table "seed_migration_data_migrations", id: :serial, force: :cascade do |t|
     t.string "version"
     t.integer "runtime"
@@ -222,26 +211,7 @@ ActiveRecord::Schema.define(version: 2020_03_14_034731) do
     t.integer "course_situation"
     t.bigint "school_group_id"
     t.index ["course_id"], name: "index_students_on_course_id"
-    t.index ["name"], name: "index_students_on_name"
     t.index ["school_group_id"], name: "index_students_on_school_group_id"
-  end
-
-  create_table "tickets", id: :serial, force: :cascade do |t|
-    t.string "from"
-    t.string "to"
-    t.string "subject"
-    t.integer "priority", default: 0
-    t.text "description"
-    t.integer "status", default: 0
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "local"
-    t.integer "answer"
-    t.index ["from"], name: "index_tickets_on_from"
-    t.index ["status"], name: "index_tickets_on_status"
-    t.index ["to"], name: "index_tickets_on_to"
-    t.index ["user_id"], name: "index_tickets_on_user_id"
   end
 
   create_table "type_incidents", force: :cascade do |t|
@@ -266,7 +236,6 @@ ActiveRecord::Schema.define(version: 2020_03_14_034731) do
     t.string "username", default: "", null: false
     t.string "name"
     t.integer "siape"
-    t.integer "sector_id"
     t.string "avatar"
     t.bigint "course_id"
     t.boolean "admin", default: false
@@ -274,7 +243,6 @@ ActiveRecord::Schema.define(version: 2020_03_14_034731) do
     t.index ["course_id"], name: "index_users_on_course_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-    t.index ["sector_id"], name: "index_users_on_sector_id"
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
@@ -290,7 +258,5 @@ ActiveRecord::Schema.define(version: 2020_03_14_034731) do
   add_foreign_key "permissions", "users"
   add_foreign_key "students", "courses"
   add_foreign_key "students", "school_groups"
-  add_foreign_key "tickets", "users"
   add_foreign_key "users", "courses"
-  add_foreign_key "users", "sectors"
 end

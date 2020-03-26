@@ -20,7 +20,6 @@
 #  username               :string           default(""), not null
 #  name                   :string
 #  siape                  :integer
-#  sector_id              :integer
 #  avatar                 :string
 #  course_id              :bigint(8)
 #  admin                  :boolean          default(FALSE)
@@ -56,31 +55,11 @@ RSpec.describe User, type: :model do
   it { should have_db_column :username }
   it { should have_db_column :name }
   it { should have_db_column :siape }
-  it { should have_db_column :sector_id }
 
   # Indexes
   it { should have_db_index ['email'] }
   it { should have_db_index ['reset_password_token'] }
-  it { should have_db_index ['sector_id'] }
   it { should have_db_index ['username'] }
-
-  # Associations
-  it { should belong_to(:sector) }
-
-  # Methods
-  describe '#it_is_part_of_the_sector?' do
-    it 'return true if the sector is currect' do
-      expect(@user.it_is_part_of_the_sector?('serti')).to eq(true)
-    end
-
-    it 'return true how two params and if the sector is currect' do
-      expect(@user.it_is_part_of_the_sector?('diren', 'serti')).to eq(true)
-    end
-
-    it 'return false if the sector is not currect' do
-      expect(@user.it_is_part_of_the_sector?('wrong_sector')).to eq(false)
-    end
-  end
 
   describe '#search' do
     it 'find user by name' do
@@ -89,10 +68,6 @@ RSpec.describe User, type: :model do
 
     it 'find user by email' do
       expect(User.search(@user.email)).to eq([@user])
-    end
-
-    it 'find user by sector' do
-      expect(User.search(@user.sector.initial)).to eq([@user])
     end
   end
 
