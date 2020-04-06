@@ -1,6 +1,12 @@
 # frozen_string_literal: true
+require 'json'
 
 class SessionsController < Devise::SessionsController
+  def new
+    @version = version
+    super
+  end
+
   def create
     self.resource = warden.authenticate!(auth_options)
     _sign_in = sign_in(resource_name, resource)
@@ -10,5 +16,11 @@ class SessionsController < Devise::SessionsController
     else 
       sign_out_and_redirect(resource_name) 
     end
+  end
+
+  private 
+
+  def version
+    JSON.parse(File.read("#{Rails.root}/package.json"))
   end
 end
