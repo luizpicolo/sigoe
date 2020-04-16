@@ -5,7 +5,8 @@ Todas as alterações notáveis neste projeto serão documentadas neste arquivo.
 ## [v1.3.2] - 
 
 ### Atualizado
- - Atualizada gem webdrivers from 4.2.0 to 4.3.0
+ - Atualizado webdrivers from 4.2.0 para 4.3.0
+ Atualizado rubocop from 0.81.0 para 0.82.0.
 
 ## [v1.3.1] - 2020-04-05
 
