@@ -2,6 +2,11 @@
 
 Todas as alterações notáveis neste projeto serão documentadas neste arquivo. Iniciado na v1.3.1
 
+## [v1.3.2] - 
+
+### Atualizado
+ - Atualizada gem webdrivers from 4.2.0 to 4.3.0
+
 ## [v1.3.1] - 2020-04-05
 
 ### Adicionado
