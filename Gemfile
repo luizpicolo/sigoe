@@ -56,7 +56,7 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'uglifier'
 gem 'whenever', require: false
 gem 'wkhtmltopdf-binary'
-gem 'webpacker', '~> 5.0'
+gem 'webpacker', '~> 5.1'
 
 group :development, :test do
   gem 'binding_of_caller'
