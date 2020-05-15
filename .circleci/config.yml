@@ -26,7 +26,8 @@ jobs:
           keys:
             - v1-bundle-{{ checksum "Gemfile.lock" }}
       - run: gem install bundler
-      - run: bundle install --path vendor/bundle
+      - run: bundle config set path 'vendor'
+      - run: bundle install
       - run: yarn install --frozen-lockfile
       - save_cache:
           key: v1-bundle-{{ checksum "Gemfile.lock" }}
@@ -47,7 +48,8 @@ jobs:
           keys:
             - v1-bundle-{{ checksum "Gemfile.lock" }}
       - run: gem install bundler
-      - run: bundle --path vendor/bundle
+      - run: bundle config set path 'vendor'
+      - run: bundle install
       - run: cp config/database.yml.example config/database.yml && cp config/application.yml.example config/application.yml && cp config/secrets.yml.example config/secrets.yml
       - run: bundle exec rake db:create db:migrate
       - run: yarn install
@@ -68,7 +70,8 @@ jobs:
           keys:
             - v1-bundle-{{ checksum "Gemfile.lock" }}
       - run: gem install bundler
-      - run: bundle --path vendor/bundle
+      - run: bundle config set path 'vendor'
+      - run: bundle install
       - run: cp config/database.yml.example config/database.yml && cp config/application.yml.example config/application.yml && cp config/secrets.yml.example config/secrets.yml
       - run:
           name: Precompile assets
