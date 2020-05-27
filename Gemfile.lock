@@ -326,7 +326,7 @@ GEM
       thor (>= 0.20.3, < 2.0)
     rainbow (3.0.0)
     rake (13.0.1)
-    randumb (0.5.2)
+    randumb (0.6.0)
       activerecord (>= 3.0.20)
       activesupport (>= 3.0.20)
       rake
