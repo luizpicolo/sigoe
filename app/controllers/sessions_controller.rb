@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'json'
 
 class SessionsController < Devise::SessionsController
@@ -13,12 +14,12 @@ class SessionsController < Devise::SessionsController
     if resource.status && _sign_in
       set_flash_message(:notice, :signed_in) if is_flashing_format?
       redirect_to root_path
-    else 
-      sign_out_and_redirect(resource_name) 
+    else
+      sign_out_and_redirect(resource_name)
     end
   end
 
-  private 
+  private
 
   def version
     JSON.parse(File.read("#{Rails.root}/package.json"))

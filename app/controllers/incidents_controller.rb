@@ -100,9 +100,7 @@ class IncidentsController < ApplicationController
   end
 
   def send_email_to(coordinator)
-    if coordinator.present?
-      InsidentMailer.send_mailer(coordinator).deliver_now
-    end
+    InsidentMailer.send_mailer(coordinator).deliver_now if coordinator.present?
   end
 
   def set_incident
@@ -115,7 +113,7 @@ class IncidentsController < ApplicationController
 
   def incident_params
     params.require(:incident).permit(
-      :type_incident_id, :student_id, :course_id, :date_incident, :assistant_id, :time_incident, :institution, :description, :soluction,:is_resolved, :type_student, :sanction, prohibition_and_responsibility_ids: [], student_duty_ids: []
+      :type_incident_id, :student_id, :course_id, :date_incident, :assistant_id, :time_incident, :institution, :description, :soluction, :is_resolved, :type_student, :sanction, prohibition_and_responsibility_ids: [], student_duty_ids: []
     )
   end
 end

@@ -7,15 +7,14 @@ namespace :student do
     response = HTTParty.get(json_students)
     data_students = response.parsed_response
     data_students.each do |data|
-
       json_student = "http://#{ENV['URI_API']}/students?token=#{ENV['TOKEN_API']}&campus=#{ENV['CAMPUS_URI_API']}&id=#{data['id']}"
       response = HTTParty.get(json_student)
       data_student = response.parsed_response.first
 
       p data_student
-      
+
       p 'Created School Group'
-      
+
       school_group = SchoolGroup.find_by_name(data_student['turma'])
       school_group = SchoolGroup.new unless school_group.present?
       school_group.name = data_student['turma']

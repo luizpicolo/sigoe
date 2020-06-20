@@ -49,14 +49,14 @@ gem 'sassc'
 gem 'search_cop'
 gem 'seed_migration'
 gem 'spreadsheet'
-gem 'sprockets-rails'
 gem 'sprockets', '~> 3.7.2'
+gem 'sprockets-rails'
 gem 'turbolinks'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'uglifier'
+gem 'webpacker', '~> 5.1'
 gem 'whenever', require: false
 gem 'wkhtmltopdf-binary'
-gem 'webpacker', '~> 5.1'
 
 group :development, :test do
   gem 'binding_of_caller'
@@ -86,7 +86,7 @@ group :development do
   gem 'rails_best_practices', '~> 1.20'
   gem 'rb-readline'
   gem 'rename'
-  gem 'rubocop', '~> 0.85.0', require: false
+  gem 'rubocop', '~> 0.85.1', require: false
   gem 'web-console', '>= 3.3.0'
 end
 
