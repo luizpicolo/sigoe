@@ -75,8 +75,6 @@ class Student < ApplicationRecord
     [%w[ID id], %w[Nome name]]
   end
 
-  private
-
   def self.set_attributes(student, course, attributes)
     params = {
         name: attributes[3],

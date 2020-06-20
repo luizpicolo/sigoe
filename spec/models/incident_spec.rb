@@ -142,7 +142,7 @@ RSpec.describe Incident, type: :model do
       end
     end
   end
-  
+
   describe '#signed_by_student_in' do
     let(:subject) { FactoryBot.create(:incident) }
 

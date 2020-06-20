@@ -9,6 +9,7 @@ AllCops:
     - 'db/schema.rb'
     - 'lib/aws-sdk.rb'
     - 'vendor/**/*'
+    - 'node_modules/**/*'
   TargetRubyVersion: 2.6.5
 
 Metrics/LineLength:
@@ -61,6 +62,3 @@ Metrics/BlockLength:
 Metrics/ModuleLength:
   Exclude:
     - 'spec/**/*.rb'
-
-Style/BracesAroundHashParameters:
-  EnforcedStyle: context_dependent

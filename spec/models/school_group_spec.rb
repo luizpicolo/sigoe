@@ -14,7 +14,6 @@
 require 'rails_helper'
 
 RSpec.describe SchoolGroup, type: :model do
-
   # === Database (Columns) ===
   it { should have_db_column :id }
   it { should have_db_column :name }

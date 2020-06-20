@@ -60,7 +60,7 @@ class StudentsController < ApplicationController
     end
   end
 
-  def send_xls; 
+  def send_xls
     add_breadcrumb 'Administrador'
     add_breadcrumb 'Estudantes', :users_path
     add_breadcrumb 'Importar XLS'
