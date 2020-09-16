@@ -7,7 +7,7 @@ ruby '2.6.5'
 
 gem 'active_link_to'
 gem 'alert_message'
-gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.15'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'breadcrumbs_on_rails'
 gem 'cancancan'
@@ -21,7 +21,7 @@ gem 'devise-i18n'
 gem 'erubis'
 gem 'figaro'
 gem 'font-awesome-sass'
-gem 'friendly_id', '~> 5.3.0'
+gem 'friendly_id', '~> 5.4.0'
 gem 'groupdate'
 gem 'htmlcompressor'
 gem 'httparty'
@@ -86,7 +86,7 @@ group :development do
   gem 'rails_best_practices', '~> 1.20'
   gem 'rb-readline'
   gem 'rename'
-  gem 'rubocop', '~> 0.87.1', require: false
+  gem 'rubocop', '~> 0.88.0', require: false
   gem 'web-console', '>= 3.3.0'
 end
 
