@@ -13,7 +13,7 @@ context 'User' do
 
     scenario 'with invalid credentials' do
       sign_in user, password: 'wrongpassword'
-      expect(page).to have_content('Inválido Username ou senha.')
+      expect(page).to have_content('Username ou senha inválidos.')
     end
 
     scenario 'with status false' do
