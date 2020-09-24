@@ -86,7 +86,7 @@ group :development do
   gem 'rails_best_practices', '~> 1.20'
   gem 'rb-readline'
   gem 'rename'
-  gem 'rubocop', '~> 0.88.0', require: false
+  gem 'rubocop', '~> 0.91.1', require: false
   gem 'web-console', '>= 3.3.0'
 end
 
