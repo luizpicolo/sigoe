@@ -39,7 +39,7 @@ gem 'pdfkit'
 gem 'pg'
 gem 'puma', '~> 4.3'
 gem 'rack', '>= 2.2.2'
-gem 'rails', '~> 6.0.3'
+gem 'rails', '~> 6.0', '>= 6.0.3.3'
 gem 'rails-env'
 gem 'rails-i18n'
 gem 'randumb'
@@ -54,7 +54,7 @@ gem 'sprockets-rails'
 gem 'turbolinks'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'uglifier'
-gem 'webpacker', '~> 5.1'
+gem 'webpacker', '~> 5.2'
 gem 'whenever', require: false
 gem 'wkhtmltopdf-binary'
 
@@ -86,7 +86,7 @@ group :development do
   gem 'rails_best_practices', '~> 1.20'
   gem 'rb-readline'
   gem 'rename'
-  gem 'rubocop', '~> 0.88.0', require: false
+  gem 'rubocop', '~> 0.92.0', require: false
   gem 'web-console', '>= 3.3.0'
 end
 
