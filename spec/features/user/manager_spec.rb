@@ -29,7 +29,7 @@ context 'Manager (crud) entity User' do
     scenario 'with password confirmation different of password' do
       visit new_user_path
       create_new_user password: 'wrongpassword'
-      expect(page).to have_content('Confirmar senha não é igual a Senha')
+      expect(page).to have_content('Confirme sua senha não é igual a Senha')
     end
   end
 
