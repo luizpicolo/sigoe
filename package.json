@@ -6,8 +6,8 @@
   "dependencies": {
     "@rails/actioncable": "^6.0.0-alpha",
     "@rails/activestorage": "^6.0.3",
+    "@rails/webpacker": "^5.2.1",
     "@rails/ujs": "^6.0.3",
-    "@rails/webpacker": "^5.0.1",
     "bulma": "^0.9.1",
     "chartkick": "^3.2.1",
     "fancybox": "^3.0.0",
