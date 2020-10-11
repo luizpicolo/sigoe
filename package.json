@@ -6,8 +6,8 @@
   "dependencies": {
     "@rails/actioncable": "^6.0.0-alpha",
     "@rails/activestorage": "^6.0.3",
-    "@rails/webpacker": "^5.2.1",
     "@rails/ujs": "^6.0.3",
+    "@rails/webpacker": "^5.2.1",
     "bulma": "^0.9.1",
     "chartkick": "^3.2.1",
     "fancybox": "^3.0.0",
@@ -16,14 +16,16 @@
     "jquery": "^3.5.1",
     "jquery-mask-plugin": "^1.14.10",
     "jquery-ui": "^1.12.1",
+    "node-forge": "^0.10.0",
     "select2": "^4.0.3",
     "turbolinks": "^5.2.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
     "babel": "^6.23.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^8.1.0",
-    "node-forge": ">=0.10.0",
     "serialize-javascript": ">=3.1.0",
     "webpack": "^4.44.2",
     "webpack-cli": "^3.3.12",
