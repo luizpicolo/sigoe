@@ -37,9 +37,9 @@ gem 'modernizr-rails'
 gem 'nokogiri', '>= 1.10.4'
 gem 'pdfkit'
 gem 'pg'
-gem 'puma', '~> 4.3'
+gem 'puma', '~> 5.0'
 gem 'rack', '>= 2.2.2'
-gem 'rails', '~> 6.0', '>= 6.0.3.3'
+gem 'rails', '~> 6.0'
 gem 'rails-env'
 gem 'rails-i18n'
 gem 'randumb'
@@ -71,7 +71,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 4.0.1'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers'
-  gem 'simplecov', '~> 0.18.5'
+  gem 'simplecov', '~> 0.19.0'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'webdrivers'
@@ -86,7 +86,7 @@ group :development do
   gem 'rails_best_practices', '~> 1.20'
   gem 'rb-readline'
   gem 'rename'
-  gem 'rubocop', '~> 0.92.0', require: false
+  gem 'rubocop', '~> 0.93.0', require: false
   gem 'web-console', '>= 3.3.0'
 end
 
