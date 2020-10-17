@@ -163,6 +163,9 @@ GEM
       sassc (>= 1.11)
     friendly_id (5.4.0)
       activerecord (>= 4.0.0)
+    fuubar (2.5.0)
+      rspec-core (~> 3.0)
+      ruby-progressbar (~> 1.4)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     groupdate (5.2.1)
@@ -494,6 +497,7 @@ DEPENDENCIES
   figaro
   font-awesome-sass
   friendly_id (~> 5.4.0)
+  fuubar
   groupdate
   htmlcompressor
   httparty

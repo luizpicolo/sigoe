@@ -66,6 +66,7 @@ group :development, :test do
   gem 'email_spec'
   gem 'factory_bot_rails'
   gem 'faker'
+  gem 'fuubar'
   gem 'rails-controller-testing'
   gem 'regressor', git: 'https://github.com/ndea/regressor.git'
   gem 'rspec-rails', '~> 4.0.1'

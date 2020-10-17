@@ -1,4 +1,4 @@
 --color
---format progress
+--format Fuubar
 --require spec_helper
 --tty false
