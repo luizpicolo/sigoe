@@ -6,7 +6,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.5'
 
 gem 'active_link_to'
-gem 'alert_message'
+gem 'alert_message', '~> 2.0'
 gem 'bcrypt', '~> 3.1.15'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'breadcrumbs_on_rails'
