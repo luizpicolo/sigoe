@@ -4,7 +4,7 @@
 			key = 'notice'
 		end
 	%>
-  <div class="alert-message alert-message-<%= key %> no-print">
+  <div id="alert" class="alert-message alert-message-<%= key %>">
     <%= value.to_s.html_safe %>
   </div>
 <% end %>
