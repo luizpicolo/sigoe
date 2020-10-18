@@ -5,6 +5,6 @@
 		end
 	%>
   <div id="alert" class="alert-message alert-message-<%= key %>">
-    <%= value.html_safe %>
+    <%= value.to_s.html_safe %>
   </div>
 <% end %>
