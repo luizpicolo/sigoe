@@ -161,7 +161,7 @@ GEM
       thor (>= 0.14.0, < 2)
     font-awesome-sass (5.15.1)
       sassc (>= 1.11)
-    friendly_id (5.4.0)
+    friendly_id (5.4.1)
       activerecord (>= 4.0.0)
     fuubar (2.5.0)
       rspec-core (~> 3.0)
@@ -496,7 +496,7 @@ DEPENDENCIES
   faker
   figaro
   font-awesome-sass
-  friendly_id (~> 5.4.0)
+  friendly_id (~> 5.4.1)
   fuubar
   groupdate
   htmlcompressor
