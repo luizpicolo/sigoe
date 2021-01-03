@@ -4,7 +4,7 @@ namespace :student do
   desc 'Download students data by SigaEdu'
   task get_data: :environment do
     json_students = "https://#{ENV['URI_API']}/students?token=#{ENV['TOKEN_API']}&campus=#{ENV['CAMPUS_URI_API']}"
-    response = HTTParty.get(json_students)
+    response = HTTParty.get(json_students, verify: true)
     data_students = response.parsed_response
     data_students.each do |data|
       
