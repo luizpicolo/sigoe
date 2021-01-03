@@ -2,6 +2,13 @@
 
 Todas as alterações notáveis neste projeto serão documentadas neste arquivo. Iniciado na v1.3.1
 
+## [v1.3.3] - 2021-01-03
+
+### Corrigido
+ - Corrigido erro de deploy com versão do Bundler acima da 2.1.4
+### Removido
+ - Removida bundler 2.2.3.
+
 ## [v1.3.2] - 2020-06-20
 
 ### Atualizado
