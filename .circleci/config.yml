@@ -25,7 +25,7 @@ jobs:
       - restore_cache:
           keys:
             - v1-bundle-{{ checksum "Gemfile.lock" }}
-      - run: gem install bundler
+      - run: gem install bundler -v 2.1.4
       - run: bundle config set path 'vendor'
       - run: bundle install
       - run: yarn install --frozen-lockfile
@@ -47,7 +47,7 @@ jobs:
       - restore_cache:
           keys:
             - v1-bundle-{{ checksum "Gemfile.lock" }}
-      - run: gem install bundler
+      - run: gem install bundler -v 2.1.4
       - run: bundle config set path 'vendor'
       - run: bundle install
       - run: cp config/database.yml.example config/database.yml && cp config/application.yml.example config/application.yml && cp config/secrets.yml.example config/secrets.yml
@@ -69,7 +69,7 @@ jobs:
       - restore_cache:
           keys:
             - v1-bundle-{{ checksum "Gemfile.lock" }}
-      - run: gem install bundler
+      - run: gem install bundler -v 2.1.4
       - run: bundle config set path 'vendor'
       - run: bundle install
       - run: cp config/database.yml.example config/database.yml && cp config/application.yml.example config/application.yml && cp config/secrets.yml.example config/secrets.yml
