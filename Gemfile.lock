@@ -167,7 +167,7 @@ GEM
       sassc (>= 1.11)
     friendly_id (5.4.2)
       activerecord (>= 4.0.0)
-    fuubar (2.5.0)
+    fuubar (2.5.1)
       rspec-core (~> 3.0)
       ruby-progressbar (~> 1.4)
     globalid (0.4.2)
@@ -387,7 +387,7 @@ GEM
     ruby-graphviz (1.2.5)
       rexml
     ruby-ole (1.2.12.2)
-    ruby-progressbar (1.10.1)
+    ruby-progressbar (1.11.0)
     ruby-vips (2.0.17)
       ffi (~> 1.9)
     rubyzip (2.3.0)
