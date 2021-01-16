@@ -10,8 +10,8 @@ namespace :course do
       course = Course.find_by_id(data['id'].to_i)
       course = Course.new unless course.present?
       course.id = data['id'] if course.present?
-      course.name = data['nome']
-      course.initial = data['nome_reduzido']
+      course.name = data['curso']
+      course.initial = ""
       course.save(validate: false)
     end
   end
