@@ -417,8 +417,8 @@ GEM
       simplecov_json_formatter (~> 0.1)
     simplecov-html (0.12.3)
     simplecov_json_formatter (0.1.2)
-    spreadsheet (1.2.6)
-      ruby-ole (>= 1.0)
+    spreadsheet (1.2.7)
+      ruby-ole
     spring (2.1.1)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
