@@ -4,6 +4,10 @@ table {
   a {
     color: $green;
   }
+
+  th {
+    text-align: left !important;
+  }
 }
 
 @media screen and (max-width: 850px) {
