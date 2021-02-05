@@ -13,29 +13,8 @@ jobs:
           paths:
             - ~/circleci-demo-workflows
 
-  bundle_dependencies:
-    docker:
-      - image: circleci/ruby:2.7.2-node
-      - image: circleci/postgres:9.4.12-alpine
-    working_directory: ~/circleci-demo-workflows
-    steps:
-      - restore_cache:
-          keys:
-            - v1-repo-{{ .Environment.CIRCLE_SHA1 }}
-      - restore_cache:
-          keys:
-            - v1-bundle-{{ checksum "Gemfile.lock" }}
-      - run: gem install bundler -v 2.1.4
-      - run: bundle config set path 'vendor'
-      - run: bundle install
-      - run: yarn install --frozen-lockfile
-      - save_cache:
-          key: v1-bundle-{{ checksum "Gemfile.lock" }}
-          paths:
-            - ~/circleci-demo-workflows/vendor/bundle
-            - ~/circleci-demo-workflows/node_modules
-
   rake_test:
+    parallelism: 3
     docker:
       - image: circleci/ruby:2.7.2-node
       - image: circleci/postgres:9.4.12-alpine
@@ -54,44 +33,17 @@ jobs:
       - run: bundle exec rake db:create db:migrate
       - run: yarn install
       - run:
-          name: Run tests
-          command: bundle exec rake
-
-  precompile_assets:
-    docker:
-      - image: circleci/ruby:2.7.2-node
-      - image: circleci/postgres:9.4.12-alpine
-    working_directory: ~/circleci-demo-workflows
-    steps:
-      - restore_cache:
-          keys:
-            - v1-repo-{{ .Environment.CIRCLE_SHA1 }}
-      - restore_cache:
-          keys:
-            - v1-bundle-{{ checksum "Gemfile.lock" }}
-      - run: gem install bundler -v 2.1.4
-      - run: bundle config set path 'vendor'
-      - run: bundle install
-      - run: cp config/database.yml.example config/database.yml && cp config/application.yml.example config/application.yml && cp config/secrets.yml.example config/secrets.yml
-      - run:
           name: Precompile assets
           command: bundle exec rake assets:precompile
-      - save_cache:
-          key: v1-assets-{{ .Environment.CIRCLE_SHA1 }}
-          paths:
-            - ~/circleci-demo-workflows/public/assets
+      - run:
+          name: Run tests
+          command: bundle exec rake
 
 workflows:
   version: 2
   build-and-deploy:
     jobs:
       - checkout_code
-      - bundle_dependencies:
-          requires:
-            - checkout_code
       - rake_test:
           requires:
-            - bundle_dependencies
-      - precompile_assets:
-          requires:
-            - bundle_dependencies
+            - checkout_code
