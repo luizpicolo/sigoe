@@ -69,7 +69,7 @@ group :development, :test do
   gem 'fuubar'
   gem 'rails-controller-testing'
   gem 'regressor', git: 'https://github.com/ndea/regressor.git'
-  gem 'rspec-rails', '~> 4.0.1'
+  gem 'rspec-rails', '~> 5.0.0'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers'
   gem 'simplecov', '~> 0.21.2'
