@@ -255,6 +255,7 @@ GEM
     net-sftp (2.1.2)
       net-ssh (>= 2.6.5)
     net-ssh (6.1.0)
+    newrelic_rpm (6.15.0)
     nio4r (2.5.5)
     nokogiri (1.11.1)
       mini_portile2 (~> 2.5.0)
@@ -527,6 +528,7 @@ DEPENDENCIES
   mini_magick (>= 4.9.4)
   mini_racer
   modernizr-rails
+  newrelic_rpm
   nokogiri (>= 1.11.0.rc4)
   pdfkit
   pg
