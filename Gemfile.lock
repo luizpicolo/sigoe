@@ -525,7 +525,7 @@ DEPENDENCIES
   listen (>= 3.0.5, < 3.5)
   loofah (>= 2.2.3)
   mechanize
-  mini_magick (>= 4.9.4)
+  mini_magick (>= 4.11.0)
   mini_racer
   modernizr-rails
   newrelic_rpm
