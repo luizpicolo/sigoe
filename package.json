@@ -21,7 +21,7 @@
     "turbolinks": "^5.2.0"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.14.2",
+    "@babel/preset-env": "^7.14.4",
     "@babel/core": "^7.14.3",
     "babel": "^6.23.0",
     "babel-core": "^6.26.3",
