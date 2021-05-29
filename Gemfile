@@ -56,7 +56,7 @@ gem 'sprockets-rails'
 gem 'turbolinks'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'uglifier'
-gem 'webpacker', '~> 5.3'
+gem 'webpacker', '~> 5.4'
 gem 'whenever', require: false
 gem 'wkhtmltopdf-binary'
 
@@ -89,7 +89,7 @@ group :development do
   gem 'rails_best_practices', '~> 1.20'
   gem 'rb-readline'
   gem 'rename'
-  gem 'rubocop', '~> 1.13.0', require: false
+  gem 'rubocop', '~> 1.15.0', require: false
   gem 'web-console', '>= 3.3.0'
 end
 
