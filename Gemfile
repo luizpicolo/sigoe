@@ -56,7 +56,7 @@ gem 'sprockets-rails'
 gem 'turbolinks'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'uglifier'
-gem 'webpacker', '~> 5.3'
+gem 'webpacker', '~> 5.4'
 gem 'whenever', require: false
 gem 'wkhtmltopdf-binary'
 
