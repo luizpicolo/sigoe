@@ -54,11 +54,11 @@ class Student < ApplicationRecord
     attributes school_group: 'school_group.name'
   end
 
-  # Retorna um vetor contendo os nomes e seus respectivos IDs
+  # Retorna um vetor contendo os estudantes em curso com os nomes e seus respectivos IDs
   #
   # @return [Array] contendo nomes e seus IDs
   def self.get_all
-    order('name asc').collect { |p| [p.name, p.id] }
+    where(course_situation: 5).order('name asc').collect { |p| [p.name, p.id] }
   end
 
   def self.import(attributes, course)
