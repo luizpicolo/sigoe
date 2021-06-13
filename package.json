@@ -18,6 +18,9 @@
     "jquery-ui": "^1.12.1",
     "node-forge": "^0.10.0",
     "select2": "^4.0.3",
+    "glob-parent": ">=5.1.2",
+    "normalize-url": ">=4.5.1",
+    "postcss": ">=8.2.10",
     "turbolinks": "^5.2.0"
   },
   "devDependencies": {
