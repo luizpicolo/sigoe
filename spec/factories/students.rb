@@ -35,5 +35,6 @@ FactoryBot.define do
     contact { Faker::Internet.email }
     password { pwd }
     password_confirmation { pwd }
+    course_situation { 'Em curso' }
   end
 end
