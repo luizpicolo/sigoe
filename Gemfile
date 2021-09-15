@@ -86,7 +86,7 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.6'
   gem 'pry-byebug'
   gem 'rails-erd'
-  gem 'rails_best_practices', '~> 1.20'
+  gem 'rails_best_practices', '~> 1.21'
   gem 'rb-readline'
   gem 'rename'
   gem 'rubocop', '~> 1.21.0', require: false
