@@ -71,7 +71,7 @@ group :development, :test do
   gem 'fuubar'
   gem 'rails-controller-testing'
   gem 'regressor', git: 'https://github.com/ndea/regressor.git'
-  gem 'rspec-rails', '~> 5.0.1'
+  gem 'rspec-rails', '~> 5.0.2'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers'
   gem 'simplecov', '~> 0.21.2'
@@ -89,7 +89,7 @@ group :development do
   gem 'rails_best_practices', '~> 1.20'
   gem 'rb-readline'
   gem 'rename'
-  gem 'rubocop', '~> 1.16.0', require: false
+  gem 'rubocop', '~> 1.21.0', require: false
   gem 'web-console', '>= 3.3.0'
 end
 
