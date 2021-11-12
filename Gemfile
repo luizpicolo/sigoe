@@ -78,6 +78,7 @@ group :development, :test do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'webdrivers'
+  gem 'mini_racer', '~> 0.4.0'
 end
 
 group :development do
@@ -91,10 +92,6 @@ group :development do
   gem 'rename'
   gem 'rubocop', '~> 1.21.0', require: false
   gem 'web-console', '>= 3.3.0'
-end
-
-group :staging, :production do
-  gem 'mini_racer'
 end
 
 group :production do
