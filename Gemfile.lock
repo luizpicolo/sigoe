@@ -215,7 +215,7 @@ GEM
     launchy (2.5.0)
       addressable (~> 2.7)
     libv8-node (15.14.0.1)
-    listen (3.5.1)
+    listen (3.7.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
     loofah (2.13.0)
@@ -523,7 +523,7 @@ DEPENDENCIES
   jquery-turbolinks
   jquery-ui-rails
   kaminari
-  listen (>= 3.0.5, < 3.6)
+  listen (>= 3.0.5, < 3.8)
   loofah (>= 2.2.3)
   mechanize
   mimemagic
