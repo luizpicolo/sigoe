@@ -5,7 +5,7 @@ module CourseHelpers
     name = options[:name] || Faker::Name.name
 
     fill_in 'Nome', with: name
-    fill_in 'Sigla', with: Faker::Lorem.characters(4)
+    fill_in 'Sigla', with: Faker::Lorem.characters(number: 4)
 
     click_button 'Salvar'
   end
