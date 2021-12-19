@@ -229,7 +229,7 @@ GEM
     kaminari-core (1.2.1)
     launchy (2.5.0)
       addressable (~> 2.7)
-    libv8-node (15.14.0.1)
+    libv8-node (16.10.0.0)
     listen (3.7.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -261,8 +261,8 @@ GEM
     mini_magick (4.11.0)
     mini_mime (1.1.2)
     mini_portile2 (2.6.1)
-    mini_racer (0.4.0)
-      libv8-node (~> 15.14.0.0)
+    mini_racer (0.5.0)
+      libv8-node (~> 16.10.0.0)
     minitest (5.15.0)
     modernizr-rails (2.7.1)
     msgpack (1.4.2)
@@ -543,7 +543,7 @@ DEPENDENCIES
   mechanize
   mimemagic
   mini_magick (>= 4.11.0)
-  mini_racer (~> 0.4.0)
+  mini_racer (~> 0.5.0)
   modernizr-rails
   newrelic_rpm
   nokogiri (>= 1.11.0.rc4)

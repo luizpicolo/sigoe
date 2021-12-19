@@ -79,7 +79,7 @@ group :development, :test do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'webdrivers'
-  gem 'mini_racer', '~> 0.4.0'
+  gem 'mini_racer', '~> 0.5.0'
 end
 
 group :development do
