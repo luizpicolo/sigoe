@@ -30,12 +30,12 @@ FactoryBot.define do
     course factory: :course
     type_incident factory: :type_incident
     institution { 'Ifms' }
-    description { Faker::Lorem.paragraph(2) }
+    description { Faker::Lorem.paragraph(sentence_count: 2) }
     date_incident { Time.zone.now }
     time_incident { '10:00:00' }
     type_student { 'resident' }
     sanction { 'verbal_warning' }
     signed_in { Time.zone.now }
-    soluction { Faker::Lorem.paragraph(2) }
+    soluction { Faker::Lorem.paragraph(sentence_count: 2) }
   end
 end

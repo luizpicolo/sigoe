@@ -10,7 +10,7 @@ module IncidentHelpers
     select 'Não', from: 'Ocorrências resolvida?'
     fill_in 'Data ocorrência', with: Time.zone.now
     fill_in 'Hora ocorrência', with: Time.zone.now
-    fill_in 'Ocorrência', with: Faker::Lorem.characters(4)
+    fill_in 'Ocorrência', with: Faker::Lorem.characters(number: 4)
 
     click_button 'Salvar'
   end

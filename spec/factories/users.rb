@@ -33,7 +33,7 @@ FactoryBot.define do
     password { pwd }
     password_confirmation { pwd }
     username { Faker::Internet.user_name }
-    siape { Faker::Number.number(7) }
+    siape { Faker::Number.number(digits: 7) }
     status { true }
     admin { false }
   end
