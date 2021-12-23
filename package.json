@@ -35,6 +35,6 @@
     "babel-loader": "^8.2.2",
     "serialize-javascript": ">=5.0.1",
     "webpack": "^4.46.0",
-    "webpack-dev-server": "^3.11.2"
+    "webpack-dev-server": "^4.7.1"
   }
 }
