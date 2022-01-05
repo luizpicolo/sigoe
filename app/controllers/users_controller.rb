@@ -13,7 +13,8 @@ class UsersController < ApplicationController
     add_breadcrumb 'Administrador'
     add_breadcrumb 'Usuários'
 
-    @users = User.order("#{set_order}": :desc)
+    @users = User.where(set_polo)
+        .order("#{set_order}": :desc)
         .search(params[:search])
         .page(params[:page])
   end
@@ -24,6 +25,7 @@ class UsersController < ApplicationController
     add_breadcrumb 'Novo usuário'
 
     @user = User.new
+    @params_return = set_polo
   end
 
   def create
@@ -78,10 +80,8 @@ class UsersController < ApplicationController
     if user_params[:password].empty?
       user_params.delete(:password)
       user_params.delete(:password_confirmation)
-      user_params
-    else
-      user_params
     end
+    user_params
   end
 
   def commit_action(commit)
@@ -92,7 +92,7 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(
       :name, :siape, :username, :email, :password,
-      :password_confirmation, :status, :avatar, :course_id, :admin
+      :password_confirmation, :status, :avatar, :course_id, :admin, :polo_id
     )
   end
 end

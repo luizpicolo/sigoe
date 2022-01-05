@@ -6,6 +6,7 @@ module CourseHelpers
 
     fill_in 'Nome', with: name
     fill_in 'Sigla', with: Faker::Lorem.characters(number: 4)
+    # fill_in 'Polo', with: options[:polo]
 
     click_button 'Salvar'
   end

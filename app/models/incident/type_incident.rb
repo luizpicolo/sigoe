@@ -1,5 +1,16 @@
 # frozen_string_literal: true
 
+# == Schema Information
+#
+# Table name: type_incidents
+#
+#  id         :integer          not null, primary key
+#  name       :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  old_id     :integer
+#
+
 class Incident::TypeIncident < ApplicationRecord
   self.table_name = 'type_incidents'
 

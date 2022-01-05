@@ -4,22 +4,24 @@
 #
 # Table name: incidents
 #
-#  id              :integer          not null, primary key
-#  student_id      :integer
-#  user_id         :integer
-#  institution     :integer
-#  description     :text
-#  date_incident   :date
-#  soluction       :text
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
-#  course_id       :integer
-#  time_incident   :time
-#  assistant_id    :integer
-#  signed_in       :datetime
-#  is_resolved     :integer
-#  type_student    :integer
-#  sanction        :integer
+#  id               :integer          not null, primary key
+#  student_id       :integer
+#  user_id          :integer
+#  institution      :integer
+#  description      :text
+#  date_incident    :date
+#  soluction        :text
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  course_id        :integer
+#  time_incident    :time
+#  assistant_id     :integer
+#  signed_in        :datetime
+#  is_resolved      :integer
+#  type_student     :integer
+#  sanction         :integer
+#  school_group_id  :integer
+#  type_incident_id :integer
 #
 
 class Incident < ApplicationRecord
@@ -28,20 +30,21 @@ class Incident < ApplicationRecord
   validates :user, :assistant, :institution, :description,
             :date_incident, :time_incident, :type_incident, presence: true
 
-  enum institution: %w[Ifms Ufms Cemid]
-  enum is_resolved: %w[no_ yes_]
-  enum type_student: %w[non_resident resident]
-  enum sanction: %w[
-      verbal_warning
-      written_warning
-      suspension
-      quitting_school
-  ]
+  # Delegates
+  delegate :ra, to: :user, prefix: true
+  delegate :name, to: :course, prefix: true
+  # delegate :name, to: :course, prefix: true
+
+  enum institution: { 'Ifms' => 0, 'Ufms' => 1, 'Cemid' => 2 }
+  enum is_resolved: { 'no_' => 0, 'yes_' => 1 }
+  enum type_student: { 'non_resident' => 0, 'resident' => 1 }
+  enum sanction: { 'verbal_warning' => 0, 'written_warning' => 1, 'suspension' => 2,
+                   'quitting_school' => 3 }
 
   belongs_to :student, optional: true
   belongs_to :user
   belongs_to :course, optional: true
-  belongs_to :assistant, class_name: 'User', foreign_key: 'assistant_id'
+  belongs_to :assistant, class_name: 'User'
   belongs_to :type_incident
   has_and_belongs_to_many :prohibition_and_responsibilities
   has_and_belongs_to_many :student_duties
@@ -67,12 +70,12 @@ class Incident < ApplicationRecord
   end
 
   ## Charts
-  def self.by_years
-    group_by_year(:created_at, format: '%Y').count
+  def self.by_years(params_return)
+    joins(:course).where(params_return).group_by_year(:created_at, format: '%Y').count
   end
 
-  def self.by_courses
-    joins(:course).group(:'courses.name').count
+  def self.by_courses(params_return)
+    joins(:course).where(params_return).group(:'courses.name').count
   end
 
   def self.by_is_resolved
@@ -83,13 +86,12 @@ class Incident < ApplicationRecord
     result
   end
 
-  def self.by_type_incident
-    result = joins(:type_incident).group(:'type_incidents.name').count
-    result
+  def self.by_type_incident(params_return)
+    joins(:course).where(params_return).joins(:type_incident).group(:'type_incidents.name').count
   end
 
-  def self.by_sanction
-    result = group(:sanction).count
+  def self.by_sanction(params_return)
+    result = joins(:course).where(params_return).group(:sanction).count
     result['Suspensão'] = result.delete 'suspension'
     result['Adv Escrita'] = result.delete 'written_warning'
     result['Adv Verbal'] = result.delete 'verbal_warning'

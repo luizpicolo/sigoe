@@ -20,7 +20,7 @@
     <tr>
       <th>ID</th>
       <th>Nome</th>
-      <th>SIAPE</th>
+      <th>Campus</th>
       <th class="has-text-centered">Status</th>
       <th>Acessado em?</th>
       <th></th>
@@ -31,7 +31,7 @@
     <tr>
       <td><%= user.id %></td>
       <td><%= user.name %></td>
-      <td><%= user.siape %></td>
+      <td><%= user.campus %></td>
       <td class="has-text-centered"><%= status?(user.status).html_safe %></td>
       <td><%= user.last_access %></td>
       <td class="has-text-right">

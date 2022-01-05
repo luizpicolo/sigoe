@@ -5,7 +5,8 @@ require 'rails_helper'
 context 'Find incident by' do
   before(:each) do
     @user = FactoryBot.create(:user)
-    @student = FactoryBot.create(:student)
+    @course = FactoryBot.create(:course, polo: @user.polo)
+    @student = FactoryBot.create(:student, course: @course)
     @incident = FactoryBot.create(:incident, student: @student, course: @student.course)
     FactoryBot.create(
       :permission,

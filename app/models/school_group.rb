@@ -4,11 +4,13 @@
 #
 # Table name: school_groups
 #
-#  id         :bigint(8)        not null, primary key
+#  id         :integer          not null, primary key
 #  name       :string
 #  identifier :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  polo_id    :integer
+#  old_id     :integer
 #
 
 class SchoolGroup < ApplicationRecord
@@ -21,6 +23,7 @@ class SchoolGroup < ApplicationRecord
   # Associações
   has_many :incidents
   has_many :students
+  belongs_to :polo
 
   # Atributos para busca com SearchCop
   search_scope :search do
@@ -28,7 +31,7 @@ class SchoolGroup < ApplicationRecord
   end
 
   def identification
-    identifier.present? ? identifier : name
+    identifier.presence || name
   end
 
   # Retorna um vetor contendo as identificacoes das classes

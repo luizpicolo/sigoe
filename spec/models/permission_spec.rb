@@ -4,17 +4,17 @@
 #
 # Table name: permissions
 #
-#  id          :bigint(8)        not null, primary key
-#  user_id     :bigint(8)
+#  id          :integer          not null, primary key
+#  user_id     :integer
 #  entity      :string
-#  can_create  :boolean          default(FALSE)
-#  can_read    :boolean          default(FALSE)
-#  can_update  :boolean          default(FALSE)
-#  can_destroy :boolean          default(FALSE)
+#  can_create  :boolean          default("false")
+#  can_read    :boolean          default("false")
+#  can_update  :boolean          default("false")
+#  can_destroy :boolean          default("false")
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
-#  can_manage  :boolean          default(FALSE)
-#  can_extras  :boolean          default(FALSE)
+#  can_manage  :boolean          default("false")
+#  can_extras  :boolean          default("false")
 #
 
 require 'rails_helper'

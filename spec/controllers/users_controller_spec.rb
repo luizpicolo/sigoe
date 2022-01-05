@@ -6,7 +6,7 @@ require 'cancan/matchers'
 RSpec.describe UsersController, type: :controller do
   before(:each) do
     @user = FactoryBot.create(:user)
-    @attr = FactoryBot.attributes_for(:user)
+    @attr = FactoryBot.attributes_for(:user).merge(polo_id: @user.polo.id)
     @model = @user
     @entity = 'User'
     @path = users_path
@@ -32,7 +32,9 @@ RSpec.describe UsersController, type: :controller do
       it 'renders page with error message' do
         add_permission @entity, @user, update: false
         sign_in @user
-        put :update, params: { id: @model.id, commit: 'Salvar', "#{@entity.downcase}": { email: nil, password: '' } }
+        put :update,
+            params: { id: @model.id, commit: 'Salvar',
+                      "#{@entity.downcase}": { email: nil, password: '' } }
         expect(response).to render_template('users/edit')
         expect(flash[:error]).to_not be_nil
         expect(flash[:error].first).to match(/não pode ficar em branco/)

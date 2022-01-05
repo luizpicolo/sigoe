@@ -4,22 +4,24 @@
 #
 # Table name: incidents
 #
-#  id              :integer          not null, primary key
-#  student_id      :integer
-#  user_id         :integer
-#  institution     :integer
-#  description     :text
-#  date_incident   :date
-#  soluction       :text
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
-#  course_id       :integer
-#  time_incident   :time
-#  assistant_id    :integer
-#  signed_in       :datetime
-#  is_resolved     :integer
-#  type_student    :integer
-#  sanction        :integer
+#  id               :integer          not null, primary key
+#  student_id       :integer
+#  user_id          :integer
+#  institution      :integer
+#  description      :text
+#  date_incident    :date
+#  soluction        :text
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  course_id        :integer
+#  time_incident    :time
+#  assistant_id     :integer
+#  signed_in        :datetime
+#  is_resolved      :integer
+#  type_student     :integer
+#  sanction         :integer
+#  school_group_id  :integer
+#  type_incident_id :integer
 #
 
 require 'rails_helper'
@@ -74,7 +76,10 @@ RSpec.describe Incident, type: :model do
   it { should define_enum_for(:institution).with_values(%w[Ifms Ufms Cemid]) }
   it { should define_enum_for(:is_resolved).with_values(%w[no_ yes_]) }
   it { should define_enum_for(:type_student).with_values(%w[non_resident resident]) }
-  it { should define_enum_for(:sanction).with_values(%w[verbal_warning written_warning suspension quitting_school]) }
+  it {
+    should define_enum_for(:sanction).with_values(%w[verbal_warning written_warning suspension
+                                                     quitting_school])
+  }
 
   # Methods
   describe '#search' do
@@ -148,7 +153,7 @@ RSpec.describe Incident, type: :model do
 
     context 'When signed_in field is present' do
       before do
-        allow(subject).to receive(:signed_in).and_return(Time.new(2017, 10, 3))
+        allow(subject).to receive(:signed_in).and_return(Time.zone.local(2017, 10, 3))
       end
 
       it 'Returns formated signed_in date' do

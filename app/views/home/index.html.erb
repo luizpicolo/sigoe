@@ -10,21 +10,21 @@
 <div class="columns is-multiline shortcuts">
   <div class="column is-half">
     <h2 class="subtitle">Por ano</h2>
-    <%= column_chart Incident.by_years %>
+    <%= column_chart Incident.by_years(@params_return) %>
   </div>
   <div class="column is-half">
     <h1 class="subtitle">Por turmas</h1>
-    <%= bar_chart Incident.by_courses %>
+    <%= bar_chart Incident.by_courses(@params_return) %>
   </div>
 </div>
 
 <div class="columns is-multiline shortcuts">
   <div class="column is-half">
     <h1 class="subtitle">Por tipo</h1>
-    <%= column_chart Incident.by_type_incident %>
+    <%= column_chart Incident.by_type_incident(@params_return) %>
   </div>
   <div class="column is-half">
     <h1 class="subtitle">Sanções adotadas</h1>
-    <%= bar_chart Incident.by_sanction %>
+    <%= bar_chart Incident.by_sanction(@params_return) %>
   </div>
 </div>

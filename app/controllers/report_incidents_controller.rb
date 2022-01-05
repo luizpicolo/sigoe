@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class ReportIncidentsController < ApplicationController
+  include ParamsSearch
+
   load_and_authorize_resource Incident
   add_breadcrumb 'Home', :root_path
 
@@ -10,10 +12,16 @@ class ReportIncidentsController < ApplicationController
     add_breadcrumb 'Ocorrências'
     add_breadcrumb 'Lista de Ocorrências', :incidents_path
     add_breadcrumb 'Relatório ocorrências'
+
+    @params_return = params_return
   end
 
   def create
-    incidents = Incident.search(set_conditional).search(set_date_range).order(date_incident: :desc)
+    incidents = Incident.joins(:student)
+        .where(params_return)
+        .search(set_conditional)
+        .search(set_date_range)
+        .order(date_incident: :desc)
     if incidents.present?
       @incidents = incidents
       render layout: false
@@ -32,6 +40,14 @@ class ReportIncidentsController < ApplicationController
     conditionals[:type_student] = params[:type_student] if params[:type_student].present?
     conditionals[:institution] = params[:institution] if params[:institution].present?
     conditionals
+  end
+
+  def params_return
+    if !set_polo.empty?
+      { courses: set_polo }
+    else
+      set_polo
+    end
   end
 
   def set_date_range

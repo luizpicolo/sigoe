@@ -12,7 +12,9 @@ class StudentsController < ApplicationController
     add_breadcrumb 'Administrador'
     add_breadcrumb 'Estudantes'
 
-    @students = Student.order("#{set_order}": :desc)
+    @students = Student.joins(:course)
+        .where(params_return)
+        .order("#{set_order}": :desc)
         .search(params[:search])
         .page(params[:page]).per(set_amount_return)
   end
@@ -27,7 +29,7 @@ class StudentsController < ApplicationController
 
   def create
     @students = Student.new(student_params)
-    if @students.save
+    if @students.save(validate: false)
       redirect_to students_path, flash: { success: 'Estudante cadastro com sucesso' }
     else
       flash.now[:error] = @students.errors.full_messages
@@ -86,9 +88,15 @@ class StudentsController < ApplicationController
     if student_params[:password].empty?
       student_params.delete(:password)
       student_params.delete(:password_confirmation)
-      student_params
+    end
+    student_params
+  end
+
+  def params_return
+    if !set_polo.empty?
+      { courses: set_polo }
     else
-      student_params
+      set_polo
     end
   end
 

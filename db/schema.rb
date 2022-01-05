@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_14_034731) do
+ActiveRecord::Schema.define(version: 2022_01_13_020946) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,7 +20,9 @@ ActiveRecord::Schema.define(version: 2020_03_14_034731) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "initial"
+    t.bigint "polo_id"
     t.index ["name", "initial"], name: "index_courses_on_name_and_initial"
+    t.index ["polo_id"], name: "index_courses_on_polo_id"
   end
 
   create_table "incidents", id: :serial, force: :cascade do |t|
@@ -41,9 +43,11 @@ ActiveRecord::Schema.define(version: 2020_03_14_034731) do
     t.integer "sanction"
     t.integer "school_group_id"
     t.bigint "type_incident_id"
+    t.index ["assistant_id"], name: "index_incidents_on_assistant_id"
     t.index ["course_id"], name: "index_incidents_on_course_id"
     t.index ["date_incident"], name: "index_incidents_on_date_incident"
     t.index ["institution"], name: "index_incidents_on_institution"
+    t.index ["school_group_id"], name: "index_incidents_on_school_group_id"
     t.index ["student_id"], name: "index_incidents_on_student_id"
     t.index ["type_incident_id"], name: "index_incidents_on_type_incident_id"
     t.index ["user_id"], name: "index_incidents_on_user_id"
@@ -52,11 +56,21 @@ ActiveRecord::Schema.define(version: 2020_03_14_034731) do
   create_table "incidents_prohibition_and_responsibilities", force: :cascade do |t|
     t.integer "incident_id"
     t.integer "prohibition_and_responsibility_id"
+    t.index ["incident_id"], name: "index_incidents_prohibition_and_responsibilities_on_incident_id"
+    t.index ["prohibition_and_responsibility_id"], name: "prohibition_index"
   end
 
   create_table "incidents_student_duties", force: :cascade do |t|
     t.integer "incident_id"
     t.integer "student_duty_id"
+    t.index ["incident_id"], name: "index_incidents_student_duties_on_incident_id"
+    t.index ["student_duty_id"], name: "index_incidents_student_duties_on_student_duty_id"
+  end
+
+  create_table "institutions", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "patient_appointments", force: :cascade do |t|
@@ -167,6 +181,16 @@ ActiveRecord::Schema.define(version: 2020_03_14_034731) do
     t.index ["user_id"], name: "index_permissions_on_user_id"
   end
 
+  create_table "polos", force: :cascade do |t|
+    t.string "name", null: false
+    t.bigint "institution_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "inicial"
+    t.index ["institution_id"], name: "index_polos_on_institution_id"
+    t.index ["name"], name: "index_polos_on_name"
+  end
+
   create_table "prohibition_and_responsibilities", force: :cascade do |t|
     t.string "item"
     t.datetime "created_at", null: false
@@ -178,18 +202,10 @@ ActiveRecord::Schema.define(version: 2020_03_14_034731) do
     t.string "identifier"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "polo_id"
     t.index ["identifier"], name: "index_school_groups_on_identifier"
     t.index ["name"], name: "index_school_groups_on_name"
-  end
-
-  create_table "sectors", id: :serial, force: :cascade do |t|
-    t.string "name"
-    t.string "initial"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "slug"
-    t.string "icon"
-    t.index ["name", "initial", "slug"], name: "index_sectors_on_name_and_initial_and_slug"
+    t.index ["polo_id"], name: "index_school_groups_on_polo_id"
   end
 
   create_table "seed_migration_data_migrations", id: :serial, force: :cascade do |t|
@@ -226,24 +242,6 @@ ActiveRecord::Schema.define(version: 2020_03_14_034731) do
     t.index ["school_group_id"], name: "index_students_on_school_group_id"
   end
 
-  create_table "tickets", id: :serial, force: :cascade do |t|
-    t.string "from"
-    t.string "to"
-    t.string "subject"
-    t.integer "priority", default: 0
-    t.text "description"
-    t.integer "status", default: 0
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "local"
-    t.integer "answer"
-    t.index ["from"], name: "index_tickets_on_from"
-    t.index ["status"], name: "index_tickets_on_status"
-    t.index ["to"], name: "index_tickets_on_to"
-    t.index ["user_id"], name: "index_tickets_on_user_id"
-  end
-
   create_table "type_incidents", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -266,18 +264,19 @@ ActiveRecord::Schema.define(version: 2020_03_14_034731) do
     t.string "username", default: "", null: false
     t.string "name"
     t.integer "siape"
-    t.integer "sector_id"
     t.string "avatar"
     t.bigint "course_id"
     t.boolean "admin", default: false
     t.boolean "status", default: true
+    t.bigint "polo_id"
     t.index ["course_id"], name: "index_users_on_course_id"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["polo_id"], name: "index_users_on_polo_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-    t.index ["sector_id"], name: "index_users_on_sector_id"
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "courses", "polos"
   add_foreign_key "incidents", "courses"
   add_foreign_key "incidents", "students"
   add_foreign_key "incidents", "type_incidents"
@@ -288,9 +287,10 @@ ActiveRecord::Schema.define(version: 2020_03_14_034731) do
   add_foreign_key "patient_physiologicals", "patients"
   add_foreign_key "patients", "students"
   add_foreign_key "permissions", "users"
+  add_foreign_key "polos", "institutions"
+  add_foreign_key "school_groups", "polos"
   add_foreign_key "students", "courses"
   add_foreign_key "students", "school_groups"
-  add_foreign_key "tickets", "users"
   add_foreign_key "users", "courses"
-  add_foreign_key "users", "sectors"
+  add_foreign_key "users", "polos"
 end

@@ -1,0 +1,5 @@
+class AddPoloToSchoolGroup < ActiveRecord::Migration[7.0]
+  def change
+    add_reference :school_groups, :polo, null: true, foreign_key: true
+  end
+end

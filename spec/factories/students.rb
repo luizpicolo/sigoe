@@ -20,6 +20,8 @@
 #  cpf                 :string
 #  birth_date          :date
 #  course_situation    :integer
+#  school_group_id     :integer
+#  old_id              :integer
 #
 
 FactoryBot.define do

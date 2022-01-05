@@ -15,7 +15,9 @@ class IncidentsController < ApplicationController
     add_breadcrumb 'Ocorrências'
     add_breadcrumb 'Lista de Ocorrências'
 
-    @incidents = Incident.order("#{set_order}": :desc)
+    @incidents = Incident.joins(:course)
+        .where(params_return)
+        .order("#{set_order}": :desc)
         .search(params[:search])
         .page(params[:page]).per(set_amount_return)
   end
@@ -25,12 +27,14 @@ class IncidentsController < ApplicationController
     add_breadcrumb 'Lista de Ocorrências', :incidents_path
     add_breadcrumb 'Nova ocorrências'
 
+    @params_return = params_return
     @incidents = Incident.new
   end
 
   def create
     @incident = Incident.new(incident_params)
     @incident.user = current_user
+    # @incident.polo = current_user.polo
     @incident.course = course_by_student(incident_params[:student_id])
     if @incident.save
       send_email_to(@incident&.course&.coordinator&.email)
@@ -74,7 +78,7 @@ class IncidentsController < ApplicationController
 
   ## Mostra a confirmação para que o estudante possa assinar
   def confirmation
-    if @incident.student.ra.nil?
+    if @incident.student_ra.nil?
       flash.now[:error] = 'Por favor, cadastre uma senha e um R.A para o estudante'
       redirect_to incidents_path
     end
@@ -109,6 +113,14 @@ class IncidentsController < ApplicationController
                 else
                   Incident.find(params[:incident_id])
                 end
+  end
+
+  def params_return
+    if !set_polo.empty?
+      { courses: set_polo }
+    else
+      set_polo
+    end
   end
 
   def incident_params

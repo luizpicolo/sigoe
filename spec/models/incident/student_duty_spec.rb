@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: student_duties
+#
+#  id         :integer          not null, primary key
+#  item       :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 # frozen_string_literal: true
 
 require 'rails_helper'

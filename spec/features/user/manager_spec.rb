@@ -51,7 +51,8 @@ context 'Manager (crud) entity User' do
         :user,
         name: Faker::Name.name,
         email: Faker::Internet.email,
-        username: Faker::Internet.user_name
+        username: Faker::Internet.user_name,
+        polo: @user.polo
       )
       visit users_path
       find("a[href='/users/#{new_user.id}']").click
