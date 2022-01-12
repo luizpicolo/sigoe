@@ -21,7 +21,7 @@
     "jquery": "^3.6.0",
     "jquery-mask-plugin": "^1.14.10",
     "jquery-ui": "^1.12.1",
-    "node-forge": "^0.10.0",
+    "node-forge": "^1.2.1",
     "normalize-url": ">=4.5.1",
     "postcss": ">=8.2.10",
     "select2": "^4.0.3",
