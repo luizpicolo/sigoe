@@ -49,7 +49,6 @@ yarn.lock
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
-deploy
 newapp
 
 # Ignore master key for decrypting credentials and more.
