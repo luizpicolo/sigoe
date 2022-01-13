@@ -5,8 +5,8 @@ require 'rails_helper'
 RSpec.describe CoursesController, type: :controller do
   before(:each) do
     @user = FactoryBot.create(:user)
-    @attr = FactoryBot.attributes_for(:course)
-    @model = FactoryBot.create(:course)
+    @attr = FactoryBot.attributes_for(:course).merge(polo_id: @user.polo.id)
+    @model = FactoryBot.create(:course, polo: @user.polo)
     @entity = 'Course'
     @path = courses_path
   end

@@ -5,7 +5,7 @@ require 'rails_helper'
 context 'Manager (crud) entity Course' do
   before(:each) do
     @user = FactoryBot.create(:user)
-    @course = FactoryBot.create(:course)
+    @course = FactoryBot.create(:course, polo: @user.polo)
     FactoryBot.create(
       :permission,
       user: @user,
@@ -17,6 +17,8 @@ context 'Manager (crud) entity Course' do
   feature 'create' do
     scenario 'with valid data' do
       visit new_course_path
+      # polo = FactoryBot.create(:polo)
+      # create_new_course(polo: polo)
       create_new_course
       expect(page).to have_content('Curso cadastro com sucesso')
     end

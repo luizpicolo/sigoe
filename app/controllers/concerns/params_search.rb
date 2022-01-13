@@ -7,6 +7,10 @@ module ParamsSearch
     params[:order] == '' || params[:order].nil? ? 'id' : params[:order]
   end
 
+  def set_polo
+    current_user.admin == true ? '' : { polo: current_user.polo_id }
+  end
+
   def set_amount_return
     params[:return] == '' || params[:return].nil? ? '15' : params[:return]
   end

@@ -7,7 +7,7 @@
       <%= f.label :student, 'Estudante', class: 'label' %>
       <p class="control">
         <span class="select">
-          <%= f.select :student, Student.get_all, { prompt: "Selecione o estudante" }, { :class => "select2 is-medium" } %>
+          <%= f.select :student, Student.get_all(@params_return), { prompt: "Selecione o estudante" }, { :class => "select2 is-medium" } %>
         </span>
       </p>
     </div>
@@ -15,7 +15,7 @@
       <%= f.label :course, 'Curso', class: 'label' %>
       <p class="control">
         <span class="select">
-          <%= f.select :course, Course.names, { prompt: "Selecione a turma" }, { :class => "select2 is-medium" } %>
+          <%= f.select :course, Course.names(@params_return), { prompt: "Selecione a turma" }, { :class => "select2 is-medium" } %>
         </span>
       </p>
     </div>

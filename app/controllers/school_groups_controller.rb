@@ -12,7 +12,8 @@ class SchoolGroupsController < ApplicationController
     add_breadcrumb 'Administrador'
     add_breadcrumb 'Turmas'
 
-    @school_groups = SchoolGroup.order("#{set_order}": :desc)
+    @school_groups = SchoolGroup.where(set_polo)
+        .order("#{set_order}": :desc)
         .search(params[:search])
         .page(params[:page]).per(set_amount_return)
   end

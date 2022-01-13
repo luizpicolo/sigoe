@@ -20,13 +20,17 @@
 #  cpf                 :string
 #  birth_date          :date
 #  course_situation    :integer
+#  school_group_id     :integer
+#  old_id              :integer
 #
 
 require 'rails_helper'
 
 RSpec.describe Student, type: :model do
   before(:each) do
-    @student = FactoryBot.create(:student)
+    @user = FactoryBot.create(:user)
+    @course = FactoryBot.create(:course, polo: @user.polo)
+    @student = FactoryBot.create(:student, course: @course)
   end
 
   # Validations
@@ -72,13 +76,29 @@ RSpec.describe Student, type: :model do
   end
 
   describe '#get_all' do
-    it 'should return an array' do
-      @student = Student.get_all
-      expect(@student).to be_an_instance_of(Array)
+    it 'should return an array with all students' do
+      params_return = ''
+      students = Student.get_all(params_return)
+      expect(students).to be_an_instance_of(Array)
 
-      @student.each do |student|
+      students.each do |student|
         expect(student[0]).to be_kind_of(String)
         expect(student[1]).to be_kind_of(Integer)
+      end
+    end
+
+    it 'should return a specific student through the pole' do
+      params_return = { courses: { polo: @student.course.polo } }
+      students = Student.get_all(params_return)
+      expect(students.first[0]).to eq(@student.name)
+    end
+
+    it 'should not return a specific student with different poles' do
+      student = FactoryBot.create(:student)
+      params_return = { courses: { polo: student.course.polo } }
+      students = Student.get_all(params_return)
+      students.each do |student|
+        expect(student[0]).to_not eq(@student.name)
       end
     end
   end

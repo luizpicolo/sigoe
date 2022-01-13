@@ -264,7 +264,9 @@ Rails.env.on(:any) do
   # Configuration for layouts
   config.to_prepare do
     Devise::SessionsController.layout false
-    Devise::RegistrationsController.layout proc { |_controller| user_signed_in? ? 'application' : false }
+    Devise::RegistrationsController.layout proc { |_controller|
+                                             user_signed_in? ? 'application' : false
+                                           }
     Devise::ConfirmationsController.layout false
     Devise::UnlocksController.layout false
     Devise::PasswordsController.layout false

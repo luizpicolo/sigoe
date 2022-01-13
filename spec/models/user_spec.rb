@@ -10,7 +10,7 @@
 #  reset_password_token   :string
 #  reset_password_sent_at :datetime
 #  remember_created_at    :datetime
-#  sign_in_count          :integer          default(0), not null
+#  sign_in_count          :integer          default("0"), not null
 #  current_sign_in_at     :datetime
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :inet
@@ -21,8 +21,11 @@
 #  name                   :string
 #  siape                  :integer
 #  avatar                 :string
-#  course_id              :bigint(8)
-#  admin                  :boolean          default(FALSE)
+#  course_id              :integer
+#  admin                  :boolean          default("false")
+#  status                 :boolean          default("true")
+#  polo_id                :integer
+#  old_id                 :integer
 #
 
 require 'rails_helper'

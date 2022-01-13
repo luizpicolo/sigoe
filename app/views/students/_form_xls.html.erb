@@ -7,7 +7,7 @@
           <p class="control">
             <%= f.label :course, "Curso", class: 'label' %>
             <span class="select is-medium">
-              <%= f.select :course, Course.initials, {}, {} %>
+              <%= f.select :course, Course.initials(@params_return), {}, {} %>
             </span>
           </p>
         </div>

@@ -10,7 +10,7 @@
 #  reset_password_token   :string
 #  reset_password_sent_at :datetime
 #  remember_created_at    :datetime
-#  sign_in_count          :integer          default(0), not null
+#  sign_in_count          :integer          default("0"), not null
 #  current_sign_in_at     :datetime
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :inet
@@ -21,8 +21,11 @@
 #  name                   :string
 #  siape                  :integer
 #  avatar                 :string
-#  course_id              :bigint(8)
-#  admin                  :boolean          default(FALSE)
+#  course_id              :integer
+#  admin                  :boolean          default("false")
+#  status                 :boolean          default("true")
+#  polo_id                :integer
+#  old_id                 :integer
 #
 
 class User < ApplicationRecord
@@ -40,6 +43,7 @@ class User < ApplicationRecord
   # Associações
   has_many :permissions, dependent: :destroy
   belongs_to :course, optional: true
+  belongs_to :polo
 
   # Nested form
   accepts_nested_attributes_for :permissions
@@ -73,7 +77,14 @@ class User < ApplicationRecord
     order('name asc').collect { |p| [p.name, p.id] }
   end
 
+  # Retorna a data do último acesso formatada
+  #
+  # @return string contendo data
   def last_access
     updated_at.strftime('%d/%m/%Y %H:%M')
+  end
+
+  def campus
+    polo&.name
   end
 end

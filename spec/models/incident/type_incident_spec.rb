@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: type_incidents
+#
+#  id         :integer          not null, primary key
+#  name       :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  old_id     :integer
+#
+
 # frozen_string_literal: true
 
 require 'rails_helper'

@@ -6,7 +6,8 @@ RSpec.describe ApplicationHelper, type: :helper do
   describe '.show_search_error_message' do
     it 'returns error message if entity not exist' do
       params[:search] = 'message'
-      expect(helper.show_search_error_message(nil, params)).to eql("Sua busca por <b>#{params[:search]}</b> não obteve resutados")
+      expect(helper.show_search_error_message(nil,
+                                              params)).to eql("Sua busca por <b>#{params[:search]}</b> não obteve resutados")
     end
   end
 
@@ -28,7 +29,7 @@ RSpec.describe ApplicationHelper, type: :helper do
     end
 
     it 'return pt-br formated date within params' do
-      expect(helper.extract_and_format_date).to eql(Time.now.strftime('%d/%m/%Y'))
+      expect(helper.extract_and_format_date).to eql(Time.zone.now.strftime('%d/%m/%Y'))
     end
   end
 
@@ -38,7 +39,7 @@ RSpec.describe ApplicationHelper, type: :helper do
     end
 
     it 'return formated date within params' do
-      expect(helper.extract_and_format_time).to eql(Time.now.strftime('%H:%M'))
+      expect(helper.extract_and_format_time).to eql(Time.zone.now.strftime('%H:%M'))
     end
   end
 

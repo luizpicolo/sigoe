@@ -4,11 +4,13 @@
 #
 # Table name: school_groups
 #
-#  id         :bigint(8)        not null, primary key
+#  id         :integer          not null, primary key
 #  name       :string
 #  identifier :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  polo_id    :integer
+#  old_id     :integer
 #
 
 require 'rails_helper'

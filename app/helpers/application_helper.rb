@@ -9,7 +9,7 @@ module ApplicationHelper
   # @param params [Array<String>] contendo os parâmetros carregados via Get
   # @return mensagem flash de erro
   def show_search_error_message(entity, params)
-    unless entity.present?
+    if entity.blank?
       flash.now[:error] = "Sua busca por <b>#{params[:search]}</b> não obteve resutados"
     end
   end
@@ -50,7 +50,7 @@ module ApplicationHelper
   # @param Time
   # @return [String] definido mediante o Time
   def extract_and_format_date(date = nil)
-    d = date.present? ? date : Time.now
+    d = date.presence || Time.zone.now
     d.strftime('%d/%m/%Y')
   end
 
@@ -61,12 +61,17 @@ module ApplicationHelper
   # @param Time
   # @return [String] definido mediante o Time
   def extract_and_format_time(time = nil)
-    t = time.present? ? time : Time.now
+    t = time.presence || Time.zone.now
     t.strftime('%H:%M')
   end
 
   def status?(val)
-    val == 1 || val == true ? '<i title="Ativo" class="fa fa-check"></i>' : '<i title="Inativo" class="fa fa-times"></i>'
+    if [1,
+        true].include?(val)
+      '<i title="Ativo" class="fa fa-check"></i>'
+    else
+      '<i title="Inativo" class="fa fa-times"></i>'
+    end
   end
 
   # Converte e traduz um conjunto de atributos em um hash

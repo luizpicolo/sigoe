@@ -5,7 +5,8 @@ require 'rails_helper'
 context 'Manager (crud) entity Students' do
   before(:each) do
     @user = FactoryBot.create(:user)
-    @student = FactoryBot.create(:student)
+    @course = FactoryBot.create(:course, polo: @user.polo)
+    @student = FactoryBot.create(:student, course: @course)
     FactoryBot.create(
       :permission,
       user: @user,

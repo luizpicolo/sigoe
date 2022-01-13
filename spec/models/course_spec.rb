@@ -9,6 +9,7 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  initial    :string
+#  polo_id    :integer
 #
 
 require 'rails_helper'
@@ -40,9 +41,9 @@ RSpec.describe Course, type: :model do
   %w[names initials].each do |method|
     describe "##{method}" do
       it 'should return an array' do
-        expect(Course.method(method).call).to be_an_instance_of(Array)
+        expect(Course.method(method).call(polo: @course.polo_id)).to be_an_instance_of(Array)
 
-        Course.method(method).call.each do |name|
+        Course.method(method).call(polo: @course.polo_id).each do |name|
           expect(name).to be_an_instance_of(Array)
         end
       end

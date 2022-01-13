@@ -17,9 +17,9 @@ namespace :student_image do
     page = form.submit
 
     Student.all.each do |student|
-      puts 'https://10.1.0.38/administrativo/pessoa_fisicas/foto/' + student.ra.to_s
-      page = @agent.get('https://10.1.0.38/administrativo/pessoa_fisicas/foto/' + student.ra.to_s)
-      File.open('public/uploads/tmp/' + student.ra.to_s + '.jpg', 'wb') do |file|
+      puts "https://10.1.0.38/administrativo/pessoa_fisicas/foto/#{student.ra}"
+      page = @agent.get("https://10.1.0.38/administrativo/pessoa_fisicas/foto/#{student.ra}")
+      File.open("public/uploads/tmp/#{student.ra}.jpg", 'wb') do |file|
         file.puts page.body
         student.photo = file
         p student.save(validate: false)
