@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/faker-ruby/faker.git
-  revision: 649dd8ff7258d802d695dad315fd475f4dd59f96
+  revision: 8c416c69338ebcb2973ac5be7caa707d700a8128
   branch: master
   specs:
     faker (2.19.0)
@@ -318,7 +318,7 @@ GEM
       racc (~> 1.4)
     orm_adapter (0.5.0)
     parallel (1.21.0)
-    parser (3.0.3.2)
+    parser (3.1.0.0)
       ast (~> 2.4.1)
     path_expander (1.1.0)
     pdfkit (0.8.5)
