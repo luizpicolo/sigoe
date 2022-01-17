@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/faker-ruby/faker.git
-  revision: 8c416c69338ebcb2973ac5be7caa707d700a8128
+  revision: cbe87f447a9a688723ee54d217a3e64f3077aeea
   branch: master
   specs:
     faker (2.19.0)
@@ -401,9 +401,9 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     rb-readline (0.5.5)
-    reek (6.0.6)
+    reek (6.1.0)
       kwalify (~> 0.7.0)
-      parser (~> 3.0.0)
+      parser (~> 3.1.0)
       rainbow (>= 2.0, < 4.0)
     regexp_parser (2.2.0)
     require_all (3.0.0)
