@@ -78,7 +78,7 @@ class IncidentsController < ApplicationController
 
   ## Mostra a confirmação para que o estudante possa assinar
   def confirmation
-    if @incident.student_ra.nil?
+    if @incident.student.ra.nil?
       flash.now[:error] = 'Por favor, cadastre uma senha e um R.A para o estudante'
       redirect_to incidents_path
     end
