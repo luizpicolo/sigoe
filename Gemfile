@@ -41,6 +41,7 @@ gem 'pg'
 gem 'puma', '~> 5.3'
 gem 'rack', '>= 2.2.2'
 gem 'rails', '~> 7'
+gem 'rails_admin', ['>= 3.0.0.beta2', '< 4']
 gem 'rails-env'
 # gem 'railties', '~> 7.0'
 gem 'rails-i18n', github: 'luizpicolo/rails-i18n'
