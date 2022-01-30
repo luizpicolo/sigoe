@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_13_020946) do
+ActiveRecord::Schema.define(version: 2022_01_30_143717) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -269,6 +269,7 @@ ActiveRecord::Schema.define(version: 2022_01_13_020946) do
     t.boolean "admin", default: false
     t.boolean "status", default: true
     t.bigint "polo_id"
+    t.boolean "super_admin"
     t.index ["course_id"], name: "index_users_on_course_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["polo_id"], name: "index_users_on_polo_id"

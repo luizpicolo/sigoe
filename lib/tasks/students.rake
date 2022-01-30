@@ -14,7 +14,6 @@ namespace :student do
       response = HTTParty.get(json_students, verify: true)
       data_students = response.parsed_response
       data_students.each do |data|
-        
         school_group = SchoolGroup.find_by(name: data['turma'])
         school_group = SchoolGroup.new if school_group.blank?
         school_group.name = data['turma']
