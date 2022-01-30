@@ -159,7 +159,7 @@ GEM
     concurrent-ruby (1.1.9)
     connection_pool (2.2.5)
     crass (1.0.6)
-    database_rewinder (0.9.6)
+    database_rewinder (0.9.8)
     debug_inspector (1.1.0)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
