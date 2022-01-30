@@ -5,7 +5,13 @@ pt-BR:
       student: "Estudantes"
       course: "Cursos"
       incident: "Ocorrências"
+      incident/prohibition_and_responsibility: "Proibições e responsabilidades"
+      incident/type_incident: "Tipo de ocorrências"
+      incident/student_duty: "Deveres dos estudantes"
       permission: "Permissões"
+      school_group: "Turmas"
+      institution: "Instituições"
+      
 
     attributes:
       user:
