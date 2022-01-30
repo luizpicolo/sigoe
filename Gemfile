@@ -72,7 +72,7 @@ group :development, :test do
   gem 'mini_racer', '~> 0.6.2'
   gem 'rails-controller-testing'
   gem 'regressor', github: 'luizpicolo/regressor', branch: 'UpdateFakeGem'
-  gem 'rspec-rails', '~> 5.0.1'
+  gem 'rspec-rails', '~> 5.1.0'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers'
   gem 'simplecov', '~> 0.21.2'
