@@ -8,7 +8,7 @@ module ParamsSearch
   end
 
   def set_polo
-    current_user.admin == true ? '' : { polo: current_user.polo_id }
+    current_user.super_admin == true ? '' : { polo: current_user.polo_id }
   end
 
   def set_amount_return
