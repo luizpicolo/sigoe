@@ -1,16 +1,21 @@
+# frozen_string_literal: true
+
 RailsAdmin.config do |config|
   config.asset_source = :webpacker
+  config.main_app_name = ['Sigoe']
+  config.default_items_per_page = 20
+  config.compact_show_view = false
 
   ### Popular gems integration
 
   ## == Devise ==
-  # config.authenticate_with do
-  #   warden.authenticate! scope: :user
-  # end
-  # config.current_user_method(&:current_user)
+  config.authenticate_with do
+    warden.authenticate! scope: :user
+  end
+  config.current_user_method(&:current_user)
 
   ## == CancanCan ==
-  # config.authorize_with :cancancan
+  config.authorize_with :cancancan
 
   ## == Pundit ==
   # config.authorize_with :pundit
@@ -38,5 +43,9 @@ RailsAdmin.config do |config|
     ## With an audit adapter, you can add:
     # history_index
     # history_show
+
+    config.model 'SeedMigration::DataMigration' do
+      visible false
+    end
   end
 end
