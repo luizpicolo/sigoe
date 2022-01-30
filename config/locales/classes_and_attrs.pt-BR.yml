@@ -12,7 +12,6 @@ pt-BR:
       school_group: "Turmas"
       institution: "Instituições"
       
-
     attributes:
       user:
         name: "Nome"
