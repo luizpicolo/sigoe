@@ -15,7 +15,7 @@
     "chartkick": "^4.0.4",
     "fancybox": "^3.0.0",
     "glob-parent": ">=5.1.2",
-    "highcharts": "^9.1.1",
+    "highcharts": "^10.0.0",
     "ionicons": "^5.5.1",
     "jquery": "^3.6.0",
     "jquery-mask-plugin": "^1.14.10",
