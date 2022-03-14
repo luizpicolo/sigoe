@@ -50,7 +50,7 @@ module ApplicationHelper
   # @param Time
   # @return [String] definido mediante o Time
   def extract_and_format_date(date = nil)
-    d = date.presence || Time.zone.now
+    d = date.presence || Time.current
     d.strftime('%d/%m/%Y')
   end
 
@@ -61,7 +61,7 @@ module ApplicationHelper
   # @param Time
   # @return [String] definido mediante o Time
   def extract_and_format_time(time = nil)
-    t = time.presence || Time.zone.now
+    t = time.presence || Time.current
     t.strftime('%H:%M')
   end
 
