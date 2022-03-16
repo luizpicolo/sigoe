@@ -10,15 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_30_143717) do
-
+ActiveRecord::Schema[7.0].define(version: 2022_01_30_143717) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "courses", id: :serial, force: :cascade do |t|
     t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.string "initial"
     t.bigint "polo_id"
     t.index ["name", "initial"], name: "index_courses_on_name_and_initial"
@@ -32,12 +31,12 @@ ActiveRecord::Schema.define(version: 2022_01_30_143717) do
     t.text "description"
     t.date "date_incident"
     t.text "soluction"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.integer "course_id"
     t.time "time_incident"
     t.integer "assistant_id"
-    t.datetime "signed_in"
+    t.datetime "signed_in", precision: nil
     t.integer "is_resolved"
     t.integer "type_student"
     t.integer "sanction"
@@ -69,8 +68,8 @@ ActiveRecord::Schema.define(version: 2022_01_30_143717) do
 
   create_table "institutions", force: :cascade do |t|
     t.string "name", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "patient_appointments", force: :cascade do |t|
@@ -93,8 +92,8 @@ ActiveRecord::Schema.define(version: 2022_01_30_143717) do
     t.text "diagnosis"
     t.text "prescription"
     t.text "evolution"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.index ["patient_id"], name: "index_patient_appointments_on_patient_id"
   end
 
@@ -111,8 +110,8 @@ ActiveRecord::Schema.define(version: 2022_01_30_143717) do
     t.integer "amount_water"
     t.integer "amount_tea"
     t.text "other_information"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.index ["patient_id"], name: "index_patient_habits_on_patient_id"
   end
 
@@ -139,8 +138,8 @@ ActiveRecord::Schema.define(version: 2022_01_30_143717) do
     t.string "risk_factors_chemical_dependency"
     t.string "risk_factors_violence"
     t.text "others_risk_factors"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.index ["patient_id"], name: "index_patient_morbids_on_patient_id"
   end
 
@@ -155,15 +154,15 @@ ActiveRecord::Schema.define(version: 2022_01_30_143717) do
     t.text "gestation"
     t.text "children"
     t.text "abortion"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.index ["patient_id"], name: "index_patient_physiologicals_on_patient_id"
   end
 
   create_table "patients", force: :cascade do |t|
     t.bigint "student_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.index ["student_id"], name: "index_patients_on_student_id"
   end
 
@@ -174,8 +173,8 @@ ActiveRecord::Schema.define(version: 2022_01_30_143717) do
     t.boolean "can_read", default: false
     t.boolean "can_update", default: false
     t.boolean "can_destroy", default: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.boolean "can_manage", default: false
     t.boolean "can_extras", default: false
     t.index ["user_id"], name: "index_permissions_on_user_id"
@@ -184,8 +183,8 @@ ActiveRecord::Schema.define(version: 2022_01_30_143717) do
   create_table "polos", force: :cascade do |t|
     t.string "name", null: false
     t.bigint "institution_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "inicial"
     t.index ["institution_id"], name: "index_polos_on_institution_id"
     t.index ["name"], name: "index_polos_on_name"
@@ -193,15 +192,15 @@ ActiveRecord::Schema.define(version: 2022_01_30_143717) do
 
   create_table "prohibition_and_responsibilities", force: :cascade do |t|
     t.string "item"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "school_groups", force: :cascade do |t|
     t.string "name"
     t.string "identifier"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.bigint "polo_id"
     t.index ["identifier"], name: "index_school_groups_on_identifier"
     t.index ["name"], name: "index_school_groups_on_name"
@@ -211,21 +210,21 @@ ActiveRecord::Schema.define(version: 2022_01_30_143717) do
   create_table "seed_migration_data_migrations", id: :serial, force: :cascade do |t|
     t.string "version"
     t.integer "runtime"
-    t.datetime "migrated_on"
+    t.datetime "migrated_on", precision: nil
   end
 
   create_table "student_duties", force: :cascade do |t|
     t.string "item"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "students", id: :serial, force: :cascade do |t|
     t.string "name"
     t.integer "course_id"
     t.string "photo"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.string "responsible"
     t.string "responsible_contact"
     t.string "contact"
@@ -244,23 +243,23 @@ ActiveRecord::Schema.define(version: 2022_01_30_143717) do
 
   create_table "type_incidents", force: :cascade do |t|
     t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "users", id: :serial, force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
+    t.datetime "reset_password_sent_at", precision: nil
+    t.datetime "remember_created_at", precision: nil
     t.integer "sign_in_count", default: 0, null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
+    t.datetime "current_sign_in_at", precision: nil
+    t.datetime "last_sign_in_at", precision: nil
     t.inet "current_sign_in_ip"
     t.inet "last_sign_in_ip"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.string "username", default: "", null: false
     t.string "name"
     t.integer "siape"
