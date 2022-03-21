@@ -8,9 +8,15 @@ services:
       - postgres-data:/var/lib/postgresql/data
 
   web:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
     volumes:
       - .:/app
+      - gem_cache:/usr/local/bundle/gems
+      - node_modules:/app/node_modules
+    environment:
+      RAILS_ENV: development
     ports:
       - 3000:3000
     command: /bin/bash -c "rm -f /tmp/server.pid && bundle exec rails server -b 0.0.0.0 -P /tmp/server.pid"
@@ -19,3 +25,5 @@ services:
 
 volumes:
   postgres-data:
+  gem_cache:
+  node_modules:
