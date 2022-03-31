@@ -96,7 +96,7 @@
           <p><b>Problema ocorrido</b></p>
           <%= incident&.description %>
           <% if incident&.soluction.present? %>
-          <p><b>Solução adoata para o problema</b></p>
+          <p><b>Solução adotada para o problema</b></p>
           <% if incident&.sanction.present? %>
           <p><b>Sanção adotada:</b> <%= I18n.t("activerecord.attributes.incident.sanction.#{incident&.sanction}") %></p>
           <% end %>
