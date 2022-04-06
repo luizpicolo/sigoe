@@ -214,7 +214,7 @@ GEM
       ruby-progressbar (~> 1.4)
     globalid (1.0.0)
       activesupport (>= 5.0)
-    groupdate (6.0.1)
+    groupdate (6.1.0)
       activesupport (>= 5.2)
     htmlcompressor (0.4.0)
     htmlentities (4.3.4)
