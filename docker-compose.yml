@@ -2,6 +2,7 @@ version: '3.8'
 services:
   postgres:
     image: postgres
+    container_name: sigoe_db
     ports:
       - 5432:5432
     volumes:
@@ -11,6 +12,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    container_name: sigoe_app
     volumes:
       - .:/app
       - gem_cache:/usr/local/bundle/gems
