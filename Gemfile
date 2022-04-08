@@ -68,7 +68,7 @@ group :development, :test do
   gem 'database_rewinder'
   gem 'email_spec'
   gem 'factory_bot_rails'
-  gem 'faker', github: 'faker-ruby/faker', branch: 'master'
+  gem 'faker'
   gem 'fuubar'
   gem 'mini_racer', '~> 0.6.2'
   gem 'rails-controller-testing'

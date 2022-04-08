@@ -1,12 +1,4 @@
 GIT
-  remote: https://github.com/faker-ruby/faker.git
-  revision: 91950218dd39119e420ca431fc9fae09b53986c7
-  branch: master
-  specs:
-    faker (2.20.0)
-      i18n (>= 1.8.11, < 2)
-
-GIT
   remote: https://github.com/luizpicolo/rails-i18n.git
   revision: db5931af482e69e194207c5f8eb9211e55ee96d3
   specs:
@@ -193,6 +185,8 @@ GEM
     factory_bot_rails (6.2.0)
       factory_bot (~> 6.2.0)
       railties (>= 5.0.0)
+    faker (2.20.0)
+      i18n (>= 1.8.11, < 2)
     ffi (1.15.5)
     figaro (1.2.0)
       thor (>= 0.14.0, < 2)
@@ -606,7 +600,7 @@ DEPENDENCIES
   email_spec
   erubis
   factory_bot_rails
-  faker!
+  faker
   figaro
   font-awesome-sass
   friendly_id (~> 5.4.2)
