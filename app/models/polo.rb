@@ -18,7 +18,11 @@ class Polo < ApplicationRecord
   # Retorna um vetor contendo as initiais e seus respectivos IDs
   #
   # @return [Array] contendo as iniciais dos cursos e seus IDs
-  def self.initials
-    order('name asc').collect { |p| [p.name, p.id] }
+  def self.initials(user)
+    if user.super_admin
+      order('name asc').collect { |p| [p.name, p.id] }
+    else
+      where(id: user.polo.id).collect { |p| [p.name, p.id] }
+    end
   end
 end

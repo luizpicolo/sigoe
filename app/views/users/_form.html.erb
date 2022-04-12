@@ -54,7 +54,7 @@
           <p class="control">
             <%= f.label :polo_id, "Campus", class: 'label' %>
             <span class="select is-medium">
-              <%= f.select :polo_id, Polo.initials, {}, { class: '' } %>
+              <%= f.select :polo_id, Polo.initials(current_user), {}, { class: '' } %>
             </span>
           </p>
         </div>
