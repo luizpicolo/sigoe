@@ -34,7 +34,7 @@ gem 'mechanize'
 gem 'mimemagic'
 gem 'mini_magick', '>= 4.11.0'
 gem 'modernizr-rails'
-gem 'nokogiri', '>= 1.11.0.rc4'
+gem "nokogiri", ">= 1.13.4"
 gem 'pdfkit'
 gem 'pg'
 gem 'puma', '~> 5.6'
