@@ -7,7 +7,7 @@ ruby '3.0.3'
 
 gem 'active_link_to'
 gem 'alert_message', '~> 2.0'
-gem 'bcrypt', '~> 3.1.17'
+gem 'bcrypt', '~> 3.1.18'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'breadcrumbs_on_rails'
 gem 'cancancan'
