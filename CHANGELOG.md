@@ -2,6 +2,14 @@
 
 Todas as alterações notáveis neste projeto serão documentadas neste arquivo. Iniciado na v1.3.1
 
+## [v2.0.1] - 2022-05-29
+### Adicionado
+ - Adicionado botão imprimir para a listagem de ocorrências
+### Corrigido
+ - Corrigido erro Issue#107 - Remover pagina em branco final relalatório
+### Atualizado
+ - Atualizada dependencias
+
 ## [v1.3.3] - 2021-01-03
 
 ### Corrigido
