@@ -61,6 +61,10 @@
         page-break-after: always;
         page-break-inside: avoid;
       }
+
+      div.alwaysbreak { page-break-before: always; }
+      div.nobreak:before { clear:both; }
+      div.nobreak{ page-break-inside: avoid; }
     </style>
 
   </head>
@@ -132,6 +136,7 @@
           <p>Arquivado na pasta do estudante em: ____ de _____________ de 20___</p>
         </div>
       </div>
+      <div></div>
     <% end %>
   </body>
 </html>
