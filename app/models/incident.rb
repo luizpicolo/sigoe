@@ -51,6 +51,7 @@ class Incident < ApplicationRecord
 
   # Atributos para busca com SearchCop
   search_scope :search do
+    attributes incident: 'id'
     attributes student: 'student.id'
     attributes course: 'course.id'
     attributes course_name: 'course.name'

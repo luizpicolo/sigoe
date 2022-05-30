@@ -50,6 +50,14 @@
                 <span>Visualizar</span>
               <% end %>
             <% end %>
+            <% if can? :read, Incident %>
+              <%= link_to report_incidents_path(incident: incident, format: :pdf), method: :post, class: 'button is-success in-mobile-expand', target: :_blank do %>
+                <span class="icon">
+                  <i class="fas fa-print"></i>
+                </span>
+                <span>Imprimir</span>
+              <% end %>
+            <% end %>
             <% if can? :confirmation, Incident %>
               <% if incident.signed_in.nil? && !incident.student.nil? %>
                 <%= link_to incident_sign_path(incident), class: 'button' do %>
