@@ -35,6 +35,7 @@ class ReportIncidentsController < ApplicationController
 
   def set_conditional
     conditionals = {}
+    conditionals[:incident] = params[:incident] if params[:incident].present?
     conditionals[:student] = params[:student] if params[:student].present?
     conditionals[:course] = params[:course] if params[:course].present?
     conditionals[:type_student] = params[:type_student] if params[:type_student].present?
