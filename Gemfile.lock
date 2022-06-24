@@ -318,7 +318,7 @@ GEM
       ast (~> 2.4.1)
     path_expander (1.1.0)
     pdfkit (0.8.6)
-    pg (1.4.0)
+    pg (1.4.1)
     polyglot (0.3.5)
     pry (0.13.1)
       coderay (~> 1.1)
