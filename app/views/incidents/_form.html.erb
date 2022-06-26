@@ -1,6 +1,6 @@
 <%= form_for model do |f| %>
   <fieldset>
-    <legend>Dados do estudante</legend>
+    <legend>Estudante</legend>
     <div class="columns">
       <div class="column">
         <div class="field">
@@ -32,22 +32,22 @@
   </fieldset>
 
   <fieldset>
-    <legend>Dados do assistente</legend>
+    <legend>Assistente</legend>
     <div class="field is-horizontal">
       <div class="field-body">
         <div class="field">
           <%= f.label :assistant_id, 'Assistente', class: 'label' %>
           <p class="control">
             <span class="select">
-              <%= f.select :assistant_id, User.get_all, { selected: current_user.id }, { :class => "select select2 is-medium" } %>
+              <%= f.select :assistant_id, User.get_all(@polo), { selected: current_user.id }, { :class => "select select2 is-medium" } %>
             </span>
           </p>
         </div>
         <div class="field">
-          <%= f.label :institution, 'Instituição', class: 'label' %>
+          <%= f.label :sector_id, 'Encaminhar para', class: 'label' %>
           <p class="control">
             <span class="select">
-              <%= f.select :institution, Incident.institutions.keys.to_a, {}, { :class => "select select2 is-medium" } %>
+              <%= f.select :sector_id, Sector.get_all(@polo), {}, { :class => "select select2 is-medium" } %>
             </span>
           </p>
         </div>

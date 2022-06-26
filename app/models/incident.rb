@@ -27,15 +27,13 @@
 class Incident < ApplicationRecord
   include SearchCop
 
-  validates :user, :assistant, :institution, :description,
+  validates :user, :assistant, :description,
             :date_incident, :time_incident, :type_incident, presence: true
 
   # Delegates
   delegate :ra, to: :user, prefix: true
   delegate :name, to: :course, prefix: true
-  # delegate :name, to: :course, prefix: true
 
-  enum institution: { 'Ifms' => 0, 'Ufms' => 1, 'Cemid' => 2 }
   enum is_resolved: { 'no_' => 0, 'yes_' => 1 }
   enum type_student: { 'non_resident' => 0, 'resident' => 1 }
   enum sanction: { 'verbal_warning' => 0, 'written_warning' => 1, 'suspension' => 2,
@@ -56,7 +54,6 @@ class Incident < ApplicationRecord
     attributes course: 'course.id'
     attributes course_name: 'course.name'
     attributes student_name: 'student.name'
-    attributes institution: 'institution'
     attributes type_student: 'type_student'
     attributes type_incident: 'type_incident.name'
     attributes date_incident: 'date_incident'
@@ -112,7 +109,6 @@ class Incident < ApplicationRecord
   #
   # @return [Array] contendo os atributos para a busca
   def self.ordenation_attributes
-    [%w[ID id], %w[Estudante student_id], %w[Instituição institution],
-     %w[Data date_incident], %w[Turma course_id]]
+    [%w[ID id], %w[Estudante student_id], %w[Data date_incident], %w[Turma course_id]]
   end
 end

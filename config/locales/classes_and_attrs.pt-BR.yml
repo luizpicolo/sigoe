@@ -11,6 +11,7 @@ pt-BR:
       permission: "Permissões"
       school_group: "Turmas"
       institution: "Instituições"
+      sector: "Setores"
       
     attributes:
       user:
@@ -41,3 +42,6 @@ pt-BR:
           written_warning: 'Advertência escrita'
           suspension: 'Suspensão'
           quitting_school: 'Desligamento'
+        sector:
+          name: 'Nome'
+          polo: 'Polo'

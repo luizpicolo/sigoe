@@ -14,6 +14,7 @@
 
 class Polo < ApplicationRecord
   belongs_to :institution
+  has_many :sectors
 
   # Retorna um vetor contendo as initiais e seus respectivos IDs
   #
