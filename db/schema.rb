@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_01_30_143717) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_26_145700) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -42,11 +42,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_01_30_143717) do
     t.integer "sanction"
     t.integer "school_group_id"
     t.bigint "type_incident_id"
+    t.bigint "sector_id"
     t.index ["assistant_id"], name: "index_incidents_on_assistant_id"
     t.index ["course_id"], name: "index_incidents_on_course_id"
     t.index ["date_incident"], name: "index_incidents_on_date_incident"
     t.index ["institution"], name: "index_incidents_on_institution"
     t.index ["school_group_id"], name: "index_incidents_on_school_group_id"
+    t.index ["sector_id"], name: "index_incidents_on_sector_id"
     t.index ["student_id"], name: "index_incidents_on_student_id"
     t.index ["type_incident_id"], name: "index_incidents_on_type_incident_id"
     t.index ["user_id"], name: "index_incidents_on_user_id"
@@ -207,6 +209,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_01_30_143717) do
     t.index ["polo_id"], name: "index_school_groups_on_polo_id"
   end
 
+  create_table "sectors", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.bigint "polo_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["polo_id"], name: "index_sectors_on_polo_id"
+  end
+
   create_table "seed_migration_data_migrations", id: :serial, force: :cascade do |t|
     t.string "version"
     t.integer "runtime"
@@ -278,6 +289,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_01_30_143717) do
 
   add_foreign_key "courses", "polos"
   add_foreign_key "incidents", "courses"
+  add_foreign_key "incidents", "sectors"
   add_foreign_key "incidents", "students"
   add_foreign_key "incidents", "type_incidents"
   add_foreign_key "incidents", "users"
@@ -289,6 +301,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_01_30_143717) do
   add_foreign_key "permissions", "users"
   add_foreign_key "polos", "institutions"
   add_foreign_key "school_groups", "polos"
+  add_foreign_key "sectors", "polos"
   add_foreign_key "students", "courses"
   add_foreign_key "students", "school_groups"
   add_foreign_key "users", "courses"

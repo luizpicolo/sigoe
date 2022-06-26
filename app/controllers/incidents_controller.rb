@@ -27,6 +27,7 @@ class IncidentsController < ApplicationController
     add_breadcrumb 'Lista de Ocorrências', :incidents_path
     add_breadcrumb 'Nova ocorrências'
 
+    @polo = set_polo
     @params_return = params_return
     @incidents = Incident.new
   end
@@ -34,10 +35,11 @@ class IncidentsController < ApplicationController
   def create
     @incident = Incident.new(incident_params)
     @incident.user = current_user
-    # @incident.polo = current_user.polo
     @incident.course = course_by_student(incident_params[:student_id])
     if @incident.save
-      send_email_to(@incident&.course&.coordinator&.email)
+      unless incident_params[:sector_id].empty? 
+        send_email_to(Sector.find(incident_params[:sector_id]).email)
+      end
       redirect_to incidents_path, flash: { success: 'Ocorrência cadastra com sucesso' }
     else
       flash.now[:error] = @incident.errors.full_messages
@@ -125,7 +127,7 @@ class IncidentsController < ApplicationController
 
   def incident_params
     params.require(:incident).permit(
-      :type_incident_id, :student_id, :course_id, :date_incident, :assistant_id, :time_incident, :institution, :description, :soluction, :is_resolved, :type_student, :sanction, prohibition_and_responsibility_ids: [], student_duty_ids: []
+      :type_incident_id, :student_id, :course_id, :date_incident, :sector_id, :assistant_id, :time_incident, :institution, :description, :soluction, :is_resolved, :type_student, :sanction, prohibition_and_responsibility_ids: [], student_duty_ids: []
     )
   end
 end

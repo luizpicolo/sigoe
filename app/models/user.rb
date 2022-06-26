@@ -73,8 +73,8 @@ class User < ApplicationRecord
   # Retorna um vetor contendo os nomes e seus respectivos IDs
   #
   # @return [Array] contendo nomes e seus IDs
-  def self.get_all
-    order('name asc').collect { |p| [p.name, p.id] }
+  def self.get_all(params_return)
+    where(params_return).order('name asc').collect { |p| [p.name, p.id] }
   end
 
   # Retorna a data do último acesso formatada
