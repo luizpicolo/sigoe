@@ -19,6 +19,7 @@ class Ability
         can [:sign], eval(permission.entity) if permission.can_extras?
       end
       can [:create], eval(permission.entity) if permission.can_create?
+      can [:read_restricted], eval(permission.entity) if permission.can_read_restricted?
       can [:read], eval(permission.entity) if permission.can_read?
       can [:update], eval(permission.entity) if permission.can_update?
       can [:destroy], eval(permission.entity) if permission.can_destroy?

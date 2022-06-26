@@ -39,7 +39,6 @@ class ReportIncidentsController < ApplicationController
     conditionals[:student] = params[:student] if params[:student].present?
     conditionals[:course] = params[:course] if params[:course].present?
     conditionals[:type_student] = params[:type_student] if params[:type_student].present?
-    conditionals[:institution] = params[:institution] if params[:institution].present?
     conditionals
   end
 

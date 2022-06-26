@@ -6,10 +6,7 @@
     <li><%= active_link_to 'Trocar senha', user_change_password_path(current_user) %></li>
   </ul>
   
-  <% if (can? :read, User) || 
-        (can? :read, Student) || 
-        (can? :read, Course) || 
-        (can? :read, SchoolGroup) %>
+  <% if current_user.admin? %>
   <p class="menu-label">
     Administrador
   </p>

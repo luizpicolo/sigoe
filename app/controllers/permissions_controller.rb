@@ -72,7 +72,7 @@ class PermissionsController < ApplicationController
 
   def permission_params
     params.require(:permission).permit(
-      :entity, :can_create, :can_read, :can_update, :can_destroy, :can_extras
+      :entity, :can_create, :can_read, :can_read_restricted, :can_update, :can_destroy, :can_extras
     )
   end
 end

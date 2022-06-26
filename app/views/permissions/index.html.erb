@@ -24,6 +24,7 @@
       <th>Opções extras</th>
       <th>Criar</th>
       <th>Ler</th>
+      <th>Leitura Restrita</th>
       <th>Atualizar</th>
       <th>Deletar</th>
       <th></th>
@@ -38,6 +39,7 @@
       <td><%= status?(permission.can_extras?).html_safe %></td>
       <td><%= status?(permission.can_create?).html_safe %></td>
       <td><%= status?(permission.can_read?).html_safe %></td>
+      <td><%= status?(permission.can_read_restricted?).html_safe %></td>
       <td><%= status?(permission.can_update?).html_safe %></td>
       <td><%= status?(permission.can_destroy?).html_safe %></td>
       <td class="has-text-right">

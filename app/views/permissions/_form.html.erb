@@ -6,8 +6,8 @@
         <div class="field">
           <p class="control">
             <%= f.label :entity, "Entidade", class: 'label' %>
-            <span class="select is-medium">
-              <%= f.select :entity, models.to_a, { prompt: "Entidade" }, { :class => "select2" } %>
+            <span class="select is-normal">
+              <%= f.select :entity, models.to_a, { prompt: "Entidade" }, { :class => "" } %>
             </span>
           </p>
         </div>
@@ -32,6 +32,14 @@
             <label class="checkbox label">
               <%= f.check_box :can_read, class: 'checkbox' %>
               Ler
+            </label>
+          </div>
+        </div>
+        <div class="field margin-top-40px">
+          <div class="control">
+            <label class="checkbox label">
+              <%= f.check_box :can_read_restricted, class: 'checkbox' %>
+              Ler restrita
             </label>
           </div>
         </div>

@@ -110,16 +110,24 @@ class IncidentsController < ApplicationController
   end
 
   def set_incident
-    @incident = if params[:id]
-                  Incident.find(params[:id])
-                else
-                  Incident.find(params[:incident_id])
-                end
+    if params[:id]
+      Incident.find(params[:id])
+    else
+      Incident.find(params[:incident_id])
+    end 
   end
 
   def params_return
-    if !set_polo.empty?
-      { courses: set_polo }
+    unless set_polo.empty?
+      if can? :read_restricted, Incident
+        if current_user.admin? || current_user.super_admin?
+          { courses: set_polo }
+        else
+          { courses: set_polo, user: current_user }
+        end
+      else
+        { courses: set_polo }
+      end
     else
       set_polo
     end
