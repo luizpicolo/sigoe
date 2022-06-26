@@ -37,7 +37,7 @@ class IncidentsController < ApplicationController
     @incident.user = current_user
     @incident.course = course_by_student(incident_params[:student_id])
     if @incident.save
-      if incident_params[:sector_id]
+      unless incident_params[:sector_id].empty? 
         send_email_to(Sector.find(incident_params[:sector_id]).email)
       end
       redirect_to incidents_path, flash: { success: 'Ocorrência cadastra com sucesso' }

@@ -47,7 +47,7 @@
           <%= f.label :sector_id, 'Encaminhar para', class: 'label' %>
           <p class="control">
             <span class="select">
-              <%= f.select :sector_id, Sector.get_all(@polo), {}, { :class => "select select2 is-medium" } %>
+              <%= f.select :sector_id, Sector.get_all(@polo), {:include_blank => 'Não enviar notificação'}, { :class => "select select2 is-medium" } %>
             </span>
           </p>
         </div>
