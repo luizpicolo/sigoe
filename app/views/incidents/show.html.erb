@@ -7,7 +7,6 @@
     <p><b>Responsável:</b> <%= @incident&.student&.responsible %> / <%= @incident&.student&.responsible_contact %> </p>
     <% end %>
     <p> Data ocorrência: <b><%= extract_and_format_date(@incident&.date_incident) %> às <%= extract_and_format_time(@incident&.time_incident) %></b></p>
-    <p> Local: <b><%= @incident.institution.upcase %></b></p>
     <p> Criada por: <b><%= @incident.user.name %></b></p>
     <p> Assistente relacionado: <b><%= @incident.assistant.name %></b></p>
     <p> Assinado digitalmente em: <b><%= @incident.signed_by_student_in || 'Não assinada' %></b></p>
