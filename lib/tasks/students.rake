@@ -20,7 +20,7 @@ namespace :student do
         school_group.polo = polo
         school_group.save(validate: false)
 
-        student = Student.find_by(ra: data['ra'].to_i)
+        student = Student.find_by(registration_id: data['matricula_id'].to_i)
         student = Student.new if student.blank?
         student.name = data['estudante']
         student.ra = data['ra']
