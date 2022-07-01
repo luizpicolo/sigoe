@@ -34,7 +34,6 @@ RSpec.describe Incident, type: :model do
   # Validations
   it { should validate_presence_of :user }
   it { should validate_presence_of :assistant }
-  it { should validate_presence_of :institution }
   it { should validate_presence_of :description }
   it { should validate_presence_of :date_incident }
   it { should validate_presence_of :time_incident }
@@ -73,7 +72,6 @@ RSpec.describe Incident, type: :model do
   it { should have_and_belong_to_many(:prohibition_and_responsibilities) }
 
   # Enums
-  it { should define_enum_for(:institution).with_values(%w[Ifms Ufms Cemid]) }
   it { should define_enum_for(:is_resolved).with_values(%w[no_ yes_]) }
   it { should define_enum_for(:type_student).with_values(%w[non_resident resident]) }
   it {
@@ -96,12 +94,6 @@ RSpec.describe Incident, type: :model do
         expect(Incident.search(conditionals)).to eq([@incident])
       end
 
-      it 'find incident by institution' do
-        conditionals = {}
-        conditionals[:institution] = 0
-        expect(Incident.search(conditionals)).to eq([@incident])
-      end
-
       it 'find incident by type_student' do
         conditionals = {}
         conditionals[:type_student] = 1
@@ -120,7 +112,6 @@ RSpec.describe Incident, type: :model do
         conditionals = {}
         conditionals[:student] = @incident.student.id
         conditionals[:course] = @incident.course.id
-        conditionals[:institution] = 0
         conditionals[:type_student] = 1
         range_date = "date_incident >= #{@incident.date_incident - 1.day} AND date_incident <= #{@incident.date_incident + 1.day}"
         expect(Incident.search(conditionals).search(range_date)).to eq([@incident])
