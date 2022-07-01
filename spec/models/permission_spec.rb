@@ -29,6 +29,7 @@ RSpec.describe Permission, type: :model do
   it { should have_db_column :entity }
   it { should have_db_column :can_create }
   it { should have_db_column :can_read }
+  it { should have_db_column :can_read_restricted }
   it { should have_db_column :can_update }
   it { should have_db_column :can_destroy }
   it { should have_db_column :created_at }

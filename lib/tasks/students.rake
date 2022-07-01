@@ -24,6 +24,7 @@ namespace :student do
         student = Student.new if student.blank?
         student.name = data['estudante']
         student.ra = data['ra']
+        student.registration_id = data['matricula_id']
         student.school_group_id = school_group.id
         student.course_id = data['identificador_curso']
         student.cpf = data['cpf']
