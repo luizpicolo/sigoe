@@ -30,6 +30,7 @@ FactoryBot.define do
     user factory: :user
     assistant factory: :user
     course factory: :course
+    sector_id factory: :sector
     type_incident factory: :type_incident
     institution { 'Ifms' }
     description { Faker::Lorem.paragraph(sentence_count: 2) }

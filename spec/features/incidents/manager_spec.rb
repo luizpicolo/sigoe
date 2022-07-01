@@ -6,6 +6,7 @@ context 'When keeping Incident' do
   before(:each) do
     @user = FactoryBot.create(:user)
     @course = FactoryBot.create(:course, polo: @user.polo)
+    @sector = FactoryBot.create(:sector, polo: @user.polo)
     @student = FactoryBot.create(:student, course: @course)
     @type_incident = FactoryBot.create(:type_incident, name: 'Atraso')
     FactoryBot.create(
@@ -20,7 +21,7 @@ context 'When keeping Incident' do
     scenario 'with valid data' do
       visit new_incident_path
       create_new_incident user: @user.name, student: @student.name,
-                          type_incident: @type_incident.name
+                          type_incident: @type_incident.name, sector: @sector.name
       expect(page).to have_content('Ocorrência cadastra com sucesso')
     end
   end

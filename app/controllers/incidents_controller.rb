@@ -105,8 +105,10 @@ class IncidentsController < ApplicationController
     Student.find(student_id).course
   end
 
-  def send_email_to(coordinator)
-    InsidentMailer.send_mailer(coordinator).deliver_now if coordinator.present?
+  def send_email_to(sector)
+    unless Rails.env.test?
+      InsidentMailer.send_mailer(sector).deliver_now if sector.present?
+    end
   end
 
   def set_incident
