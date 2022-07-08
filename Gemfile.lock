@@ -481,7 +481,7 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
-    search_cop (1.2.0)
+    search_cop (1.2.1)
       treetop
     seed_migration (1.2.3)
     selenium-webdriver (4.3.0)
