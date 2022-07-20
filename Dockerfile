@@ -6,7 +6,7 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
 RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \ 
     && echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list
-RUN apt-get update -qq && apt-get install -y --no-install-recommends build-essential nodejs libpq-dev yarn google-chrome-stable
+RUN apt-get update -qq && apt-get install -y --no-install-recommends build-essential nodejs libpq-dev yarn nano google-chrome-stable
 
 RUN mkdir /app
 
