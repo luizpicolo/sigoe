@@ -51,6 +51,9 @@ class IncidentsController < ApplicationController
     add_breadcrumb 'Ocorrências'
     add_breadcrumb 'Lista de Ocorrências', :incidents_path
     add_breadcrumb 'Atualizar Ocorrência'
+
+    @polo = set_polo
+    @params_return = params_return
   end
 
   def update
