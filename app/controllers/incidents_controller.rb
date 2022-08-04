@@ -28,7 +28,11 @@ class IncidentsController < ApplicationController
     add_breadcrumb 'Nova ocorrências'
 
     @polo = set_polo
-    @params_return = params_return
+    if current_user.super_admin?
+      @params_return = ""
+    else 
+      @params_return = params_return.except(:user)
+    end
     @incidents = Incident.new
   end
 
@@ -53,7 +57,11 @@ class IncidentsController < ApplicationController
     add_breadcrumb 'Atualizar Ocorrência'
 
     @polo = set_polo
-    @params_return = params_return
+    if current_user.super_admin?
+      @params_return = ""
+    else 
+      @params_return = params_return.except(:user)
+    end
   end
 
   def update
