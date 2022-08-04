@@ -32,9 +32,9 @@ jobs:
       - run: cp config/database.yml.example config/database.yml && cp config/application.yml.example config/application.yml && cp config/secrets.yml.example config/secrets.yml
       - run: bundle exec rake db:create db:migrate
       - run: yarn install --ignore-engines
-      - run:
-          name: Precompile assets
-          command: bundle exec rake assets:precompile
+      # - run:
+      #     name: Precompile assets
+      #     command: bundle exec rake assets:precompile
       - run:
           name: Run tests
           command: bundle exec rake
