@@ -70,7 +70,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'fuubar'
-  gem 'mini_racer', '~> 0.6.2'
+  gem 'mini_racer', '~> 0.6.3'
   gem 'rails-controller-testing'
   gem 'regressor', github: 'luizpicolo/regressor', branch: 'UpdateFakeGem'
   gem 'rspec-rails', '~> 5.1.2'
