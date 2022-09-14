@@ -87,7 +87,6 @@
           <p><b>Responsável:</b> <%= incident&.student&.responsible %> / <%= incident&.student&.responsible_contact %> </p>
           <% end %>
           <p> Data ocorrência: <b><%= extract_and_format_date(incident&.date_incident) %> às <%= extract_and_format_time(incident&.time_incident) %></b></p>
-          <p> Local: <b><%= incident.institution.upcase %></b></p>
           <% if incident&.type_incident.present? %>
           <p><b>Tipo da ocorrência:</b> <%= incident&.type_incident.name %></p>
           <% end %>
