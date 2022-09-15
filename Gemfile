@@ -40,7 +40,7 @@ gem 'pg'
 gem 'puma', '~> 5.6'
 gem 'rack', '>= 2.2.2'
 gem 'rails', '~> 7'
-gem 'rails_admin', ['>= 3.0.0.beta2', '< 4']
+gem 'rails_admin', '3.0.0'
 gem 'rails_admin-i18n', '~> 1.18'
 gem 'rails-env'
 # gem 'railties', '~> 7.0'
