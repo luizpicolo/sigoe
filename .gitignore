@@ -62,3 +62,5 @@ yarn-debug.log*
 .yarn-integrity
 /scripts
 package-lock.json
+gem_cache
+postgres-data

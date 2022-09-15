@@ -10,7 +10,7 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: sigoe_production
     volumes:
-      - postgres-data:/var/lib/postgresql/data
+      - ./postgres-data:/var/lib/postgresql/data
 
   web:
     build:
@@ -19,9 +19,12 @@ services:
     container_name: sigoe_app
     volumes:
       - .:/app
-      - gem_cache:/usr/local/bundle/gems
-      - node_modules:/app/node_modules
+      - ./gem_cache:/usr/local/bundle/gems
+      - ./node_modules:/app/node_modules
     environment:
+      BUNDLE_PATH: /usr/local/bundle/gems
+      GEM_PATH: /usr/local/bundle/gems
+      GEM_HOME: /usr/local/bundle/gems
       RAILS_ENV: production
     ports:
       - 3000:3000
@@ -29,7 +32,7 @@ services:
     depends_on:
       - postgres
 
-volumes:
-  postgres-data:
-  gem_cache:
-  node_modules:
+# volumes:
+#   postgres-data:
+  # gem_cache:
+  # node_modules:
