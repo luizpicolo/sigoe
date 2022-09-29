@@ -374,7 +374,7 @@ GEM
       rails (>= 6.0, < 8)
       turbo-rails (~> 1.0)
     rails_admin-i18n (1.18.0)
-    rails_best_practices (1.23.1)
+    rails_best_practices (1.23.2)
       activesupport
       code_analyzer (~> 0.5.5)
       erubis
