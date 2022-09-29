@@ -52,7 +52,7 @@ gem 'sass-rails'
 gem 'search_cop'
 gem 'seed_migration'
 gem 'spreadsheet'
-gem 'sprockets', '~> 3.7.2'
+gem 'sprockets', '~> 4.1.1'
 gem 'sprockets-rails'
 gem 'turbolinks'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
