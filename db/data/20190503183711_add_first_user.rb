@@ -9,7 +9,8 @@ class AddFirstUser < SeedMigration::Migration
       email: 'admin@admin.com',
       password: '12345678',
       password_confirmation: '12345678',
-      admin: true
+      admin: true,
+      polo: Polo.first
     )
   end
 end
