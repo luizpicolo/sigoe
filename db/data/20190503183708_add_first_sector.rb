@@ -4,7 +4,8 @@ class AddFirstSector < SeedMigration::Migration
   def up
     Sector.create(
       name: 'Coinf',
-      email: 'coinf@email.com'
+      email: 'coinf@email.com',
+      polo: Polo.first
     )
   end
 end
