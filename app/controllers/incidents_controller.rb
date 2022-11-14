@@ -123,11 +123,7 @@ class IncidentsController < ApplicationController
   end
 
   def set_incident
-    if params[:id]
-      Incident.find(params[:id])
-    else
-      Incident.find(params[:incident_id])
-    end 
+    @incident = params[:id] ? Incident.find(params[:id]) : Incident.find(params[:incident_id])
   end
 
   def params_return
