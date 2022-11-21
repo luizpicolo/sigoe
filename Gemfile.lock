@@ -201,7 +201,7 @@ GEM
       sexp_processor (~> 4.8)
     font-awesome-sass (6.2.0)
       sassc (~> 2.0)
-    friendly_id (5.4.2)
+    friendly_id (5.5.0)
       activerecord (>= 4.0.0)
     fuubar (2.5.1)
       rspec-core (~> 3.0)
@@ -601,7 +601,7 @@ DEPENDENCIES
   faker
   figaro
   font-awesome-sass
-  friendly_id (~> 5.4.2)
+  friendly_id (~> 5.5.0)
   fuubar
   groupdate
   htmlcompressor
