@@ -136,7 +136,6 @@ GEM
       mini_mime (>= 0.1.3)
       ssrf_filter (~> 1.0)
     chartkick (4.2.1)
-    childprocess (4.1.0)
     choice (0.2.0)
     chronic (0.10.2)
     clipboard-rails (1.7.1)
@@ -481,8 +480,7 @@ GEM
     search_cop (1.2.3)
       treetop
     seed_migration (1.2.3)
-    selenium-webdriver (4.6.1)
-      childprocess (>= 0.5, < 5.0)
+    selenium-webdriver (4.7.1)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
