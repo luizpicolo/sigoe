@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.0.3'
+ruby '3.1.3'
 
 gem 'active_link_to'
 gem 'alert_message', '~> 2.0'
@@ -40,7 +40,7 @@ gem 'pg'
 gem 'puma', '~> 6.0'
 gem 'rack', '>= 2.2.2'
 gem 'rails', '~> 7'
-gem 'rails_admin', '3.1.0'
+gem 'rails_admin', '3.1.1'
 gem 'rails_admin-i18n', '~> 1.18'
 gem 'rails-env'
 # gem 'railties', '~> 7.0'

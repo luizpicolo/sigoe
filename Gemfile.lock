@@ -367,7 +367,7 @@ GEM
     rails_12factor (0.0.3)
       rails_serve_static_assets
       rails_stdout_logging
-    rails_admin (3.1.0)
+    rails_admin (3.1.1)
       activemodel-serializers-xml (>= 1.0)
       kaminari (>= 0.14, < 2.0)
       nested_form (~> 0.3)
@@ -631,7 +631,7 @@ DEPENDENCIES
   rails-erd
   rails-i18n!
   rails_12factor
-  rails_admin (= 3.1.0)
+  rails_admin (= 3.1.1)
   rails_admin-i18n (~> 1.18)
   rails_best_practices
   randumb
@@ -666,7 +666,7 @@ DEPENDENCIES
   wkhtmltopdf-binary
 
 RUBY VERSION
-   ruby 3.0.3p157
+   ruby 3.1.3p185
 
 BUNDLED WITH
    2.2.32

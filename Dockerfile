@@ -1,4 +1,4 @@
-FROM ruby:3.0.3
+FROM ruby:3.1.3
  
 RUN apt-get update -qq && apt-get install -y --no-install-recommends curl
 RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash - 

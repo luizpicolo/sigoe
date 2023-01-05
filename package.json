@@ -4,7 +4,7 @@
   "private": true,
   "license": "MIT",
   "engines": {
-    "node": "^16.13"
+    "node": "^19.3.0"
   },
   "dependencies": {
     "@rails/actioncable": "^7.0.0",
@@ -37,5 +37,8 @@
     "serialize-javascript": ">=5.0.1",
     "webpack": "4",
     "webpack-dev-server": "^4.7.3"
+  },
+  "resolutions": {
+    "rails_admin/@fortawesome/fontawesome-free": "^5.15.0"
   }
 }
