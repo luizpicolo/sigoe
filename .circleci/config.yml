@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   checkout_code:
     docker:
-      - image: circleci/ruby:3.0.3-node
+      - image: cimg/ruby:3.2.0-node
       - image: circleci/postgres:9.4.12-alpine
     working_directory: ~/circleci-demo-workflows
     steps:
@@ -16,7 +16,7 @@ jobs:
   rake_test:
     parallelism: 3
     docker:
-      - image: circleci/ruby:3.0.3-node
+      - image: cimg/ruby:3.2.0-node
       - image: circleci/postgres:9.4.12-alpine
     working_directory: ~/circleci-demo-workflows
     steps:
@@ -32,9 +32,9 @@ jobs:
       - run: cp config/database.yml.example config/database.yml && cp config/application.yml.example config/application.yml && cp config/secrets.yml.example config/secrets.yml
       - run: bundle exec rake db:create db:migrate
       - run: yarn install --ignore-engines
-      # - run:
-      #     name: Precompile assets
-      #     command: bundle exec rake assets:precompile
+      - run:
+          name: Precompile assets
+          command: bundle exec rake assets:precompile
       - run:
           name: Run tests
           command: bundle exec rake
