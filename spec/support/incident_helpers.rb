@@ -14,8 +14,20 @@ module IncidentHelpers
 
     click_button 'Salvar'
   end
+
+  def set_polo(current_user = nil)
+    current_user.super_admin == true ? '' : { polo: current_user.polo_id }
+  end
+
+  def params_return(current_user)
+    if !set_polo(current_user).empty?
+      { courses: set_polo(current_user) }
+    else
+      set_polo(current_user)
+    end
+  end
 end
 
 RSpec.configure do |config|
-  config.include IncidentHelpers, type: :feature
+  config.include IncidentHelpers
 end

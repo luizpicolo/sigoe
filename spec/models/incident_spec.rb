@@ -27,10 +27,6 @@
 require 'rails_helper'
 
 RSpec.describe Incident, type: :model do
-  before(:each) do
-    @incident = FactoryBot.create :incident
-  end
-
   # Validations
   it { should validate_presence_of :user }
   it { should validate_presence_of :assistant }
@@ -81,40 +77,42 @@ RSpec.describe Incident, type: :model do
 
   # Methods
   describe '#search' do
+    let(:incident) { FactoryBot.create :incident } 
+
     context 'find with one param' do
       it 'find incident by student' do
         conditionals = {}
-        conditionals[:student] = @incident.student.id
-        expect(Incident.search(conditionals)).to eq([@incident])
+        conditionals[:student] = incident.student.id
+        expect(Incident.search(conditionals)).to eq([incident])
       end
 
       it 'find incident by course' do
         conditionals = {}
-        conditionals[:course] = @incident.course.id
-        expect(Incident.search(conditionals)).to eq([@incident])
+        conditionals[:course] = incident.course.id
+        expect(Incident.search(conditionals)).to eq([incident])
       end
 
       it 'find incident by type_student' do
         conditionals = {}
         conditionals[:type_student] = 1
-        expect(Incident.search(conditionals)).to eq([@incident])
+        expect(Incident.search(conditionals)).to eq([incident])
       end
 
       it 'find incident by range date' do
         conditionals = {}
-        range_date = "date_incident >= #{@incident.date_incident - 1.day} AND date_incident <= #{@incident.date_incident + 1.day}"
-        expect(Incident.search(conditionals).search(range_date)).to eq([@incident])
+        range_date = "date_incident >= #{incident.date_incident - 1.day} AND date_incident <= #{incident.date_incident + 1.day}"
+        expect(Incident.search(conditionals).search(range_date)).to eq([incident])
       end
     end
 
     context 'find with all params' do
       it 'find incident ' do
         conditionals = {}
-        conditionals[:student] = @incident.student.id
-        conditionals[:course] = @incident.course.id
+        conditionals[:student] = incident.student.id
+        conditionals[:course] = incident.course.id
         conditionals[:type_student] = 1
-        range_date = "date_incident >= #{@incident.date_incident - 1.day} AND date_incident <= #{@incident.date_incident + 1.day}"
-        expect(Incident.search(conditionals).search(range_date)).to eq([@incident])
+        range_date = "date_incident >= #{incident.date_incident - 1.day} AND date_incident <= #{incident.date_incident + 1.day}"
+        expect(Incident.search(conditionals).search(range_date)).to eq([incident])
       end
     end
   end
@@ -135,6 +133,37 @@ RSpec.describe Incident, type: :model do
 
       it "Returns ' ---- ' string" do
         expect(subject.student_name).to eq(' ---- ')
+      end
+    end
+  end
+
+  describe '.by_years' do
+    let(:polo) { FactoryBot.create(:polo) }
+    let(:course) { FactoryBot.create(:course, polo: polo) }
+    let(:user_super_admin) { FactoryBot.create(:user, super_admin: true) }
+    let(:user_not_super_admin) { FactoryBot.create(:user, super_admin: false, polo: polo) }
+    
+    before do
+      FactoryBot.create(:incident, created_at: '2020-01-01')
+      FactoryBot.create(:incident, created_at: '2020-01-01', course: course)
+      FactoryBot.create(:incident, created_at: '2021-01-01')
+      FactoryBot.create(:incident, created_at: '2021-01-01', course: course)
+      FactoryBot.create(:incident, created_at: '2022-01-01')
+    end
+
+    context 'when the current user is a super admin' do
+      it 'returns the count of incidents grouped by year for all courses' do
+        expect(described_class.by_years(params_return(user_super_admin))).to eq({
+          '2020' => 2, '2021' => 2, '2022' => 1
+        })
+      end
+    end
+
+    context 'when the current user is not a super admin' do
+      it 'returns the count of incidents grouped by year for the user\'s polo' do
+        expect(described_class.by_years(params_return(user_not_super_admin))).to eq({
+          '2020' => 1, '2021' => 1
+        })
       end
     end
   end
