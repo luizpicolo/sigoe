@@ -64,7 +64,7 @@ class Student < ApplicationRecord
   def self.import(attributes, course)
     student = find_by(ra: attributes[2]) || new
     student.assign_attributes(set_attributes(student, course, attributes))
-    student.save
+    student.save(validate: false)
   end
 
   # Retorna um vetor com os atributos que serão utilizados para a
