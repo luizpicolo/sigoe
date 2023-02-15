@@ -70,12 +70,6 @@ class Incident < ApplicationRecord
   ## Charts
   def self.by_years(params_return)
     joins(:course).where(params_return).group_by_year(:created_at, format: '%Y').count
-    # array = []
-    # results = joins(:course).where(params_return).group("DATE_TRUNC('year', incidents.created_at)").count
-    # results.each do |result|
-    #   array << [result.first.year, result.last]
-    # end
-    # p array
   end
 
   def self.by_courses(params_return)
