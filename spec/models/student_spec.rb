@@ -103,6 +103,36 @@ RSpec.describe Student, type: :model do
     end
   end
 
+  describe '#import' do
+    context 'when the student exists' do
+      let(:attributes) { [nil, nil, @student.ra, 'John', '99999999999', '', 'email@email'] }
+
+      it 'updates the existing student' do
+        Student.import(attributes, @course)
+        @student.reload
+
+        expect(@student.name).to eq('John')
+        expect(@student.cpf).to eq('99999999999')
+        expect(@student.contact).to eq('email@email')
+      end
+    end
+
+    context 'when the student does not exist' do
+      ra = 456
+      let(:attributes) { [nil, nil, ra, 'Jane', '88888888888', '2023-13-02', 'email2@email', 'Egresso'] }
+
+      it 'creates a new student' do
+        described_class.import(attributes, @course)
+        student = described_class.find_by(ra: ra)
+
+        expect(student).to be_present
+        expect(student.name).to eq('Jane')
+        expect(student.cpf).to eq('88888888888')
+        expect(student.contact).to eq('email2@email')
+      end
+    end
+  end
+  
   describe '#search' do
     it 'find user by name' do
       expect(Student.search(@student.name)).to eq([@student])
