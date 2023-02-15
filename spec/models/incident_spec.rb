@@ -168,6 +168,39 @@ RSpec.describe Incident, type: :model do
     end
   end
 
+  describe '.by_courses' do
+    let(:polo) { FactoryBot.create(:polo) }
+    let(:math) { FactoryBot.create(:course, name: 'Math') }
+    let(:science) { FactoryBot.create(:course, name: 'Science') }
+    let(:english) { FactoryBot.create(:course, name: 'English', polo: polo) }
+    let(:user_super_admin) { FactoryBot.create(:user, super_admin: true) }
+    let(:user_not_super_admin) { FactoryBot.create(:user, super_admin: false, polo: polo) }
+    
+    before do
+      FactoryBot.create(:incident, course: math)
+      FactoryBot.create(:incident, course: math)
+      FactoryBot.create(:incident, course: science)
+      FactoryBot.create(:incident, course: science)
+      FactoryBot.create(:incident, course: english)
+    end
+
+    context 'when the current user is a super admin' do
+      it 'returns the count of incidents grouped by year for all courses' do
+        expect(described_class.by_courses(params_return(user_super_admin))).to eq({
+          'Math' => 2, 'Science' => 2, 'English' => 1
+        })
+      end
+    end
+
+    context 'when the current user is not a super admin' do
+      it 'returns the count of incidents grouped by year for the user\'s polo' do
+        expect(described_class.by_courses(params_return(user_not_super_admin))).to eq({
+          'English' => 1
+        })
+      end
+    end
+  end
+
   describe '#signed_by_student_in' do
     let(:subject) { FactoryBot.create(:incident) }
 
