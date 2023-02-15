@@ -40,5 +40,6 @@ FactoryBot.define do
     status { true }
     polo factory: :polo
     admin { false }
+    super_admin { false }
   end
 end
