@@ -225,6 +225,23 @@ RSpec.describe Incident, type: :model do
     end
   end
 
+  describe ".by_is_resolved" do
+    before do
+      FactoryBot.create(:incident, is_resolved: 0)
+      FactoryBot.create(:incident, is_resolved: 0)
+      FactoryBot.create(:incident, is_resolved: 1)
+      FactoryBot.create(:incident, is_resolved: 1)
+      FactoryBot.create(:incident, is_resolved: nil)
+    end
+
+    it "returns a hash with the counts of each resolved status" do
+      result = described_class.by_is_resolved
+
+      # check that the expected keys and values are present in the result
+      expect(result).to include("Sim" => 2, "Não" => 2, "Sem Categoria" => 1)
+    end
+  end
+
   describe '.ordenation_attributes' do
     ordenation_attributes = Incident.ordenation_attributes
 
