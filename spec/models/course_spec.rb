@@ -69,20 +69,20 @@ RSpec.describe Course, type: :model do
   end
 
   describe '#params_search' do
-    it 'should return an hash' do
-      expect(@course.params_search).to be_an_instance_of(Hash)
+    it 'returns a hash' do
+      expect(@course.params_search).to be_a(Hash)
     end
 
-    it 'should return hash key name with value id' do
+    it 'sets the order key to "id"' do
       expect(@course.params_search[:order]).to eq('id')
     end
 
-    it "should return hash key 'return' with value > 0" do
+    it 'sets the return key to a positive integer' do
       expect(@course.params_search[:return]).to be > 0
     end
 
-    it "should return hash key 'return' with initial value course" do
-      expect(@course.params_search[:search]).to eql(@course.initial.downcase)
+    it 'sets the search key to the downcased initial value of the course' do
+      expect(@course.params_search[:search]).to eq(@course.initial.downcase)
     end
   end
 end
