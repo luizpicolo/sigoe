@@ -51,8 +51,8 @@ class ReportIncidentsController < ApplicationController
   end
 
   def set_date_range
-    if params[:date_start].present? && params[:date_final].present?
-      "date_incident >= #{params[:date_start]} AND date_incident <= #{params[:date_final]}"
-    end
+    return unless params[:date_start].present? && params[:date_final].present?
+
+    "date_incident >= #{params[:date_start]} AND date_incident <= #{params[:date_final]}"
   end
 end

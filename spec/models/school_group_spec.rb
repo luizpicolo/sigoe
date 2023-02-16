@@ -25,16 +25,16 @@ RSpec.describe SchoolGroup, type: :model do
   it { should validate_presence_of :name }
   it { should validate_presence_of :identifier }
 
-  describe ".identifiers" do
-    it "orders by identifier ascending and returns an array of [identifier, id] pairs" do
+  describe '.identifiers' do
+    it 'orders by identifier ascending and returns an array of [identifier, id] pairs' do
       # create some test objects with different identifiers
-      object1 = FactoryBot.create(:school_group, identifier: "group1")
-      object3 = FactoryBot.create(:school_group, identifier: "group3")
-      object2 = FactoryBot.create(:school_group, identifier: "group2")
-  
+      object1 = FactoryBot.create(:school_group, identifier: 'group1')
+      object3 = FactoryBot.create(:school_group, identifier: 'group3')
+      object2 = FactoryBot.create(:school_group, identifier: 'group2')
+
       # call the method and check the result
       result = described_class.identifiers
-      expect(result).to eq([["group1", object1.id], ["group2", object2.id], ["group3", object3.id]])
+      expect(result).to eq([['group1', object1.id], ['group2', object2.id], ['group3', object3.id]])
     end
   end
 

@@ -119,7 +119,9 @@ RSpec.describe Student, type: :model do
 
     context 'when the student does not exist' do
       ra = 456
-      let(:attributes) { [nil, nil, ra, 'Jane', '88888888888', '2023-13-02', 'email2@email', 'Egresso'] }
+      let(:attributes) do
+        [nil, nil, ra, 'Jane', '88888888888', '2023-13-02', 'email2@email', 'Egresso']
+      end
 
       it 'creates a new student' do
         described_class.import(attributes, @course)
@@ -132,7 +134,7 @@ RSpec.describe Student, type: :model do
       end
     end
   end
-  
+
   describe '#search' do
     it 'find user by name' do
       expect(Student.search(@student.name)).to eq([@student])

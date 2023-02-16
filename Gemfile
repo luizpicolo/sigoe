@@ -34,13 +34,13 @@ gem 'mechanize'
 gem 'mimemagic'
 gem 'mini_magick', '>= 4.11.0'
 gem 'modernizr-rails'
-gem "nokogiri", ">= 1.13.4"
+gem 'nokogiri', '>= 1.13.4'
 gem 'pdfkit'
 gem 'pg'
 gem 'puma', '~> 6.0'
 gem 'rack', '>= 2.2.2'
 gem 'rails', '~> 7'
-gem 'rails_admin', '3.0.0'
+gem 'rails_admin', '3.0.0' # Don't change this version
 gem 'rails_admin-i18n', '~> 1.18'
 gem 'rails-env'
 # gem 'railties', '~> 7.0'
@@ -52,7 +52,7 @@ gem 'sass-rails'
 gem 'search_cop'
 gem 'seed_migration'
 gem 'spreadsheet'
-gem 'sprockets', '~> 3.7.2'
+gem 'sprockets', '~> 3.7.2' # Don't change this version
 gem 'sprockets-rails'
 gem 'turbolinks'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
@@ -103,3 +103,5 @@ group :production do
   gem 'rails_12factor'
   gem 'turnout'
 end
+
+gem 'avo', '~> 2.26'

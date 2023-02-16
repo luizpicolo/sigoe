@@ -28,11 +28,11 @@ class IncidentsController < ApplicationController
     add_breadcrumb 'Nova ocorrências'
 
     @polo = set_polo
-    if current_user.super_admin?
-      @params_return = ""
-    else 
-      @params_return = params_return.except(:user)
-    end
+    @params_return = if current_user.super_admin?
+                       ''
+                     else
+                       params_return.except(:user)
+                     end
     @incidents = Incident.new
   end
 
@@ -41,7 +41,7 @@ class IncidentsController < ApplicationController
     @incident.user = current_user
     @incident.course = course_by_student(incident_params[:student_id])
     if @incident.save
-      unless incident_params[:sector_id].empty? 
+      unless incident_params[:sector_id].empty?
         send_email_to(Sector.find(incident_params[:sector_id]).email)
       end
       redirect_to incidents_path, flash: { success: 'Ocorrência cadastra com sucesso' }
@@ -57,11 +57,11 @@ class IncidentsController < ApplicationController
     add_breadcrumb 'Atualizar Ocorrência'
 
     @polo = set_polo
-    if current_user.super_admin?
-      @params_return = ""
-    else 
-      @params_return = params_return.except(:user)
-    end
+    @params_return = if current_user.super_admin?
+                       ''
+                     else
+                       params_return.except(:user)
+                     end
   end
 
   def update
@@ -91,10 +91,10 @@ class IncidentsController < ApplicationController
 
   ## Mostra a confirmação para que o estudante possa assinar
   def confirmation
-    if @incident.student.ra.nil?
-      flash.now[:error] = 'Por favor, cadastre uma senha e um R.A para o estudante'
-      redirect_to incidents_path
-    end
+    return unless @incident.student.ra.nil?
+
+    flash.now[:error] = 'Por favor, cadastre uma senha e um R.A para o estudante'
+    redirect_to incidents_path
   end
 
   # Por meio de um usuário RA e senha
@@ -117,28 +117,26 @@ class IncidentsController < ApplicationController
   end
 
   def send_email_to(sector)
-    unless Rails.env.test?
-      InsidentMailer.send_mailer(sector).deliver_now if sector.present?
-    end
+    return if Rails.env.test?
+
+    InsidentMailer.send_mailer(sector).deliver_now if sector.present?
   end
 
   def set_incident
-    @incident = params[:id] ? Incident.find(params[:id]) : Incident.find(params[:incident_id])
+    @incident = Incident.find(params[:id] || params[:incident_id])
   end
 
   def params_return
-    unless set_polo.empty?
-      if can? :read_restricted, Incident
-        if current_user.admin? || current_user.super_admin?
-          { courses: set_polo }
-        else
-          { courses: set_polo, user: current_user }
-        end
-      else
+    if set_polo.empty?
+      set_polo
+    elsif can? :read_restricted, Incident
+      if current_user.admin? || current_user.super_admin?
         { courses: set_polo }
+      else
+        { courses: set_polo, user: current_user }
       end
     else
-      set_polo
+      { courses: set_polo }
     end
   end
 

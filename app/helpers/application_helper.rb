@@ -9,9 +9,9 @@ module ApplicationHelper
   # @param params [Array<String>] contendo os parâmetros carregados via Get
   # @return mensagem flash de erro
   def show_search_error_message(entity, params)
-    if entity.blank?
-      flash.now[:error] = "Sua busca por <b>#{params[:search]}</b> não obteve resutados"
-    end
+    return if entity.present?
+
+    flash.now[:error] = "Sua busca por <b>#{params[:search]}</b> não obteve resutados"
   end
 
   # Retorna os atributos de ordenação para a tag select

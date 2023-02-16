@@ -77,7 +77,7 @@ RSpec.describe Incident, type: :model do
 
   # Methods
   describe '#search' do
-    let(:incident) { FactoryBot.create :incident } 
+    let(:incident) { FactoryBot.create :incident }
 
     context 'find with one param' do
       it 'find incident by student' do
@@ -142,7 +142,7 @@ RSpec.describe Incident, type: :model do
     let(:course) { FactoryBot.create(:course, polo: polo) }
     let(:user_super_admin) { FactoryBot.create(:user, super_admin: true) }
     let(:user_not_super_admin) { FactoryBot.create(:user, super_admin: false, polo: polo) }
-    
+
     before do
       FactoryBot.create(:incident, created_at: '2020-01-01')
       FactoryBot.create(:incident, created_at: '2020-01-01', course: course)
@@ -154,16 +154,16 @@ RSpec.describe Incident, type: :model do
     context 'when the current user is a super admin' do
       it 'returns the count of incidents grouped by year for all courses' do
         expect(described_class.by_years(params_return(user_super_admin))).to eq({
-          '2020' => 2, '2021' => 2, '2022' => 1
-        })
+                                                                                    '2020' => 2, '2021' => 2, '2022' => 1
+                                                                                })
       end
     end
 
     context 'when the current user is not a super admin' do
       it 'returns the count of incidents grouped by year for the user\'s polo' do
         expect(described_class.by_years(params_return(user_not_super_admin))).to eq({
-          '2020' => 1, '2021' => 1
-        })
+                                                                                        '2020' => 1, '2021' => 1
+                                                                                    })
       end
     end
   end
@@ -175,7 +175,7 @@ RSpec.describe Incident, type: :model do
     let(:english) { FactoryBot.create(:course, name: 'English', polo: polo) }
     let(:user_super_admin) { FactoryBot.create(:user, super_admin: true) }
     let(:user_not_super_admin) { FactoryBot.create(:user, super_admin: false, polo: polo) }
-    
+
     before do
       FactoryBot.create(:incident, course: math)
       FactoryBot.create(:incident, course: math)
@@ -187,16 +187,16 @@ RSpec.describe Incident, type: :model do
     context 'when the current user is a super admin' do
       it 'returns the count of incidents grouped by year for all courses' do
         expect(described_class.by_courses(params_return(user_super_admin))).to eq({
-          'Math' => 2, 'Science' => 2, 'English' => 1
-        })
+                                                                                      'Math' => 2, 'Science' => 2, 'English' => 1
+                                                                                  })
       end
     end
 
     context 'when the current user is not a super admin' do
       it 'returns the count of incidents grouped by year for the user\'s polo' do
         expect(described_class.by_courses(params_return(user_not_super_admin))).to eq({
-          'English' => 1
-        })
+                                                                                          'English' => 1
+                                                                                      })
       end
     end
   end
@@ -225,7 +225,7 @@ RSpec.describe Incident, type: :model do
     end
   end
 
-  describe ".by_is_resolved" do
+  describe '.by_is_resolved' do
     before do
       FactoryBot.create(:incident, is_resolved: 0)
       FactoryBot.create(:incident, is_resolved: 0)
@@ -234,11 +234,11 @@ RSpec.describe Incident, type: :model do
       FactoryBot.create(:incident, is_resolved: nil)
     end
 
-    it "returns a hash with the counts of each resolved status" do
+    it 'returns a hash with the counts of each resolved status' do
       result = described_class.by_is_resolved
 
       # check that the expected keys and values are present in the result
-      expect(result).to include("Sim" => 2, "Não" => 2, "Sem Categoria" => 1)
+      expect(result).to include('Sim' => 2, 'Não' => 2, 'Sem Categoria' => 1)
     end
   end
 
@@ -247,7 +247,7 @@ RSpec.describe Incident, type: :model do
     let(:course) { FactoryBot.create(:course, polo: polo) }
     let(:user_super_admin) { FactoryBot.create(:user, super_admin: true) }
     let(:user_not_super_admin) { FactoryBot.create(:user, super_admin: false, polo: polo) }
-    
+
     before do
       FactoryBot.create(:incident, created_at: '2020-01-01')
       FactoryBot.create(:incident, created_at: '2020-01-01', course: course)
@@ -259,16 +259,16 @@ RSpec.describe Incident, type: :model do
     context 'when the current user is a super admin' do
       it 'returns the count of incidents grouped by year for all courses' do
         expect(described_class.by_years(params_return(user_super_admin))).to eq({
-          '2020' => 2, '2021' => 2, '2022' => 1
-        })
+                                                                                    '2020' => 2, '2021' => 2, '2022' => 1
+                                                                                })
       end
     end
 
     context 'when the current user is not a super admin' do
       it 'returns the count of incidents grouped by year for the user\'s polo' do
         expect(described_class.by_years(params_return(user_not_super_admin))).to eq({
-          '2020' => 1, '2021' => 1
-        })
+                                                                                        '2020' => 1, '2021' => 1
+                                                                                    })
       end
     end
   end
