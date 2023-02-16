@@ -103,5 +103,3 @@ group :production do
   gem 'rails_12factor'
   gem 'turnout'
 end
-
-gem 'avo', '~> 2.26'
