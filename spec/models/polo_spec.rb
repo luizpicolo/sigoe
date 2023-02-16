@@ -15,6 +15,9 @@
 require 'rails_helper'
 
 RSpec.describe Polo, type: :model do
+
+  it { should belong_to(:institution) }
+
   describe "#initials" do
     let(:user) { FactoryBot.create(:user) }
   
