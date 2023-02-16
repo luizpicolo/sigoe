@@ -25,8 +25,21 @@ RSpec.describe SchoolGroup, type: :model do
   it { should validate_presence_of :name }
   it { should validate_presence_of :identifier }
 
+  describe ".identifiers" do
+    it "orders by identifier ascending and returns an array of [identifier, id] pairs" do
+      # create some test objects with different identifiers
+      object1 = FactoryBot.create(:school_group, identifier: "group1")
+      object3 = FactoryBot.create(:school_group, identifier: "group3")
+      object2 = FactoryBot.create(:school_group, identifier: "group2")
+  
+      # call the method and check the result
+      result = described_class.identifiers
+      expect(result).to eq([["group1", object1.id], ["group2", object2.id], ["group3", object3.id]])
+    end
+  end
+
   describe '.ordenation_attributes' do
-    ordenation_attributes = SchoolGroup.ordenation_attributes
+    ordenation_attributes = described_class.ordenation_attributes
 
     it 'should return an array' do
       expect(ordenation_attributes).to be_an_instance_of(Array)
@@ -38,7 +51,7 @@ RSpec.describe SchoolGroup, type: :model do
 
     ordenation_attributes.each do |attribute|
       it "should return user attribute #{attribute}" do
-        expect(SchoolGroup.attribute_names.include?(attribute.last)).to be true
+        expect(described_class.attribute_names.include?(attribute.last)).to be true
       end
     end
   end

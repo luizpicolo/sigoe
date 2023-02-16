@@ -242,6 +242,37 @@ RSpec.describe Incident, type: :model do
     end
   end
 
+  describe '.by_type_incident' do
+    let(:polo) { FactoryBot.create(:polo) }
+    let(:course) { FactoryBot.create(:course, polo: polo) }
+    let(:user_super_admin) { FactoryBot.create(:user, super_admin: true) }
+    let(:user_not_super_admin) { FactoryBot.create(:user, super_admin: false, polo: polo) }
+    
+    before do
+      FactoryBot.create(:incident, created_at: '2020-01-01')
+      FactoryBot.create(:incident, created_at: '2020-01-01', course: course)
+      FactoryBot.create(:incident, created_at: '2021-01-01')
+      FactoryBot.create(:incident, created_at: '2021-01-01', course: course)
+      FactoryBot.create(:incident, created_at: '2022-01-01')
+    end
+
+    context 'when the current user is a super admin' do
+      it 'returns the count of incidents grouped by year for all courses' do
+        expect(described_class.by_years(params_return(user_super_admin))).to eq({
+          '2020' => 2, '2021' => 2, '2022' => 1
+        })
+      end
+    end
+
+    context 'when the current user is not a super admin' do
+      it 'returns the count of incidents grouped by year for the user\'s polo' do
+        expect(described_class.by_years(params_return(user_not_super_admin))).to eq({
+          '2020' => 1, '2021' => 1
+        })
+      end
+    end
+  end
+
   describe '.ordenation_attributes' do
     ordenation_attributes = Incident.ordenation_attributes
 
