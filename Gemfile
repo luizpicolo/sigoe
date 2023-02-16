@@ -76,7 +76,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 6.0.1'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers'
-  gem 'simplecov', '~> 0.21.2'
+  gem 'simplecov', '~> 0.22.0'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.1.0'
   gem 'webdrivers'
