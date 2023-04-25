@@ -98,24 +98,28 @@
         <div class="description">
           <p><b>Problema ocorrido</b></p>
           <%= incident&.description %>
-          <% if incident&.soluction.present? %>
-          <p><b>Solução adotada para o problema</b></p>
+          
           <% if incident&.sanction.present? %>
-          <p><b>Sanção adotada:</b> <%= I18n.t("activerecord.attributes.incident.sanction.#{incident&.sanction}") %></p>
+            <p><b>Sanção adotada:</b> <%= I18n.t("activerecord.attributes.incident.sanction.#{incident&.sanction}") %></p>
           <% end %>
-          <%= incident&.soluction %>
+          
+          <% if incident&.soluction.present? %>
+            <p><b>Solução adotada para o problema</b></p>
+            <%= incident&.soluction %>
+          <% end %>
+
           <% if incident&.student_duties.present? %>
-          <p><b>Segundo o Capítulo III, Art 4º que trata sobre os direitos e deveres do estudante</b></p>
-          <% incident&.student_duties.each do |i| %>
-            <p><%= i.item %></p>
+            <p><b>Segundo o Capítulo III, Art 4º que trata sobre os direitos e deveres do estudante</b></p>
+            <% incident&.student_duties.each do |i| %>
+              <p><%= i.item %></p>
+            <% end %>
           <% end %>
-          <% end %>
+
           <% if incident&.prohibition_and_responsibilities.present? %>
-          <p><b>Segundo o Capítulo IV que trata sobre as proibições e responsabilidades</b></p>
-          <% incident&.prohibition_and_responsibilities.each do |i| %>
-            <p><%= i.item %></p>
-          <% end %>
-          <% end %>
+            <p><b>Segundo o Capítulo IV que trata sobre as proibições e responsabilidades</b></p>
+            <% incident&.prohibition_and_responsibilities.each do |i| %>
+              <p><%= i.item %></p>
+            <% end %>
           <% end %>
         </div>
 
