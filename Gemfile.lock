@@ -151,14 +151,14 @@ GEM
     debug_inspector (1.1.0)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
-    devise (4.8.1)
+    devise (4.9.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
-    devise-i18n (1.10.3)
-      devise (>= 4.8.0)
+    devise-i18n (1.11.0)
+      devise (>= 4.9.0)
     diff-lcs (1.5.0)
     docile (1.4.0)
     domain_name (0.5.20190701)
@@ -192,7 +192,7 @@ GEM
       sexp_processor (~> 4.8)
     font-awesome-sass (6.3.0)
       sassc (~> 2.0)
-    friendly_id (5.4.2)
+    friendly_id (5.5.0)
       activerecord (>= 4.0.0)
     fuubar (2.5.1)
       rspec-core (~> 3.0)
@@ -484,7 +484,7 @@ GEM
     sexp_processor (4.16.1)
     shoulda-matchers (5.3.0)
       activesupport (>= 5.2.0)
-    simplecov (0.21.2)
+    simplecov (0.22.0)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
       simplecov_json_formatter (~> 0.1)
@@ -596,7 +596,7 @@ DEPENDENCIES
   faker
   figaro
   font-awesome-sass
-  friendly_id (~> 5.4.2)
+  friendly_id (~> 5.5.0)
   fuubar
   groupdate
   htmlcompressor
@@ -644,7 +644,7 @@ DEPENDENCIES
   seed_migration
   selenium-webdriver
   shoulda-matchers
-  simplecov (~> 0.21.2)
+  simplecov (~> 0.22.0)
   spreadsheet
   spring
   spring-watcher-listen (~> 2.1.0)
