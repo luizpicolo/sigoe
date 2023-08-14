@@ -38,7 +38,7 @@ gem 'nokogiri', '>= 1.13.4'
 gem 'pdfkit'
 gem 'pg'
 gem 'puma', '~> 6.0'
-gem 'rack', '>= 2.2.2'
+gem 'rack', '>= 2.2.6.3'
 gem 'rails', '~> 7'
 gem 'rails_admin', '3.0.0' # Don't change this version
 gem 'rails_admin-i18n', '~> 1.18'
