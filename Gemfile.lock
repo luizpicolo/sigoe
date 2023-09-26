@@ -481,7 +481,7 @@ GEM
     search_cop (1.2.3)
       treetop
     seed_migration (1.2.3)
-    selenium-webdriver (4.8.0)
+    selenium-webdriver (4.13.1)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
@@ -559,7 +559,7 @@ GEM
       semantic_range (>= 2.3.0)
     webrick (1.8.1)
     webrobots (0.1.2)
-    websocket (1.2.9)
+    websocket (1.2.10)
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
