@@ -83,7 +83,7 @@ GEM
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
       tzinfo (~> 2.0)
-    addressable (2.8.1)
+    addressable (2.8.5)
       public_suffix (>= 2.0.2, < 6.0)
     alert_message (2.0.2)
     annotate (3.2.0)
@@ -164,7 +164,7 @@ GEM
     docile (1.4.0)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
-    email_spec (2.2.1)
+    email_spec (2.2.2)
       htmlentities (~> 4.3.3)
       launchy (~> 2.1)
       mail (~> 2.7)
@@ -278,7 +278,7 @@ GEM
       nokogiri (~> 1)
       rake
     mini_magick (4.12.0)
-    mini_mime (1.1.2)
+    mini_mime (1.1.5)
     mini_racer (0.6.3)
       libv8-node (~> 16.10.0.0)
     minitest (5.20.0)
@@ -289,14 +289,14 @@ GEM
     net-http-digest_auth (1.4.1)
     net-http-persistent (4.0.1)
       connection_pool (~> 2.2)
-    net-imap (0.3.4)
+    net-imap (0.4.0)
       date
       net-protocol
     net-pop (0.1.2)
       net-protocol
     net-protocol (0.2.1)
       timeout
-    net-smtp (0.3.3)
+    net-smtp (0.4.0)
       net-protocol
     nio4r (2.5.9)
     nokogiri (1.14.3-x86_64-darwin)
@@ -318,7 +318,7 @@ GEM
     pry-byebug (3.10.1)
       byebug (~> 11.0)
       pry (>= 0.13, < 0.15)
-    public_suffix (5.0.1)
+    public_suffix (5.0.3)
     puma (6.4.0)
       nio4r (~> 2.0)
     racc (1.7.1)
@@ -513,7 +513,7 @@ GEM
     thor (1.2.2)
     thread_safe (0.3.6)
     tilt (2.0.11)
-    timeout (0.3.2)
+    timeout (0.4.0)
     treetop (1.6.12)
       polyglot (~> 0.3)
     tty-which (0.4.2)
