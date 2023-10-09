@@ -309,7 +309,7 @@ GEM
       ast (~> 2.4.1)
       racc
     path_expander (1.1.1)
-    pdfkit (0.8.7.2)
+    pdfkit (0.8.7.3)
     pg (1.4.5)
     polyglot (0.3.5)
     pry (0.14.2)
