@@ -37,7 +37,7 @@ gem 'modernizr-rails'
 gem 'nokogiri', '>= 1.13.4'
 gem 'pdfkit'
 gem 'pg'
-gem 'puma', '~> 6.0'
+gem 'puma', '~> 6.4'
 gem 'rack', '>= 2.2.6.3'
 gem 'rails', '~> 7'
 gem 'rails_admin', '3.0.0' # Don't change this version
