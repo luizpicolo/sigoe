@@ -321,7 +321,7 @@ GEM
     public_suffix (5.0.1)
     puma (6.4.0)
       nio4r (~> 2.0)
-    racc (1.7.1)
+    racc (1.7.3)
     rack (2.2.8)
     rack-accept (0.4.5)
       rack (>= 0.4)
@@ -391,7 +391,7 @@ GEM
       thor (~> 1.0)
       zeitwerk (~> 2.5)
     rainbow (3.1.1)
-    rake (13.0.6)
+    rake (13.1.0)
     randumb (0.6.0)
       activerecord (>= 3.0.20)
       activesupport (>= 3.0.20)
@@ -410,23 +410,23 @@ GEM
       actionpack (>= 5.2)
       railties (>= 5.2)
     rexml (3.2.6)
-    rspec-core (3.12.1)
+    rspec-core (3.12.2)
       rspec-support (~> 3.12.0)
-    rspec-expectations (3.12.2)
+    rspec-expectations (3.12.3)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.12.0)
-    rspec-mocks (3.12.3)
+    rspec-mocks (3.12.6)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.12.0)
-    rspec-rails (6.0.1)
+    rspec-rails (6.1.0)
       actionpack (>= 6.1)
       activesupport (>= 6.1)
       railties (>= 6.1)
-      rspec-core (~> 3.11)
-      rspec-expectations (~> 3.11)
-      rspec-mocks (~> 3.11)
-      rspec-support (~> 3.11)
-    rspec-support (3.12.0)
+      rspec-core (~> 3.12)
+      rspec-expectations (~> 3.12)
+      rspec-mocks (~> 3.12)
+      rspec-support (~> 3.12)
+    rspec-support (3.12.1)
     rubocop (1.56.1)
       base64 (~> 0.1.1)
       json (~> 2.3)
@@ -510,7 +510,7 @@ GEM
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
     ssrf_filter (1.1.1)
-    thor (1.2.2)
+    thor (1.3.0)
     thread_safe (0.3.6)
     tilt (2.0.11)
     timeout (0.3.2)
@@ -569,7 +569,7 @@ GEM
     wkhtmltopdf-binary (0.12.6.6)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zeitwerk (2.6.11)
+    zeitwerk (2.6.12)
 
 PLATFORMS
   x86_64-darwin-21
@@ -638,7 +638,7 @@ DEPENDENCIES
   randumb
   rb-readline
   regressor!
-  rspec-rails (~> 6.0.1)
+  rspec-rails (~> 6.1.0)
   rubocop
   rubocop-faker
   rubocop-rails
