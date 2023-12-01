@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_01_014631) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_24_132224) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -197,6 +197,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_01_014631) do
     t.string "item"
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
+    t.boolean "status", default: false
   end
 
   create_table "school_groups", force: :cascade do |t|
@@ -229,6 +230,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_01_014631) do
     t.string "item"
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
+    t.boolean "status", default: false
   end
 
   create_table "students", id: :serial, force: :cascade do |t|
