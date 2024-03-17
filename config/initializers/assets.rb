@@ -18,5 +18,6 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 Rails.application.config.assets.precompile += %w[print.css]
 Rails.application.config.assets.precompile += %w[application.css]
 Rails.application.config.assets.precompile += %w[application.js]
+Rails.application.config.assets.precompile += %w( chartkick.js )
 Rails.application.config.assets.precompile += %w[rails_admin/rails_admin.css
                                                  rails_admin/rails_admin.js]
