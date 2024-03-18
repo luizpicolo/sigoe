@@ -3,6 +3,9 @@
   "version": "2.0.2",
   "private": true,
   "license": "MIT",
+  "engines": {
+    "node": "^20.7"
+  },
   "dependencies": {
     "@rails/actioncable": "^7.0.0",
     "@rails/activestorage": "^7.0.0",
