@@ -4,7 +4,7 @@
 
 O SIGOE (Sistema para o Gerenciamento de Ocorrências Escolares) é um software desenvolvido com o objetivo de auxiliar no gerenciamento das ocorrências escolares no IFMS (Institulo Federal de Mato Grosso do Sul).
 
-Este sistema tem como base: Rails 7.0 e Ruby 3.0.3.
+Este sistema tem como base: Rails 7.0 e Ruby 3.0.6.
 
 [![Test Coverage](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/test_coverage)](https://codeclimate.com/github/luizpicolo/sigoe/test_coverage)
 ![Build Status](https://img.shields.io/circleci/project/github/luizpicolo/sigoe.svg)
