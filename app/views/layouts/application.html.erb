@@ -14,7 +14,7 @@
     
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'print', media: 'print', 'data-turbolinks-track' => true %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag "//code.highcharts.com/highcharts.js" %>
     <%= javascript_packs_with_chunks_tag 'application', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag :modernizr %>
