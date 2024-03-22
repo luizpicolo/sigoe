@@ -14,3 +14,4 @@ ActiveRecord::Base.transaction do
 end
 
 SeedMigration::Migrator.bootstrap(20230422224039)
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

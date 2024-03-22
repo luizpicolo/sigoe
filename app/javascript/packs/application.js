@@ -1,8 +1,13 @@
-require("@rails/ujs").start()
-require("turbolinks").start()
-require("@rails/activestorage").start()
-require("channels")
-require("chartkick").use(require("highcharts"))
+import Chartkick from "chartkick";
+import Highcharts from "highcharts";
+import Rails from "@rails/ujs";
+import Turbolinks from "turbolinks";
+import * as ActiveStorage from "@rails/activestorage";
+import "channels";
+ 
+Rails.start();
+Turbolinks.start();
+ActiveStorage.start();
 
 document.addEventListener('DOMContentLoaded', () => {
   let alertMessage = document.getElementById('alert');
