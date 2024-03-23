@@ -5,7 +5,7 @@ ActiveAdmin.register Sector do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  # permit_params :name, :email, :polo_id
+  permit_params :name, :email, :polo_id
   #
   # or
   #
