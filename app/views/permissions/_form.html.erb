@@ -46,6 +46,14 @@
         <div class="field margin-top-40px">
           <div class="control">
             <label class="checkbox label">
+              <%= f.check_box :can_export_to_academic_system, class: 'checkbox' %>
+              Exportar
+            </label>
+          </div>
+        </div>
+        <div class="field margin-top-40px">
+          <div class="control">
+            <label class="checkbox label">
               <%= f.check_box :can_update, class: 'checkbox' %>
               Atualizar
             </label>

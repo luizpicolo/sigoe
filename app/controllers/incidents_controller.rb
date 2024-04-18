@@ -6,7 +6,7 @@ class IncidentsController < ApplicationController
   load_and_authorize_resource
 
   before_action :set_incident, only: %i[
-      edit destroy update confirmation sign show
+      edit destroy update confirmation sign show export_to_academic_system
   ]
 
   add_breadcrumb 'Home', :root_path
@@ -108,6 +108,10 @@ class IncidentsController < ApplicationController
       flash.now[:error] = 'Sua senha esta incorreta'
       render :confirmation
     end
+  end
+
+  def export_to_academic_system
+    @incident = set_incident
   end
 
   private

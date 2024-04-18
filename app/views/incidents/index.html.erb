@@ -68,6 +68,14 @@
                 <% end %>
               <% end %>
             <% end %>
+            <% if can? :export_to_academic_system, Incident %>
+              <%= link_to incident_export_to_academic_system_path(incident), method: :get, class: 'button is-warning' do %>
+                <span class="icon">
+                  <i class="far fa-trash-alt"></i>
+                </span>
+                <span>Exportar</span>
+              <% end %>
+            <% end %>
             <% if can? :update, Incident %>
               <%= link_to edit_incident_path(incident), class: 'button is-success' do %>
                 <span class="icon">

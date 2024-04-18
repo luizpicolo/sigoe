@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_22_005117) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_18_140416) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -206,6 +206,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_22_005117) do
     t.boolean "can_manage", default: false
     t.boolean "can_extras", default: false
     t.boolean "can_read_restricted", default: false
+    t.boolean "can_export_to_academic_system", default: false
     t.index ["user_id"], name: "index_permissions_on_user_id"
   end
 

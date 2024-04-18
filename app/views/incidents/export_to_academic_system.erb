@@ -1,0 +1,105 @@
+<div class="content">
+  <h1 class="title is-3">Exportar ocorrência para o Sistema Acadêmico</h1>
+  <article class="message is-warning">
+  <div class="message-body">
+    Este é uma funcionalidade experimental. Para que ela funcione corretamente, certifique-se de estar logado no Sistema Acadêmico antes de submter esse dados.
+  </div>
+</article>
+
+<form id="myForm" action="https://academico.ifms.edu.br/administrativo/atendimentos/adicionar/<%= @incident.student.ra %>/<%= @incident.student.registration_id %>" method="post">
+  <fieldset class="fieldset">
+    <legend>Detalhes do Atendimento</legend>
+
+    <div class="field">
+      <label class="label" for="atendimento_tipo_id">Selecione o Tipo:</label>
+      <div class="control">
+        <div class="select">
+          <select name="data[Atendimento][atendimento_tipo_id]" class="select2" id="atendimento_tipo_id" required>
+            <option value="" disabled selected hidden>Selecione o Tipo</option>
+            <option value="23">Assistentes de Alunos > Atendimento administrativo à comunidade externa</option>
+            <option value="27">Assistentes de Alunos > Atendimento administrativo ao docente</option>
+            <option value="21">Assistentes de Alunos > Atendimento administrativo ao estudante</option>
+            <option value="24">Assistentes de Alunos > Atendimento administrativo aos pais e/ou responsáveis</option>
+            <option value="8">Biblioteca > Acessibilidade Informacional</option>
+            <option value="6">Biblioteca > Atendimento Administrativo</option>
+            <option value="4">Biblioteca > Atendimento Letramento Informacional</option>
+            <option value="7">Biblioteca > Atendimento Serviços de Referência</option>
+            <option value="5">Biblioteca > Treinamento</option>
+            <option value="1">Central de Relacionamento > Atendimento Administrativo</option>
+            <option value="3">Central de Relacionamento > Atendimento Representação Estudantil</option>
+            <option value="2">Central de Relacionamento > Atendimento Social</option>
+            <option value="17">Coordenação de Curso > Atendimento Ações Afirmativas</option>
+            <option value="15">Coordenação de Curso > Atendimento Administrativo</option>
+            <option value="19">Coordenação de Curso > Atendimento Cultural</option>
+            <option value="18">Coordenação de Curso > Atendimento Desportivo</option>
+            <option value="16">Coordenação de Curso > Atendimento Pedagógico</option>
+            <option value="20">Coordenação de Curso > Atendimento Representação Estudantil</option>
+            <option value="33">Diretoria de Ensino > Atendimento Administrativo</option>
+            <option value="31">Diretoria de Ensino > Atendimento Pedagógico</option>
+            <option value="34">Equipe Pedagógica > Atendimento Administrativo</option>
+            <option value="32">Equipe Pedagógica > Atendimento Pedagógico</option>
+            <option value="35">Napne > Atendimento</option>
+            <option value="22">Neabi > Atendimento Administrativo</option>
+            <option value="14">Nuged > Atendimento Nutricional</option>
+            <option value="10">Nuged > Atendimento Pedagógico</option>
+            <option value="11">Nuged > Atendimento Psicológico</option>
+            <option value="9">Nuged > Atendimento Representação Estudantil</option>
+            <option value="13">Nuged > Atendimento Saúde</option>
+            <option value="12">Nuged > Atendimento Social</option>
+            <option value="26">Técnico Audiovisual > Atendimento de apoio ao ensino - docente</option>
+            <option value="25">Técnico Audiovisual > Atendimento de apoio ao ensino - estudante</option>
+            <option value="28">Técnicos de Laboratório - Área > Atendimento Administrativo</option>
+            <option value="30">Técnicos de Laboratório - Área > Atendimento de Apoio Pedagógico ao Docente</option>
+            <option value="29">Técnicos de Laboratório - Área > Atendimento de Apoio Pedagógico ao estudante</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label" for="AtendimentoDescricao">Descrição:</label>
+      <div class="control">
+        <textarea class="textarea" name="data[Atendimento][descricao]" required id="AtendimentoDescricao"><%= @incident.description %></textarea>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label" for="AtendimentoProcessoSuap">Data Atendimento:</label>
+      <div class="control">
+        <input class="input date" value="<%= extract_and_format_date(@incident.date_incident) %>" type="text" name="data[Atendimento][data_atendimento]"" maxlength="255" id="AtendimentoProcessoSuap">
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label" for="AtendimentoProcessoSuap">Processo SUAP:</label>
+      <div class="control">
+        <input class="input" type="text" name="data[Atendimento][processo_suap]" maxlength="255" id="AtendimentoProcessoSuap">
+      </div>
+    </div>
+  </fieldset>
+
+  <div class="margin-top-20px">
+    <div class="control">
+      <button class="button is-success is-medium in-mobile-expand" type="submit" value="Salvar">Salvar</button>
+    </div>
+  </div>
+</form>
+
+<script>
+  // Obtém o formulário pelo ID
+  var formulario = document.getElementById("myForm");
+
+  // Adiciona um evento de envio ao formulário
+  formulario.addEventListener("submit", function(event) {
+      // Impede o envio padrão do formulário
+      event.preventDefault();
+      
+      // Envie o formulário
+      formulario.submit();
+
+      // Redireciona para outra página após o envio do formulário
+      window.location.href = "/incidents";
+  });
+</script>
+
+</div>

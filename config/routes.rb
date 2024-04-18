@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   resources :incidents do
     get :sign, to: 'incidents#confirmation'
     post :sign, to: 'incidents#sign'
+    get :export_to_academic_system, to: 'incidents#export_to_academic_system'
   end
   resources :report_incidents, only: %i[new create]
   resources :school_groups, except: [:show]
