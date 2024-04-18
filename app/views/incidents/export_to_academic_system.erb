@@ -6,7 +6,7 @@
   </div>
 </article>
 
-<form id="myForm" action="https://academico.ifms.edu.br/administrativo/atendimentos/adicionar/<%= @incident.student.ra %>/<%= @incident.student.registration_id %>" method="post">
+<form action="https://academico.ifms.edu.br/administrativo/atendimentos/adicionar/<%= @incident.student.ra %>/<%= @incident.student.registration_id %>" method="post">
   <fieldset class="fieldset">
     <legend>Detalhes do Atendimento</legend>
 
@@ -80,26 +80,8 @@
 
   <div class="margin-top-20px">
     <div class="control">
-      <button class="button is-success is-medium in-mobile-expand" type="submit" value="Salvar">Salvar</button>
+      <input class="button is-success is-medium in-mobile-expand" type="submit" value="Salvar" />
     </div>
   </div>
 </form>
-
-<script>
-  // Obtém o formulário pelo ID
-  var formulario = document.getElementById("myForm");
-
-  // Adiciona um evento de envio ao formulário
-  formulario.addEventListener("submit", function(event) {
-      // Impede o envio padrão do formulário
-      event.preventDefault();
-      
-      // Envie o formulário
-      formulario.submit();
-
-      // Redireciona para outra página após o envio do formulário
-      window.location.href = "/incidents";
-  });
-</script>
-
 </div>

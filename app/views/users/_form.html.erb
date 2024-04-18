@@ -1,11 +1,11 @@
-<%= form_for user do |f| %>
+<%= form_for user, html: { class: "form" } do |f| %>
   <fieldset>
     <legend>Dados pessoais</legend>
     <div class="field is-horizontal">
       <div class="field-body">
         <div class="field">
           <p class="control">
-            <%= f.label :name, 'Nome', class: 'label' %>
+            <%= f.label :name, 'Nome*', class: 'label' %>
             <%= f.text_field :name, class: 'input is-medium', placeholder: 'Nome', required: true %>
           </p>
         </div>
@@ -35,13 +35,13 @@
       <div class="field-body">
         <div class="field">
           <p class="control">
-            <%= f.label :email, class: 'label' %>
+            <%= f.label :email, 'Email*', class: 'label' %>
             <%= f.email_field :email, class: 'input is-medium', placeholder: 'Email', required: true %>
           </p>
         </div>
         <div class="field">
           <p class="control">
-            <%= f.label :siape, class: 'label' %>
+            <%= f.label :siape, 'SIAPE*', class: 'label' %>
             <%= f.text_field :siape, class: 'input is-medium', placeholder: 'SIAPE', required: true %>
           </p>
         </div>
@@ -52,7 +52,7 @@
       <div class="field-body">
         <div class="field">
           <p class="control">
-            <%= f.label :polo_id, "Campus", class: 'label' %>
+            <%= f.label :polo_id, "Campus*", class: 'label' %>
             <span class="select is-medium">
               <%= f.select :polo_id, Polo.initials(current_user), {}, { class: '' } %>
             </span>
@@ -76,7 +76,7 @@
       <div class="field-body">
         <div class="field">
           <p class="control">
-            <%= f.label :username, 'Usuário', class: 'label' %>
+            <%= f.label :username, 'Usuário*', class: 'label' %>
             <%= f.text_field :username, class: 'input is-medium', placeholder: 'Usuário', required: true %>
           </p>
         </div>
@@ -89,16 +89,16 @@
         <div class="field">
           <p class="control">
             <%= f.label :password_confirmation, 'Repetir senha', class: 'label' %>
-            <%= f.password_field :password_confirmation, class: 'input is-medium', placeholder: 'Confimação senha' %>
+            <%= f.password_field :password_confirmation, class: 'input is-medium', placeholder: 'Confirmação senha' %>
           </p>
         </div>
-        <div class="field">
+        <div class="field vertical-center">
           <p class="control">
             <%= f.label :admin, 'Admin?', class: 'label' %>
             <%= f.check_box :admin %>
           </p>
         </div>
-        <div class="field">
+        <div class="field vertical-center">
           <p class="control">
             <%= f.label :status, 'Ativo?', class: 'label' %>
             <%= f.check_box :status %>
@@ -108,9 +108,19 @@
     </div>
   </fieldset>
 
-  <div class="margin-top-20px">
-    <p class="control">
-      <%= f.submit "Salvar", class: "button is-success is-medium in-mobile-expand"%>
-    </p>
+  <style>
+  .vertical-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+  }
+</style>
+
+  <!-- Botão de Envio -->
+  <div class="field margin-top-20px">
+    <div class="control">
+      <%= f.submit "Salvar", class: "button is-success is-medium" %>
+    </div>
   </div>
 <% end %>
