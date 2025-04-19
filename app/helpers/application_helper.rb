@@ -66,8 +66,7 @@ module ApplicationHelper
   end
 
   def status?(val)
-    if [1,
-        true].include?(val)
+    if [1, true, 'public'].include?(val)
       '<i title="Ativo" class="fa fa-check"></i>'
     else
       '<i title="Inativo" class="fa fa-times"></i>'
