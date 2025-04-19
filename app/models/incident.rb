@@ -1,34 +1,8 @@
-# frozen_string_literal: true
-
-# == Schema Information
-#
-# Table name: incidents
-#
-#  id               :integer          not null, primary key
-#  student_id       :integer
-#  user_id          :integer
-#  institution      :integer
-#  description      :text
-#  date_incident    :date
-#  soluction        :text
-#  created_at       :datetime         not null
-#  updated_at       :datetime         not null
-#  course_id        :integer
-#  time_incident    :time
-#  assistant_id     :integer
-#  signed_in        :datetime
-#  is_resolved      :integer
-#  type_student     :integer
-#  sanction         :integer
-#  school_group_id  :integer
-#  type_incident_id :integer
-#
-
 class Incident < ApplicationRecord
   include SearchCop
 
-  validates :user, :assistant, :description,
-            :date_incident, :time_incident, :type_incident, presence: true
+  validates :user, :assistant, :description, :date_incident, :time_incident, :type_incident, presence: true
+  validates :visibility, presence: true, inclusion: { in: %w[public private] }
 
   # Delegates
   delegate :ra, to: :user, prefix: true
