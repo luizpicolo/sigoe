@@ -56,7 +56,7 @@ class Student < ApplicationRecord
   # @return [Array] contendo nomes e seus IDs
   def self.get_all(params_return)
     joins(:course)
-        .where(params_return)
+        .where(params_return.except(:visibility))
         .where(course_situation: 5)
         .order('name asc').collect { |p| [p.name, p.id] }
   end
