@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_18_140416) do
+ActiveRecord::Schema[7.1].define(version: 2025_04_19_012428) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -69,6 +69,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_18_140416) do
     t.integer "school_group_id"
     t.bigint "type_incident_id"
     t.bigint "sector_id"
+    t.string "visibility", default: "public", null: false
     t.index ["assistant_id"], name: "index_incidents_on_assistant_id"
     t.index ["course_id"], name: "index_incidents_on_course_id"
     t.index ["date_incident"], name: "index_incidents_on_date_incident"
