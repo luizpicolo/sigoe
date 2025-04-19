@@ -1,3 +1,4 @@
+<!-- filepath: /Users/luizpicolo/Programacao/Ruby/sigoe/app/views/incidents/_form.html.erb -->
 <%= form_for model do |f| %>
   <fieldset>
     <legend>Estudante</legend>
@@ -89,7 +90,16 @@
         </p>
       </div>
     </div>
-    
+
+    <div class="field">
+      <%= f.label :visibility, 'Tipo de Acesso', class: 'label' %>
+      <p class="control">
+      <span class="select">
+        <%= f.select :visibility, [['Público', 'public'], ['Privado', 'private']], {}, { class: 'select select2 is-medium' } %>
+      </span>
+      </p>
+    </div>
+
     <% if can? :sanction, Incident %>
       <div class="field is-horizontal">
         <div class="field-body">
