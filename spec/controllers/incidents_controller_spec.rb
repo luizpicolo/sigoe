@@ -3,21 +3,18 @@
 require 'rails_helper'
 
 RSpec.describe IncidentsController, type: :controller do
-  before(:each) do
-    @user = FactoryBot.create(:user)
-    @sector = FactoryBot.create(:sector)
-    @student = FactoryBot.create(:student)
-    @type_incident = FactoryBot.create(:type_incident)
-    @attr = FactoryBot.attributes_for(:incident)
-        .merge(student_id: @student.id)
-        .merge(user_id: @user.id)
-        .merge(sector_id: @sector.id)
-        .merge(type_incident_id: @type_incident.id)
-        .merge(assistant_id: @user.id)
-    @model = FactoryBot.create(:incident)
-    @entity = 'Incident'
-    @path = incidents_path
-  end
+  let(:user) { FactoryBot.create(:user) }
+  let(:incident_attributes) { FactoryBot.attributes_for(:incident, visibility: 'public') }
 
-  include_examples 'permission_controller'
+  before { sign_in user }
+
+  describe 'POST #create' do
+    it 'cria um incidente com visibilidade pública' do
+      expect {
+        post :create, params: { incident: incident_attributes }
+      }.to change(Incident, :count).by(1)
+
+      expect(Incident.last.visibility).to eq('public')
+    end
+  end
 end
