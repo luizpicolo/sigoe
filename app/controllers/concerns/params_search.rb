@@ -4,14 +4,14 @@ module ParamsSearch
   extend ActiveSupport::Concern
 
   def set_order
-    params[:order] == '' || params[:order].nil? ? 'id' : params[:order]
+    params[:order].presence || 'id'
   end
 
   def set_polo
-    current_user.super_admin == true ? '' : { polo: current_user.polo_id }
+    current_user.super_admin? ? '' : { polo: current_user.polo_id }
   end
 
   def set_amount_return
-    params[:return] == '' || params[:return].nil? ? '15' : params[:return]
+    params[:return].presence || '15'
   end
 end
