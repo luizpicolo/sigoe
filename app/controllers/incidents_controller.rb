@@ -16,10 +16,10 @@ class IncidentsController < ApplicationController
     add_breadcrumb 'Lista de Ocorrências'
 
     @incidents = Incident.joins(:course)
-        .where(params_return)
-        .order("#{set_order}": :desc)
-        .search(params[:search])
-        .page(params[:page]).per(set_amount_return)
+                         .where(params_return)
+                         .order("#{set_order}": :desc)
+                         .search(params[:search])
+                         .page(params[:page]).per(set_amount_return)
   end
 
   def new
@@ -28,11 +28,7 @@ class IncidentsController < ApplicationController
     add_breadcrumb 'Nova ocorrências'
 
     @polo = set_polo
-    @params_return = if current_user.super_admin?
-                       ''
-                     else
-                       params_return.except(:user)
-                     end
+    @params_return = current_user.super_admin? ? '' : params_return.except(:user)
     @incidents = Incident.new
   end
 
@@ -57,11 +53,7 @@ class IncidentsController < ApplicationController
     add_breadcrumb 'Atualizar Ocorrência'
 
     @polo = set_polo
-    @params_return = if current_user.super_admin?
-                       ''
-                     else
-                       params_return.except(:user)
-                     end
+    @params_return = current_user.super_admin? ? '' : params_return.except(:user)
   end
 
   def update
@@ -89,7 +81,6 @@ class IncidentsController < ApplicationController
     add_breadcrumb 'visualizar ocorrência'
   end
 
-  ## Mostra a confirmação para que o estudante possa assinar
   def confirmation
     return unless @incident.student.ra.nil?
 
@@ -97,8 +88,6 @@ class IncidentsController < ApplicationController
     redirect_to incidents_path
   end
 
-  # Por meio de um usuário RA e senha
-  # o estudante assina a ocorrência dando ciencia do fato
   def sign
     if @incident.student.authenticate(params[:incident]['password'])
       if @incident.update(signed_in: Time.zone.now)
@@ -131,22 +120,21 @@ class IncidentsController < ApplicationController
   end
 
   def params_return
-    if set_polo.empty?
-      set_polo
-    elsif can? :read_restricted, Incident
-      if current_user.admin? || current_user.super_admin?
-        { courses: set_polo }
-      else
-        { courses: set_polo, user: current_user }
-      end
-    else
-      { courses: set_polo }
+    return '' if current_user.admin? || current_user.super_admin?
+
+    params = { courses: set_polo }
+    if can?(:read_restricted, Incident)
+      params[:user] = current_user
+      params[:visibility] = %w[public private]
+    else 
+      params[:visibility] = %w[public]
     end
+    params
   end
 
   def incident_params
     params.require(:incident).permit(
-      :type_incident_id, :student_id, :course_id, :date_incident, :sector_id, :assistant_id, :time_incident, :institution, :description, :soluction, :is_resolved, :type_student, :sanction, prohibition_and_responsibility_ids: [], student_duty_ids: []
+      :type_incident_id, :student_id, :course_id, :date_incident, :sector_id, :assistant_id, :time_incident, :institution, :description, :soluction, :is_resolved, :visibility, :type_student, :sanction, prohibition_and_responsibility_ids: [], student_duty_ids: []
     )
   end
 end
