@@ -20,10 +20,10 @@ module UserHelpers
     email = options[:email] || Faker::Internet.email
     password = options[:password]
 
-    fill_in 'Nome', with: name
-    fill_in 'Email', with: email
-    fill_in 'Usuário', with: Faker::Internet.user_name
-    fill_in 'Siape', with: Faker::Number.number(digits: 7)
+    fill_in 'Nome*', with: name
+    fill_in 'Email*', with: email
+    fill_in 'Usuário*', with: Faker::Internet.user_name
+    fill_in 'Siape*', with: Faker::Number.number(digits: 7)
     pwd = Faker::Internet.password
     fill_in 'Senha', with: pwd
     fill_in 'Repetir senha', with: password || pwd
