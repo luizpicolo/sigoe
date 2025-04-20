@@ -121,7 +121,7 @@ GEM
     bindex (0.8.1)
     binding_of_caller (1.0.1)
       debug_inspector (>= 1.2.0)
-    bootsnap (1.18.3)
+    bootsnap (1.18.4)
       msgpack (~> 1.2)
     brakeman (6.1.2)
       racc
@@ -343,7 +343,7 @@ GEM
       libv8-node (~> 16.19.0.0)
     minitest (5.22.3)
     modernizr-rails (2.7.1)
-    msgpack (1.7.2)
+    msgpack (1.8.0)
     multi_xml (0.6.0)
     mutex_m (0.2.0)
     net-http-digest_auth (1.4.1)
@@ -740,4 +740,4 @@ RUBY VERSION
    ruby 3.3.0p0
 
 BUNDLED WITH
-   2.2.33
+   2.6.8
