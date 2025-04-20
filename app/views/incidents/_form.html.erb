@@ -8,7 +8,7 @@
           <%= f.label :student_id, 'Estudante', class: 'label' %>
           <p class="control">
             <div class="select">
-              <%= f.select :student_id, Student.get_all(@params_return), { prompt: "Selecione o estudante" }, { :class => "select2 is-medium" } %>
+              <%= f.select :student_id, Student.get_all(@params_return), { prompt: "Selecione o estudante" }, { :class => "select2 is-medium", required: true } %>
             </div>
           </p>
         </div>  
@@ -16,7 +16,7 @@
           <%= f.label :type_student, 'Estudante é?', class: 'label' %>
           <p class="control">
             <span class="select">
-              <%= f.select :type_student, human_enum_name('incident.type_student', Incident.type_students.keys), {}, { :class => "select select2 is-medium" } %>
+              <%= f.select :type_student, human_enum_name('incident.type_student', Incident.type_students.keys), {}, { :class => "select select2 is-medium", required: true } %>
             </span>
           </p>
         </div>
@@ -40,7 +40,7 @@
           <%= f.label :assistant_id, 'Assistente', class: 'label' %>
           <p class="control">
             <span class="select">
-              <%= f.select :assistant_id, User.get_all(@polo), { selected: current_user.id }, { :class => "select select2 is-medium" } %>
+              <%= f.select :assistant_id, User.get_all(@polo), { selected: current_user.id }, { :class => "select select2 is-medium", required: true } %>
             </span>
           </p>
         </div>
@@ -86,7 +86,7 @@
       <div class="field">
         <p class="control">
           <%= f.label :description, 'Ocorrência', class: 'label' %>
-          <%= f.text_area :description, class: 'textarea is-medium', placeholder: 'Ocorrência' %>
+          <%= f.text_area :description, class: 'textarea is-medium', placeholder: 'Ocorrência', required: true %>
         </p>
       </div>
     </div>
@@ -95,7 +95,7 @@
       <%= f.label :visibility, 'Tipo de Acesso', class: 'label' %>
       <p class="control">
       <span class="select">
-        <%= f.select :visibility, [['Público', 'public'], ['Privado', 'private']], {}, { class: 'select select2 is-medium' } %>
+        <%= f.select :visibility, [['Público', 'public'], ['Privado', 'private']], {}, { class: 'select select2 is-medium', required: true } %>
       </span>
       </p>
     </div>
