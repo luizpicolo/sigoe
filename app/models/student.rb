@@ -55,6 +55,7 @@ class Student < ApplicationRecord
   #
   # @return [Array] contendo nomes e seus IDs
   def self.get_all(params_return)
+    params_return = params_return.is_a?(Hash) ? params_return : {}
     joins(:course)
         .where(params_return.except(:visibility))
         .where(course_situation: 5)
