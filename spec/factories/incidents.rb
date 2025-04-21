@@ -39,6 +39,7 @@ FactoryBot.define do
     type_student { 'resident' }
     sanction { 'verbal_warning' }
     signed_in { Time.zone.now }
+    visibility { 'public' }
     soluction { Faker::Lorem.paragraph(sentence_count: 2) }
   end
 end
