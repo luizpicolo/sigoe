@@ -16,7 +16,7 @@
           <%= f.label :type_student, 'Estudante é?', class: 'label' %>
           <p class="control">
             <span class="select">
-              <%= f.select :type_student, human_enum_name('incident.type_student', Incident.type_students.keys), {}, { :class => "select select2 is-medium", required: true } %>
+              <%= f.select :type_student, human_enum_name('incident.type_student', Incident.type_students.keys), {}, { :class => "select select2 is-medium"} %>
             </span>
           </p>
         </div>
@@ -66,12 +66,14 @@
             <%= f.text_field :date_incident, class: 'input date calendar', value: extract_and_format_date(model.date_incident), placeholder: 'Data ocorrência', required: true %>
           </p>
         </div>
+        
         <div class="field">
           <p class="control">
             <%= f.label :time_incident, 'Hora ocorrência', class: 'label' %>
             <%= f.text_field :time_incident, class: 'input time', value: extract_and_format_time(model.time_incident), placeholder: 'Hora ocorrência', required: true %>
           </p>
         </div>
+
         <div class="field">
           <%= f.label :type_incident_id, 'Tipos da Ocorrência ', class: 'label' %>
           <p class="control">
@@ -80,24 +82,27 @@
             </span>
           </p>
         </div>
+
+        <div class="field">
+          <%= f.label :visibility, 'Tipo de Acesso', class: 'label' %>
+          <p class="control">
+          <span class="select">
+            <%= f.select :visibility, [['Público', 'public'], ['Privado', 'private']], {}, { class: 'select select2', required: true } %>
+          </span>
+          </p>
+        </div>
       </div>
     </div>
     <div class="field">
+      <p>
+        * <b>Observação:</b> Ocorrências com tipo de acesso privado somente serão visualizadas por aqueles(as) que as criaram. Caso seja necessário que elas sejam acessadas por outros, devem ser marcadas como públicas.
+      </p>
       <div class="field">
         <p class="control">
           <%= f.label :description, 'Ocorrência', class: 'label' %>
           <%= f.text_area :description, class: 'textarea is-medium', placeholder: 'Ocorrência', required: true %>
         </p>
       </div>
-    </div>
-
-    <div class="field">
-      <%= f.label :visibility, 'Tipo de Acesso', class: 'label' %>
-      <p class="control">
-      <span class="select">
-        <%= f.select :visibility, [['Público', 'public'], ['Privado', 'private']], {}, { class: 'select select2 is-medium', required: true } %>
-      </span>
-      </p>
     </div>
 
     <% if can? :sanction, Incident %>
