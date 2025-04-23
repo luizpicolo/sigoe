@@ -22,6 +22,9 @@
       <th>Data</th>
       <th>Estudante</th>
       <th>Curso</th>
+      <% if current_user.super_admin? %>
+        <th>Campus</th>  
+      <% end %>      
       <th>Assinado?</th>
       <th>Visibilidade</th>
       <th>Verificado?</th>
@@ -35,6 +38,9 @@
       <td><%= extract_and_format_date(incident.date_incident) %></td>
       <td><%= incident.student_name %></td>
       <td><%= incident.student.course_name %></td>
+      <% if current_user.super_admin? %>
+        <td><%= incident.student.course.polo.name %></td>
+      <% end %>
       <td class="has-text-centered"><%= status?(incident.signed_in?).html_safe %></td>
       <td class="has-text-centered"><%= status?(incident.visibility).html_safe %></td>
       <td class="has-text-centered"><%= status?(incident.read_attribute_before_type_cast(:is_resolved)).html_safe %></td>

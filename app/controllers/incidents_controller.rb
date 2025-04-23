@@ -120,15 +120,18 @@ class IncidentsController < ApplicationController
   end
 
   def params_return
-    return '' if current_user.admin? || current_user.super_admin?
+    return '' if current_user.super_admin?
+    return set_polo if set_polo.empty?
 
     params = { courses: set_polo }
+
     if can?(:read_restricted, Incident)
-      params[:user] = current_user
+      params[:user] = current_user unless current_user.admin? || current_user.super_admin?
       params[:visibility] = %w[public private]
-    else 
+    else
       params[:visibility] = %w[public]
     end
+
     params
   end
 
