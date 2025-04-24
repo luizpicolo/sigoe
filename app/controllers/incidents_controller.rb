@@ -127,9 +127,6 @@ class IncidentsController < ApplicationController
 
     if can?(:read_restricted, Incident)
       params[:user] = current_user unless current_user.admin? || current_user.super_admin?
-      params[:visibility] = %w[public private]
-    else
-      params[:visibility] = %w[public]
     end
 
     params
