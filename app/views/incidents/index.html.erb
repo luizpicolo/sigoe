@@ -32,13 +32,13 @@
     </tr>
   </thead>
   <tbody>
-    <% @incidents.each do |incident| %>
-      <% if incident.visibility == 'private' && !current_user.super_admin? %>
-        <% if incident.user == current_user %>
-          <%= render partial: 'incident_partial', locals: { incident: incident } %>
+    <% @incidents.each do |_incident| %>
+      <% if _incident.visibility == 'private' && !current_user.super_admin? %>
+        <% if _incident.user == current_user %>
+          <%= render partial: 'incident_partial', locals: { incident: _incident } %>
         <% end %>
       <% else %>
-        <%= render partial: 'incident_partial', locals: { incident: incident } %>
+        <%= render partial: 'incident_partial', locals: { incident: _incident } %>
       <% end %>
     <% end %>
   </tbody>
