@@ -12,6 +12,7 @@ pt-BR:
       school_group: "Turmas"
       institution: "Instituições"
       sector: "Setores"
+      Schoolgroup: "Turmas"
       
     attributes:
       user:

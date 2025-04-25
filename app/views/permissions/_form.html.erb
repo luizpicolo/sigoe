@@ -7,7 +7,7 @@
           <p class="control">
             <%= f.label :entity, "Entidade", class: 'label' %>
             <span class="select is-normal">
-              <%= f.select :entity, models.to_a, { prompt: "Entidade" }, { :class => "" } %>
+                <%= f.select :entity, models.map { |model| [I18n.t("activerecord.models.#{model.downcase}", default: model.humanize), model] }, { prompt: "Entidade" }, { class: "", id: "entity-select"  } %>
             </span>
           </p>
         </div>
