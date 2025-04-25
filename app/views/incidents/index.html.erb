@@ -33,7 +33,7 @@
   </thead>
   <tbody>
     <% @incidents.each do |incident| %>
-      <% if incident.visibility == 'private' %>
+      <% if incident.visibility == 'private' && !current_user.super_admin? %>
         <% if incident.user == current_user %>
           <%= render partial: 'incident_partial', locals: { incident: incident } %>
         <% end %>
