@@ -17,6 +17,7 @@ class ReportIncidentsController < ApplicationController
   end
 
   def create
+    p set_conditional
     incidents = Incident.joins(:student)
         .where(params_return)
         .search(set_conditional)
@@ -38,6 +39,10 @@ class ReportIncidentsController < ApplicationController
     conditionals[:incident] = params[:incident] if params[:incident].present?
     conditionals[:student] = params[:student] if params[:student].present?
     conditionals[:course] = params[:course] if params[:course].present?
+    if params[:type_incident_id].present?
+      conditionals[:type_incident_id] =
+        params[:type_incident_id]
+    end
     conditionals[:type_student] = params[:type_student] if params[:type_student].present?
     conditionals
   end

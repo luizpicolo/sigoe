@@ -1,7 +1,8 @@
 class Incident < ApplicationRecord
   include SearchCop
 
-  validates :user, :assistant, :description, :date_incident, :time_incident, :type_incident, presence: true
+  validates :user, :assistant, :description, :date_incident, :time_incident, :type_incident,
+            presence: true
   validates :visibility, presence: true, inclusion: { in: %w[public private] }
 
   # Delegates
@@ -30,6 +31,7 @@ class Incident < ApplicationRecord
     attributes student_name: 'student.name'
     attributes type_student: 'type_student'
     attributes type_incident: 'type_incident.name'
+    attributes type_incident_id: 'type_incident.id'
     attributes date_incident: 'date_incident'
   end
 
