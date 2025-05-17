@@ -6,6 +6,14 @@ Rails.application.routes.draw do
   # mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root 'home#index'
 
+  # Rotas para API
+  namespace :api, defaults: { format: :json } do
+    devise_for :user, controllers: {
+        sessions: 'api/sessions',
+        registrations: 'api/registrations'
+    }
+  end
+
   # Devise Routes
   devise_for :user, path: 'auth', path_names: {
       sign_in: 'login',

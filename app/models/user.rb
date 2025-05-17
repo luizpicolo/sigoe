@@ -38,7 +38,9 @@ class User < ApplicationRecord
   mount_uploader :avatar, UserUploader
   include SearchCop
 
-  devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable
+  devise :database_authenticatable, :registerable, :trackable,
+         :recoverable, :rememberable, :validatable,
+         :jwt_authenticatable, jwt_revocation_strategy: JwtDenylist
 
   # Validações
   validates :username, presence: true, uniqueness: true
@@ -86,5 +88,14 @@ class User < ApplicationRecord
   # @return [String, nil] o nome do campus ou nil se não houver polo associado
   def campus
     polo&.name
+  end
+
+  def self.find_for_database_authentication(warden_conditions)
+    conditions = warden_conditions.dup
+    if username = conditions.delete(:username)
+      where(conditions).where(['username = :value', { value: username }]).first
+    else
+      where(conditions).first
+    end
   end
 end
