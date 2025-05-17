@@ -22,6 +22,6 @@ class SessionsController < Devise::SessionsController
   private
 
   def version
-    JSON.parse(File.read("#{Rails.root}/package.json"))
+    JSON.parse(File.read("#{Rails.root.join('package.json')}"))
   end
 end

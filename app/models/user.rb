@@ -89,13 +89,4 @@ class User < ApplicationRecord
   def campus
     polo&.name
   end
-
-  def self.find_for_database_authentication(warden_conditions)
-    conditions = warden_conditions.dup
-    if username = conditions.delete(:username)
-      where(conditions).where(['username = :value', { value: username }]).first
-    else
-      where(conditions).first
-    end
-  end
 end

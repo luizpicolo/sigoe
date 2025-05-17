@@ -8,7 +8,12 @@ Rails.application.routes.draw do
 
   # Rotas para API
   namespace :api, defaults: { format: :json } do
-    devise_for :user, controllers: {
+    devise_for :user, path: 'auth', path_names: {
+        sign_in: 'login',
+        sign_out: 'logout',
+        registration: 'register',
+        sign_up: 'signup'
+    }, controllers: {
         sessions: 'api/sessions',
         registrations: 'api/registrations'
     }
