@@ -3,6 +3,8 @@
 require 'json'
 
 class SessionsController < Devise::SessionsController
+  layout false
+
   def new
     @version = version
     super
