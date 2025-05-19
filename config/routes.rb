@@ -17,6 +17,11 @@ Rails.application.routes.draw do
         sessions: 'api/sessions',
         registrations: 'api/registrations'
     }
+    resources :users, only: [:index] do
+      collection do
+        get :validation
+      end
+    end
   end
 
   # Devise Routes

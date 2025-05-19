@@ -86,7 +86,8 @@ class UsersController < ApplicationController
 
   def commit_action(commit)
     return :change_password if commit == 'Trocar senha'
-    return :edit if commit == 'Salvar'
+
+    :edit if commit == 'Salvar'
   end
 
   def user_params
