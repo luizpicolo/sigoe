@@ -8,7 +8,6 @@ Rails.application.routes.draw do
 
   # Rotas para API
   namespace :api, defaults: { format: :json } do
-    get 'users/validation', to: 'users#validation'
     devise_for :user, path: 'auth', path_names: {
         sign_in: 'login',
         sign_out: 'logout',
@@ -18,6 +17,11 @@ Rails.application.routes.draw do
         sessions: 'api/sessions',
         registrations: 'api/registrations'
     }
+    resources :users, only: [:index] do
+      collection do
+        get :validation
+      end
+    end
   end
 
   # Devise Routes
