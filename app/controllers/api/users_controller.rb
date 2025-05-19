@@ -1,5 +1,19 @@
 class Api::UsersController < ApplicationController
+  include ParamsSearch
   before_action :authenticate_user!
+
+  # GET /api/users
+  def index
+    users = User.where(set_polo)
+                .order("#{set_order}": :asc)
+                .search(params[:search])
+                .page(params[:page])
+
+    render json: {
+      users: users.as_json(include: User.reflect_on_all_associations.map(&:name), except: [:password, :created_at]),
+      total: users.total_count
+    }
+  end
 
   def validation
     user = get_user_from_token
