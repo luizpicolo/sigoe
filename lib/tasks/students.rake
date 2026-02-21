@@ -22,7 +22,7 @@ namespace :student do
 
         student = Student.find_by(registration_id: data['matricula_id'].to_i)
         student = Student.new if student.blank?
-        student.name = data['estudante']
+        student.name = data['nome_social'].presence || data['estudante']
         student.ra = data['ra']
         student.registration_id = data['matricula_id']
         student.school_group_id = school_group.id
